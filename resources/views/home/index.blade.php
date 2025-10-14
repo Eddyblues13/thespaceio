@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +21,7 @@
             --accent-color: #3a7bd5;
             --text-color: #e8f5e9;
         }
-        
+
         body {
             background-color: var(--dark-bg);
             color: var(--text-color);
@@ -29,7 +30,7 @@
             margin: 0;
             padding: 0;
         }
-        
+
         /* KYC Modal Overlay */
         #kyc-overlay {
             position: fixed;
@@ -46,7 +47,7 @@
             padding: 20px;
             box-sizing: border-box;
         }
-        
+
         .kyc-modal {
             background: rgba(26, 47, 77, 0.95);
             border-radius: 15px;
@@ -62,67 +63,67 @@
             flex-direction: column;
             overflow: hidden;
         }
-        
+
         .kyc-header {
             margin-bottom: 20px;
             flex-shrink: 0;
         }
-        
+
         .kyc-icon {
             font-size: 3rem;
             color: var(--accent-color);
             margin-bottom: 10px;
         }
-        
+
         .kyc-title {
             font-size: 1.8rem;
             color: var(--accent-color);
             margin-bottom: 8px;
         }
-        
+
         .kyc-subtitle {
             font-size: 1rem;
             opacity: 0.9;
             margin-bottom: 20px;
         }
-        
+
         .kyc-content {
             flex: 1;
             overflow-y: auto;
             padding-right: 5px;
             margin-bottom: 15px;
         }
-        
+
         /* Custom scrollbar */
         .kyc-content::-webkit-scrollbar {
             width: 6px;
         }
-        
+
         .kyc-content::-webkit-scrollbar-track {
             background: rgba(10, 25, 41, 0.5);
             border-radius: 10px;
         }
-        
+
         .kyc-content::-webkit-scrollbar-thumb {
             background: var(--accent-color);
             border-radius: 10px;
         }
-        
+
         .kyc-form {
             text-align: left;
         }
-        
+
         .form-group {
             margin-bottom: 15px;
         }
-        
+
         .form-label {
             color: var(--accent-color);
             font-weight: 600;
             margin-bottom: 6px;
             font-size: 0.95rem;
         }
-        
+
         .form-control {
             background: rgba(10, 25, 41, 0.7);
             border: 1px solid rgba(58, 123, 213, 0.3);
@@ -131,18 +132,18 @@
             padding: 10px 12px;
             font-size: 0.95rem;
         }
-        
+
         .form-control:focus {
             background: rgba(10, 25, 41, 0.9);
             border-color: var(--accent-color);
             box-shadow: 0 0 0 0.2rem rgba(58, 123, 213, 0.25);
             color: var(--text-color);
         }
-        
+
         .form-control::placeholder {
             color: rgba(232, 245, 233, 0.6);
         }
-        
+
         .captcha-container {
             background: rgba(10, 25, 41, 0.7);
             border-radius: 6px;
@@ -150,7 +151,7 @@
             margin: 15px 0;
             border: 1px solid rgba(58, 123, 213, 0.3);
         }
-        
+
         .captcha-text {
             font-family: 'Courier New', monospace;
             font-size: 1.3rem;
@@ -162,13 +163,13 @@
             margin-bottom: 10px;
             user-select: none;
         }
-        
+
         .captcha-input {
             text-align: center;
             font-weight: bold;
             letter-spacing: 1px;
         }
-        
+
         .btn-kyc {
             background: var(--accent-color);
             color: var(--dark-bg);
@@ -181,13 +182,13 @@
             margin-top: 5px;
             font-size: 0.95rem;
         }
-        
+
         .btn-kyc:hover {
             background: #5dade2;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .btn-enter {
             background: linear-gradient(45deg, var(--accent-color), #5dade2);
             color: var(--dark-bg);
@@ -201,54 +202,54 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             width: 100%;
         }
-        
+
         .btn-enter:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
-        
+
         .btn-enter:disabled {
             background: rgba(58, 123, 213, 0.5);
             transform: none;
             box-shadow: none;
             cursor: not-allowed;
         }
-        
+
         .kyc-footer {
             margin-top: 15px;
             font-size: 0.85rem;
             opacity: 0.8;
             flex-shrink: 0;
         }
-        
+
         .kyc-footer a {
             color: var(--accent-color);
             text-decoration: none;
         }
-        
+
         .kyc-footer a:hover {
             text-decoration: underline;
         }
-        
+
         .error-message {
             color: #ff6b6b;
             font-size: 0.85rem;
             margin-top: 4px;
             display: none;
         }
-        
+
         .success-message {
             color: var(--accent-color);
             font-size: 0.95rem;
             margin-top: 8px;
             display: none;
         }
-        
+
         /* Homepage Content - Initially Hidden */
         #homepage-content {
             display: none;
         }
-        
+
         /* Floating code numbers background */
         #code-background {
             position: fixed;
@@ -259,7 +260,7 @@
             z-index: -1;
             opacity: 0.3;
         }
-        
+
         .code-number {
             position: absolute;
             color: var(--accent-color);
@@ -268,67 +269,70 @@
             opacity: 0;
             animation: float 15s infinite linear;
         }
-        
+
         @keyframes float {
             0% {
                 transform: translateY(100vh) rotate(0deg);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.7;
             }
+
             90% {
                 opacity: 0.7;
             }
+
             100% {
                 transform: translateY(-100px) rotate(360deg);
                 opacity: 0;
             }
         }
-        
+
         /* Navigation */
         .navbar {
             background-color: rgba(10, 25, 41, 0.9);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--accent-color);
         }
-        
+
         .navbar-brand {
             font-weight: bold;
             color: var(--accent-color) !important;
             font-size: 1.5rem;
         }
-        
+
         .nav-link {
             color: var(--text-color) !important;
             transition: color 0.3s;
         }
-        
+
         .nav-link:hover {
             color: var(--accent-color) !important;
         }
-        
+
         /* Dropdown Menu Fix */
         .navbar-nav .dropdown-menu {
             background: rgba(26, 47, 77, 0.95);
             border: 1px solid var(--accent-color);
             backdrop-filter: blur(10px);
         }
-        
+
         .navbar-nav .dropdown-item {
             color: var(--text-color);
             transition: all 0.3s;
         }
-        
+
         .navbar-nav .dropdown-item:hover {
             background: var(--accent-color);
             color: var(--dark-bg);
         }
-        
+
         .dropdown-divider {
             border-color: rgba(58, 123, 213, 0.3);
         }
-        
+
         /* Hero Section */
         .hero-section {
             padding: 150px 0 100px;
@@ -336,7 +340,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
@@ -345,7 +349,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .hero-subtitle {
             font-size: 1.2rem;
             margin-bottom: 2rem;
@@ -357,19 +361,19 @@
             padding: 80px 0;
             background: rgba(26, 47, 77, 0.3);
         }
-        
+
         .section-header {
             text-align: center;
             margin-bottom: 50px;
             position: relative;
         }
-        
+
         .section-header h2 {
             font-size: 2.5rem;
             margin-bottom: 15px;
             color: var(--accent-color);
         }
-        
+
         .section-header::after {
             content: '';
             display: block;
@@ -379,7 +383,7 @@
             margin: 0 auto;
             margin-top: 15px;
         }
-        
+
         /* Investment Tier Cards */
         .tier-card {
             background: rgba(26, 47, 77, 0.7);
@@ -392,13 +396,13 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .tier-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
             border-color: var(--accent-color);
         }
-        
+
         .tier-badge {
             position: absolute;
             top: 20px;
@@ -410,46 +414,46 @@
             font-weight: bold;
             font-size: 0.9rem;
         }
-        
+
         .tier-icon {
             font-size: 3rem;
             color: var(--accent-color);
             margin-bottom: 20px;
         }
-        
+
         .tier-title {
             font-size: 1.8rem;
             margin-bottom: 10px;
             color: var(--accent-color);
         }
-        
+
         .tier-range {
             font-size: 1.5rem;
             font-weight: bold;
             margin-bottom: 20px;
             color: var(--text-color);
         }
-        
+
         .tier-features {
             list-style: none;
             padding: 0;
             margin-bottom: 25px;
         }
-        
+
         .tier-features li {
             padding: 8px 0;
             border-bottom: 1px solid rgba(58, 123, 213, 0.2);
         }
-        
+
         .tier-features li:last-child {
             border-bottom: none;
         }
-        
+
         .tier-features li i {
             color: var(--accent-color);
             margin-right: 10px;
         }
-        
+
         .btn-tier {
             background: var(--accent-color);
             color: var(--dark-bg);
@@ -459,19 +463,19 @@
             border-radius: 5px;
             transition: all 0.3s;
         }
-        
+
         .btn-tier:hover {
             background: #5dade2;
             transform: translateY(-2px);
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
             }
         }
-        
+
         /* 3D Container */
         #ai-model-container {
             width: 100%;
@@ -481,7 +485,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             position: relative;
         }
-        
+
         .ai-text {
             position: absolute;
             top: 50%;
@@ -494,7 +498,7 @@
             z-index: 10;
             pointer-events: none;
         }
-        
+
         /* Company Cards */
         .company-card {
             background: rgba(26, 47, 77, 0.7);
@@ -505,20 +509,20 @@
             border: 1px solid rgba(58, 123, 213, 0.3);
             height: 100%;
         }
-        
+
         .company-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
             border-color: var(--accent-color);
         }
-        
+
         .company-logo {
             height: 60px;
             margin-bottom: 15px;
             object-fit: contain;
             max-width: 100%;
         }
-        
+
         .stock-widget {
             background: rgba(10, 25, 41, 0.8);
             border-radius: 8px;
@@ -526,38 +530,38 @@
             margin-top: 15px;
             border-left: 4px solid var(--accent-color);
         }
-        
+
         .stock-price {
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--accent-color);
         }
-        
+
         .stock-change {
             font-size: 0.9rem;
         }
-        
+
         .positive {
             color: #5dade2;
         }
-        
+
         .negative {
             color: #ff4d4d;
         }
-        
+
         /* Section Headers */
         .section-header {
             text-align: center;
             margin-bottom: 50px;
             position: relative;
         }
-        
+
         .section-header h2 {
             font-size: 2.5rem;
             margin-bottom: 15px;
             color: var(--accent-color);
         }
-        
+
         .section-header::after {
             content: '';
             display: block;
@@ -567,13 +571,13 @@
             margin: 0 auto;
             margin-top: 15px;
         }
-        
+
         /* Stock Charts Section */
         .stock-charts-section {
             padding: 80px 0;
             background: rgba(26, 47, 77, 0.3);
         }
-        
+
         .chart-container {
             background: rgba(26, 47, 77, 0.7);
             border-radius: 10px;
@@ -582,18 +586,18 @@
             border: 1px solid rgba(58, 123, 213, 0.3);
             height: 100%;
         }
-        
+
         .chart-title {
             color: var(--accent-color);
             margin-bottom: 15px;
             font-size: 1.2rem;
         }
-        
+
         /* Major Stocks Section */
         .major-stocks-section {
             padding: 80px 0;
         }
-        
+
         .stock-card {
             background: rgba(26, 47, 77, 0.7);
             border-radius: 10px;
@@ -602,23 +606,23 @@
             border: 1px solid rgba(58, 123, 213, 0.3);
             transition: transform 0.3s;
         }
-        
+
         .stock-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-color);
         }
-        
+
         .stock-symbol {
             font-weight: bold;
             font-size: 1.2rem;
             color: var(--accent-color);
         }
-        
+
         .stock-name {
             font-size: 0.9rem;
             opacity: 0.8;
         }
-        
+
         /* Footer */
         footer {
             background-color: rgba(10, 25, 41, 0.9);
@@ -626,13 +630,13 @@
             margin-top: 50px;
             border-top: 1px solid var(--accent-color);
         }
-        
+
         .footer-heading {
             color: var(--accent-color);
             margin-bottom: 20px;
             font-size: 1.2rem;
         }
-        
+
         /* Startup Cards */
         .startup-card {
             background: rgba(26, 47, 77, 0.7);
@@ -643,20 +647,20 @@
             border: 1px solid rgba(58, 123, 213, 0.3);
             height: 100%;
         }
-        
+
         .startup-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
             border-color: var(--accent-color);
         }
-        
+
         .startup-logo {
             height: 60px;
             margin-bottom: 15px;
             object-fit: contain;
             max-width: 100%;
         }
-        
+
         .valuation-widget {
             background: rgba(10, 25, 41, 0.8);
             border-radius: 8px;
@@ -664,13 +668,13 @@
             margin-top: 15px;
             border-left: 4px solid var(--accent-color);
         }
-        
+
         .valuation-price {
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--accent-color);
         }
-        
+
         /* Minor Companies Widget */
         .minor-companies-widget {
             background: rgba(26, 47, 77, 0.7);
@@ -680,7 +684,7 @@
             border: 1px solid rgba(58, 123, 213, 0.3);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-        
+
         .minor-company-logo {
             height: 40px;
             margin: 10px;
@@ -688,25 +692,25 @@
             opacity: 0.8;
             transition: opacity 0.3s, transform 0.3s;
         }
-        
+
         .minor-company-logo:hover {
             opacity: 1;
             transform: scale(1.1);
         }
-        
+
         /* Enhanced Companies Carousel */
         .companies-carousel-container {
             position: relative;
             overflow: hidden;
             padding: 20px 0;
         }
-        
+
         .companies-carousel {
             display: flex;
             transition: transform 0.5s ease;
             gap: 20px;
         }
-        
+
         .company-logo-item {
             flex: 0 0 auto;
             width: 120px;
@@ -720,19 +724,19 @@
             border: 1px solid rgba(58, 123, 213, 0.3);
             transition: all 0.3s ease;
         }
-        
+
         .company-logo-item:hover {
             transform: translateY(-5px);
             border-color: var(--accent-color);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
-        
+
         .company-logo-item img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
         }
-        
+
         .carousel-control {
             position: absolute;
             top: 50%;
@@ -750,27 +754,27 @@
             z-index: 10;
             transition: all 0.3s ease;
         }
-        
+
         .carousel-control:hover {
             background: var(--accent-color);
             color: var(--dark-bg);
         }
-        
+
         .carousel-control.prev {
             left: 10px;
         }
-        
+
         .carousel-control.next {
             right: 10px;
         }
-        
+
         .carousel-dots {
             display: flex;
             justify-content: center;
             margin-top: 20px;
             gap: 10px;
         }
-        
+
         .carousel-dot {
             width: 12px;
             height: 12px;
@@ -779,71 +783,71 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .carousel-dot.active {
             background: var(--accent-color);
             transform: scale(1.2);
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
             }
-            
+
             #ai-model-container {
                 height: 300px;
             }
-            
+
             .ai-text {
                 font-size: 3rem;
             }
-            
+
             .kyc-modal {
                 padding: 20px;
                 max-height: 85vh;
             }
-            
+
             .kyc-title {
                 font-size: 1.6rem;
             }
-            
+
             .kyc-icon {
                 font-size: 2.5rem;
             }
-            
+
             .minor-company-logo {
                 height: 30px;
                 margin: 5px;
             }
-            
+
             .company-logo-item {
                 width: 100px;
                 height: 70px;
             }
-            
+
             .carousel-control {
                 width: 35px;
                 height: 35px;
             }
         }
-        
+
         @media (max-height: 700px) {
             .kyc-modal {
                 max-height: 95vh;
             }
-            
+
             .kyc-header {
                 margin-bottom: 15px;
             }
-            
+
             .form-group {
                 margin-bottom: 12px;
             }
         }
-
     </style>
 </head>
+
 <body>
     <!-- KYC Verification Modal -->
     <div id="kyc-overlay">
@@ -855,21 +859,23 @@
                 <h2 class="kyc-title">Identity Verification</h2>
                 <p class="kyc-subtitle">Please complete this quick verification to access our AI Investment Platform</p>
             </div>
-            
+
             <div class="kyc-content">
                 <form id="kyc-form" class="kyc-form">
                     <div class="form-group">
                         <label for="fullName" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name"
+                            required>
                         <div class="error-message" id="nameError">Please enter your full name</div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email address" required>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email address"
+                            required>
                         <div class="error-message" id="emailError">Please enter a valid email address</div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="country" class="form-label">Country of Residence</label>
                         <select class="form-control" id="country" required>
@@ -886,34 +892,36 @@
                         </select>
                         <div class="error-message" id="countryError">Please select your country</div>
                     </div>
-                    
+
                     <div class="captcha-container">
                         <p class="form-label">Human Verification</p>
                         <div class="captcha-text" id="captchaText">A1B2C3</div>
-                        <input type="text" class="form-control captcha-input" id="captchaInput" placeholder="Enter the code above" maxlength="6" required>
+                        <input type="text" class="form-control captcha-input" id="captchaInput"
+                            placeholder="Enter the code above" maxlength="6" required>
                         <div class="error-message" id="captchaError">Incorrect verification code</div>
                         <button type="button" class="btn btn-outline-light btn-sm mt-2" id="refreshCaptcha">
                             <i class="fas fa-redo-alt me-1"></i> Refresh Code
                         </button>
                     </div>
-                    
+
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="termsCheck" required>
                         <label class="form-check-label" for="termsCheck">
-                            I agree to the <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>
+                            I agree to the <a href="#" target="_blank">Terms of Service</a> and <a href="#"
+                                target="_blank">Privacy Policy</a>
                         </label>
                         <div class="error-message" id="termsError">You must agree to the terms</div>
                     </div>
-                    
+
                     <button type="submit" class="btn btn-kyc" id="verifyBtn">
                         <i class="fas fa-check-circle me-2"></i> Verify Identity
                     </button>
-                    
+
                     <div class="success-message" id="successMessage">
                         <i class="fas fa-check-circle me-2"></i> Verification successful!
                     </div>
                 </form>
-                
+
                 <!-- Enter Button -->
                 <div id="enter-section" style="display: none;">
                     <div class="mt-3 pt-3 border-top border-secondary">
@@ -924,25 +932,26 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="kyc-footer">
                 <p>This verification helps us maintain a secure environment for all investors.</p>
             </div>
         </div>
     </div>
-    
+
     <!-- Main Content (Initially Hidden) -->
     <div id="homepage-content">
         <!-- Floating Code Background -->
         <div id="code-background"></div>
-        
+
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="index">
                     <i class="fas fa-brain me-2"></i>TheSpace
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -951,7 +960,8 @@
                             <a class="nav-link" href="index">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Companies
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="companiesDropdown">
@@ -961,7 +971,9 @@
                                 <li><a class="dropdown-item" href="oracle">Oracle</a></li>
                                 <li><a class="dropdown-item" href="google">Google</a></li>
                                 <li><a class="dropdown-item" href="facebook">Facebook</a></li>
-                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
                                 <li><a class="dropdown-item" href="anthropic">Anthropic</a></li>
                                 <li><a class="dropdown-item" href="stability">Stability AI</a></li>
                                 <li><a class="dropdown-item" href="cohere">Cohere</a></li>
@@ -980,13 +992,17 @@
                             <a class="nav-link" href="contact">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="faq">FAQ</a></li>
-                            <li class="nav-item">
-                             <a class="nav-link" href="insurance">Insurance</a></li>
-                            <li class="nav-item">   
-                            <a class="nav-link" href="etf&funds">ETF&Funds</a></li>
-                            <li class="nav-item">
-                            <a class="nav-link" href="investment">Investment Tiers</a></li>
+                            <a class="nav-link" href="faq">FAQ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="insurance">Insurance</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="etf&funds">ETF&Funds</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="investment">Investment Tiers</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -998,10 +1014,11 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <h1 class="hero-title">THE SPACE AI REVOLUTION</h1>
-                        <p class="hero-subtitle">Where all Ai assets are united, this is the future and we bring the future to you</p>
+                        <p class="hero-subtitle">Where all Ai assets are united, this is the future and we bring the
+                            future to you</p>
                         <div class="mt-4">
                             <a href="#companies" class="btn btn-primary btn-lg me-3">Explore Companies</a>
-                            <a href="signin" class="btn btn-outline-light btn-lg">Create Account</a>
+                            <a href="{{route('login')}}" class="btn btn-outline-light btn-lg">Create Account</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -1021,143 +1038,158 @@
                     <h2>Featured Companies</h2>
                     <p>Explore our AI-driven analysis of top tech companies</p>
                 </div>
-                
+
                 <div class="row">
                     <!-- Nvidia Card -->
                     <div class="col-md-6 col-lg-3">
                         <div class="company-card">
                             <img src="img/nvidia.png" alt="Nvidia" class="company-logo">
                             <h4>Nvidia</h4>
-                            <p>Leading semiconductor company powering the AI revolution with GPUs and AI computing platforms.</p>
-                            
+                            <p>Leading semiconductor company powering the AI revolution with GPUs and AI computing
+                                platforms.</p>
+
                             <div class="stock-widget">
                                 <div class="stock-price">$950.02</div>
                                 <div class="stock-change positive">+5.12% <i class="fas fa-arrow-up"></i></div>
                                 <small>Last updated: 10:15 AM EST</small>
                             </div>
-                            
+
                             <a href="nvidia" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
-                    
+
                     <!-- OpenAI Card -->
                     <div class="col-md-6 col-lg-3">
                         <div class="company-card">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/1200px-OpenAI_Logo.svg.png" alt="OpenAI" class="company-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/1200px-OpenAI_Logo.svg.png"
+                                alt="OpenAI" class="company-logo">
                             <h4>OpenAI</h4>
-                            <p>Creator of ChatGPT and leading AI research company focused on developing safe artificial general intelligence.</p>
-                            
+                            <p>Creator of ChatGPT and leading AI research company focused on developing safe artificial
+                                general intelligence.</p>
+
                             <div class="stock-widget">
                                 <div class="stock-price">$86B</div>
-                                <div class="stock-change positive">Microsoft Backed <i class="fas fa-arrow-up"></i></div>
+                                <div class="stock-change positive">Microsoft Backed <i class="fas fa-arrow-up"></i>
+                                </div>
                                 <small>Latest Valuation</small>
                             </div>
-                            
+
                             <a href="openai" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
-                    
+
                     <!-- Tesla Card -->
                     <div class="col-md-6 col-lg-3">
                         <div class="company-card">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/1200px-Tesla_T_symbol.svg.png" alt="Tesla" class="company-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/1200px-Tesla_T_symbol.svg.png"
+                                alt="Tesla" class="company-logo">
                             <h4>Tesla Inc.</h4>
-                            <p>Revolutionizing sustainable energy and transportation with cutting-edge AI and automation.</p>
-                            
+                            <p>Revolutionizing sustainable energy and transportation with cutting-edge AI and
+                                automation.</p>
+
                             <div class="stock-widget">
                                 <div class="stock-price">$245.78</div>
                                 <div class="stock-change positive">+2.34% <i class="fas fa-arrow-up"></i></div>
                                 <small>Last updated: 10:15 AM EST</small>
                             </div>
-                            
+
                             <a href="tesla" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
-                    
+
                     <!-- Oracle Card -->
                     <div class="col-md-6 col-lg-3">
                         <div class="company-card">
-                            <img src="https://logos-world.net/wp-content/uploads/2020/09/Oracle-Logo.png" alt="Oracle" class="company-logo" style="filter: brightness(0) invert(1);">
+                            <img src="https://logos-world.net/wp-content/uploads/2020/09/Oracle-Logo.png" alt="Oracle"
+                                class="company-logo" style="filter: brightness(0) invert(1);">
                             <h4>Oracle Corp.</h4>
                             <p>Leading provider of enterprise cloud computing and database solutions powered by AI.</p>
-                            
+
                             <div class="stock-widget">
                                 <div class="stock-price">$118.42</div>
                                 <div class="stock-change positive">+1.27% <i class="fas fa-arrow-up"></i></div>
                                 <small>Last updated: 10:15 AM EST</small>
                             </div>
-                            
+
                             <a href="oracle" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Second Row of Featured Companies -->
                 <div class="row mt-4">
                     <!-- Google Card -->
                     <div class="col-md-6 col-lg-3">
                         <div class="company-card">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" alt="Google" class="company-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png"
+                                alt="Google" class="company-logo">
                             <h4>Alphabet (Google)</h4>
-                            <p>Global technology leader in search, AI research, cloud computing, and digital advertising.</p>
-                            
+                            <p>Global technology leader in search, AI research, cloud computing, and digital
+                                advertising.</p>
+
                             <div class="stock-widget">
                                 <div class="stock-price">$142.65</div>
                                 <div class="stock-change negative">-0.85% <i class="fas fa-arrow-down"></i></div>
                                 <small>Last updated: 10:15 AM EST</small>
                             </div>
-                            
+
                             <a href="google" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
-                    
+
                     <!-- Facebook Card -->
                     <div class="col-md-6 col-lg-3">
                         <div class="company-card">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook" class="company-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png"
+                                alt="Facebook" class="company-logo">
                             <h4>Meta (Facebook)</h4>
-                            <p>Pioneering social connectivity and building the next evolution of digital interaction.</p>
-                            
+                            <p>Pioneering social connectivity and building the next evolution of digital interaction.
+                            </p>
+
                             <div class="stock-widget">
                                 <div class="stock-price">$318.25</div>
                                 <div class="stock-change positive">+3.12% <i class="fas fa-arrow-up"></i></div>
                                 <small>Last updated: 10:15 AM EST</small>
                             </div>
-                            
+
                             <a href="facebook" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
-                    
+
                     <!-- Microsoft Card -->
                     <div class="col-md-6 col-lg-3">
                         <div class="company-card">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/1200px-Microsoft_logo.svg.png" alt="Microsoft" class="company-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/1200px-Microsoft_logo.svg.png"
+                                alt="Microsoft" class="company-logo">
                             <h4>Microsoft</h4>
-                            <p>Leading provider of cloud services, enterprise software, and AI solutions through Azure and Copilot.</p>
-                            
+                            <p>Leading provider of cloud services, enterprise software, and AI solutions through Azure
+                                and Copilot.</p>
+
                             <div class="stock-widget">
                                 <div class="stock-price">$378.85</div>
                                 <div class="stock-change positive">+0.89% <i class="fas fa-arrow-up"></i></div>
                                 <small>Last updated: 10:15 AM EST</small>
                             </div>
-                            
+
                             <a href="microsoft" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
-                    
+
                     <!-- Apple Card -->
                     <div class="col-md-6 col-lg-3">
                         <div class="company-card">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1200px-Apple_logo_black.svg.png" alt="Apple" class="company-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1200px-Apple_logo_black.svg.png"
+                                alt="Apple" class="company-logo">
                             <h4>Apple Inc.</h4>
-                            <p>Integrating AI across its ecosystem with Siri, Core ML, and on-device machine learning capabilities.</p>
-                            
+                            <p>Integrating AI across its ecosystem with Siri, Core ML, and on-device machine learning
+                                capabilities.</p>
+
                             <div class="stock-widget">
                                 <div class="stock-price">$189.25</div>
                                 <div class="stock-change positive">+1.24% <i class="fas fa-arrow-up"></i></div>
                                 <small>Last updated: 10:15 AM EST</small>
                             </div>
-                            
+
                             <a href="apple" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
@@ -1172,330 +1204,346 @@
                     <h2>AI Startups (High Growth Potential)</h2>
                     <p>Rapidly growing private companies at the forefront of AI innovation</p>
                 </div>
-                
+
                 <div class="row">
                     <!-- Anthropic Card -->
                     <div class="col-md-6 col-lg-4">
                         <div class="startup-card">
                             <img src="img/anthropic.png" alt="Anthropic" class="startup-logo">
                             <h4>Anthropic</h4>
-                            <p>Safety-focused AI company developing Claude chatbot and constitutional AI to ensure beneficial outcomes.</p>
-                            
+                            <p>Safety-focused AI company developing Claude chatbot and constitutional AI to ensure
+                                beneficial outcomes.</p>
+
                             <div class="valuation-widget">
                                 <div class="valuation-price">$18.4B</div>
                                 <div class="stock-change positive">Amazon Backed <i class="fas fa-arrow-up"></i></div>
                                 <small>Latest Valuation</small>
                             </div>
-                            
+
                             <a href="anthropic" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
-                    
+
                     <!-- Stability AI Card -->
                     <div class="col-md-6 col-lg-4">
                         <div class="startup-card">
                             <img src="img/stability.jpeg" alt="Stability AI" class="startup-logo">
                             <h4>Stability AI</h4>
-                            <p>Creator of Stable Diffusion, leading open-source AI image generation and multimodal AI models.</p>
-                            
+                            <p>Creator of Stable Diffusion, leading open-source AI image generation and multimodal AI
+                                models.</p>
+
                             <div class="valuation-widget">
                                 <div class="valuation-price">$1B</div>
-                                <div class="stock-change positive">Open Source Focus <i class="fas fa-arrow-up"></i></div>
+                                <div class="stock-change positive">Open Source Focus <i class="fas fa-arrow-up"></i>
+                                </div>
                                 <small>Latest Valuation</small>
                             </div>
-                            
+
                             <a href="stability" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
-                    
+
                     <!-- Cohere Card -->
                     <div class="col-md-6 col-lg-4">
                         <div class="startup-card">
                             <img src="img/cohere.jpeg" alt="Cohere" class="startup-logo">
                             <h4>Cohere</h4>
-                            <p>Enterprise-focused AI company providing natural language models for businesses to build AI applications.</p>
-                            
+                            <p>Enterprise-focused AI company providing natural language models for businesses to build
+                                AI applications.</p>
+
                             <div class="valuation-widget">
                                 <div class="valuation-price">$2.2B</div>
-                                <div class="stock-change positive">Enterprise Focus <i class="fas fa-arrow-up"></i></div>
+                                <div class="stock-change positive">Enterprise Focus <i class="fas fa-arrow-up"></i>
+                                </div>
                                 <small>Latest Valuation</small>
                             </div>
-                            
+
                             <a href="cohere" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
-                    
+
                     <!-- Hugging Face Card -->
                     <div class="col-md-6 col-lg-4">
                         <div class="startup-card">
-                            <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" class="startup-logo">
+                            <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
+                                alt="Hugging Face" class="startup-logo">
                             <h4>Hugging Face</h4>
-                            <p>Open-source AI community and platform hosting thousands of models, datasets, and AI applications.</p>
-                            
+                            <p>Open-source AI community and platform hosting thousands of models, datasets, and AI
+                                applications.</p>
+
                             <div class="valuation-widget">
                                 <div class="valuation-price">$4.5B</div>
-                                <div class="stock-change positive">Community Driven <i class="fas fa-arrow-up"></i></div>
+                                <div class="stock-change positive">Community Driven <i class="fas fa-arrow-up"></i>
+                                </div>
                                 <small>Latest Valuation</small>
                             </div>
-                            
+
                             <a href="huggingface" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
-                    
+
                     <!-- Scale AI Card -->
                     <div class="col-md-6 col-lg-4">
                         <div class="startup-card">
                             <img src="img/scale.jpeg" alt="Scale AI" class="startup-logo">
                             <h4>Scale AI</h4>
-                            <p>Data labeling and infrastructure platform for AI training, working with companies like OpenAI and Microsoft.</p>
-                            
+                            <p>Data labeling and infrastructure platform for AI training, working with companies like
+                                OpenAI and Microsoft.</p>
+
                             <div class="valuation-widget">
                                 <div class="valuation-price">$7.3B</div>
-                                <div class="stock-change positive">Infrastructure Focus <i class="fas fa-arrow-up"></i></div>
+                                <div class="stock-change positive">Infrastructure Focus <i class="fas fa-arrow-up"></i>
+                                </div>
                                 <small>Latest Valuation</small>
                             </div>
-                            
+
                             <a href="scale" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
-                    
+
                     <!-- Runway AI Card -->
                     <div class="col-md-6 col-lg-4">
                         <div class="startup-card">
                             <img src="img/runway.png" alt="Runway AI" class="startup-logo">
                             <h4>Runway AI</h4>
-                            <p>AI video and image editing tools used by creative professionals and Hollywood studios for content creation.</p>
-                            
+                            <p>AI video and image editing tools used by creative professionals and Hollywood studios for
+                                content creation.</p>
+
                             <div class="valuation-widget">
                                 <div class="valuation-price">$1.5B</div>
                                 <div class="stock-change positive">Creative Focus <i class="fas fa-arrow-up"></i></div>
                                 <small>Latest Valuation</small>
                             </div>
-                            
+
                             <a href="runway.html" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
-                    
+
                     <!-- Character.AI Card -->
                     <div class="col-md-6 col-lg-4">
                         <div class="startup-card">
                             <img src="img/character.jpeg" alt="Character.AI" class="startup-logo">
                             <h4>Character.AI</h4>
-                            <p>Interactive chatbot platform with AI personalities for entertainment, education, and social interaction.</p>
-                            
+                            <p>Interactive chatbot platform with AI personalities for entertainment, education, and
+                                social interaction.</p>
+
                             <div class="valuation-widget">
                                 <div class="valuation-price">$1B</div>
-                                <div class="stock-change positive">Entertainment Focus <i class="fas fa-arrow-up"></i></div>
+                                <div class="stock-change positive">Entertainment Focus <i class="fas fa-arrow-up"></i>
+                                </div>
                                 <small>Latest Valuation</small>
                             </div>
-                            
+
                             <a href="character" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
-                    
+
                     <!-- Inflection AI Card -->
                     <div class="col-md-6 col-lg-4">
                         <div class="startup-card">
                             <img src="img/inflection.jpeg" alt="Inflection AI" class="startup-logo">
                             <h4>Inflection AI</h4>
-                            <p>Developing personal AI assistants to help people accomplish tasks and access information more effectively.</p>
-                            
+                            <p>Developing personal AI assistants to help people accomplish tasks and access information
+                                more effectively.</p>
+
                             <div class="valuation-widget">
                                 <div class="valuation-price">$4B</div>
-                                <div class="stock-change positive">Personal AI Focus <i class="fas fa-arrow-up"></i></div>
+                                <div class="stock-change positive">Personal AI Focus <i class="fas fa-arrow-up"></i>
+                                </div>
                                 <small>Latest Valuation</small>
                             </div>
-                            
+
                             <a href="inflection" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
-                    
+
                     <!-- Mistral AI Card -->
                     <div class="col-md-6 col-lg-4">
                         <div class="startup-card">
                             <img src="img/mistral.png" alt="Mistral AI" class="startup-logo">
                             <h4>Mistral AI</h4>
-                            <p>European open-source AI company developing efficient language models with strong performance.</p>
-                            
+                            <p>European open-source AI company developing efficient language models with strong
+                                performance.</p>
+
                             <div class="valuation-widget">
                                 <div class="valuation-price">$2B</div>
                                 <div class="stock-change positive">European Focus <i class="fas fa-arrow-up"></i></div>
                                 <small>Latest Valuation</small>
                             </div>
-                            
+
                             <a href="mistral" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Enhanced Companies Carousel -->
-            <div class="minor-companies-widget">
-                <div class="section-header">
-                    <h3>Other Companies Using AI</h3>
-                    <p>Additional established companies integrating AI into their products and services</p>
-                </div>
-                
-                <div class="companies-carousel-container">
-                    <div class="carousel-control prev">
-                        <i class="fas fa-chevron-left"></i>
-                    </div>
-                    <div class="companies-carousel" id="companiesCarousel">
-                        <!-- Company logos will be added here by JavaScript -->
-                    </div>
-                    <div class="carousel-control next">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                    <div class="carousel-dots" id="carouselDots">
-                        <!-- Dots will be added here by JavaScript -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Major Stocks Widgets Section -->
-    <section class="major-stocks-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Major Stock Markets</h2>
-                <p>Real-time performance of global markets and major companies</p>
-            </div>
-            
-            <div class="row">
-                <!-- US Market Indices -->
-                <div class="col-lg-4 mb-4">
-                    <h4 class="mb-3" style="color: var(--accent-color);">US Market Indices</h4>
-                    
-                    <div class="stock-card">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="stock-symbol">S&P 500</div>
-                                <div class="stock-name">S&P 500 Index</div>
-                            </div>
-                            <div class="text-end">
-                                <div class="stock-price">4,567.25</div>
-                                <div class="stock-change positive">+0.68% <i class="fas fa-arrow-up"></i></div>
-                            </div>
-                        </div>
+                <!-- Enhanced Companies Carousel -->
+                <div class="minor-companies-widget">
+                    <div class="section-header">
+                        <h3>Other Companies Using AI</h3>
+                        <p>Additional established companies integrating AI into their products and services</p>
                     </div>
-                    
-                    <div class="stock-card">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="stock-symbol">DOW</div>
-                                <div class="stock-name">Dow Jones Industrial</div>
-                            </div>
-                            <div class="text-end">
-                                <div class="stock-price">35,654.29</div>
-                                <div class="stock-change positive">+0.42% <i class="fas fa-arrow-up"></i></div>
-                            </div>
+
+                    <div class="companies-carousel-container">
+                        <div class="carousel-control prev">
+                            <i class="fas fa-chevron-left"></i>
                         </div>
-                    </div>
-                    
-                    <div class="stock-card">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="stock-symbol">NASDAQ</div>
-                                <div class="stock-name">NASDAQ Composite</div>
-                            </div>
-                            <div class="text-end">
-                                <div class="stock-price">14,316.66</div>
-                                <div class="stock-change negative">-0.12% <i class="fas fa-arrow-down"></i></div>
-                            </div>
+                        <div class="companies-carousel" id="companiesCarousel">
+                            <!-- Company logos will be added here by JavaScript -->
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Tech Stocks -->
-                <div class="col-lg-4 mb-4">
-                    <h4 class="mb-3" style="color: var(--accent-color);">Major Tech Stocks</h4>
-                    
-                    <div class="stock-card">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="stock-symbol">AAPL</div>
-                                <div class="stock-name">Apple Inc.</div>
-                            </div>
-                            <div class="text-end">
-                                <div class="stock-price">$189.25</div>
-                                <div class="stock-change positive">+1.24% <i class="fas fa-arrow-up"></i></div>
-                            </div>
+                        <div class="carousel-control next">
+                            <i class="fas fa-chevron-right"></i>
                         </div>
-                    </div>
-                    
-                    <div class="stock-card">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="stock-symbol">MSFT</div>
-                                <div class="stock-name">Microsoft Corp.</div>
-                            </div>
-                            <div class="text-end">
-                                <div class="stock-price">$378.85</div>
-                                <div class="stock-change positive">+0.89% <i class="fas fa-arrow-up"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="stock-card">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="stock-symbol">AMZN</div>
-                                <div class="stock-name">Amazon.com Inc.</div>
-                            </div>
-                            <div class="text-end">
-                                <div class="stock-price">$145.62</div>
-                                <div class="stock-change negative">-0.35% <i class="fas fa-arrow-down"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Global Markets -->
-                <div class="col-lg-4 mb-4">
-                    <h4 class="mb-3" style="color: var(--accent-color);">Global Markets</h4>
-                    
-                    <div class="stock-card">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="stock-symbol">FTSE</div>
-                                <div class="stock-name">FTSE 100 (UK)</div>
-                            </div>
-                            <div class="text-end">
-                                <div class="stock-price">7,654.32</div>
-                                <div class="stock-change positive">+0.56% <i class="fas fa-arrow-up"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="stock-card">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="stock-symbol">DAX</div>
-                                <div class="stock-name">DAX (Germany)</div>
-                            </div>
-                            <div class="text-end">
-                                <div class="stock-price">15,987.21</div>
-                                <div class="stock-change positive">+0.78% <i class="fas fa-arrow-up"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="stock-card">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="stock-symbol">NIKKEI</div>
-                                <div class="stock-name">Nikkei 225 (Japan)</div>
-                            </div>
-                            <div class="text-end">
-                                <div class="stock-price">33,245.67</div>
-                                <div class="stock-change negative">-0.23% <i class="fas fa-arrow-down"></i></div>
-                            </div>
+                        <div class="carousel-dots" id="carouselDots">
+                            <!-- Dots will be added here by JavaScript -->
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Major Stocks Widgets Section -->
+        <section class="major-stocks-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Major Stock Markets</h2>
+                    <p>Real-time performance of global markets and major companies</p>
+                </div>
+
+                <div class="row">
+                    <!-- US Market Indices -->
+                    <div class="col-lg-4 mb-4">
+                        <h4 class="mb-3" style="color: var(--accent-color);">US Market Indices</h4>
+
+                        <div class="stock-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="stock-symbol">S&P 500</div>
+                                    <div class="stock-name">S&P 500 Index</div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="stock-price">4,567.25</div>
+                                    <div class="stock-change positive">+0.68% <i class="fas fa-arrow-up"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stock-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="stock-symbol">DOW</div>
+                                    <div class="stock-name">Dow Jones Industrial</div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="stock-price">35,654.29</div>
+                                    <div class="stock-change positive">+0.42% <i class="fas fa-arrow-up"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stock-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="stock-symbol">NASDAQ</div>
+                                    <div class="stock-name">NASDAQ Composite</div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="stock-price">14,316.66</div>
+                                    <div class="stock-change negative">-0.12% <i class="fas fa-arrow-down"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tech Stocks -->
+                    <div class="col-lg-4 mb-4">
+                        <h4 class="mb-3" style="color: var(--accent-color);">Major Tech Stocks</h4>
+
+                        <div class="stock-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="stock-symbol">AAPL</div>
+                                    <div class="stock-name">Apple Inc.</div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="stock-price">$189.25</div>
+                                    <div class="stock-change positive">+1.24% <i class="fas fa-arrow-up"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stock-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="stock-symbol">MSFT</div>
+                                    <div class="stock-name">Microsoft Corp.</div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="stock-price">$378.85</div>
+                                    <div class="stock-change positive">+0.89% <i class="fas fa-arrow-up"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stock-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="stock-symbol">AMZN</div>
+                                    <div class="stock-name">Amazon.com Inc.</div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="stock-price">$145.62</div>
+                                    <div class="stock-change negative">-0.35% <i class="fas fa-arrow-down"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Global Markets -->
+                    <div class="col-lg-4 mb-4">
+                        <h4 class="mb-3" style="color: var(--accent-color);">Global Markets</h4>
+
+                        <div class="stock-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="stock-symbol">FTSE</div>
+                                    <div class="stock-name">FTSE 100 (UK)</div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="stock-price">7,654.32</div>
+                                    <div class="stock-change positive">+0.56% <i class="fas fa-arrow-up"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stock-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="stock-symbol">DAX</div>
+                                    <div class="stock-name">DAX (Germany)</div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="stock-price">15,987.21</div>
+                                    <div class="stock-change positive">+0.78% <i class="fas fa-arrow-up"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stock-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="stock-symbol">NIKKEI</div>
+                                    <div class="stock-name">Nikkei 225 (Japan)</div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="stock-price">33,245.67</div>
+                                    <div class="stock-change negative">-0.23% <i class="fas fa-arrow-down"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Stock Charts Section -->
         <section class="stock-charts-section">
@@ -1504,7 +1552,7 @@
                     <h2>Market Performance Charts</h2>
                     <p>AI-powered analysis of market trends and performance</p>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-lg-6 mb-4">
                         <div class="chart-container">
@@ -1512,21 +1560,21 @@
                             <canvas id="sp500Chart"></canvas>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-6 mb-4">
                         <div class="chart-container">
                             <h4 class="chart-title">NASDAQ Composite (6 Months)</h4>
                             <canvas id="nasdaqChart"></canvas>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-6 mb-4">
                         <div class="chart-container">
                             <h4 class="chart-title">Tech Sector Performance</h4>
                             <canvas id="techSectorChart"></canvas>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-6 mb-4">
                         <div class="chart-container">
                             <h4 class="chart-title">Global Markets Comparison</h4>
@@ -1536,14 +1584,15 @@
                 </div>
             </div>
         </section>
-           
+
         <!-- Footer -->
         <footer>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 mb-4">
                         <h4 class="footer-heading">AI Investment Platform</h4>
-                        <p>Providing cutting-edge AI analysis for investment decisions in the rapidly evolving technology sector.</p>
+                        <p>Providing cutting-edge AI analysis for investment decisions in the rapidly evolving
+                            technology sector.</p>
                         <div class="mt-3">
                             <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
                             <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
@@ -1584,10 +1633,10 @@
             </div>
         </footer>
     </div>
-       
+
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         // KYC Verification Logic with localStorage
         document.addEventListener('DOMContentLoaded', function() {
@@ -2198,4 +2247,5 @@
         });
     </script>
 </body>
+
 </html>

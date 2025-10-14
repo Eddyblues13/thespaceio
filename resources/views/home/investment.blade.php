@@ -403,7 +403,7 @@
                             <li><i class="fas fa-check"></i> Entry to AI Investment Webinars</li>
                             <li><i class="fas fa-check"></i> Dedicated Support Specialist</li>
                         </ul>
-                        <a href="signup" class="btn btn-tier w-100">Get Started</a>
+                        <a href="{{route('register')}}" class="btn btn-tier w-100">Get Started</a>
                     </div>
                 </div>
 
@@ -424,7 +424,7 @@
                             <li><i class="fas fa-check"></i> Access to Private AI Events</li>
                             <li><i class="fas fa-check"></i> Priority Support</li>
                         </ul>
-                        <a href="signup" class="btn btn-tier w-100">Become a Partner</a>
+                        <a href="{{route('register')}}" class="btn btn-tier w-100">Become a Partner</a>
                     </div>
                 </div>
 
@@ -445,7 +445,7 @@
                             <li><i class="fas fa-check"></i> Weekly Performance Updates</li>
                             <li><i class="fas fa-check"></i> Personal Investment Advisor</li>
                         </ul>
-                        <a href="signup" class="btn btn-tier w-100">Build Your Legacy</a>
+                        <a href="{{route('register')}}" class="btn btn-tier w-100">Build Your Legacy</a>
                     </div>
                 </div>
 
@@ -466,7 +466,7 @@
                             <li><i class="fas fa-check"></i> Strategic Partnership Agreements</li>
                             <li><i class="fas fa-check"></i> 24/7 Executive Support Team</li>
                         </ul>
-                        <a href="signup" class="btn btn-tier w-100">Form Alliance</a>
+                        <a href="{{route('register')}}" class="btn btn-tier w-100">Form Alliance</a>
                     </div>
                 </div>
             </div>

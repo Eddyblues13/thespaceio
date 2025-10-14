@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,13 +24,13 @@
             --success-color: #28a745;
             --error-color: #dc3545;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             background: linear-gradient(135deg, var(--dark-bg) 0%, var(--medium-bg) 100%);
             color: var(--text-color);
@@ -40,7 +41,7 @@
             justify-content: center;
             padding: 20px;
         }
-        
+
         .auth-container {
             background: var(--white-bg);
             border-radius: 20px;
@@ -52,7 +53,7 @@
             display: flex;
             position: relative;
         }
-        
+
         .auth-left {
             flex: 1;
             background: linear-gradient(135deg, var(--dark-bg) 0%, var(--medium-bg) 100%);
@@ -64,7 +65,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .auth-left::before {
             content: '';
             position: absolute;
@@ -74,7 +75,7 @@
             height: 200%;
             background: radial-gradient(circle, rgba(58, 123, 213, 0.1) 0%, transparent 70%);
         }
-        
+
         .auth-right {
             flex: 1;
             padding: 60px 50px;
@@ -83,7 +84,7 @@
             justify-content: center;
             background: var(--white-bg);
         }
-        
+
         .auth-logo {
             font-size: 2.2rem;
             font-weight: bold;
@@ -92,12 +93,12 @@
             display: flex;
             align-items: center;
         }
-        
+
         .auth-logo i {
             margin-right: 12px;
             font-size: 2.4rem;
         }
-        
+
         .auth-title {
             font-size: 2.4rem;
             font-weight: 800;
@@ -107,14 +108,14 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .auth-subtitle {
             font-size: 1.1rem;
             color: var(--medium-text);
             margin-bottom: 40px;
             line-height: 1.6;
         }
-        
+
         .form-control {
             background-color: var(--light-gray);
             border: 2px solid #e1e5eb;
@@ -125,21 +126,21 @@
             transition: all 0.3s;
             font-size: 1rem;
         }
-        
+
         .form-control:focus {
             background-color: var(--white-bg);
             border-color: var(--accent-color);
             color: var(--dark-text);
             box-shadow: 0 0 0 0.25rem rgba(58, 123, 213, 0.15);
         }
-        
+
         .form-label {
             color: var(--dark-text);
             font-weight: 600;
             margin-bottom: 10px;
             font-size: 1rem;
         }
-        
+
         .btn-auth {
             background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
             border: none;
@@ -153,31 +154,31 @@
             font-size: 1.1rem;
             box-shadow: 0 4px 15px rgba(58, 123, 213, 0.3);
         }
-        
+
         .btn-auth:hover {
             transform: translateY(-3px);
             box-shadow: 0 7px 20px rgba(58, 123, 213, 0.4);
         }
-        
+
         .auth-divider {
             display: flex;
             align-items: center;
             margin: 30px 0;
         }
-        
+
         .auth-divider::before,
         .auth-divider::after {
             content: '';
             flex: 1;
             border-bottom: 1px solid #e1e5eb;
         }
-        
+
         .auth-divider-text {
             padding: 0 15px;
             color: var(--medium-text);
             font-size: 0.95rem;
         }
-        
+
         .btn-social {
             display: flex;
             align-items: center;
@@ -192,37 +193,37 @@
             margin-bottom: 15px;
             font-weight: 600;
         }
-        
+
         .btn-social:hover {
             background: var(--light-gray);
             border-color: var(--accent-color);
             transform: translateY(-2px);
         }
-        
+
         .btn-social i {
             margin-right: 12px;
             font-size: 1.2rem;
         }
-        
+
         .auth-switch {
             text-align: center;
             margin-top: 30px;
             color: var(--medium-text);
             font-size: 1rem;
         }
-        
+
         .auth-link {
             color: var(--accent-color);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s;
         }
-        
+
         .auth-link:hover {
             color: var(--accent-hover);
             text-decoration: underline;
         }
-        
+
         .auth-feature {
             display: flex;
             align-items: flex-start;
@@ -230,7 +231,7 @@
             position: relative;
             z-index: 1;
         }
-        
+
         .auth-feature-icon {
             background: rgba(58, 123, 213, 0.15);
             color: var(--accent-color);
@@ -245,30 +246,30 @@
             font-size: 1.4rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .auth-feature-text h4 {
             color: var(--text-color);
             margin-bottom: 8px;
             font-size: 1.3rem;
             font-weight: 600;
         }
-        
+
         .auth-feature-text p {
             color: rgba(232, 245, 233, 0.85);
             font-size: 1rem;
             margin: 0;
             line-height: 1.6;
         }
-        
+
         .form-check-input:checked {
             background-color: var(--accent-color);
             border-color: var(--accent-color);
         }
-        
+
         .form-check-label {
             color: var(--dark-text);
         }
-        
+
         .password-toggle {
             position: absolute;
             right: 18px;
@@ -280,45 +281,45 @@
             cursor: pointer;
             z-index: 10;
         }
-        
+
         .password-container {
             position: relative;
         }
-        
+
         /* Phone input styling */
         .phone-input-group {
             display: flex;
         }
-        
+
         .country-select {
             flex: 0 0 130px;
             margin-right: 12px;
             border-radius: 10px;
         }
-        
+
         .phone-input {
             flex: 1;
         }
-        
+
         /* Optional field styling */
         .optional-label {
             color: var(--medium-text);
             font-weight: normal;
         }
-        
+
         .optional-label::after {
             content: " (Optional)";
             font-weight: normal;
             color: var(--medium-text);
             font-size: 0.9rem;
         }
-        
+
         .form-text {
             color: var(--medium-text);
             font-size: 0.9rem;
             margin-top: 5px;
         }
-        
+
         /* Testimonial styling */
         .testimonial {
             background: rgba(255, 255, 255, 0.1);
@@ -330,19 +331,19 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
             font-size: 1.05rem;
             line-height: 1.6;
         }
-        
+
         .testimonial-author {
             display: flex;
             align-items: center;
         }
-        
+
         .author-avatar {
             width: 50px;
             height: 50px;
@@ -356,38 +357,38 @@
             margin-right: 15px;
             font-size: 1.2rem;
         }
-        
+
         .author-info strong {
             display: block;
             margin-bottom: 5px;
         }
-        
+
         .author-info p {
             margin: 0;
             font-size: 0.9rem;
             opacity: 0.8;
         }
-        
+
         /* Form validation styling */
         .is-valid {
             border-color: var(--success-color) !important;
         }
-        
+
         .is-invalid {
             border-color: var(--error-color) !important;
         }
-        
+
         .invalid-feedback {
             display: none;
             color: var(--error-color);
             font-size: 0.9rem;
             margin-top: 5px;
         }
-        
-        .was-validated .form-control:invalid ~ .invalid-feedback {
+
+        .was-validated .form-control:invalid~.invalid-feedback {
             display: block;
         }
-        
+
         /* Progress indicator */
         .progress-indicator {
             display: flex;
@@ -395,7 +396,7 @@
             margin-bottom: 30px;
             position: relative;
         }
-        
+
         .progress-indicator::before {
             content: '';
             position: absolute;
@@ -406,7 +407,7 @@
             background: #e1e5eb;
             z-index: 1;
         }
-        
+
         .progress-step {
             width: 34px;
             height: 34px;
@@ -420,12 +421,12 @@
             position: relative;
             z-index: 2;
         }
-        
+
         .progress-step.active {
             background: var(--accent-color);
             color: white;
         }
-        
+
         .progress-label {
             position: absolute;
             top: 40px;
@@ -435,7 +436,7 @@
             font-size: 0.8rem;
             color: var(--medium-text);
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 992px) {
             .auth-container {
@@ -443,50 +444,53 @@
                 max-width: 90%;
                 margin: 20px;
             }
-            
-            .auth-left, .auth-right {
+
+            .auth-left,
+            .auth-right {
                 padding: 40px 30px;
             }
-            
+
             .auth-left {
                 order: 2;
             }
-            
+
             .auth-right {
                 order: 1;
             }
         }
-        
+
         @media (max-width: 576px) {
             .auth-container {
                 max-width: 100%;
                 margin: 10px;
             }
-            
-            .auth-left, .auth-right {
+
+            .auth-left,
+            .auth-right {
                 padding: 30px 20px;
             }
-            
+
             .phone-input-group {
                 flex-direction: column;
             }
-            
+
             .country-select {
                 flex: 1;
                 margin-right: 0;
                 margin-bottom: 10px;
             }
-            
+
             .auth-title {
                 font-size: 2rem;
             }
-            
+
             .auth-logo {
                 font-size: 1.8rem;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="auth-container">
         <!-- Left Side - Branding & Features -->
@@ -495,8 +499,9 @@
                 <i class="fas fa-brain"></i>THE-SPACE
             </div>
             <h2 class="mb-4">Join the AI Investment Revolution</h2>
-            <p class="mb-5">Access cutting-edge AI technology to transform your investment strategy and maximize your returns.</p>
-            
+            <p class="mb-5">Access cutting-edge AI technology to transform your investment strategy and maximize your
+                returns.</p>
+
             <div class="auth-features">
                 <div class="auth-feature">
                     <div class="auth-feature-icon">
@@ -504,10 +509,11 @@
                     </div>
                     <div class="auth-feature-text">
                         <h4>AI-Powered Insights</h4>
-                        <p>Leverage advanced machine learning algorithms for accurate market predictions and investment opportunities.</p>
+                        <p>Leverage advanced machine learning algorithms for accurate market predictions and investment
+                            opportunities.</p>
                     </div>
                 </div>
-                
+
                 <div class="auth-feature">
                     <div class="auth-feature-icon">
                         <i class="fas fa-chart-line"></i>
@@ -517,175 +523,185 @@
                         <p>Automatically optimize your investments based on real-time data and predictive analytics.</p>
                     </div>
                 </div>
-                
+
                 <div class="auth-feature">
                     <div class="auth-feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <div class="auth-feature-text">
                         <h4>Secure & Private</h4>
-                        <p>Bank-level security with end-to-end encryption to protect your financial data and investments.</p>
+                        <p>Bank-level security with end-to-end encryption to protect your financial data and
+                            investments.</p>
                     </div>
                 </div>
             </div>
-            
-            
-        
-        <!-- Right Side - Forms -->
-        <div class="auth-right">
-            <!-- Progress Indicator -->
-            <div class="progress-indicator">
-                <div class="progress-step active">
-                    1
-                    <span class="progress-label">Account</span>
+
+
+
+            <!-- Right Side - Forms -->
+            <div class="auth-right">
+                <!-- Progress Indicator -->
+                <div class="progress-indicator">
+                    <div class="progress-step active">
+                        1
+                        <span class="progress-label">Account</span>
+                    </div>
+                    <div class="progress-step">
+                        2
+                        <span class="progress-label">Verification</span>
+                    </div>
+                    <div class="progress-step">
+                        3
+                        <span class="progress-label">Complete</span>
+                    </div>
                 </div>
-                <div class="progress-step">
-                    2
-                    <span class="progress-label">Verification</span>
-                </div>
-                <div class="progress-step">
-                    3
-                    <span class="progress-label">Complete</span>
-                </div>
-            </div>
-            
-            <!-- Sign Up Form -->
-            <div class="auth-form" id="signup-form">
-                <h2 class="auth-title">Create Account</h2>
-                <p class="auth-subtitle">Join thousands of investors using AI to grow their wealth</p>
-                
-                <form id="signupForm" class="needs-validation" novalidate>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="signup-firstname" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="signup-firstname" placeholder="Enter your first name" required>
-                                <div class="invalid-feedback">
-                                    Please provide a valid first name.
+
+                <!-- Sign Up Form -->
+                <div class="auth-form" id="signup-form">
+                    <h2 class="auth-title">Create Account</h2>
+                    <p class="auth-subtitle">Join thousands of investors using AI to grow their wealth</p>
+
+                    <form id="signupForm" class="needs-validation" novalidate>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="signup-firstname" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="signup-firstname"
+                                        placeholder="Enter your first name" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid first name.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="signup-lastname" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="signup-lastname"
+                                        placeholder="Enter your last name" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid last name.
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="signup-lastname" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="signup-lastname" placeholder="Enter your last name" required>
-                                <div class="invalid-feedback">
-                                    Please provide a valid last name.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="signup-email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="signup-email" placeholder="Enter your email" required>
-                        <div class="invalid-feedback">
-                            Please provide a valid email address.
-                        </div>
-                    </div>
-                    
-                    <!-- Phone Number with Country Code -->
-                    <div class="mb-3">
-                        <label for="signup-phone" class="form-label">Phone Number</label>
-                        <div class="phone-input-group">
-                            <select class="form-control country-select" id="country-code" required>
-                                <option value="" disabled selected>Code</option>
-                                <option value="+1">+1 (USA)</option>
-                                <option value="+44">+44 (UK)</option>
-                                <option value="+61">+61 (AUS)</option>
-                                <option value="+49">+49 (GER)</option>
-                                <option value="+33">+33 (FRA)</option>
-                                <option value="+81">+81 (JPN)</option>
-                                <option value="+86">+86 (CHN)</option>
-                                <option value="+91">+91 (IND)</option>
-                                <option value="+7">+7 (RUS)</option>
-                                <option value="+55">+55 (BRA)</option>
-                                <option value="+34">+34 (ESP)</option>
-                                <option value="+39">+39 (ITA)</option>
-                                <option value="+82">+82 (KOR)</option>
-                                <option value="+31">+31 (NED)</option>
-                                <option value="+41">+41 (SUI)</option>
-                                <option value="+46">+46 (SWE)</option>
-                                <option value="+27">+27 (SA)</option>
-                                <option value="+971">+971 (UAE)</option>
-                                <option value="+65">+65 (SGP)</option>
-                                <option value="+60">+60 (MYS)</option>
-                            </select>
-                            <input type="tel" class="form-control phone-input" id="signup-phone" placeholder="Enter your phone number" required>
-                        </div>
-                        <div class="invalid-feedback">
-                            Please provide a valid phone number.
-                        </div>
-                    </div>
-                    
-                    <div class="mb-3 password-container">
-                        <label for="signup-password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="signup-password" placeholder="Create a password" required minlength="8">
-                        <button type="button" class="password-toggle" id="toggleSignupPassword">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                        <div class="invalid-feedback">
-                            Password must be at least 8 characters long.
-                        </div>
-                    </div>
-                    
-                    <div class="mb-3 password-container">
-                        <label for="signup-confirm-password" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="signup-confirm-password" placeholder="Confirm your password" required>
-                        <button type="button" class="password-toggle" id="toggleConfirmPassword">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                        <div class="invalid-feedback">
-                            Passwords do not match.
-                        </div>
-                    </div>
-                    
-                    <!-- Referral Code (Optional) -->
-                    <div class="mb-4">
-                        <label for="referral-code" class="form-label optional-label">Referral Code</label>
-                        <input type="text" class="form-control" id="referral-code" placeholder="Enter referral code (if any)">
-                        <div class="form-text">If you were referred by someone, enter their code here</div>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="agreeTerms" required>
-                            <label class="form-check-label" for="agreeTerms">
-                                I agree to the <a href="#" class="auth-link">Terms of Service</a> and <a href="#" class="auth-link">Privacy Policy</a>
-                            </label>
+
+                        <div class="mb-3">
+                            <label for="signup-email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="signup-email" placeholder="Enter your email"
+                                required>
                             <div class="invalid-feedback">
-                                You must agree before submitting.
+                                Please provide a valid email address.
                             </div>
                         </div>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-auth"><a href="#">Create Account</a></button>
-                    
-                    <div class="auth-divider">
-                        <span class="auth-divider-text">Or continue with</span>
-                    </div>
-                    
-                    <button type="button" class="btn btn-social">
-                        <i class="fab fa-google"></i> Continue with Google
-                    </button>
-                    
-                    <button type="button" class="btn btn-social">
-                        <i class="fab fa-apple"></i> Continue with Apple
-                    </button>
-                    
-                    <div class="auth-switch">
-                        Already have an account? <button type="submit" class="btn btn-auth"><a href="signin">Sign in</a></button>
-                    </div>
-                </form>
+
+                        <!-- Phone Number with Country Code -->
+                        <div class="mb-3">
+                            <label for="signup-phone" class="form-label">Phone Number</label>
+                            <div class="phone-input-group">
+                                <select class="form-control country-select" id="country-code" required>
+                                    <option value="" disabled selected>Code</option>
+                                    <option value="+1">+1 (USA)</option>
+                                    <option value="+44">+44 (UK)</option>
+                                    <option value="+61">+61 (AUS)</option>
+                                    <option value="+49">+49 (GER)</option>
+                                    <option value="+33">+33 (FRA)</option>
+                                    <option value="+81">+81 (JPN)</option>
+                                    <option value="+86">+86 (CHN)</option>
+                                    <option value="+91">+91 (IND)</option>
+                                    <option value="+7">+7 (RUS)</option>
+                                    <option value="+55">+55 (BRA)</option>
+                                    <option value="+34">+34 (ESP)</option>
+                                    <option value="+39">+39 (ITA)</option>
+                                    <option value="+82">+82 (KOR)</option>
+                                    <option value="+31">+31 (NED)</option>
+                                    <option value="+41">+41 (SUI)</option>
+                                    <option value="+46">+46 (SWE)</option>
+                                    <option value="+27">+27 (SA)</option>
+                                    <option value="+971">+971 (UAE)</option>
+                                    <option value="+65">+65 (SGP)</option>
+                                    <option value="+60">+60 (MYS)</option>
+                                </select>
+                                <input type="tel" class="form-control phone-input" id="signup-phone"
+                                    placeholder="Enter your phone number" required>
+                            </div>
+                            <div class="invalid-feedback">
+                                Please provide a valid phone number.
+                            </div>
+                        </div>
+
+                        <div class="mb-3 password-container">
+                            <label for="signup-password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="signup-password"
+                                placeholder="Create a password" required minlength="8">
+                            <button type="button" class="password-toggle" id="toggleSignupPassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <div class="invalid-feedback">
+                                Password must be at least 8 characters long.
+                            </div>
+                        </div>
+
+                        <div class="mb-3 password-container">
+                            <label for="signup-confirm-password" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="signup-confirm-password"
+                                placeholder="Confirm your password" required>
+                            <button type="button" class="password-toggle" id="toggleConfirmPassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <div class="invalid-feedback">
+                                Passwords do not match.
+                            </div>
+                        </div>
+
+                        <!-- Referral Code (Optional) -->
+                        <div class="mb-4">
+                            <label for="referral-code" class="form-label optional-label">Referral Code</label>
+                            <input type="text" class="form-control" id="referral-code"
+                                placeholder="Enter referral code (if any)">
+                            <div class="form-text">If you were referred by someone, enter their code here</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                <label class="form-check-label" for="agreeTerms">
+                                    I agree to the <a href="#" class="auth-link">Terms of Service</a> and <a href="#"
+                                        class="auth-link">Privacy Policy</a>
+                                </label>
+                                <div class="invalid-feedback">
+                                    You must agree before submitting.
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-auth"><a href="#">Create Account</a></button>
+
+                        <div class="auth-divider">
+                            <span class="auth-divider-text">Or continue with</span>
+                        </div>
+
+                        <button type="button" class="btn btn-social">
+                            <i class="fab fa-google"></i> Continue with Google
+                        </button>
+
+                        <button type="button" class="btn btn-social">
+                            <i class="fab fa-apple"></i> Continue with Apple
+                        </button>
+
+                        <div class="auth-switch">
+                            Already have an account? <button type="submit" class="btn btn-auth"><a
+                                    href="{{route('login')}}">Sign in</a></button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
             // Password toggle functionality
             function setupPasswordToggle(toggleId, passwordId) {
                 const toggle = document.getElementById(toggleId);
@@ -778,6 +794,7 @@
                 });
             });
         });
-    </script>
+        </script>
 </body>
+
 </html>

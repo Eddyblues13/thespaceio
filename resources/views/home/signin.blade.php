@@ -363,7 +363,8 @@
                         </button>
 
                         <div class="auth-switch">
-                            Don't have an account? <button type="submit" class="btn btn-auth"><a href="signup">Sign
+                            Don't have an account? <button type="submit" class="btn btn-auth"><a
+                                    href="{{route('register')}}">Sign
                                     up</a></button>
                         </div>
                     </form>
