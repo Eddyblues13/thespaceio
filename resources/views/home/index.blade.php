@@ -250,6 +250,76 @@
             display: none;
         }
 
+        /* Responsive adjustments for KYC modal */
+        @media (max-width: 768px) {
+            .kyc-modal {
+                padding: 20px;
+                max-height: 85vh;
+                margin: 10px;
+            }
+
+            .kyc-title {
+                font-size: 1.6rem;
+            }
+
+            .kyc-icon {
+                font-size: 2.5rem;
+            }
+
+            .kyc-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .form-control {
+                padding: 12px 15px;
+                font-size: 16px;
+                /* Prevents zoom on iOS */
+            }
+
+            .captcha-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .kyc-modal {
+                padding: 15px;
+                max-height: 90vh;
+            }
+
+            .kyc-title {
+                font-size: 1.4rem;
+            }
+
+            .kyc-icon {
+                font-size: 2rem;
+            }
+
+            .form-group {
+                margin-bottom: 12px;
+            }
+
+            .btn-kyc,
+            .btn-enter {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-height: 700px) {
+            .kyc-modal {
+                max-height: 95vh;
+            }
+
+            .kyc-header {
+                margin-bottom: 15px;
+            }
+
+            .form-group {
+                margin-bottom: 12px;
+            }
+        }
+
         /* Floating code numbers background */
         #code-background {
             position: fixed;
@@ -467,13 +537,6 @@
         .btn-tier:hover {
             background: #5dade2;
             transform: translateY(-2px);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
         }
 
         /* 3D Container */
@@ -803,19 +866,6 @@
                 font-size: 3rem;
             }
 
-            .kyc-modal {
-                padding: 20px;
-                max-height: 85vh;
-            }
-
-            .kyc-title {
-                font-size: 1.6rem;
-            }
-
-            .kyc-icon {
-                font-size: 2.5rem;
-            }
-
             .minor-company-logo {
                 height: 30px;
                 margin: 5px;
@@ -829,20 +879,6 @@
             .carousel-control {
                 width: 35px;
                 height: 35px;
-            }
-        }
-
-        @media (max-height: 700px) {
-            .kyc-modal {
-                max-height: 95vh;
-            }
-
-            .kyc-header {
-                margin-bottom: 15px;
-            }
-
-            .form-group {
-                margin-bottom: 12px;
             }
         }
     </style>
@@ -867,13 +903,6 @@
                         <input type="text" class="form-control" id="fullName" placeholder="Enter your full name"
                             required>
                         <div class="error-message" id="nameError">Please enter your full name</div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email address"
-                            required>
-                        <div class="error-message" id="emailError">Please enter a valid email address</div>
                     </div>
 
                     <div class="form-group">
@@ -1638,17 +1667,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // KYC Verification Logic with localStorage
+        // KYC Verification Logic with First Visit Detection
         document.addEventListener('DOMContentLoaded', function() {
-            // Check if user is already verified
-            const isVerified = localStorage.getItem('kycVerified');
+            // Check if this is the user's first visit to the homepage
+            const isFirstHomepageVisit = !localStorage.getItem('homepageVisited');
             
-            if (!isVerified) {
-                // Show KYC overlay only if not verified
+            if (isFirstHomepageVisit) {
+                // Show KYC overlay only on first homepage visit
                 document.getElementById('kyc-overlay').style.display = 'flex';
                 document.body.style.overflow = 'hidden';
+                
+                // Mark homepage as visited
+                localStorage.setItem('homepageVisited', 'true');
             } else {
-                // User is verified, show homepage directly
+                // User has visited before, show homepage directly
                 document.getElementById('kyc-overlay').style.display = 'none';
                 document.getElementById('homepage-content').style.display = 'block';
                 document.body.style.overflow = 'auto';
@@ -1698,7 +1730,7 @@
                 initCompaniesCarousel();
             });
             
-            // Form validation
+            // Form validation (email removed)
             function validateForm() {
                 let isValid = true;
                 
@@ -1709,16 +1741,6 @@
                     isValid = false;
                 } else {
                     document.getElementById('nameError').style.display = 'none';
-                }
-                
-                // Email validation
-                const email = document.getElementById('email').value.trim();
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    document.getElementById('emailError').style.display = 'block';
-                    isValid = false;
-                } else {
-                    document.getElementById('emailError').style.display = 'none';
                 }
                 
                 // Country validation
