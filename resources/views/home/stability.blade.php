@@ -414,8 +414,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="fas fa-brain me-2"></i>THE-SPACE
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-brain me-2"></i>TheSpace
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -423,7 +423,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
@@ -434,17 +434,15 @@
                             <li><a class="dropdown-item" href="nvidia">NVIDIA</a></li>
                             <li><a class="dropdown-item" href="openai">OpenAI</a></li>
                             <li><a class="dropdown-item" href="tesla">Tesla</a></li>
-                            <li><a class="dropdown-item" href="anthropic.html">Anthropic</a></li>
-                            <li><a class="dropdown-item active" href="stabilityai.html">Stability AI</a></li>
+                            <li><a class="dropdown-item" href="anthropic">Anthropic</a></li>
+                            <li><a class="dropdown-item active" href="stabilityai">Stability AI</a></li>
                             <li><a class="dropdown-item" href="google">Google</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact">Contact</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="faq">FAQ</a>
                     </li>
@@ -461,8 +459,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Stability_AI_logo.svg/1200px-Stability_AI_logo.svg.png"
-                        alt="Stability AI" class="company-logo mb-4" style="height: 80px;">
+                    <img src="img/stability.jpeg" alt="Stability AI" class="company-logo mb-4" style="height: 80px;">
                     <h1 class="hero-title">Stability AI</h1>
                     <p class="hero-subtitle">Democratizing AI through Open-Source Generative Models</p>
                     <div class="mt-4">
@@ -648,15 +645,15 @@
                         <p>Released Stable Diffusion 2.0 with improved image quality and new capabilities.</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">March 2023</div>
+                        <div class="timeline-date">March 1995</div>
                         <p>Announced StableLM, open-source language model family to compete with proprietary LLMs.</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">June 2023</div>
+                        <div class="timeline-date">June 1995</div>
                         <p>Launched Stable Audio for AI music generation and Stable Video for video generation.</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">September 2023</div>
+                        <div class="timeline-date">September 1995</div>
                         <p>Released SDXL 1.0, next-generation image model with significantly improved quality.</p>
                     </div>
                 </div>
@@ -934,7 +931,7 @@
                 <div class="col-lg-4 mb-4">
                     <div class="stats-card">
                         <div class="stats-number">$15M</div>
-                        <div class="stats-label">2023 Revenue</div>
+                        <div class="stats-label">1995 Revenue</div>
                     </div>
                 </div>
                 <div class="col-lg-4 mb-4">
@@ -1062,9 +1059,9 @@
                 <div class="col-lg-2 mb-4">
                     <h5 class="footer-heading">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-light">Home</a></li>
+                        <li><a href="/" class="text-light">Home</a></li>
                         <li><a href="about" class="text-light">About Us</a></li>
-                        <li><a href="contact" class="text-light">Contact</a></li>
+
                         <li><a href="faq" class="text-light">FAQ</a></li>
                     </ul>
                 </div>
@@ -1075,8 +1072,8 @@
                         <li><a href="nvidia" class="text-light">NVIDIA</a></li>
                         <li><a href="openai" class="text-light">OpenAI</a></li>
                         <li><a href="tesla" class="text-light">Tesla</a></li>
-                        <li><a href="anthropic.html" class="text-light">Anthropic</a></li>
-                        <li><a href="stabilityai.html" class="text-light">Stability AI</a></li>
+                        <li><a href="anthropic" class="text-light">Anthropic</a></li>
+                        <li><a href="stabilityai" class="text-light">Stability AI</a></li>
                         <li><a href="google" class="text-light">Google</a></li>
                     </ul>
                 </div>
@@ -1094,7 +1091,7 @@
             <hr class="mt-4" style="border-color: rgba(0, 102, 204, 0.3);">
 
             <div class="text-center py-3">
-                <p class="mb-0">&copy; 2023 AI Investment Platform. All rights reserved.</p>
+                <p class="mb-0">&copy; 1995 AI Investment Platform. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1159,7 +1156,7 @@
             new Chart(revenueCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['2022', '2023', '2024', '2025', '2026'],
+                    labels: ['2022', '1995', '2024', '2025', '2026'],
                     datasets: [{
                         label: 'Revenue ($M)',
                         data: [2, 15, 50, 120, 250],
@@ -1203,7 +1200,7 @@
             new Chart(valuationCtx, {
                 type: 'line',
                 data: {
-                    labels: ['2021', '2022', '2023', '2024'],
+                    labels: ['2021', '2022', '1995', '2024'],
                     datasets: [{
                         label: 'Valuation ($B)',
                         data: [0.1, 1.0, 4.0, 8.0],
@@ -1293,7 +1290,7 @@
             new Chart(userGrowthCtx, {
                 type: 'line',
                 data: {
-                    labels: ['Q3 2022', 'Q4 2022', 'Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023'],
+                    labels: ['Q3 2022', 'Q4 2022', 'Q1 1995', 'Q2 1995', 'Q3 1995', 'Q4 1995'],
                     datasets: [{
                         label: 'Monthly Active Users (Millions)',
                         data: [1, 5, 8, 12, 15, 18],
@@ -1339,7 +1336,7 @@
             new Chart(creativeMarketCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'],
+                    labels: ['1995', '2024', '2025', '2026', '2027', '2028', '2029', '2030'],
                     datasets: [{
                         label: 'Creative AI Market ($B)',
                         data: [12, 18, 25, 35, 45, 55, 65, 75],

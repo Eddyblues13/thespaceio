@@ -856,6 +856,7 @@
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
+
             }
 
             #ai-model-container {
@@ -976,7 +977,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="index">
+                <a class="navbar-brand" href="/">
                     <i class="fas fa-brain me-2"></i>TheSpace
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -986,7 +987,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index">Home</a>
+                            <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
@@ -1008,7 +1009,7 @@
                                 <li><a class="dropdown-item" href="cohere">Cohere</a></li>
                                 <li><a class="dropdown-item" href="huggingface">Hugging Face</a></li>
                                 <li><a class="dropdown-item" href="scale">Scale AI</a></li>
-                                <li><a class="dropdown-item" href="runway.html">Runway AI</a></li>
+                                <li><a class="dropdown-item" href="runway">Runway AI</a></li>
                                 <li><a class="dropdown-item" href="character">Character.AI</a></li>
                                 <li><a class="dropdown-item" href="inflection">Inflection AI</a></li>
                                 <li><a class="dropdown-item" href="mistral">Mistral AI</a></li>
@@ -1017,9 +1018,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="about">About Us</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact">Contact</a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="faq">FAQ</a>
                         </li>
@@ -1047,6 +1046,7 @@
                             future to you</p>
                         <div class="mt-4">
                             <a href="#companies" class="btn btn-primary btn-lg me-3">Explore Companies</a>
+                            <br><br>
                             <a href="{{route('login')}}" class="btn btn-outline-light btn-lg">Create Account</a>
                         </div>
                     </div>
@@ -1344,7 +1344,7 @@
                                 <small>Latest Valuation</small>
                             </div>
 
-                            <a href="runway.html" class="btn btn-outline-light mt-3">View Analysis</a>
+                            <a href="runway" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
 
@@ -1632,9 +1632,9 @@
                     <div class="col-lg-2 mb-4">
                         <h4 class="footer-heading">Quick Links</h4>
                         <ul class="list-unstyled">
-                            <li><a href="index" class="text-light">Home</a></li>
+                            <li><a href="/" class="text-light">Home</a></li>
                             <li><a href="about" class="text-light">About Us</a></li>
-                            <li><a href="contact" class="text-light">Contact</a></li>
+
                             <li><a href="faq" class="text-light">FAQ</a></li>
                         </ul>
                     </div>
@@ -1650,14 +1650,14 @@
                     <div class="col-lg-3 mb-4">
                         <h4 class="footer-heading">Contact Info</h4>
                         <ul class="list-unstyled">
-                            <li><i class="fas fa-map-marker-alt me-2"></i> 123 AI Street, Tech City</li>
-                            <li><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</li>
-                            <li><i class="fas fa-envelope me-2"></i> info@aiinvest.com</li>
+                            <li><i class="fas fa-map-marker-alt me-2"></i> 123 AI Street, TechCity, Qatar.</li>
+                            <li><i class="fas fa-phone me-2"></i> +971-3335-5678</li>
+                            <li><i class="fas fa-envelope me-2"></i> info@thspace.io</li>
                         </ul>
                     </div>
                 </div>
                 <div class="text-center pt-3 border-top border-secondary">
-                    <p>&copy; 2023 AI Investment Platform. All rights reserved.</p>
+                    <p>&copy; 1995 AI Investment Platform. All rights reserved.</p>
                 </div>
             </div>
         </footer>
@@ -2140,7 +2140,7 @@
                     { name: 'Google', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png' },
                     { name: 'IBM', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/IBM_logo.svg/1200px-IBM_logo.svg.png' },
                     { name: 'Salesforce', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Salesforce.com_logo.svg/1200px-Salesforce.com_logo.svg.png' },
-                    { name: 'Intel', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Intel_logo_2023.svg/1200px-Intel_logo_2023.svg.png' },
+                    { name: 'Intel', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Intel_logo_1995.svg/1200px-Intel_logo_1995.svg.png' },
                     { name: 'IBM Watson', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_Watson_logo_pos.png/1200px-IBM_Watson_logo_pos.png' },
                     { name: 'Upstart', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Upstart_logo.svg/1200px-Upstart_logo.svg.png' },
                     { name: 'C3.ai', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/C3.ai_Logo.svg/1200px-C3.ai_Logo.svg.png' },

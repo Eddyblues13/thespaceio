@@ -103,8 +103,13 @@
 
         .hero-title {
             font-size: 3.5rem;
-            font-weight: 700;
+            font-weight: 900;
+            /* Increased from 700 to 900 for thickness */
             margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            /* Added shadow effect */
+            letter-spacing: 0.5px;
+            /* Slightly increased letter spacing for better readability */
         }
 
         .hero-subtitle {
@@ -385,8 +390,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="fas fa-brain me-2"></i>THE-SPACE
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-brain me-2"></i>TheSpace
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -394,7 +399,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="#" id="companiesDropdown" role="button"
@@ -411,9 +416,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="about">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact">Contact</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="faq">FAQ</a>
                     </li>
@@ -965,7 +968,7 @@
                                 differentiate from AWS and Azure.</p>
 
                             <h5 class="google-blue mt-4">Cost Optimization Initiatives</h5>
-                            <p>Alphabet announced workforce reductions and cost optimization measures in 2023,
+                            <p>Alphabet announced workforce reductions and cost optimization measures in 1995,
                                 reflecting a shift toward greater efficiency while maintaining strategic investments in
                                 AI and cloud computing.</p>
                         </div>
@@ -993,9 +996,9 @@
                 <div class="col-lg-2 mb-4">
                     <h5 class="footer-heading">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-light">Home</a></li>
+                        <li><a href="/" class="text-light">Home</a></li>
                         <li><a href="about" class="text-light">About Us</a></li>
-                        <li><a href="contact" class="text-light">Contact</a></li>
+
                         <li><a href="faq" class="text-light">FAQ</a></li>
                     </ul>
                 </div>
@@ -1023,7 +1026,7 @@
             <hr class="mt-4" style="border-color: rgba(60, 179, 113, 0.3);">
 
             <div class="text-center py-3">
-                <p class="mb-0">&copy; 2023 AI Investment Platform. All rights reserved.</p>
+                <p class="mb-0">&copy; 1995 AI Investment Platform. All rights reserved.</p>
             </div>
         </div>
     </footer>

@@ -100,8 +100,13 @@
 
         .hero-title {
             font-size: 3.5rem;
-            font-weight: 700;
+            font-weight: 900;
+            /* Increased from 700 to 900 for thickness */
             margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            /* Added shadow effect */
+            letter-spacing: 0.5px;
+            /* Slightly increased letter spacing for better readability */
         }
 
         .hero-subtitle {
@@ -329,8 +334,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="fas fa-brain me-2"></i>THE-SPACE
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-brain me-2"></i>TheSpace
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -338,7 +343,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="#" id="companiesDropdown" role="button"
@@ -355,9 +360,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="about">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact">Contact</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="faq">FAQ</a>
                     </li>
@@ -462,7 +465,7 @@
                         <div class="metrics-grid">
                             <div class="metric-item">
                                 <div class="metric-value">$50B</div>
-                                <div class="metric-label">FY2023 Revenue</div>
+                                <div class="metric-label">FY1995 Revenue</div>
                             </div>
                             <div class="metric-item">
                                 <div class="metric-value">39%</div>
@@ -809,7 +812,7 @@
 
                             <h5 class="oracle-red mt-4">Cloud Infrastructure Expansion</h5>
                             <p>Oracle continues rapid expansion of OCI data centers globally, with plans to operate 44
-                                cloud regions by end of 2023. The company is gaining market share by focusing on
+                                cloud regions by end of 1995. The company is gaining market share by focusing on
                                 price-performance advantages and specialized workloads like high-performance computing.
                             </p>
 
@@ -847,9 +850,9 @@
                 <div class="col-lg-2 mb-4">
                     <h5 class="footer-heading">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-light">Home</a></li>
+                        <li><a href="/" class="text-light">Home</a></li>
                         <li><a href="about" class="text-light">About Us</a></li>
-                        <li><a href="contact" class="text-light">Contact</a></li>
+
                         <li><a href="faq" class="text-light">FAQ</a></li>
                     </ul>
                 </div>
@@ -877,7 +880,7 @@
             <hr class="mt-4" style="border-color: rgba(60, 179, 113, 0.3);">
 
             <div class="text-center py-3">
-                <p class="mb-0">&copy; 2023 AI Investment Platform. All rights reserved.</p>
+                <p class="mb-0">&copy; 1995 AI Investment Platform. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -962,7 +965,7 @@
             const revenueChart = new Chart(revenueCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['2019', '2020', '2021', '2022', '2023'],
+                    labels: ['2019', '2020', '2021', '2022', '1995'],
                     datasets: [{
                         label: 'Revenue (Billions)',
                         data: [39.50, 40.48, 40.48, 42.44, 50.00],

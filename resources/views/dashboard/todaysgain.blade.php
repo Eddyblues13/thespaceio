@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,14 +24,14 @@
             --warning-orange: #ff9800;
             --danger-red: #f44336;
         }
-        
+
         body {
             background-color: var(--dark-blue);
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
         }
-        
+
         /* Sidebar */
         .sidebar {
             background-color: var(--primary-blue);
@@ -39,7 +40,7 @@
             border-right: 1px solid var(--border-color);
             transition: all 0.3s;
         }
-        
+
         .sidebar .navbar-brand {
             color: white;
             font-weight: bold;
@@ -47,30 +48,31 @@
             border-bottom: 1px solid var(--border-color);
             text-align: center;
         }
-        
+
         .sidebar .nav-link {
             color: #a8c6e5;
             padding: 12px 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s;
         }
-        
-        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
             background-color: var(--light-blue);
             color: white;
         }
-        
+
         .sidebar .nav-link i {
             width: 25px;
             text-align: center;
             margin-right: 10px;
         }
-        
+
         /* Main Content */
         .main-content {
             padding: 20px;
         }
-        
+
         /* Top Bar */
         .top-bar {
             background-color: var(--primary-blue);
@@ -79,12 +81,12 @@
             margin-bottom: 20px;
             border-radius: 8px;
         }
-        
+
         .user-info {
             display: flex;
             align-items: center;
         }
-        
+
         .user-avatar {
             width: 40px;
             height: 40px;
@@ -97,7 +99,7 @@
             font-weight: bold;
             margin-right: 10px;
         }
-        
+
         /* Dashboard Cards */
         .dashboard-card {
             background-color: var(--primary-blue);
@@ -107,36 +109,36 @@
             border: 1px solid var(--border-color);
             transition: transform 0.3s;
         }
-        
+
         .dashboard-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-blue);
         }
-        
+
         .card-title {
             font-size: 1.1rem;
             color: #a8c6e5;
             margin-bottom: 15px;
         }
-        
+
         .card-value {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 5px;
         }
-        
+
         .card-change {
             font-size: 0.9rem;
         }
-        
+
         .positive {
             color: var(--success-green);
         }
-        
+
         .negative {
             color: var(--danger-red);
         }
-        
+
         /* Tier Cards */
         .tier-card {
             background-color: var(--primary-blue);
@@ -147,12 +149,12 @@
             transition: all 0.3s;
             height: 100%;
         }
-        
+
         .tier-card:hover {
             border-color: var(--accent-blue);
             transform: translateY(-5px);
         }
-        
+
         .tier-header {
             display: flex;
             justify-content: space-between;
@@ -161,14 +163,14 @@
             padding-bottom: 15px;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .tier-title {
             font-size: 1.4rem;
             font-weight: 600;
             color: var(--text-color);
             margin: 0;
         }
-        
+
         .tier-badge {
             background-color: var(--accent-blue);
             color: white;
@@ -177,48 +179,48 @@
             font-weight: 600;
             font-size: 0.9rem;
         }
-        
+
         .tier-range {
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 10px;
             color: var(--text-color);
         }
-        
+
         .gain-range {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 15px;
             color: var(--success-green);
         }
-        
+
         .tier-features {
             list-style: none;
             padding: 0;
             margin-bottom: 20px;
         }
-        
+
         .tier-features li {
             padding: 8px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             color: #a8c6e5;
         }
-        
+
         .tier-features li:last-child {
             border-bottom: none;
         }
-        
+
         .tier-features li i {
             color: var(--accent-blue);
             margin-right: 10px;
         }
-        
+
         /* Performance Chart */
         .chart-container {
             height: 300px;
             position: relative;
         }
-        
+
         /* Insights Section */
         .insights-card {
             background-color: var(--primary-blue);
@@ -227,7 +229,7 @@
             margin-bottom: 25px;
             border: 1px solid var(--border-color);
         }
-        
+
         .insights-header {
             display: flex;
             justify-content: space-between;
@@ -236,28 +238,28 @@
             padding-bottom: 15px;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .insights-title {
             font-size: 1.4rem;
             font-weight: 600;
             color: var(--text-color);
             margin: 0;
         }
-        
+
         .insights-content {
             color: #a8c6e5;
             line-height: 1.7;
         }
-        
+
         .insights-list {
             padding-left: 20px;
             margin-top: 15px;
         }
-        
+
         .insights-list li {
             margin-bottom: 10px;
         }
-        
+
         /* Performance Sources */
         .sources-container {
             display: flex;
@@ -265,7 +267,7 @@
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .source-item {
             flex: 1;
             min-width: 150px;
@@ -275,86 +277,87 @@
             text-align: center;
             border: 1px solid var(--border-color);
         }
-        
+
         .source-percent {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--accent-blue);
             margin-bottom: 5px;
         }
-        
+
         .source-label {
             font-size: 0.9rem;
             color: #a8c6e5;
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .sidebar {
                 min-height: auto;
                 width: 100%;
             }
-            
+
             .card-value {
                 font-size: 1.5rem;
             }
-            
+
             .source-item {
                 min-width: 120px;
             }
         }
-        
+
         @media (max-width: 576px) {
             .main-content {
                 padding: 15px 10px;
             }
-            
+
             .top-bar {
                 padding: 10px 15px;
             }
-            
+
             .dashboard-card {
                 padding: 15px;
             }
-            
+
             .tier-card {
                 padding: 20px 15px;
             }
-            
+
             .tier-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
             }
-            
+
             .sources-container {
                 flex-direction: column;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
             <div class="col-md-3 col-lg-2 sidebar">
                 <div class="d-flex flex-column">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/">
                         <i class="fas fa-robot me-2"></i>Tenex
                     </a>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard.html">
+                            <a class="nav-link" href="dashboard">
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="todaysgain.html">
+                            <a class="nav-link active" href="todaysgain">
                                 <i class="fas fa-chart-line"></i> Today's Gain
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="portfolio.html">
+                            <a class="nav-link" href="portfolio">
                                 <i class="fas fa-wallet"></i> Portfolio
                             </a>
                         </li>
@@ -364,7 +367,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="transactions.html">
+                            <a class="nav-link" href="transactions">
                                 <i class="fas fa-exchange-alt"></i> Transactions
                             </a>
                         </li>
@@ -374,19 +377,19 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="settings.html">
+                            <a class="nav-link" href="settings">
                                 <i class="fas fa-cog"></i> Settings
                             </a>
                         </li>
                         <li class="nav-item mt-4">
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="/">
                                 <i class="fas fa-arrow-left"></i> Back to Main Site
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-            
+
             <!-- Main Content -->
             <div class="col-md-9 col-lg-10 main-content">
                 <!-- Top Bar -->
@@ -400,7 +403,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Today's Gain Summary -->
                 <div class="row">
                     <div class="col-md-6 col-lg-4">
@@ -431,7 +434,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Performance Sources -->
                 <div class="dashboard-card">
                     <div class="card-title">Performance Source</div>
@@ -450,7 +453,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Performance Chart -->
                 <div class="dashboard-card">
                     <div class="card-title">Daily Gain Trend (Last 30 Days)</div>
@@ -458,13 +461,14 @@
                         <canvas id="gainChart"></canvas>
                     </div>
                 </div>
-                
+
                 <!-- Investment Tiers -->
                 <div class="row">
                     <div class="col-12">
-                        <h3 class="mb-4" style="color: var(--accent-blue);">Tenex Investor Portfolio — Today's Gain Range</h3>
+                        <h3 class="mb-4" style="color: var(--accent-blue);">Tenex Investor Portfolio — Today's Gain
+                            Range</h3>
                     </div>
-                    
+
                     <!-- Starter Tier -->
                     <div class="col-lg-6">
                         <div class="tier-card">
@@ -485,7 +489,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Growth Tier -->
                     <div class="col-lg-6">
                         <div class="tier-card">
@@ -506,7 +510,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Elite Tier -->
                     <div class="col-lg-6">
                         <div class="tier-card">
@@ -527,7 +531,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Enterprise Tier -->
                     <div class="col-lg-6">
                         <div class="tier-card">
@@ -548,7 +552,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Institutional Tier -->
                     <div class="col-lg-12">
                         <div class="tier-card">
@@ -570,23 +574,25 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Additional Insights -->
                 <div class="insights-card">
                     <div class="insights-header">
                         <h3 class="insights-title">📊 Additional Insights</h3>
                     </div>
                     <div class="insights-content">
-                        <p>Tenex uses AI market analytics to rebalance portfolios daily, optimizing for the best performance across its investments.</p>
-                        
+                        <p>Tenex uses AI market analytics to rebalance portfolios daily, optimizing for the best
+                            performance across its investments.</p>
+
                         <p>Daily gain fluctuations depend on:</p>
                         <ul class="insights-list">
                             <li><strong>Market movement of AI giants</strong> (Nvidia, Microsoft, Amazon, etc.)</li>
                             <li><strong>Valuation changes in Tenex's private AI startup holdings</strong></li>
                             <li><strong>Performance of Tenex's own ETF and AI fund</strong></li>
                         </ul>
-                        
-                        <p>Our proprietary algorithms continuously analyze market conditions, company performance metrics, and macroeconomic indicators to maximize returns while managing risk exposure.</p>
+
+                        <p>Our proprietary algorithms continuously analyze market conditions, company performance
+                            metrics, and macroeconomic indicators to maximize returns while managing risk exposure.</p>
                     </div>
                 </div>
             </div>
@@ -595,7 +601,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         // Initialize charts when the page loads
         document.addEventListener('DOMContentLoaded', function() {
@@ -680,4 +686,5 @@
         });
     </script>
 </body>
+
 </html>

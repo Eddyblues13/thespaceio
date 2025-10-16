@@ -412,7 +412,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
                 <i class="fas fa-brain me-2"></i>TheSpace
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -421,7 +421,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
@@ -438,9 +438,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="about">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact">Contact</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="faq">FAQ</a>
                     </li>
@@ -655,7 +653,7 @@
             <div class="TheSpace-cta">
                 <h3>✨ TheSpace is not just an investment. It is ownership of the future.</h3>
                 <p class="mb-4">Join us. Invest in intelligence. Invest in TheSpace.</p>
-                <a href="contact" class="btn btn-primary btn-lg">Get Started Today</a>
+                <a href="" class="btn btn-primary btn-lg">Get Started Today</a>
             </div>
         </div>
     </section>
@@ -723,9 +721,9 @@
                 <div class="col-lg-2 mb-4">
                     <h5 class="footer-heading">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-light">Home</a></li>
+                        <li><a href="/" class="text-light">Home</a></li>
                         <li><a href="about" class="text-light">About Us</a></li>
-                        <li><a href="contact" class="text-light">Contact</a></li>
+
                         <li><a href="faq" class="text-light">FAQ</a></li>
                     </ul>
                 </div>
@@ -753,7 +751,7 @@
             <hr class="mt-4" style="border-color: rgba(58, 123, 213, 0.3);">
 
             <div class="text-center py-3">
-                <p class="mb-0">&copy; 2023 AI Investment Platform. All rights reserved.</p>
+                <p class="mb-0">&copy; 1995 AI Investment Platform. All rights reserved.</p>
             </div>
         </div>
     </footer>

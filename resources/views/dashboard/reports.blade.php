@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,14 +24,14 @@
             --warning-orange: #ff9800;
             --danger-red: #f44336;
         }
-        
+
         body {
             background-color: var(--dark-blue);
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
         }
-        
+
         /* Sidebar */
         .sidebar {
             background-color: var(--primary-blue);
@@ -39,7 +40,7 @@
             border-right: 1px solid var(--border-color);
             transition: all 0.3s;
         }
-        
+
         .sidebar .navbar-brand {
             color: white;
             font-weight: bold;
@@ -47,30 +48,31 @@
             border-bottom: 1px solid var(--border-color);
             text-align: center;
         }
-        
+
         .sidebar .nav-link {
             color: #a8c6e5;
             padding: 12px 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s;
         }
-        
-        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
             background-color: var(--light-blue);
             color: white;
         }
-        
+
         .sidebar .nav-link i {
             width: 25px;
             text-align: center;
             margin-right: 10px;
         }
-        
+
         /* Main Content */
         .main-content {
             padding: 20px;
         }
-        
+
         /* Top Bar */
         .top-bar {
             background-color: var(--primary-blue);
@@ -79,12 +81,12 @@
             margin-bottom: 20px;
             border-radius: 8px;
         }
-        
+
         .user-info {
             display: flex;
             align-items: center;
         }
-        
+
         .user-avatar {
             width: 40px;
             height: 40px;
@@ -97,7 +99,7 @@
             font-weight: bold;
             margin-right: 10px;
         }
-        
+
         /* Dashboard Cards */
         .dashboard-card {
             background-color: var(--primary-blue);
@@ -107,36 +109,36 @@
             border: 1px solid var(--border-color);
             transition: transform 0.3s;
         }
-        
+
         .dashboard-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-blue);
         }
-        
+
         .card-title {
             font-size: 1.1rem;
             color: #a8c6e5;
             margin-bottom: 15px;
         }
-        
+
         .card-value {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 5px;
         }
-        
+
         .card-change {
             font-size: 0.9rem;
         }
-        
+
         .positive {
             color: var(--success-green);
         }
-        
+
         .negative {
             color: var(--danger-red);
         }
-        
+
         /* Report Cards */
         .report-card {
             background-color: var(--primary-blue);
@@ -146,37 +148,37 @@
             border: 1px solid var(--border-color);
             transition: all 0.3s;
         }
-        
+
         .report-card:hover {
             border-color: var(--accent-blue);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .report-icon {
             font-size: 2rem;
             color: var(--accent-blue);
             margin-bottom: 15px;
         }
-        
+
         .report-title {
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 10px;
             color: white;
         }
-        
+
         .report-description {
             font-size: 0.9rem;
             color: #a8c6e5;
             margin-bottom: 15px;
         }
-        
+
         /* Charts */
         .chart-container {
             height: 300px;
             position: relative;
         }
-        
+
         /* Quick Actions */
         .quick-actions {
             display: grid;
@@ -184,7 +186,7 @@
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .action-btn {
             background-color: var(--light-blue);
             border: 1px solid var(--border-color);
@@ -196,19 +198,19 @@
             text-decoration: none;
             display: block;
         }
-        
+
         .action-btn:hover {
             background-color: var(--accent-blue);
             color: white;
             transform: translateY(-2px);
         }
-        
+
         .action-btn i {
             font-size: 1.5rem;
             margin-bottom: 8px;
             display: block;
         }
-        
+
         /* Report List */
         .report-list {
             background-color: var(--primary-blue);
@@ -216,32 +218,32 @@
             overflow: hidden;
             border: 1px solid var(--border-color);
         }
-        
+
         .report-list table {
             margin-bottom: 0;
             color: var(--text-color);
         }
-        
+
         .report-list thead {
             background-color: var(--accent-blue);
             color: white;
         }
-        
+
         .report-list th {
             padding: 15px;
             font-weight: 600;
             border: none;
         }
-        
+
         .report-list td {
             padding: 15px;
             border-color: var(--border-color);
         }
-        
+
         .report-list tbody tr:nth-child(even) {
             background-color: rgba(255, 255, 255, 0.05);
         }
-        
+
         .report-status {
             display: inline-block;
             padding: 4px 8px;
@@ -249,22 +251,22 @@
             font-size: 0.8rem;
             font-weight: 600;
         }
-        
+
         .status-completed {
             background-color: rgba(0, 200, 83, 0.2);
             color: var(--success-green);
         }
-        
+
         .status-pending {
             background-color: rgba(255, 152, 0, 0.2);
             color: var(--warning-orange);
         }
-        
+
         .status-processing {
             background-color: rgba(0, 82, 163, 0.2);
             color: var(--accent-blue);
         }
-        
+
         /* Performance Metrics */
         .metrics-grid {
             display: grid;
@@ -272,7 +274,7 @@
             gap: 20px;
             margin-top: 30px;
         }
-        
+
         .metric-card {
             background-color: var(--light-blue);
             border-radius: 8px;
@@ -280,18 +282,18 @@
             text-align: center;
             border: 1px solid var(--border-color);
         }
-        
+
         .metric-value {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 5px;
         }
-        
+
         .metric-label {
             font-size: 0.9rem;
             color: #a8c6e5;
         }
-        
+
         /* Report Filters */
         .filter-section {
             background-color: var(--light-blue);
@@ -300,18 +302,18 @@
             margin-bottom: 20px;
             border: 1px solid var(--border-color);
         }
-        
+
         .filter-group {
             margin-bottom: 15px;
         }
-        
+
         .filter-label {
             font-size: 0.9rem;
             color: #a8c6e5;
             margin-bottom: 5px;
             display: block;
         }
-        
+
         /* Report Preview */
         .report-preview {
             background-color: var(--light-blue);
@@ -320,92 +322,94 @@
             margin-bottom: 20px;
             border: 1px solid var(--border-color);
         }
-        
+
         .preview-header {
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 15px;
             margin-bottom: 20px;
         }
-        
+
         .preview-title {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 5px;
         }
-        
+
         .preview-subtitle {
             font-size: 1rem;
             color: #a8c6e5;
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .sidebar {
                 min-height: auto;
                 width: 100%;
             }
-            
+
             .card-value {
                 font-size: 1.5rem;
             }
-            
+
             .report-list {
                 overflow-x: auto;
             }
-            
+
             .metrics-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
-            
+
             .quick-actions {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-        
+
         @media (max-width: 576px) {
             .main-content {
                 padding: 15px 10px;
             }
-            
+
             .top-bar {
                 padding: 10px 15px;
             }
-            
+
             .dashboard-card {
                 padding: 15px;
             }
-            
+
             .metrics-grid {
                 grid-template-columns: 1fr 1fr;
             }
-            
+
             .quick-actions {
                 grid-template-columns: 1fr;
             }
-            
-            .report-list td, .report-list th {
+
+            .report-list td,
+            .report-list th {
                 padding: 10px;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
             <div class="col-md-3 col-lg-2 sidebar">
                 <div class="d-flex flex-column">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/">
                         <i class="fas fa-robot me-2"></i>Tenex
                     </a>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard.html">
+                            <a class="nav-link" href="dashboard">
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="portfolio.html">
+                            <a class="nav-link" href="portfolio">
                                 <i class="fas fa-chart-line"></i> Portfolio
                             </a>
                         </li>
@@ -415,29 +419,29 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="transactions.html">
+                            <a class="nav-link" href="transactions">
                                 <i class="fas fa-exchange-alt"></i> Transactions
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="reports.html">
+                            <a class="nav-link active" href="reports">
                                 <i class="fas fa-file-invoice-dollar"></i> Reports
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="settings.html">
+                            <a class="nav-link" href="settings">
                                 <i class="fas fa-cog"></i> Settings
                             </a>
                         </li>
                         <li class="nav-item mt-4">
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="/">
                                 <i class="fas fa-arrow-left"></i> Back to Main Site
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-            
+
             <!-- Main Content -->
             <div class="col-md-9 col-lg-10 main-content">
                 <!-- Top Bar -->
@@ -451,7 +455,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Quick Actions -->
                 <div class="dashboard-card">
                     <div class="card-title">Quick Actions</div>
@@ -482,7 +486,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Report Overview -->
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
@@ -522,7 +526,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Report Performance Metrics -->
                 <div class="dashboard-card">
                     <div class="card-title">Report Performance Metrics</div>
@@ -553,7 +557,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Report Generation Chart -->
                 <div class="dashboard-card">
                     <div class="card-title">Report Generation Activity</div>
@@ -561,7 +565,7 @@
                         <canvas id="reportChart"></canvas>
                     </div>
                 </div>
-                
+
                 <!-- Report Templates -->
                 <div class="dashboard-card">
                     <div class="card-title d-flex justify-content-between align-items-center">
@@ -661,7 +665,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Filters Section -->
                 <div class="filter-section">
                     <div class="row">
@@ -725,7 +729,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Recent Reports -->
                 <div class="dashboard-card">
                     <div class="card-title d-flex justify-content-between align-items-center">
@@ -894,7 +898,7 @@
                         </table>
                     </div>
                 </div>
-                
+
                 <!-- Report Preview Section -->
                 <div class="dashboard-card">
                     <div class="card-title">Report Preview</div>
@@ -907,7 +911,8 @@
                             <div class="col-md-6">
                                 <h6>Executive Summary</h6>
                                 <p class="text-muted">
-                                    Your portfolio achieved a 23.9% return year-to-date, outperforming the S&P 500 by 8.2%. 
+                                    Your portfolio achieved a 23.9% return year-to-date, outperforming the S&P 500 by
+                                    8.2%.
                                     The AI Growth Fund was the top performer with 28.7% returns.
                                 </p>
                                 <h6 class="mt-3">Key Metrics</h6>
@@ -941,7 +946,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         // Initialize charts when the page loads
         document.addEventListener('DOMContentLoaded', function() {
@@ -1049,4 +1054,5 @@
         });
     </script>
 </body>
+
 </html>

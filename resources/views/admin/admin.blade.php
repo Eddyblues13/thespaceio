@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,14 +25,14 @@
             --danger-red: #f44336;
             --admin-purple: #6f42c1;
         }
-        
+
         body {
             background-color: var(--dark-blue);
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
         }
-        
+
         /* Sidebar */
         .sidebar {
             background-color: var(--primary-blue);
@@ -40,7 +41,7 @@
             border-right: 1px solid var(--border-color);
             transition: all 0.3s;
         }
-        
+
         .sidebar .navbar-brand {
             color: white;
             font-weight: bold;
@@ -48,25 +49,26 @@
             border-bottom: 1px solid var(--border-color);
             text-align: center;
         }
-        
+
         .sidebar .nav-link {
             color: #a8c6e5;
             padding: 12px 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s;
         }
-        
-        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
             background-color: var(--light-blue);
             color: white;
         }
-        
+
         .sidebar .nav-link i {
             width: 25px;
             text-align: center;
             margin-right: 10px;
         }
-        
+
         .admin-badge {
             background-color: var(--admin-purple);
             color: white;
@@ -75,12 +77,12 @@
             border-radius: 10px;
             margin-left: 5px;
         }
-        
+
         /* Main Content */
         .main-content {
             padding: 20px;
         }
-        
+
         /* Top Bar */
         .top-bar {
             background-color: var(--primary-blue);
@@ -89,12 +91,12 @@
             margin-bottom: 20px;
             border-radius: 8px;
         }
-        
+
         .user-info {
             display: flex;
             align-items: center;
         }
-        
+
         .user-avatar {
             width: 40px;
             height: 40px;
@@ -107,7 +109,7 @@
             font-weight: bold;
             margin-right: 10px;
         }
-        
+
         /* Dashboard Cards */
         .dashboard-card {
             background-color: var(--primary-blue);
@@ -117,36 +119,36 @@
             border: 1px solid var(--border-color);
             transition: transform 0.3s;
         }
-        
+
         .dashboard-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-blue);
         }
-        
+
         .card-title {
             font-size: 1.1rem;
             color: #a8c6e5;
             margin-bottom: 15px;
         }
-        
+
         .card-value {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 5px;
         }
-        
+
         .card-change {
             font-size: 0.9rem;
         }
-        
+
         .positive {
             color: var(--success-green);
         }
-        
+
         .negative {
             color: var(--danger-red);
         }
-        
+
         /* Admin Actions */
         .admin-actions {
             display: flex;
@@ -154,7 +156,7 @@
             gap: 15px;
             margin-bottom: 30px;
         }
-        
+
         .admin-action {
             flex: 1;
             min-width: 200px;
@@ -166,22 +168,22 @@
             transition: all 0.3s;
             border: 2px solid transparent;
         }
-        
+
         .admin-action:hover {
             background-color: var(--accent-blue);
             transform: translateY(-3px);
         }
-        
+
         .admin-action.active {
             border-color: var(--success-green);
             background-color: var(--light-blue);
         }
-        
+
         .action-icon {
             font-size: 2.5rem;
             margin-bottom: 15px;
         }
-        
+
         /* Forms */
         .admin-form {
             background-color: var(--primary-blue);
@@ -190,26 +192,28 @@
             border: 1px solid var(--border-color);
             margin-bottom: 20px;
         }
-        
+
         .form-label {
             color: #a8c6e5;
             margin-bottom: 8px;
         }
-        
-        .form-control, .form-select {
+
+        .form-control,
+        .form-select {
             background-color: var(--dark-blue);
             border: 1px solid var(--border-color);
             color: var(--text-color);
             padding: 10px 15px;
         }
-        
-        .form-control:focus, .form-select:focus {
+
+        .form-control:focus,
+        .form-select:focus {
             background-color: var(--dark-blue);
             border-color: var(--accent-blue);
             color: var(--text-color);
             box-shadow: 0 0 0 0.25rem rgba(0, 82, 163, 0.25);
         }
-        
+
         .btn-admin {
             background-color: var(--admin-purple);
             color: white;
@@ -219,11 +223,11 @@
             font-weight: 600;
             transition: background-color 0.3s;
         }
-        
+
         .btn-admin:hover {
             background-color: #5a359d;
         }
-        
+
         /* Users Table */
         .users-table {
             background-color: var(--primary-blue);
@@ -231,41 +235,41 @@
             overflow: hidden;
             border: 1px solid var(--border-color);
         }
-        
+
         .users-table table {
             margin-bottom: 0;
             color: var(--text-color);
         }
-        
+
         .users-table thead {
             background-color: var(--admin-purple);
             color: white;
         }
-        
+
         .users-table th {
             padding: 15px;
             font-weight: 600;
             border: none;
         }
-        
+
         .users-table td {
             padding: 15px;
             border-color: var(--border-color);
         }
-        
+
         .users-table tbody tr:nth-child(even) {
             background-color: rgba(255, 255, 255, 0.05);
         }
-        
+
         .users-table tbody tr:hover {
             background-color: rgba(0, 82, 163, 0.1);
         }
-        
+
         .user-actions {
             display: flex;
             gap: 5px;
         }
-        
+
         .btn-action {
             padding: 5px 10px;
             border-radius: 4px;
@@ -273,22 +277,22 @@
             border: none;
             cursor: pointer;
         }
-        
+
         .btn-deposit {
             background-color: var(--success-green);
             color: white;
         }
-        
+
         .btn-withdraw {
             background-color: var(--warning-orange);
             color: white;
         }
-        
+
         .btn-edit {
             background-color: var(--accent-blue);
             color: white;
         }
-        
+
         /* Status badges */
         .status-badge {
             padding: 5px 10px;
@@ -296,136 +300,137 @@
             font-size: 0.8rem;
             font-weight: 600;
         }
-        
+
         .status-active {
             background-color: rgba(0, 200, 83, 0.2);
             color: var(--success-green);
         }
-        
+
         .status-pending {
             background-color: rgba(255, 152, 0, 0.2);
             color: var(--warning-orange);
         }
-        
+
         .status-suspended {
             background-color: rgba(244, 67, 54, 0.2);
             color: var(--danger-red);
         }
-        
+
         /* Modal */
         .modal-content {
             background-color: var(--primary-blue);
             color: var(--text-color);
             border: 1px solid var(--border-color);
         }
-        
+
         .modal-header {
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .modal-footer {
             border-top: 1px solid var(--border-color);
         }
-        
+
         /* Charts */
         .chart-container {
             height: 300px;
             position: relative;
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .sidebar {
                 min-height: auto;
                 width: 100%;
             }
-            
+
             .admin-action {
                 min-width: 150px;
             }
-            
+
             .card-value {
                 font-size: 1.5rem;
             }
-            
+
             .users-table {
                 overflow-x: auto;
             }
         }
-        
+
         @media (max-width: 576px) {
             .main-content {
                 padding: 15px 10px;
             }
-            
+
             .top-bar {
                 padding: 10px 15px;
             }
-            
+
             .dashboard-card {
                 padding: 15px;
             }
-            
+
             .admin-actions {
                 flex-direction: column;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
             <div class="col-md-3 col-lg-2 sidebar">
                 <div class="d-flex flex-column">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/">
                         <i class="fas fa-robot me-2"></i>Tenex <span class="admin-badge">ADMIN</span>
                     </a>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="admin-dashboard.html">
+                            <a class="nav-link active" href="admin-dashboard">
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-users.html">
+                            <a class="nav-link" href="admin-users">
                                 <i class="fas fa-users"></i> User Management
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-transactions.html">
+                            <a class="nav-link" href="admin-transactions">
                                 <i class="fas fa-exchange-alt"></i> Transactions
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-deposits.html">
+                            <a class="nav-link" href="admin-deposits">
                                 <i class="fas fa-plus-circle"></i> Deposit Control
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-withdrawals.html">
+                            <a class="nav-link" href="admin-withdrawals">
                                 <i class="fas fa-minus-circle"></i> Withdrawal Control
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-reports.html">
+                            <a class="nav-link" href="admin-reports">
                                 <i class="fas fa-chart-bar"></i> Reports & Analytics
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-settings.html">
+                            <a class="nav-link" href="admin-settings">
                                 <i class="fas fa-cogs"></i> System Settings
                             </a>
                         </li>
                         <li class="nav-item mt-4">
-                            <a class="nav-link" href="dashboard.html">
+                            <a class="nav-link" href="dashboard">
                                 <i class="fas fa-arrow-left"></i> User Dashboard
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-            
+
             <!-- Main Content -->
             <div class="col-md-9 col-lg-10 main-content">
                 <!-- Top Bar -->
@@ -439,7 +444,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Stats Overview -->
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
@@ -479,7 +484,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Quick Actions -->
                 <div class="row mb-4">
                     <div class="col-12">
@@ -518,7 +523,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Action Forms and User Management -->
                 <div class="row">
                     <!-- Action Forms -->
@@ -537,12 +542,13 @@
                                         <option value="user4">Emily Davis (ED-7123)</option>
                                     </select>
                                 </div>
-                                
+
                                 <div class="mb-3">
                                     <label class="form-label">Deposit Amount (USD)</label>
-                                    <input type="number" class="form-control" id="depositAmount" placeholder="0.00" min="1" step="0.01">
+                                    <input type="number" class="form-control" id="depositAmount" placeholder="0.00"
+                                        min="1" step="0.01">
                                 </div>
-                                
+
                                 <div class="mb-3">
                                     <label class="form-label">Deposit Method</label>
                                     <select class="form-select" id="depositMethod">
@@ -552,16 +558,17 @@
                                         <option value="manual">Manual Adjustment</option>
                                     </select>
                                 </div>
-                                
+
                                 <div class="mb-3">
                                     <label class="form-label">Reference/Notes</label>
-                                    <textarea class="form-control" id="depositNotes" rows="2" placeholder="Add any reference or notes..."></textarea>
+                                    <textarea class="form-control" id="depositNotes" rows="2"
+                                        placeholder="Add any reference or notes..."></textarea>
                                 </div>
-                                
+
                                 <button type="submit" class="btn btn-admin w-100">Process Deposit</button>
                             </form>
                         </div>
-                        
+
                         <!-- Add Profit Form -->
                         <div class="admin-form" id="add-profit-form" style="display: none;">
                             <div class="card-title">Add Investment Profit</div>
@@ -576,12 +583,13 @@
                                         <option value="user4">Emily Davis (ED-7123)</option>
                                     </select>
                                 </div>
-                                
+
                                 <div class="mb-3">
                                     <label class="form-label">Profit Amount (USD)</label>
-                                    <input type="number" class="form-control" id="profitAmount" placeholder="0.00" min="0.01" step="0.01">
+                                    <input type="number" class="form-control" id="profitAmount" placeholder="0.00"
+                                        min="0.01" step="0.01">
                                 </div>
-                                
+
                                 <div class="mb-3">
                                     <label class="form-label">Investment Plan</label>
                                     <select class="form-select" id="profitPlan">
@@ -591,16 +599,17 @@
                                         <option value="manual">Manual Profit</option>
                                     </select>
                                 </div>
-                                
+
                                 <div class="mb-3">
                                     <label class="form-label">Description</label>
-                                    <textarea class="form-control" id="profitDescription" rows="2" placeholder="Describe the profit source..."></textarea>
+                                    <textarea class="form-control" id="profitDescription" rows="2"
+                                        placeholder="Describe the profit source..."></textarea>
                                 </div>
-                                
+
                                 <button type="submit" class="btn btn-admin w-100">Add Profit</button>
                             </form>
                         </div>
-                        
+
                         <!-- Process Withdrawal Form -->
                         <div class="admin-form" id="process-withdrawal-form" style="display: none;">
                             <div class="card-title">Process Withdrawal Request</div>
@@ -614,41 +623,47 @@
                                     <option value="withdrawal4">Emily Davis - $750 (Cash App)</option>
                                 </select>
                             </div>
-                            
+
                             <div class="mb-3">
                                 <label class="form-label">Action</label>
                                 <div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="withdrawalAction" id="approveWithdrawal" value="approve" checked>
+                                        <input class="form-check-input" type="radio" name="withdrawalAction"
+                                            id="approveWithdrawal" value="approve" checked>
                                         <label class="form-check-label" for="approveWithdrawal">Approve</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="withdrawalAction" id="rejectWithdrawal" value="reject">
+                                        <input class="form-check-input" type="radio" name="withdrawalAction"
+                                            id="rejectWithdrawal" value="reject">
                                         <label class="form-check-label" for="rejectWithdrawal">Reject</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="withdrawalAction" id="holdWithdrawal" value="hold">
+                                        <input class="form-check-input" type="radio" name="withdrawalAction"
+                                            id="holdWithdrawal" value="hold">
                                         <label class="form-check-label" for="holdWithdrawal">Put on Hold</label>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="mb-3">
                                 <label class="form-label">Admin Notes</label>
-                                <textarea class="form-control" id="withdrawalNotes" rows="2" placeholder="Add notes for this action..."></textarea>
+                                <textarea class="form-control" id="withdrawalNotes" rows="2"
+                                    placeholder="Add notes for this action..."></textarea>
                             </div>
-                            
-                            <button type="button" class="btn btn-admin w-100" id="processWithdrawalBtn">Process Withdrawal</button>
+
+                            <button type="button" class="btn btn-admin w-100" id="processWithdrawalBtn">Process
+                                Withdrawal</button>
                         </div>
                     </div>
-                    
+
                     <!-- User Management -->
                     <div class="col-lg-7">
                         <div class="dashboard-card">
                             <div class="card-title d-flex justify-content-between align-items-center">
                                 <span>User Management</span>
                                 <div>
-                                    <input type="text" class="form-control form-control-sm" placeholder="Search users..." style="display: inline-block; width: auto;">
+                                    <input type="text" class="form-control form-control-sm"
+                                        placeholder="Search users..." style="display: inline-block; width: auto;">
                                     <button class="btn btn-admin btn-sm ms-2">
                                         <i class="fas fa-plus"></i> Add User
                                     </button>
@@ -669,7 +684,8 @@
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <div class="user-avatar me-2" style="width: 35px; height: 35px; font-size: 0.8rem;">JD</div>
+                                                    <div class="user-avatar me-2"
+                                                        style="width: 35px; height: 35px; font-size: 0.8rem;">JD</div>
                                                     <div>
                                                         <div class="fw-bold">John Doe</div>
                                                         <small class="text-muted">JD-1245</small>
@@ -696,7 +712,9 @@
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <div class="user-avatar me-2" style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--success-green);">SJ</div>
+                                                    <div class="user-avatar me-2"
+                                                        style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--success-green);">
+                                                        SJ</div>
                                                     <div>
                                                         <div class="fw-bold">Sarah Johnson</div>
                                                         <small class="text-muted">SJ-3678</small>
@@ -723,7 +741,9 @@
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <div class="user-avatar me-2" style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--warning-orange);">MB</div>
+                                                    <div class="user-avatar me-2"
+                                                        style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--warning-orange);">
+                                                        MB</div>
                                                     <div>
                                                         <div class="fw-bold">Michael Brown</div>
                                                         <small class="text-muted">MB-5891</small>
@@ -750,7 +770,9 @@
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <div class="user-avatar me-2" style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--accent-blue);">ED</div>
+                                                    <div class="user-avatar me-2"
+                                                        style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--accent-blue);">
+                                                        ED</div>
                                                     <div>
                                                         <div class="fw-bold">Emily Davis</div>
                                                         <small class="text-muted">ED-7123</small>
@@ -777,7 +799,9 @@
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <div class="user-avatar me-2" style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--danger-red);">TR</div>
+                                                    <div class="user-avatar me-2"
+                                                        style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--danger-red);">
+                                                        TR</div>
                                                     <div>
                                                         <div class="fw-bold">Thomas Wilson</div>
                                                         <small class="text-muted">TW-9456</small>
@@ -807,7 +831,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Recent Activity and Charts -->
                 <div class="row">
                     <!-- Recent Activity -->
@@ -816,7 +840,8 @@
                             <div class="card-title">Recent Admin Actions</div>
                             <div class="activity-list">
                                 <div class="activity-item">
-                                    <div class="activity-icon" style="background-color: rgba(0, 200, 83, 0.2); color: var(--success-green);">
+                                    <div class="activity-icon"
+                                        style="background-color: rgba(0, 200, 83, 0.2); color: var(--success-green);">
                                         <i class="fas fa-money-bill-wave"></i>
                                     </div>
                                     <div class="activity-details">
@@ -826,7 +851,8 @@
                                     <div class="text-muted">2 hours ago</div>
                                 </div>
                                 <div class="activity-item">
-                                    <div class="activity-icon" style="background-color: rgba(0, 82, 163, 0.2); color: var(--accent-blue);">
+                                    <div class="activity-icon"
+                                        style="background-color: rgba(0, 82, 163, 0.2); color: var(--accent-blue);">
                                         <i class="fas fa-chart-line"></i>
                                     </div>
                                     <div class="activity-details">
@@ -836,7 +862,8 @@
                                     <div class="text-muted">5 hours ago</div>
                                 </div>
                                 <div class="activity-item">
-                                    <div class="activity-icon" style="background-color: rgba(111, 66, 193, 0.2); color: var(--admin-purple);">
+                                    <div class="activity-icon"
+                                        style="background-color: rgba(111, 66, 193, 0.2); color: var(--admin-purple);">
                                         <i class="fas fa-user-edit"></i>
                                     </div>
                                     <div class="activity-details">
@@ -846,7 +873,8 @@
                                     <div class="text-muted">1 day ago</div>
                                 </div>
                                 <div class="activity-item">
-                                    <div class="activity-icon" style="background-color: rgba(255, 152, 0, 0.2); color: var(--warning-orange);">
+                                    <div class="activity-icon"
+                                        style="background-color: rgba(255, 152, 0, 0.2); color: var(--warning-orange);">
                                         <i class="fas fa-hand-holding-usd"></i>
                                     </div>
                                     <div class="activity-details">
@@ -858,7 +886,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Performance Chart -->
                     <div class="col-lg-6">
                         <div class="dashboard-card">
@@ -875,7 +903,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize charts
@@ -1029,4 +1057,5 @@
         });
     </script>
 </body>
+
 </html>

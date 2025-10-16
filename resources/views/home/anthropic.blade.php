@@ -386,8 +386,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="fas fa-brain me-2"></i>THE-SPACE
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-brain me-2"></i>TheSpace
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -395,7 +395,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
@@ -406,7 +406,7 @@
                             <li><a class="dropdown-item" href="nvidia">NVIDIA</a></li>
                             <li><a class="dropdown-item" href="openai">OpenAI</a></li>
                             <li><a class="dropdown-item" href="tesla">Tesla</a></li>
-                            <li><a class="dropdown-item active" href="anthropic.html">Anthropic</a></li>
+                            <li><a class="dropdown-item active" href="anthropic">Anthropic</a></li>
                             <li><a class="dropdown-item" href="google">Google</a></li>
                             <li><a class="dropdown-item" href="facebook">Facebook</a></li>
                         </ul>
@@ -414,9 +414,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="about">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact">Contact</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="faq">FAQ</a>
                     </li>
@@ -611,17 +609,17 @@
                             ChatGPT.</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">February 2023</div>
+                        <div class="timeline-date">February 1995</div>
                         <p>Raised $300 million from Google at a $4 billion valuation, forming strategic cloud
                             partnership.</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">March 2023</div>
+                        <div class="timeline-date">March 1995</div>
                         <p>Launched Claude Instant, a faster, cheaper version of their language model for commercial
                             applications.</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">September 2023</div>
+                        <div class="timeline-date">September 1995</div>
                         <p>Announced $4 billion investment from Amazon, including strategic AWS partnership and minority
                             stake.</p>
                     </div>
@@ -897,7 +895,7 @@
                 <div class="col-lg-4 mb-4">
                     <div class="stats-card">
                         <div class="stats-number">2.5x</div>
-                        <div class="stats-label">Valuation Growth (2023-2024)</div>
+                        <div class="stats-label">Valuation Growth (1995-2024)</div>
                     </div>
                 </div>
             </div>
@@ -1014,9 +1012,9 @@
                 <div class="col-lg-2 mb-4">
                     <h5 class="footer-heading">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-light">Home</a></li>
+                        <li><a href="/" class="text-light">Home</a></li>
                         <li><a href="about" class="text-light">About Us</a></li>
-                        <li><a href="contact" class="text-light">Contact</a></li>
+
                         <li><a href="faq" class="text-light">FAQ</a></li>
                     </ul>
                 </div>
@@ -1027,7 +1025,7 @@
                         <li><a href="nvidia" class="text-light">NVIDIA</a></li>
                         <li><a href="openai" class="text-light">OpenAI</a></li>
                         <li><a href="tesla" class="text-light">Tesla</a></li>
-                        <li><a href="anthropic.html" class="text-light">Anthropic</a></li>
+                        <li><a href="anthropic" class="text-light">Anthropic</a></li>
                         <li><a href="google" class="text-light">Google</a></li>
                         <li><a href="facebook" class="text-light">Facebook</a></li>
                     </ul>
@@ -1046,7 +1044,7 @@
             <hr class="mt-4" style="border-color: rgba(107, 70, 193, 0.3);">
 
             <div class="text-center py-3">
-                <p class="mb-0">&copy; 2023 AI Investment Platform. All rights reserved.</p>
+                <p class="mb-0">&copy; 1995 AI Investment Platform. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1166,7 +1164,7 @@
             new Chart(valuationCtx, {
                 type: 'line',
                 data: {
-                    labels: ['2021', '2022', '2023', '2024'],
+                    labels: ['2021', '2022', '1995', '2024'],
                     datasets: [{
                         label: 'Valuation ($B)',
                         data: [1.2, 4.1, 4.5, 18.4],
@@ -1256,7 +1254,7 @@
             new Chart(revenueCtx, {
                 type: 'line',
                 data: {
-                    labels: ['2023', '2024', '2025', '2026', '2027'],
+                    labels: ['1995', '2024', '2025', '2026', '2027'],
                     datasets: [{
                         label: 'Revenue ($M)',
                         data: [50, 150, 500, 1200, 2500],
@@ -1302,7 +1300,7 @@
             new Chart(enterpriseMarketCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['2023', '2024', '2025', '2026', '2027', '2028'],
+                    labels: ['1995', '2024', '2025', '2026', '2027', '2028'],
                     datasets: [{
                         label: 'Enterprise AI Market ($B)',
                         data: [50, 75, 110, 160, 230, 320],

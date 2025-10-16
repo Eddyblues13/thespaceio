@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,14 +24,14 @@
             --warning-orange: #ff9800;
             --danger-red: #f44336;
         }
-        
+
         body {
             background-color: var(--dark-blue);
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
         }
-        
+
         /* Sidebar */
         .sidebar {
             background-color: var(--primary-blue);
@@ -39,7 +40,7 @@
             border-right: 1px solid var(--border-color);
             transition: all 0.3s;
         }
-        
+
         .sidebar .navbar-brand {
             color: white;
             font-weight: bold;
@@ -47,30 +48,31 @@
             border-bottom: 1px solid var(--border-color);
             text-align: center;
         }
-        
+
         .sidebar .nav-link {
             color: #a8c6e5;
             padding: 12px 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s;
         }
-        
-        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
             background-color: var(--light-blue);
             color: white;
         }
-        
+
         .sidebar .nav-link i {
             width: 25px;
             text-align: center;
             margin-right: 10px;
         }
-        
+
         /* Main Content */
         .main-content {
             padding: 20px;
         }
-        
+
         /* Top Bar */
         .top-bar {
             background-color: var(--primary-blue);
@@ -79,12 +81,12 @@
             margin-bottom: 20px;
             border-radius: 8px;
         }
-        
+
         .user-info {
             display: flex;
             align-items: center;
         }
-        
+
         .user-avatar {
             width: 40px;
             height: 40px;
@@ -97,7 +99,7 @@
             font-weight: bold;
             margin-right: 10px;
         }
-        
+
         /* Dashboard Cards */
         .dashboard-card {
             background-color: var(--primary-blue);
@@ -107,36 +109,36 @@
             border: 1px solid var(--border-color);
             transition: transform 0.3s;
         }
-        
+
         .dashboard-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-blue);
         }
-        
+
         .card-title {
             font-size: 1.1rem;
             color: #a8c6e5;
             margin-bottom: 15px;
         }
-        
+
         .card-value {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 5px;
         }
-        
+
         .card-change {
             font-size: 0.9rem;
         }
-        
+
         .positive {
             color: var(--success-green);
         }
-        
+
         .negative {
             color: var(--danger-red);
         }
-        
+
         /* Portfolio Allocation */
         .allocation-item {
             display: flex;
@@ -145,33 +147,33 @@
             padding: 10px 0;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .allocation-item:last-child {
             border-bottom: none;
         }
-        
+
         .allocation-name {
             display: flex;
             align-items: center;
         }
-        
+
         .allocation-color {
             width: 12px;
             height: 12px;
             border-radius: 50%;
             margin-right: 10px;
         }
-        
+
         .allocation-percent {
             font-weight: 600;
         }
-        
+
         /* Performance Chart */
         .chart-container {
             height: 300px;
             position: relative;
         }
-        
+
         /* Recent Activity */
         .activity-item {
             display: flex;
@@ -179,11 +181,11 @@
             padding: 12px 0;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .activity-item:last-child {
             border-bottom: none;
         }
-        
+
         .activity-icon {
             width: 40px;
             height: 40px;
@@ -194,30 +196,30 @@
             margin-right: 15px;
             flex-shrink: 0;
         }
-        
+
         .activity-buy {
             background-color: rgba(0, 200, 83, 0.2);
             color: var(--success-green);
         }
-        
+
         .activity-sell {
             background-color: rgba(244, 67, 54, 0.2);
             color: var(--danger-red);
         }
-        
+
         .activity-dividend {
             background-color: rgba(0, 82, 163, 0.2);
             color: var(--accent-blue);
         }
-        
+
         .activity-details {
             flex-grow: 1;
         }
-        
+
         .activity-amount {
             font-weight: 600;
         }
-        
+
         /* Holdings Table */
         .holdings-table {
             background-color: var(--primary-blue);
@@ -225,32 +227,32 @@
             overflow: hidden;
             border: 1px solid var(--border-color);
         }
-        
+
         .holdings-table table {
             margin-bottom: 0;
             color: var(--text-color);
         }
-        
+
         .holdings-table thead {
             background-color: var(--accent-blue);
             color: white;
         }
-        
+
         .holdings-table th {
             padding: 15px;
             font-weight: 600;
             border: none;
         }
-        
+
         .holdings-table td {
             padding: 15px;
             border-color: var(--border-color);
         }
-        
+
         .holdings-table tbody tr:nth-child(even) {
             background-color: rgba(255, 255, 255, 0.05);
         }
-        
+
         /* Performance Metrics */
         .metrics-grid {
             display: grid;
@@ -258,7 +260,7 @@
             gap: 20px;
             margin-top: 30px;
         }
-        
+
         .metric-card {
             background-color: var(--light-blue);
             border-radius: 8px;
@@ -266,18 +268,18 @@
             text-align: center;
             border: 1px solid var(--border-color);
         }
-        
+
         .metric-value {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 5px;
         }
-        
+
         .metric-label {
             font-size: 0.9rem;
             color: #a8c6e5;
         }
-        
+
         /* Quick Actions */
         .quick-actions {
             display: grid;
@@ -285,7 +287,7 @@
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .action-btn {
             background-color: var(--light-blue);
             border: 1px solid var(--border-color);
@@ -297,83 +299,84 @@
             text-decoration: none;
             display: block;
         }
-        
+
         .action-btn:hover {
             background-color: var(--accent-blue);
             color: white;
             transform: translateY(-2px);
         }
-        
+
         .action-btn i {
             font-size: 1.5rem;
             margin-bottom: 8px;
             display: block;
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .sidebar {
                 min-height: auto;
                 width: 100%;
             }
-            
+
             .card-value {
                 font-size: 1.5rem;
             }
-            
+
             .holdings-table {
                 overflow-x: auto;
             }
-            
+
             .metrics-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
-            
+
             .quick-actions {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-        
+
         @media (max-width: 576px) {
             .main-content {
                 padding: 15px 10px;
             }
-            
+
             .top-bar {
                 padding: 10px 15px;
             }
-            
+
             .dashboard-card {
                 padding: 15px;
             }
-            
+
             .metrics-grid {
                 grid-template-columns: 1fr 1fr;
             }
-            
+
             .quick-actions {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
             <div class="col-md-3 col-lg-2 sidebar">
                 <div class="d-flex flex-column">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/">
                         <i class="fas fa-robot me-2"></i>TheSpace
                     </a>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard.html">
+                            <a class="nav-link" href="dashboard">
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="portfolio.html">
+                            <a class="nav-link active" href="portfolio">
                                 <i class="fas fa-chart-line"></i> Portfolio
                             </a>
                         </li>
@@ -383,7 +386,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="transactions.html">
+                            <a class="nav-link" href="transactions">
                                 <i class="fas fa-exchange-alt"></i> Transactions
                             </a>
                         </li>
@@ -393,19 +396,19 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="settings.html">
+                            <a class="nav-link" href="settings">
                                 <i class="fas fa-cog"></i> Settings
                             </a>
                         </li>
                         <li class="nav-item mt-4">
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="/">
                                 <i class="fas fa-arrow-left"></i> Back to Main Site
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-            
+
             <!-- Main Content -->
             <div class="col-md-9 col-lg-10 main-content">
                 <!-- Top Bar -->
@@ -419,34 +422,34 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Quick Actions -->
                 <div class="dashboard-card">
                     <div class="card-title">Quick Actions</div>
                     <div class="quick-actions">
-                        <a href="directdeposit.html" class="action-btn">
+                        <a href="directdeposit" class="action-btn">
                             <i class="fas fa-plus-circle"></i>
                             Add Funds
                         </a>
-                        <a href="reports.html" class="action-btn">
+                        <a href="reports" class="action-btn">
                             <i class="fas fa-download"></i>
                             Export Report
                         </a>
-                        <a href="transactions.html" class="action-btn">
+                        <a href="transactions" class="action-btn">
                             <i class="fas fa-history"></i>
                             Transaction History
                         </a>
-                        <a href="alert.html" class="action-btn">
+                        <a href="alert" class="action-btn">
                             <i class="fas fa-bell"></i>
                             Alerts
                         </a>
-                        <a href="accountmanager3.html" class="action-btn">
+                        <a href="accountmanager3" class="action-btn">
                             <i class="fas fa-question-circle"></i>
                             Support
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Portfolio Overview -->
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
@@ -486,7 +489,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Charts and Portfolio -->
                 <div class="row">
                     <!-- Performance Chart -->
@@ -498,7 +501,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Portfolio Allocation -->
                     <div class="col-lg-4">
                         <div class="dashboard-card">
@@ -539,7 +542,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Holdings and Activity -->
                 <div class="row">
                     <!-- Recent Activity -->
@@ -607,7 +610,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         // Initialize charts when the page loads
         document.addEventListener('DOMContentLoaded', function() {
@@ -783,4 +786,5 @@
         });
     </script>
 </body>
+
 </html>

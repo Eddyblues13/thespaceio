@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,14 +25,14 @@
             --danger-red: #f44336;
             --admin-purple: #6f42c1;
         }
-        
+
         body {
             background-color: var(--dark-blue);
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
         }
-        
+
         /* Sidebar */
         .sidebar {
             background-color: var(--primary-blue);
@@ -40,7 +41,7 @@
             border-right: 1px solid var(--border-color);
             transition: all 0.3s;
         }
-        
+
         .sidebar .navbar-brand {
             color: white;
             font-weight: bold;
@@ -48,25 +49,26 @@
             border-bottom: 1px solid var(--border-color);
             text-align: center;
         }
-        
+
         .sidebar .nav-link {
             color: #a8c6e5;
             padding: 12px 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s;
         }
-        
-        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
             background-color: var(--light-blue);
             color: white;
         }
-        
+
         .sidebar .nav-link i {
             width: 25px;
             text-align: center;
             margin-right: 10px;
         }
-        
+
         .admin-badge {
             background-color: var(--admin-purple);
             color: white;
@@ -75,12 +77,12 @@
             border-radius: 10px;
             margin-left: 5px;
         }
-        
+
         /* Main Content */
         .main-content {
             padding: 20px;
         }
-        
+
         /* Top Bar */
         .top-bar {
             background-color: var(--primary-blue);
@@ -89,12 +91,12 @@
             margin-bottom: 20px;
             border-radius: 8px;
         }
-        
+
         .user-info {
             display: flex;
             align-items: center;
         }
-        
+
         .user-avatar {
             width: 40px;
             height: 40px;
@@ -107,7 +109,7 @@
             font-weight: bold;
             margin-right: 10px;
         }
-        
+
         /* Dashboard Cards */
         .dashboard-card {
             background-color: var(--primary-blue);
@@ -117,36 +119,36 @@
             border: 1px solid var(--border-color);
             transition: transform 0.3s;
         }
-        
+
         .dashboard-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-blue);
         }
-        
+
         .card-title {
             font-size: 1.1rem;
             color: #a8c6e5;
             margin-bottom: 15px;
         }
-        
+
         .card-value {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 5px;
         }
-        
+
         .card-change {
             font-size: 0.9rem;
         }
-        
+
         .positive {
             color: var(--success-green);
         }
-        
+
         .negative {
             color: var(--danger-red);
         }
-        
+
         /* Transactions Table */
         .transactions-table {
             background-color: var(--primary-blue);
@@ -154,41 +156,41 @@
             overflow: hidden;
             border: 1px solid var(--border-color);
         }
-        
+
         .transactions-table table {
             margin-bottom: 0;
             color: var(--text-color);
         }
-        
+
         .transactions-table thead {
             background-color: var(--admin-purple);
             color: white;
         }
-        
+
         .transactions-table th {
             padding: 15px;
             font-weight: 600;
             border: none;
         }
-        
+
         .transactions-table td {
             padding: 15px;
             border-color: var(--border-color);
         }
-        
+
         .transactions-table tbody tr:nth-child(even) {
             background-color: rgba(255, 255, 255, 0.05);
         }
-        
+
         .transactions-table tbody tr:hover {
             background-color: rgba(0, 82, 163, 0.1);
         }
-        
+
         .transaction-actions {
             display: flex;
             gap: 5px;
         }
-        
+
         .btn-action {
             padding: 5px 10px;
             border-radius: 4px;
@@ -197,31 +199,31 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        
+
         .btn-action:hover {
             transform: scale(1.05);
         }
-        
+
         .btn-view {
             background-color: var(--accent-blue);
             color: white;
         }
-        
+
         .btn-edit {
             background-color: var(--warning-orange);
             color: white;
         }
-        
+
         .btn-reverse {
             background-color: var(--danger-red);
             color: white;
         }
-        
+
         .btn-export {
             background-color: var(--success-green);
             color: white;
         }
-        
+
         /* Status badges */
         .status-badge {
             padding: 5px 10px;
@@ -229,27 +231,27 @@
             font-size: 0.8rem;
             font-weight: 600;
         }
-        
+
         .status-completed {
             background-color: rgba(0, 200, 83, 0.2);
             color: var(--success-green);
         }
-        
+
         .status-pending {
             background-color: rgba(255, 152, 0, 0.2);
             color: var(--warning-orange);
         }
-        
+
         .status-failed {
             background-color: rgba(244, 67, 54, 0.2);
             color: var(--danger-red);
         }
-        
+
         .status-reversed {
             background-color: rgba(108, 117, 125, 0.2);
             color: #6c757d;
         }
-        
+
         /* Type badges */
         .type-badge {
             padding: 4px 8px;
@@ -257,32 +259,32 @@
             font-size: 0.7rem;
             font-weight: 600;
         }
-        
+
         .type-deposit {
             background-color: rgba(0, 200, 83, 0.2);
             color: var(--success-green);
         }
-        
+
         .type-withdrawal {
             background-color: rgba(255, 152, 0, 0.2);
             color: var(--warning-orange);
         }
-        
+
         .type-profit {
             background-color: rgba(0, 82, 163, 0.2);
             color: var(--accent-blue);
         }
-        
+
         .type-fee {
             background-color: rgba(108, 117, 125, 0.2);
             color: #6c757d;
         }
-        
+
         .type-transfer {
             background-color: rgba(111, 66, 193, 0.2);
             color: var(--admin-purple);
         }
-        
+
         /* Method badges */
         .method-badge {
             padding: 4px 8px;
@@ -290,48 +292,48 @@
             font-size: 0.7rem;
             font-weight: 600;
         }
-        
+
         .method-bank {
             background-color: rgba(0, 82, 163, 0.2);
             color: var(--accent-blue);
         }
-        
+
         .method-crypto {
             background-color: rgba(247, 147, 26, 0.2);
             color: #f7931a;
         }
-        
+
         .method-wire {
             background-color: rgba(0, 200, 83, 0.2);
             color: var(--success-green);
         }
-        
+
         .method-cashapp {
             background-color: rgba(0, 207, 93, 0.2);
             color: #00cf5d;
         }
-        
+
         .method-manual {
             background-color: rgba(111, 66, 193, 0.2);
             color: var(--admin-purple);
         }
-        
+
         /* Amount styling */
         .amount-positive {
             color: var(--success-green);
             font-weight: 600;
         }
-        
+
         .amount-negative {
             color: var(--danger-red);
             font-weight: 600;
         }
-        
+
         .amount-neutral {
             color: var(--warning-orange);
             font-weight: 600;
         }
-        
+
         /* Filters and Search */
         .filters-section {
             background-color: var(--primary-blue);
@@ -340,30 +342,32 @@
             margin-bottom: 20px;
             border: 1px solid var(--border-color);
         }
-        
+
         .filter-group {
             margin-bottom: 15px;
         }
-        
+
         .form-label {
             color: #a8c6e5;
             margin-bottom: 8px;
         }
-        
-        .form-control, .form-select {
+
+        .form-control,
+        .form-select {
             background-color: var(--dark-blue);
             border: 1px solid var(--border-color);
             color: var(--text-color);
             padding: 10px 15px;
         }
-        
-        .form-control:focus, .form-select:focus {
+
+        .form-control:focus,
+        .form-select:focus {
             background-color: var(--dark-blue);
             border-color: var(--accent-blue);
             color: var(--text-color);
             box-shadow: 0 0 0 0.25rem rgba(0, 82, 163, 0.25);
         }
-        
+
         .btn-admin {
             background-color: var(--admin-purple);
             color: white;
@@ -373,17 +377,17 @@
             font-weight: 600;
             transition: background-color 0.3s;
         }
-        
+
         .btn-admin:hover {
             background-color: #5a359d;
         }
-        
+
         /* Charts */
         .chart-container {
             height: 300px;
             position: relative;
         }
-        
+
         /* Pagination */
         .pagination-container {
             display: flex;
@@ -391,131 +395,132 @@
             align-items: center;
             margin-top: 20px;
         }
-        
+
         .pagination .page-link {
             background-color: var(--primary-blue);
             border-color: var(--border-color);
             color: var(--text-color);
         }
-        
+
         .pagination .page-item.active .page-link {
             background-color: var(--admin-purple);
             border-color: var(--admin-purple);
         }
-        
+
         .pagination .page-link:hover {
             background-color: var(--light-blue);
             border-color: var(--accent-blue);
         }
-        
+
         /* Modal */
         .modal-content {
             background-color: var(--primary-blue);
             color: var(--text-color);
             border: 1px solid var(--border-color);
         }
-        
+
         .modal-header {
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .modal-footer {
             border-top: 1px solid var(--border-color);
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .sidebar {
                 min-height: auto;
                 width: 100%;
             }
-            
+
             .card-value {
                 font-size: 1.5rem;
             }
-            
+
             .transactions-table {
                 overflow-x: auto;
             }
-            
+
             .transaction-actions {
                 flex-direction: column;
             }
         }
-        
+
         @media (max-width: 576px) {
             .main-content {
                 padding: 15px 10px;
             }
-            
+
             .top-bar {
                 padding: 10px 15px;
             }
-            
+
             .dashboard-card {
                 padding: 15px;
             }
-            
-            .filters-section .row > div {
+
+            .filters-section .row>div {
                 margin-bottom: 15px;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
             <div class="col-md-3 col-lg-2 sidebar">
                 <div class="d-flex flex-column">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/">
                         <i class="fas fa-robot me-2"></i>Tenex <span class="admin-badge">ADMIN</span>
                     </a>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-dashboard.html">
+                            <a class="nav-link" href="admin-dashboard">
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-users.html">
+                            <a class="nav-link" href="admin-users">
                                 <i class="fas fa-users"></i> User Management
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="admin-transactions.html">
+                            <a class="nav-link active" href="admin-transactions">
                                 <i class="fas fa-exchange-alt"></i> Transactions
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-deposits.html">
+                            <a class="nav-link" href="admin-deposits">
                                 <i class="fas fa-plus-circle"></i> Deposit Control
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-withdrawals.html">
+                            <a class="nav-link" href="admin-withdrawals">
                                 <i class="fas fa-minus-circle"></i> Withdrawal Control
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-reports.html">
+                            <a class="nav-link" href="admin-reports">
                                 <i class="fas fa-chart-bar"></i> Reports & Analytics
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-settings.html">
+                            <a class="nav-link" href="admin-settings">
                                 <i class="fas fa-cogs"></i> System Settings
                             </a>
                         </li>
                         <li class="nav-item mt-4">
-                            <a class="nav-link" href="dashboard.html">
+                            <a class="nav-link" href="dashboard">
                                 <i class="fas fa-arrow-left"></i> User Dashboard
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-            
+
             <!-- Main Content -->
             <div class="col-md-9 col-lg-10 main-content">
                 <!-- Top Bar -->
@@ -529,7 +534,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Transaction Stats -->
                 <div class="row mb-4">
                     <div class="col-md-3 col-sm-6">
@@ -569,7 +574,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Transaction Charts -->
                 <div class="row mb-4">
                     <div class="col-md-8">
@@ -589,14 +594,15 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Filters and Search -->
                 <div class="filters-section">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="filter-group">
                                 <label class="form-label">Search Transactions</label>
-                                <input type="text" class="form-control" id="transactionSearch" placeholder="User, reference, or ID">
+                                <input type="text" class="form-control" id="transactionSearch"
+                                    placeholder="User, reference, or ID">
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -679,7 +685,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Transactions Table -->
                 <div class="dashboard-card">
                     <div class="card-title d-flex justify-content-between align-items-center">
@@ -714,7 +720,8 @@
                                     <td class="fw-bold">#TXN-9874</td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <div class="user-avatar me-2" style="width: 35px; height: 35px; font-size: 0.8rem;">JD</div>
+                                            <div class="user-avatar me-2"
+                                                style="width: 35px; height: 35px; font-size: 0.8rem;">JD</div>
                                             <div>
                                                 <div class="fw-bold">John Doe</div>
                                                 <small class="text-muted">JD-1245</small>
@@ -729,10 +736,12 @@
                                     <td>Manual adjustment</td>
                                     <td>
                                         <div class="transaction-actions">
-                                            <button class="btn-action btn-view" data-transaction="TXN-9874" title="View Details">
+                                            <button class="btn-action btn-view" data-transaction="TXN-9874"
+                                                title="View Details">
                                                 <i class="fas fa-eye"></i>
                                             </button>
-                                            <button class="btn-action btn-reverse" data-transaction="TXN-9874" title="Reverse Transaction">
+                                            <button class="btn-action btn-reverse" data-transaction="TXN-9874"
+                                                title="Reverse Transaction">
                                                 <i class="fas fa-undo"></i>
                                             </button>
                                         </div>
@@ -742,7 +751,9 @@
                                     <td class="fw-bold">#TXN-9873</td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <div class="user-avatar me-2" style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--success-green);">SJ</div>
+                                            <div class="user-avatar me-2"
+                                                style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--success-green);">
+                                                SJ</div>
                                             <div>
                                                 <div class="fw-bold">Sarah Johnson</div>
                                                 <small class="text-muted">SJ-3678</small>
@@ -757,13 +768,16 @@
                                     <td>BTC withdrawal</td>
                                     <td>
                                         <div class="transaction-actions">
-                                            <button class="btn-action btn-view" data-transaction="TXN-9873" title="View Details">
+                                            <button class="btn-action btn-view" data-transaction="TXN-9873"
+                                                title="View Details">
                                                 <i class="fas fa-eye"></i>
                                             </button>
-                                            <button class="btn-action btn-edit" data-transaction="TXN-9873" title="Edit Transaction">
+                                            <button class="btn-action btn-edit" data-transaction="TXN-9873"
+                                                title="Edit Transaction">
                                                 <i class="fas fa-edit"></i>
                                             </button>
-                                            <button class="btn-action btn-reverse" data-transaction="TXN-9873" title="Reverse Transaction">
+                                            <button class="btn-action btn-reverse" data-transaction="TXN-9873"
+                                                title="Reverse Transaction">
                                                 <i class="fas fa-undo"></i>
                                             </button>
                                         </div>
@@ -773,7 +787,9 @@
                                     <td class="fw-bold">#TXN-9872</td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <div class="user-avatar me-2" style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--warning-orange);">MB</div>
+                                            <div class="user-avatar me-2"
+                                                style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--warning-orange);">
+                                                MB</div>
                                             <div>
                                                 <div class="fw-bold">Michael Brown</div>
                                                 <small class="text-muted">MB-5891</small>
@@ -788,7 +804,8 @@
                                     <td>AI Growth Fund</td>
                                     <td>
                                         <div class="transaction-actions">
-                                            <button class="btn-action btn-view" data-transaction="TXN-9872" title="View Details">
+                                            <button class="btn-action btn-view" data-transaction="TXN-9872"
+                                                title="View Details">
                                                 <i class="fas fa-eye"></i>
                                             </button>
                                         </div>
@@ -798,7 +815,9 @@
                                     <td class="fw-bold">#TXN-9871</td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <div class="user-avatar me-2" style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--accent-blue);">ED</div>
+                                            <div class="user-avatar me-2"
+                                                style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--accent-blue);">
+                                                ED</div>
                                             <div>
                                                 <div class="fw-bold">Emily Davis</div>
                                                 <small class="text-muted">ED-7123</small>
@@ -813,7 +832,8 @@
                                     <td>Wire transfer fee</td>
                                     <td>
                                         <div class="transaction-actions">
-                                            <button class="btn-action btn-view" data-transaction="TXN-9871" title="View Details">
+                                            <button class="btn-action btn-view" data-transaction="TXN-9871"
+                                                title="View Details">
                                                 <i class="fas fa-eye"></i>
                                             </button>
                                         </div>
@@ -823,7 +843,9 @@
                                     <td class="fw-bold">#TXN-9870</td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <div class="user-avatar me-2" style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--danger-red);">TW</div>
+                                            <div class="user-avatar me-2"
+                                                style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--danger-red);">
+                                                TW</div>
                                             <div>
                                                 <div class="fw-bold">Thomas Wilson</div>
                                                 <small class="text-muted">TW-9456</small>
@@ -838,10 +860,12 @@
                                     <td>Insufficient funds</td>
                                     <td>
                                         <div class="transaction-actions">
-                                            <button class="btn-action btn-view" data-transaction="TXN-9870" title="View Details">
+                                            <button class="btn-action btn-view" data-transaction="TXN-9870"
+                                                title="View Details">
                                                 <i class="fas fa-eye"></i>
                                             </button>
-                                            <button class="btn-action btn-edit" data-transaction="TXN-9870" title="Edit Transaction">
+                                            <button class="btn-action btn-edit" data-transaction="TXN-9870"
+                                                title="Edit Transaction">
                                                 <i class="fas fa-edit"></i>
                                             </button>
                                         </div>
@@ -850,7 +874,7 @@
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <!-- Pagination -->
                     <div class="pagination-container">
                         <div class="text-muted">Showing 1 to 5 of 12,847 entries</div>
@@ -877,7 +901,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize charts
@@ -1052,4 +1076,5 @@
         });
     </script>
 </body>
+
 </html>

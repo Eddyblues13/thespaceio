@@ -100,11 +100,16 @@
 
         .hero-title {
             font-size: 3.5rem;
-            font-weight: 700;
+            font-weight: 900;
+            /* Increased from 700 to 900 for thickness */
             margin-bottom: 1.5rem;
             background: linear-gradient(to right, var(--nvidia-green), #7cfc00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            /* Added shadow effect */
+            letter-spacing: 0.5px;
+            /* Slightly increased letter spacing for better readability */
         }
 
         .hero-subtitle {
@@ -365,8 +370,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="fas fa-brain me-2"></i>THE-SPACE
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-brain me-2"></i>TheSpace
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -374,7 +379,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
@@ -393,9 +398,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="about">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact">Contact</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="faq">FAQ</a>
                     </li>
@@ -412,12 +415,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <img src="https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/NVIDIA_logo.svg/1200px-NVIDIA_logo.svg.png"
-                        alt="NVIDIA" class="company-logo mb-4" style="height: 80px;">
+                    <img src="img/nvidia.png" alt="NVIDIA" class="company-logo mb-4" style="height: 80px;">
                     <h1 class="hero-title">NVIDIA Corporation</h1>
                     <p class="hero-subtitle">The Pioneer of GPU Computing and AI Infrastructure</p>
                     <div class="mt-4">
                         <a href="#investment-analysis" class="btn btn-primary btn-lg me-3">Investment Analysis</a>
+                        <br><br>
                         <a href="#company-overview" class="btn btn-outline-light btn-lg">Company Overview</a>
                     </div>
                 </div>
@@ -531,7 +534,7 @@
                         <h3>Major Partnerships</h3>
                         <div class="d-flex align-items-center mb-3">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/1200px-Microsoft_logo.svg.png"
-                                alt="Microsoft" style="height: 30px; margin-right: 10px;">
+                                alt="Microsoft" style="height: 35px; width: 70px; margin-right: 10px;">
                             <div>
                                 <strong>Microsoft Azure</strong>
                                 <div class="small">Cloud AI Infrastructure</div>
@@ -539,7 +542,7 @@
                         </div>
                         <div class="d-flex align-items-center mb-3">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png"
-                                alt="Google" style="height: 30px; margin-right: 10px;">
+                                alt="Google" style="height: 35px; width: 70px; margin-right: 10px;">
                             <div>
                                 <strong>Google Cloud</strong>
                                 <div class="small">TPU & GPU Integration</div>
@@ -547,7 +550,7 @@
                         </div>
                         <div class="d-flex align-items-center mb-3">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1200px-Apple_logo_black.svg.png"
-                                alt="Apple" style="height: 30px; margin-right: 10px;">
+                                alt="Apple" style="height: 35px; width: 70px; margin-right: 10px;">
                             <div>
                                 <strong>Apple</strong>
                                 <div class="small">Graphics Technology</div>
@@ -555,7 +558,7 @@
                         </div>
                         <div class="d-flex align-items-center">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/1200px-Tesla_T_symbol.svg.png"
-                                alt="Tesla" style="height: 30px; margin-right: 10px;">
+                                alt="Tesla" style="height: 35px; width: 70px; margin-right: 10px;">
                             <div>
                                 <strong>Tesla</strong>
                                 <div class="small">Autonomous Driving</div>
@@ -605,7 +608,7 @@
                         </p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">2023</div>
+                        <div class="timeline-date">1995</div>
                         <p>NVIDIA becomes first chip company to reach $1 trillion market capitalization, driven by AI
                             boom.</p>
                     </div>
@@ -640,7 +643,7 @@
 
                 <div class="col-lg-4 mb-4">
                     <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        <img src="https://images.unsplash.com/photo-1587199572634-32705e3bf49c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
                             alt="NVIDIA DGX System">
                         <h4>DGX Systems</h4>
                         <p>AI supercomputers that integrate multiple GPUs with optimized software stack. DGX systems are
@@ -976,9 +979,9 @@
                 <div class="col-lg-2 mb-4">
                     <h5 class="footer-heading">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-light">Home</a></li>
+                        <li><a href="/" class="text-light">Home</a></li>
                         <li><a href="about" class="text-light">About Us</a></li>
-                        <li><a href="contact" class="text-light">Contact</a></li>
+
                         <li><a href="faq" class="text-light">FAQ</a></li>
                     </ul>
                 </div>
@@ -1008,7 +1011,7 @@
             <hr class="mt-4" style="border-color: rgba(118, 185, 0, 0.3);">
 
             <div class="text-center py-3">
-                <p class="mb-0">&copy; 2023 AI Investment Platform. All rights reserved.</p>
+                <p class="mb-0">&copy; 1995 AI Investment Platform. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1148,7 +1151,7 @@
             new Chart(stockPerformanceCtx, {
                 type: 'line',
                 data: {
-                    labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
+                    labels: ['2019', '2020', '2021', '2022', '1995', '2024'],
                     datasets: [{
                         label: 'NVDA Stock Price ($)',
                         data: [50, 135, 330, 180, 480, 950],
@@ -1194,7 +1197,7 @@
             new Chart(marketCapCtx, {
                 type: 'line',
                 data: {
-                    labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+                    labels: ['2018', '2019', '2020', '2021', '2022', '1995', '2024'],
                     datasets: [{
                         label: 'Market Cap ($B)',
                         data: [100, 150, 350, 800, 400, 1200, 2700],
@@ -1296,7 +1299,7 @@
             new Chart(gpuDemandCtx, {
                 type: 'line',
                 data: {
-                    labels: ['2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'],
+                    labels: ['2022', '1995', '2024', '2025', '2026', '2027', '2028', '2029', '2030'],
                     datasets: [{
                         label: 'Data Center GPU Units (Millions)',
                         data: [0.5, 1.2, 2.5, 4.0, 6.5, 10.0, 15.0, 22.0, 30.0],

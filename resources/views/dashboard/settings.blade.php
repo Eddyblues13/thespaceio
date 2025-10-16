@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,14 +22,14 @@
             --warning-orange: #ff9800;
             --danger-red: #f44336;
         }
-        
+
         body {
             background-color: var(--dark-blue);
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
         }
-        
+
         /* Sidebar */
         .sidebar {
             background-color: var(--primary-blue);
@@ -37,7 +38,7 @@
             border-right: 1px solid var(--border-color);
             transition: all 0.3s;
         }
-        
+
         .sidebar .navbar-brand {
             color: white;
             font-weight: bold;
@@ -45,30 +46,31 @@
             border-bottom: 1px solid var(--border-color);
             text-align: center;
         }
-        
+
         .sidebar .nav-link {
             color: #a8c6e5;
             padding: 12px 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s;
         }
-        
-        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
             background-color: var(--light-blue);
             color: white;
         }
-        
+
         .sidebar .nav-link i {
             width: 25px;
             text-align: center;
             margin-right: 10px;
         }
-        
+
         /* Main Content */
         .main-content {
             padding: 20px;
         }
-        
+
         /* Top Bar */
         .top-bar {
             background-color: var(--primary-blue);
@@ -77,12 +79,12 @@
             margin-bottom: 20px;
             border-radius: 8px;
         }
-        
+
         .user-info {
             display: flex;
             align-items: center;
         }
-        
+
         .user-avatar {
             width: 40px;
             height: 40px;
@@ -95,7 +97,7 @@
             font-weight: bold;
             margin-right: 10px;
         }
-        
+
         /* Dashboard Cards */
         .dashboard-card {
             background-color: var(--primary-blue);
@@ -105,18 +107,18 @@
             border: 1px solid var(--border-color);
             transition: transform 0.3s;
         }
-        
+
         .dashboard-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-blue);
         }
-        
+
         .card-title {
             font-size: 1.1rem;
             color: #a8c6e5;
             margin-bottom: 15px;
         }
-        
+
         /* Settings Sections */
         .settings-section {
             background-color: var(--primary-blue);
@@ -125,25 +127,25 @@
             margin-bottom: 25px;
             border: 1px solid var(--border-color);
         }
-        
+
         .section-header {
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 15px;
             margin-bottom: 20px;
         }
-        
+
         .section-title {
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 5px;
             color: white;
         }
-        
+
         .section-description {
             font-size: 0.9rem;
             color: #a8c6e5;
         }
-        
+
         /* Settings Items */
         .settings-item {
             display: flex;
@@ -152,57 +154,59 @@
             padding: 15px 0;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .settings-item:last-child {
             border-bottom: none;
         }
-        
+
         .settings-info {
             flex: 1;
         }
-        
+
         .settings-label {
             font-weight: 600;
             margin-bottom: 5px;
             color: white;
         }
-        
+
         .settings-description {
             font-size: 0.9rem;
             color: #a8c6e5;
         }
-        
+
         /* Toggle Switch */
         .form-check-input {
             background-color: var(--light-blue);
             border-color: var(--border-color);
         }
-        
+
         .form-check-input:checked {
             background-color: var(--accent-blue);
             border-color: var(--accent-blue);
         }
-        
+
         /* Form Controls */
-        .form-control, .form-select {
+        .form-control,
+        .form-select {
             background-color: var(--light-blue);
             border: 1px solid var(--border-color);
             color: var(--text-color);
         }
-        
-        .form-control:focus, .form-select:focus {
+
+        .form-control:focus,
+        .form-select:focus {
             background-color: var(--light-blue);
             border-color: var(--accent-blue);
             color: var(--text-color);
             box-shadow: 0 0 0 0.25rem rgba(0, 82, 163, 0.25);
         }
-        
+
         /* Profile Section */
         .profile-header {
             text-align: center;
             padding: 20px 0;
         }
-        
+
         .profile-avatar {
             width: 100px;
             height: 100px;
@@ -216,7 +220,7 @@
             font-weight: bold;
             margin: 0 auto 15px;
         }
-        
+
         /* Security Status */
         .security-status {
             display: flex;
@@ -227,13 +231,13 @@
             border-radius: 8px;
             margin-bottom: 20px;
         }
-        
+
         .security-icon {
             color: var(--success-green);
             font-size: 1.5rem;
             margin-right: 15px;
         }
-        
+
         /* Quick Actions */
         .quick-actions {
             display: grid;
@@ -241,7 +245,7 @@
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .action-btn {
             background-color: var(--light-blue);
             border: 1px solid var(--border-color);
@@ -253,19 +257,19 @@
             text-decoration: none;
             display: block;
         }
-        
+
         .action-btn:hover {
             background-color: var(--accent-blue);
             color: white;
             transform: translateY(-2px);
         }
-        
+
         .action-btn i {
             font-size: 1.5rem;
             margin-bottom: 8px;
             display: block;
         }
-        
+
         /* Danger Zone */
         .danger-zone {
             background-color: rgba(244, 67, 54, 0.1);
@@ -273,75 +277,76 @@
             border-radius: 10px;
             padding: 25px;
         }
-        
+
         .danger-title {
             color: var(--danger-red);
             font-weight: 600;
             margin-bottom: 10px;
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .sidebar {
                 min-height: auto;
                 width: 100%;
             }
-            
+
             .settings-item {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
+
             .settings-controls {
                 margin-top: 10px;
                 width: 100%;
             }
-            
+
             .quick-actions {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-        
+
         @media (max-width: 576px) {
             .main-content {
                 padding: 15px 10px;
             }
-            
+
             .top-bar {
                 padding: 10px 15px;
             }
-            
+
             .dashboard-card {
                 padding: 15px;
             }
-            
+
             .settings-section {
                 padding: 20px;
             }
-            
+
             .quick-actions {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
             <div class="col-md-3 col-lg-2 sidebar">
                 <div class="d-flex flex-column">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/">
                         <i class="fas fa-robot me-2"></i>Tenex
                     </a>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard.html">
+                            <a class="nav-link" href="dashboard">
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="portfolio.html">
+                            <a class="nav-link" href="portfolio">
                                 <i class="fas fa-chart-line"></i> Portfolio
                             </a>
                         </li>
@@ -351,7 +356,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="transactions.html">
+                            <a class="nav-link" href="transactions">
                                 <i class="fas fa-exchange-alt"></i> Transactions
                             </a>
                         </li>
@@ -361,19 +366,19 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="settings.html">
+                            <a class="nav-link active" href="settings">
                                 <i class="fas fa-cog"></i> Settings
                             </a>
                         </li>
                         <li class="nav-item mt-4">
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="/">
                                 <i class="fas fa-arrow-left"></i> Back to Main Site
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-            
+
             <!-- Main Content -->
             <div class="col-md-9 col-lg-10 main-content">
                 <!-- Top Bar -->
@@ -387,7 +392,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Quick Actions -->
                 <div class="dashboard-card">
                     <div class="card-title">Quick Actions</div>
@@ -418,14 +423,14 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Account Settings -->
                 <div class="settings-section">
                     <div class="section-header">
                         <div class="section-title">Account Settings</div>
                         <div class="section-description">Manage your personal information and account preferences</div>
                     </div>
-                    
+
                     <div class="profile-header">
                         <div class="profile-avatar">JD</div>
                         <h5>John Doe</h5>
@@ -434,7 +439,7 @@
                             <i class="fas fa-camera me-1"></i> Change Photo
                         </button>
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
@@ -449,7 +454,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
@@ -464,12 +469,12 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="mb-3">
                         <label class="form-label">Address</label>
                         <input type="text" class="form-control" value="123 Investment Street">
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-md-4">
                             <div class="mb-3">
@@ -490,21 +495,21 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="text-end">
                         <button class="btn btn-primary">
                             <i class="fas fa-save me-1"></i> Save Changes
                         </button>
                     </div>
                 </div>
-                
+
                 <!-- Security Settings -->
                 <div class="settings-section">
                     <div class="section-header">
                         <div class="section-title">Security Settings</div>
                         <div class="section-description">Manage your account security and privacy preferences</div>
                     </div>
-                    
+
                     <div class="security-status">
                         <div class="security-icon">
                             <i class="fas fa-shield-check"></i>
@@ -514,7 +519,7 @@
                             <div class="text-muted">All recommended security measures are enabled</div>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Two-Factor Authentication</div>
@@ -527,7 +532,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Login Notifications</div>
@@ -540,7 +545,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Session Timeout</div>
@@ -555,7 +560,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Password</div>
@@ -567,7 +572,7 @@
                             </button>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Active Sessions</div>
@@ -580,14 +585,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Notification Settings -->
                 <div class="settings-section">
                     <div class="section-header">
                         <div class="section-title">Notification Preferences</div>
                         <div class="section-description">Control how and when you receive notifications</div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Email Notifications</div>
@@ -600,7 +605,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Push Notifications</div>
@@ -613,7 +618,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">SMS Alerts</div>
@@ -626,7 +631,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Portfolio Updates</div>
@@ -639,7 +644,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Market Alerts</div>
@@ -652,7 +657,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Dividend Notifications</div>
@@ -666,14 +671,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Investment Preferences -->
                 <div class="settings-section">
                     <div class="section-header">
                         <div class="section-title">Investment Preferences</div>
                         <div class="section-description">Customize your investment experience and preferences</div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Risk Tolerance</div>
@@ -687,7 +692,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Auto-Rebalancing</div>
@@ -700,7 +705,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Default Currency</div>
@@ -715,7 +720,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Tax-Loss Harvesting</div>
@@ -728,7 +733,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">AI Investment Recommendations</div>
@@ -742,14 +747,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Appearance Settings -->
                 <div class="settings-section">
                     <div class="section-header">
                         <div class="section-title">Appearance & Display</div>
                         <div class="section-description">Customize the look and feel of your dashboard</div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Theme</div>
@@ -763,7 +768,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Dashboard Layout</div>
@@ -777,7 +782,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Charts Display</div>
@@ -791,7 +796,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="settings-label">Number Formatting</div>
@@ -806,14 +811,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Danger Zone -->
                 <div class="settings-section danger-zone">
                     <div class="section-header">
                         <div class="section-title">Danger Zone</div>
                         <div class="section-description">Irreversible and destructive actions</div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="danger-title">Export Account Data</div>
@@ -825,7 +830,7 @@
                             </button>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="danger-title">Deactivate Account</div>
@@ -837,7 +842,7 @@
                             </button>
                         </div>
                     </div>
-                    
+
                     <div class="settings-item">
                         <div class="settings-info">
                             <div class="danger-title">Delete Account</div>
@@ -856,7 +861,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         // Settings functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -907,4 +912,5 @@
         });
     </script>
 </body>
+
 </html>

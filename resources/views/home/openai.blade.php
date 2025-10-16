@@ -99,11 +99,16 @@
 
         .hero-title {
             font-size: 3.5rem;
-            font-weight: 700;
+            font-weight: 900;
+            /* Increased from 700 to 900 for thickness */
             margin-bottom: 1.5rem;
             background: linear-gradient(to right, var(--accent-green), #7cfc00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            /* Added shadow effect */
+            letter-spacing: 0.5px;
+            /* Slightly increased letter spacing for better readability */
         }
 
         .hero-subtitle {
@@ -340,8 +345,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="fas fa-brain me-2"></i>THE-SPACE
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-brain me-2"></i>TheSpace
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -349,7 +354,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
@@ -368,9 +373,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="about">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact">Contact</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="faq">FAQ</a>
                     </li>
@@ -393,6 +396,7 @@
                     <p class="hero-subtitle">Pioneering Artificial General Intelligence for the benefit of humanity</p>
                     <div class="mt-4">
                         <a href="#investment-analysis" class="btn btn-primary btn-lg me-3">Investment Analysis</a>
+                        <br><br>
                         <a href="#company-overview" class="btn btn-outline-light btn-lg">Company Overview</a>
                     </div>
                 </div>
@@ -564,11 +568,11 @@
                         </p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">January 2023</div>
+                        <div class="timeline-date">January 1995</div>
                         <p>Microsoft announces additional multi-billion dollar investment in OpenAI.</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">March 2023</div>
+                        <div class="timeline-date">March 1995</div>
                         <p>Release of GPT-4, a more advanced multimodal model capable of processing both text and
                             images.</p>
                     </div>
@@ -879,9 +883,9 @@
                 <div class="col-lg-2 mb-4">
                     <h5 class="footer-heading">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-light">Home</a></li>
+                        <li><a href="/" class="text-light">Home</a></li>
                         <li><a href="about" class="text-light">About Us</a></li>
-                        <li><a href="contact" class="text-light">Contact</a></li>
+
                         <li><a href="faq" class="text-light">FAQ</a></li>
                     </ul>
                 </div>
@@ -911,7 +915,7 @@
             <hr class="mt-4" style="border-color: rgba(60, 179, 113, 0.3);">
 
             <div class="text-center py-3">
-                <p class="mb-0">&copy; 2023 AI Investment Platform. All rights reserved.</p>
+                <p class="mb-0">&copy; 1995 AI Investment Platform. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -976,7 +980,7 @@
             new Chart(valuationCtx, {
                 type: 'line',
                 data: {
-                    labels: ['2019', '2020', '2021', '2022', '2023'],
+                    labels: ['2019', '2020', '2021', '2022', '1995'],
                     datasets: [{
                         label: 'Valuation ($B)',
                         data: [1, 14, 29, 20, 86],
@@ -1022,7 +1026,7 @@
             new Chart(revenueCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['2022', '2023', '2024', '2025', '2026'],
+                    labels: ['2022', '1995', '2024', '2025', '2026'],
                     datasets: [{
                         label: 'Revenue ($M)',
                         data: [30, 200, 1000, 2500, 5000],
@@ -1066,7 +1070,7 @@
             new Chart(userGrowthCtx, {
                 type: 'line',
                 data: {
-                    labels: ['Nov 2022', 'Dec 2022', 'Jan 2023', 'Feb 2023', 'Mar 2023', 'Apr 2023'],
+                    labels: ['Nov 2022', 'Dec 2022', 'Jan 1995', 'Feb 1995', 'Mar 1995', 'Apr 1995'],
                     datasets: [{
                         label: 'Monthly Active Users (Millions)',
                         data: [1, 10, 57, 100, 130, 173],

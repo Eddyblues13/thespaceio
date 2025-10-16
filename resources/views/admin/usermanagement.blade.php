@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,14 +23,14 @@
             --danger-red: #f44336;
             --admin-purple: #6f42c1;
         }
-        
+
         body {
             background-color: var(--dark-blue);
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
         }
-        
+
         /* Sidebar */
         .sidebar {
             background-color: var(--primary-blue);
@@ -38,7 +39,7 @@
             border-right: 1px solid var(--border-color);
             transition: all 0.3s;
         }
-        
+
         .sidebar .navbar-brand {
             color: white;
             font-weight: bold;
@@ -46,25 +47,26 @@
             border-bottom: 1px solid var(--border-color);
             text-align: center;
         }
-        
+
         .sidebar .nav-link {
             color: #a8c6e5;
             padding: 12px 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s;
         }
-        
-        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
             background-color: var(--light-blue);
             color: white;
         }
-        
+
         .sidebar .nav-link i {
             width: 25px;
             text-align: center;
             margin-right: 10px;
         }
-        
+
         .admin-badge {
             background-color: var(--admin-purple);
             color: white;
@@ -73,12 +75,12 @@
             border-radius: 10px;
             margin-left: 5px;
         }
-        
+
         /* Main Content */
         .main-content {
             padding: 20px;
         }
-        
+
         /* Top Bar */
         .top-bar {
             background-color: var(--primary-blue);
@@ -87,12 +89,12 @@
             margin-bottom: 20px;
             border-radius: 8px;
         }
-        
+
         .user-info {
             display: flex;
             align-items: center;
         }
-        
+
         .user-avatar {
             width: 40px;
             height: 40px;
@@ -105,7 +107,7 @@
             font-weight: bold;
             margin-right: 10px;
         }
-        
+
         /* Dashboard Cards */
         .dashboard-card {
             background-color: var(--primary-blue);
@@ -115,36 +117,36 @@
             border: 1px solid var(--border-color);
             transition: transform 0.3s;
         }
-        
+
         .dashboard-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-blue);
         }
-        
+
         .card-title {
             font-size: 1.1rem;
             color: #a8c6e5;
             margin-bottom: 15px;
         }
-        
+
         .card-value {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 5px;
         }
-        
+
         .card-change {
             font-size: 0.9rem;
         }
-        
+
         .positive {
             color: var(--success-green);
         }
-        
+
         .negative {
             color: var(--danger-red);
         }
-        
+
         /* Users Table */
         .users-table {
             background-color: var(--primary-blue);
@@ -152,41 +154,41 @@
             overflow: hidden;
             border: 1px solid var(--border-color);
         }
-        
+
         .users-table table {
             margin-bottom: 0;
             color: var(--text-color);
         }
-        
+
         .users-table thead {
             background-color: var(--admin-purple);
             color: white;
         }
-        
+
         .users-table th {
             padding: 15px;
             font-weight: 600;
             border: none;
         }
-        
+
         .users-table td {
             padding: 15px;
             border-color: var(--border-color);
         }
-        
+
         .users-table tbody tr:nth-child(even) {
             background-color: rgba(255, 255, 255, 0.05);
         }
-        
+
         .users-table tbody tr:hover {
             background-color: rgba(0, 82, 163, 0.1);
         }
-        
+
         .user-actions {
             display: flex;
             gap: 5px;
         }
-        
+
         .btn-action {
             padding: 5px 10px;
             border-radius: 4px;
@@ -195,36 +197,36 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        
+
         .btn-action:hover {
             transform: scale(1.05);
         }
-        
+
         .btn-deposit {
             background-color: var(--success-green);
             color: white;
         }
-        
+
         .btn-withdraw {
             background-color: var(--warning-orange);
             color: white;
         }
-        
+
         .btn-edit {
             background-color: var(--accent-blue);
             color: white;
         }
-        
+
         .btn-suspend {
             background-color: var(--danger-red);
             color: white;
         }
-        
+
         .btn-view {
             background-color: var(--admin-purple);
             color: white;
         }
-        
+
         /* Status badges */
         .status-badge {
             padding: 5px 10px;
@@ -232,27 +234,27 @@
             font-size: 0.8rem;
             font-weight: 600;
         }
-        
+
         .status-active {
             background-color: rgba(0, 200, 83, 0.2);
             color: var(--success-green);
         }
-        
+
         .status-pending {
             background-color: rgba(255, 152, 0, 0.2);
             color: var(--warning-orange);
         }
-        
+
         .status-suspended {
             background-color: rgba(244, 67, 54, 0.2);
             color: var(--danger-red);
         }
-        
+
         .status-inactive {
             background-color: rgba(108, 117, 125, 0.2);
             color: #6c757d;
         }
-        
+
         /* Tier badges */
         .tier-badge {
             padding: 4px 8px;
@@ -260,22 +262,22 @@
             font-size: 0.7rem;
             font-weight: 600;
         }
-        
+
         .tier-basic {
             background-color: rgba(108, 117, 125, 0.2);
             color: #6c757d;
         }
-        
+
         .tier-premium {
             background-color: rgba(0, 82, 163, 0.2);
             color: var(--accent-blue);
         }
-        
+
         .tier-vip {
             background-color: rgba(111, 66, 193, 0.2);
             color: var(--admin-purple);
         }
-        
+
         /* Filters and Search */
         .filters-section {
             background-color: var(--primary-blue);
@@ -284,30 +286,32 @@
             margin-bottom: 20px;
             border: 1px solid var(--border-color);
         }
-        
+
         .filter-group {
             margin-bottom: 15px;
         }
-        
+
         .form-label {
             color: #a8c6e5;
             margin-bottom: 8px;
         }
-        
-        .form-control, .form-select {
+
+        .form-control,
+        .form-select {
             background-color: var(--dark-blue);
             border: 1px solid var(--border-color);
             color: var(--text-color);
             padding: 10px 15px;
         }
-        
-        .form-control:focus, .form-select:focus {
+
+        .form-control:focus,
+        .form-select:focus {
             background-color: var(--dark-blue);
             border-color: var(--accent-blue);
             color: var(--text-color);
             box-shadow: 0 0 0 0.25rem rgba(0, 82, 163, 0.25);
         }
-        
+
         .btn-admin {
             background-color: var(--admin-purple);
             color: white;
@@ -317,11 +321,11 @@
             font-weight: 600;
             transition: background-color 0.3s;
         }
-        
+
         .btn-admin:hover {
             background-color: #5a359d;
         }
-        
+
         /* Pagination */
         .pagination-container {
             display: flex;
@@ -329,131 +333,132 @@
             align-items: center;
             margin-top: 20px;
         }
-        
+
         .pagination .page-link {
             background-color: var(--primary-blue);
             border-color: var(--border-color);
             color: var(--text-color);
         }
-        
+
         .pagination .page-item.active .page-link {
             background-color: var(--admin-purple);
             border-color: var(--admin-purple);
         }
-        
+
         .pagination .page-link:hover {
             background-color: var(--light-blue);
             border-color: var(--accent-blue);
         }
-        
+
         /* Modal */
         .modal-content {
             background-color: var(--primary-blue);
             color: var(--text-color);
             border: 1px solid var(--border-color);
         }
-        
+
         .modal-header {
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .modal-footer {
             border-top: 1px solid var(--border-color);
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .sidebar {
                 min-height: auto;
                 width: 100%;
             }
-            
+
             .card-value {
                 font-size: 1.5rem;
             }
-            
+
             .users-table {
                 overflow-x: auto;
             }
-            
+
             .user-actions {
                 flex-direction: column;
             }
         }
-        
+
         @media (max-width: 576px) {
             .main-content {
                 padding: 15px 10px;
             }
-            
+
             .top-bar {
                 padding: 10px 15px;
             }
-            
+
             .dashboard-card {
                 padding: 15px;
             }
-            
-            .filters-section .row > div {
+
+            .filters-section .row>div {
                 margin-bottom: 15px;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
             <div class="col-md-3 col-lg-2 sidebar">
                 <div class="d-flex flex-column">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/">
                         <i class="fas fa-robot me-2"></i>Tenex <span class="admin-badge">ADMIN</span>
                     </a>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-dashboard.html">
+                            <a class="nav-link" href="admin-dashboard">
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="admin-users.html">
+                            <a class="nav-link active" href="admin-users">
                                 <i class="fas fa-users"></i> User Management
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-transactions.html">
+                            <a class="nav-link" href="admin-transactions">
                                 <i class="fas fa-exchange-alt"></i> Transactions
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-deposits.html">
+                            <a class="nav-link" href="admin-deposits">
                                 <i class="fas fa-plus-circle"></i> Deposit Control
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-withdrawals.html">
+                            <a class="nav-link" href="admin-withdrawals">
                                 <i class="fas fa-minus-circle"></i> Withdrawal Control
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-reports.html">
+                            <a class="nav-link" href="admin-reports">
                                 <i class="fas fa-chart-bar"></i> Reports & Analytics
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin-settings.html">
+                            <a class="nav-link" href="admin-settings">
                                 <i class="fas fa-cogs"></i> System Settings
                             </a>
                         </li>
                         <li class="nav-item mt-4">
-                            <a class="nav-link" href="dashboard.html">
+                            <a class="nav-link" href="dashboard">
                                 <i class="fas fa-arrow-left"></i> User Dashboard
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-            
+
             <!-- Main Content -->
             <div class="col-md-9 col-lg-10 main-content">
                 <!-- Top Bar -->
@@ -467,7 +472,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- User Stats -->
                 <div class="row mb-4">
                     <div class="col-md-3 col-sm-6">
@@ -507,14 +512,15 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Filters and Search -->
                 <div class="filters-section">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="filter-group">
                                 <label class="form-label">Search Users</label>
-                                <input type="text" class="form-control" id="userSearch" placeholder="Name, email, or user ID">
+                                <input type="text" class="form-control" id="userSearch"
+                                    placeholder="Name, email, or user ID">
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -578,7 +584,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Users Table -->
                 <div class="dashboard-card">
                     <div class="card-title d-flex justify-content-between align-items-center">
@@ -613,11 +619,13 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <input type="checkbox" class="form-check-input user-checkbox" data-user="JD-1245">
+                                        <input type="checkbox" class="form-check-input user-checkbox"
+                                            data-user="JD-1245">
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <div class="user-avatar me-2" style="width: 35px; height: 35px; font-size: 0.8rem;">JD</div>
+                                            <div class="user-avatar me-2"
+                                                style="width: 35px; height: 35px; font-size: 0.8rem;">JD</div>
                                             <div>
                                                 <div class="fw-bold">John Doe</div>
                                                 <small class="text-muted">JD-1245</small>
@@ -635,16 +643,19 @@
                                     <td>2 hours ago</td>
                                     <td>
                                         <div class="user-actions">
-                                            <button class="btn-action btn-view" data-user="JD-1245" title="View Details">
+                                            <button class="btn-action btn-view" data-user="JD-1245"
+                                                title="View Details">
                                                 <i class="fas fa-eye"></i>
                                             </button>
                                             <button class="btn-action btn-edit" data-user="JD-1245" title="Edit User">
                                                 <i class="fas fa-edit"></i>
                                             </button>
-                                            <button class="btn-action btn-deposit" data-user="JD-1245" title="Add Deposit">
+                                            <button class="btn-action btn-deposit" data-user="JD-1245"
+                                                title="Add Deposit">
                                                 <i class="fas fa-plus"></i>
                                             </button>
-                                            <button class="btn-action btn-withdraw" data-user="JD-1245" title="Process Withdrawal">
+                                            <button class="btn-action btn-withdraw" data-user="JD-1245"
+                                                title="Process Withdrawal">
                                                 <i class="fas fa-minus"></i>
                                             </button>
                                         </div>
@@ -652,11 +663,14 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="checkbox" class="form-check-input user-checkbox" data-user="SJ-3678">
+                                        <input type="checkbox" class="form-check-input user-checkbox"
+                                            data-user="SJ-3678">
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <div class="user-avatar me-2" style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--success-green);">SJ</div>
+                                            <div class="user-avatar me-2"
+                                                style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--success-green);">
+                                                SJ</div>
                                             <div>
                                                 <div class="fw-bold">Sarah Johnson</div>
                                                 <small class="text-muted">SJ-3678</small>
@@ -674,16 +688,19 @@
                                     <td>1 day ago</td>
                                     <td>
                                         <div class="user-actions">
-                                            <button class="btn-action btn-view" data-user="SJ-3678" title="View Details">
+                                            <button class="btn-action btn-view" data-user="SJ-3678"
+                                                title="View Details">
                                                 <i class="fas fa-eye"></i>
                                             </button>
                                             <button class="btn-action btn-edit" data-user="SJ-3678" title="Edit User">
                                                 <i class="fas fa-edit"></i>
                                             </button>
-                                            <button class="btn-action btn-deposit" data-user="SJ-3678" title="Add Deposit">
+                                            <button class="btn-action btn-deposit" data-user="SJ-3678"
+                                                title="Add Deposit">
                                                 <i class="fas fa-plus"></i>
                                             </button>
-                                            <button class="btn-action btn-withdraw" data-user="SJ-3678" title="Process Withdrawal">
+                                            <button class="btn-action btn-withdraw" data-user="SJ-3678"
+                                                title="Process Withdrawal">
                                                 <i class="fas fa-minus"></i>
                                             </button>
                                         </div>
@@ -691,11 +708,14 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="checkbox" class="form-check-input user-checkbox" data-user="MB-5891">
+                                        <input type="checkbox" class="form-check-input user-checkbox"
+                                            data-user="MB-5891">
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <div class="user-avatar me-2" style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--warning-orange);">MB</div>
+                                            <div class="user-avatar me-2"
+                                                style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--warning-orange);">
+                                                MB</div>
                                             <div>
                                                 <div class="fw-bold">Michael Brown</div>
                                                 <small class="text-muted">MB-5891</small>
@@ -713,16 +733,19 @@
                                     <td>3 days ago</td>
                                     <td>
                                         <div class="user-actions">
-                                            <button class="btn-action btn-view" data-user="MB-5891" title="View Details">
+                                            <button class="btn-action btn-view" data-user="MB-5891"
+                                                title="View Details">
                                                 <i class="fas fa-eye"></i>
                                             </button>
                                             <button class="btn-action btn-edit" data-user="MB-5891" title="Edit User">
                                                 <i class="fas fa-edit"></i>
                                             </button>
-                                            <button class="btn-action btn-deposit" data-user="MB-5891" title="Add Deposit">
+                                            <button class="btn-action btn-deposit" data-user="MB-5891"
+                                                title="Add Deposit">
                                                 <i class="fas fa-plus"></i>
                                             </button>
-                                            <button class="btn-action btn-withdraw" data-user="MB-5891" title="Process Withdrawal">
+                                            <button class="btn-action btn-withdraw" data-user="MB-5891"
+                                                title="Process Withdrawal">
                                                 <i class="fas fa-minus"></i>
                                             </button>
                                         </div>
@@ -730,11 +753,14 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="checkbox" class="form-check-input user-checkbox" data-user="ED-7123">
+                                        <input type="checkbox" class="form-check-input user-checkbox"
+                                            data-user="ED-7123">
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <div class="user-avatar me-2" style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--accent-blue);">ED</div>
+                                            <div class="user-avatar me-2"
+                                                style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--accent-blue);">
+                                                ED</div>
                                             <div>
                                                 <div class="fw-bold">Emily Davis</div>
                                                 <small class="text-muted">ED-7123</small>
@@ -752,16 +778,19 @@
                                     <td>5 days ago</td>
                                     <td>
                                         <div class="user-actions">
-                                            <button class="btn-action btn-view" data-user="ED-7123" title="View Details">
+                                            <button class="btn-action btn-view" data-user="ED-7123"
+                                                title="View Details">
                                                 <i class="fas fa-eye"></i>
                                             </button>
                                             <button class="btn-action btn-edit" data-user="ED-7123" title="Edit User">
                                                 <i class="fas fa-edit"></i>
                                             </button>
-                                            <button class="btn-action btn-deposit" data-user="ED-7123" title="Add Deposit">
+                                            <button class="btn-action btn-deposit" data-user="ED-7123"
+                                                title="Add Deposit">
                                                 <i class="fas fa-plus"></i>
                                             </button>
-                                            <button class="btn-action btn-withdraw" data-user="ED-7123" title="Process Withdrawal">
+                                            <button class="btn-action btn-withdraw" data-user="ED-7123"
+                                                title="Process Withdrawal">
                                                 <i class="fas fa-minus"></i>
                                             </button>
                                         </div>
@@ -769,11 +798,14 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="checkbox" class="form-check-input user-checkbox" data-user="TW-9456">
+                                        <input type="checkbox" class="form-check-input user-checkbox"
+                                            data-user="TW-9456">
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <div class="user-avatar me-2" style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--danger-red);">TW</div>
+                                            <div class="user-avatar me-2"
+                                                style="width: 35px; height: 35px; font-size: 0.8rem; background-color: var(--danger-red);">
+                                                TW</div>
                                             <div>
                                                 <div class="fw-bold">Thomas Wilson</div>
                                                 <small class="text-muted">TW-9456</small>
@@ -791,16 +823,19 @@
                                     <td>2 weeks ago</td>
                                     <td>
                                         <div class="user-actions">
-                                            <button class="btn-action btn-view" data-user="TW-9456" title="View Details">
+                                            <button class="btn-action btn-view" data-user="TW-9456"
+                                                title="View Details">
                                                 <i class="fas fa-eye"></i>
                                             </button>
                                             <button class="btn-action btn-edit" data-user="TW-9456" title="Edit User">
                                                 <i class="fas fa-edit"></i>
                                             </button>
-                                            <button class="btn-action btn-deposit" data-user="TW-9456" title="Add Deposit">
+                                            <button class="btn-action btn-deposit" data-user="TW-9456"
+                                                title="Add Deposit">
                                                 <i class="fas fa-plus"></i>
                                             </button>
-                                            <button class="btn-action btn-suspend" data-user="TW-9456" title="Reactivate">
+                                            <button class="btn-action btn-suspend" data-user="TW-9456"
+                                                title="Reactivate">
                                                 <i class="fas fa-play"></i>
                                             </button>
                                         </div>
@@ -809,7 +844,7 @@
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <!-- Pagination -->
                     <div class="pagination-container">
                         <div class="text-muted">Showing 1 to 5 of 1,247 entries</div>
@@ -836,7 +871,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Select All functionality
@@ -951,4 +986,5 @@
         });
     </script>
 </body>
+
 </html>

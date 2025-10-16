@@ -417,8 +417,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="fas fa-brain me-2"></i>THE-SPACE
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-brain me-2"></i>TheSpace
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -426,7 +426,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
@@ -437,17 +437,15 @@
                             <li><a class="dropdown-item" href="nvidia">NVIDIA</a></li>
                             <li><a class="dropdown-item" href="openai">OpenAI</a></li>
                             <li><a class="dropdown-item" href="tesla">Tesla</a></li>
-                            <li><a class="dropdown-item" href="anthropic.html">Anthropic</a></li>
-                            <li><a class="dropdown-item" href="stabilityai.html">Stability AI</a></li>
-                            <li><a class="dropdown-item active" href="cohere.html">Cohere</a></li>
+                            <li><a class="dropdown-item" href="anthropic">Anthropic</a></li>
+                            <li><a class="dropdown-item" href="stabilityai">Stability AI</a></li>
+                            <li><a class="dropdown-item active" href="cohere">Cohere</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact">Contact</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="faq">FAQ</a>
                     </li>
@@ -464,8 +462,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <img src="https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/v1491479959/kvqo9kfq9yqgxqjz5jzn.png"
-                        alt="Cohere" class="company-logo mb-4" style="height: 80px;">
+                    <img src="img/cohere.jpeg" alt="Cohere" class="company-logo mb-4" style="height: 80px;">
                     <h1 class="hero-title">Cohere</h1>
                     <p class="hero-subtitle">Enterprise-Grade AI Language Models for Business Transformation</p>
                     <div class="mt-4">
@@ -646,12 +643,12 @@
                         <p>Announced partnership with Oracle to offer Cohere models on Oracle Cloud Infrastructure.</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">June 2023</div>
+                        <div class="timeline-date">June 1995</div>
                         <p>Raised $270M Series C funding at $2.2B valuation with participation from NVIDIA and Oracle.
                         </p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">September 2023</div>
+                        <div class="timeline-date">September 1995</div>
                         <p>Launched Command model family with enhanced reasoning and instruction-following capabilities.
                         </p>
                     </div>
@@ -964,7 +961,7 @@
                 <div class="col-lg-4 mb-4">
                     <div class="stats-card">
                         <div class="stats-number">$45M</div>
-                        <div class="stats-label">2023 Revenue</div>
+                        <div class="stats-label">1995 Revenue</div>
                     </div>
                 </div>
                 <div class="col-lg-4 mb-4">
@@ -1092,9 +1089,9 @@
                 <div class="col-lg-2 mb-4">
                     <h5 class="footer-heading">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-light">Home</a></li>
+                        <li><a href="/" class="text-light">Home</a></li>
                         <li><a href="about" class="text-light">About Us</a></li>
-                        <li><a href="contact" class="text-light">Contact</a></li>
+
                         <li><a href="faq" class="text-light">FAQ</a></li>
                     </ul>
                 </div>
@@ -1105,9 +1102,9 @@
                         <li><a href="nvidia" class="text-light">NVIDIA</a></li>
                         <li><a href="openai" class="text-light">OpenAI</a></li>
                         <li><a href="tesla" class="text-light">Tesla</a></li>
-                        <li><a href="anthropic.html" class="text-light">Anthropic</a></li>
-                        <li><a href="stabilityai.html" class="text-light">Stability AI</a></li>
-                        <li><a href="cohere.html" class="text-light">Cohere</a></li>
+                        <li><a href="anthropic" class="text-light">Anthropic</a></li>
+                        <li><a href="stabilityai" class="text-light">Stability AI</a></li>
+                        <li><a href="cohere" class="text-light">Cohere</a></li>
                     </ul>
                 </div>
 
@@ -1124,7 +1121,7 @@
             <hr class="mt-4" style="border-color: rgba(255, 107, 53, 0.3);">
 
             <div class="text-center py-3">
-                <p class="mb-0">&copy; 2023 AI Investment Platform. All rights reserved.</p>
+                <p class="mb-0">&copy; 1995 AI Investment Platform. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1190,7 +1187,7 @@
             new Chart(revenueCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['2022', '2023', '2024', '2025', '2026'],
+                    labels: ['2022', '1995', '2024', '2025', '2026'],
                     datasets: [{
                         label: 'Revenue ($M)',
                         data: [8, 45, 120, 300, 600],
@@ -1234,7 +1231,7 @@
             new Chart(valuationCtx, {
                 type: 'line',
                 data: {
-                    labels: ['2021', '2022', '2023', '2024'],
+                    labels: ['2021', '2022', '1995', '2024'],
                     datasets: [{
                         label: 'Valuation ($B)',
                         data: [0.2, 1.2, 2.2, 5.0],
@@ -1324,7 +1321,7 @@
             new Chart(customerGrowthCtx, {
                 type: 'line',
                 data: {
-                    labels: ['Q1 2022', 'Q2 2022', 'Q3 2022', 'Q4 2022', 'Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023'],
+                    labels: ['Q1 2022', 'Q2 2022', 'Q3 2022', 'Q4 2022', 'Q1 1995', 'Q2 1995', 'Q3 1995', 'Q4 1995'],
                     datasets: [{
                         label: 'Enterprise Customers',
                         data: [25, 45, 70, 100, 150, 200, 250, 300],
@@ -1370,7 +1367,7 @@
             new Chart(enterpriseMarketCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['2023', '2024', '2025', '2026', '2027', '2028'],
+                    labels: ['1995', '2024', '2025', '2026', '2027', '2028'],
                     datasets: [{
                         label: 'Enterprise LLM Market ($B)',
                         data: [8, 15, 25, 35, 42, 50],

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,14 +22,14 @@
             --warning-orange: #ff9800;
             --danger-red: #f44336;
         }
-        
+
         body {
             background-color: var(--dark-blue);
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
         }
-        
+
         /* Sidebar */
         .sidebar {
             background-color: var(--primary-blue);
@@ -37,7 +38,7 @@
             border-right: 1px solid var(--border-color);
             transition: all 0.3s;
         }
-        
+
         .sidebar .navbar-brand {
             color: white;
             font-weight: bold;
@@ -45,30 +46,31 @@
             border-bottom: 1px solid var(--border-color);
             text-align: center;
         }
-        
+
         .sidebar .nav-link {
             color: #a8c6e5;
             padding: 12px 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s;
         }
-        
-        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
             background-color: var(--light-blue);
             color: white;
         }
-        
+
         .sidebar .nav-link i {
             width: 25px;
             text-align: center;
             margin-right: 10px;
         }
-        
+
         /* Main Content */
         .main-content {
             padding: 20px;
         }
-        
+
         /* Top Bar */
         .top-bar {
             background-color: var(--primary-blue);
@@ -77,12 +79,12 @@
             margin-bottom: 20px;
             border-radius: 8px;
         }
-        
+
         .user-info {
             display: flex;
             align-items: center;
         }
-        
+
         .user-avatar {
             width: 40px;
             height: 40px;
@@ -95,7 +97,7 @@
             font-weight: bold;
             margin-right: 10px;
         }
-        
+
         /* Dashboard Cards */
         .dashboard-card {
             background-color: var(--primary-blue);
@@ -105,36 +107,36 @@
             border: 1px solid var(--border-color);
             transition: transform 0.3s;
         }
-        
+
         .dashboard-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-blue);
         }
-        
+
         .card-title {
             font-size: 1.1rem;
             color: #a8c6e5;
             margin-bottom: 15px;
         }
-        
+
         .card-value {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 5px;
         }
-        
+
         .card-change {
             font-size: 0.9rem;
         }
-        
+
         .positive {
             color: var(--success-green);
         }
-        
+
         .negative {
             color: var(--danger-red);
         }
-        
+
         /* Deposit Options */
         .deposit-options {
             display: flex;
@@ -142,7 +144,7 @@
             gap: 15px;
             margin-bottom: 30px;
         }
-        
+
         .deposit-option {
             flex: 1;
             min-width: 200px;
@@ -154,48 +156,50 @@
             transition: all 0.3s;
             border: 2px solid transparent;
         }
-        
+
         .deposit-option:hover {
             background-color: var(--accent-blue);
             transform: translateY(-3px);
         }
-        
+
         .deposit-option.active {
             border-color: var(--success-green);
             background-color: var(--light-blue);
         }
-        
+
         .deposit-icon {
             font-size: 2.5rem;
             margin-bottom: 15px;
         }
-        
+
         .deposit-form {
             background-color: var(--primary-blue);
             border-radius: 10px;
             padding: 25px;
             border: 1px solid var(--border-color);
         }
-        
+
         .form-label {
             color: #a8c6e5;
             margin-bottom: 8px;
         }
-        
-        .form-control, .form-select {
+
+        .form-control,
+        .form-select {
             background-color: var(--dark-blue);
             border: 1px solid var(--border-color);
             color: var(--text-color);
             padding: 10px 15px;
         }
-        
-        .form-control:focus, .form-select:focus {
+
+        .form-control:focus,
+        .form-select:focus {
             background-color: var(--dark-blue);
             border-color: var(--accent-blue);
             color: var(--text-color);
             box-shadow: 0 0 0 0.25rem rgba(0, 82, 163, 0.25);
         }
-        
+
         .crypto-address {
             background-color: var(--dark-blue);
             border-radius: 8px;
@@ -204,14 +208,14 @@
             border: 1px solid var(--border-color);
             display: none;
         }
-        
+
         .address-text {
             font-family: monospace;
             font-size: 0.9rem;
             word-break: break-all;
             margin-bottom: 10px;
         }
-        
+
         .copy-btn {
             background-color: var(--accent-blue);
             color: white;
@@ -221,22 +225,22 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        
+
         .copy-btn:hover {
             background-color: #004080;
         }
-        
+
         .qr-code {
             text-align: center;
             margin-top: 20px;
             display: none;
         }
-        
+
         .qr-code img {
             max-width: 200px;
             border-radius: 8px;
         }
-        
+
         .btn-deposit {
             background-color: var(--success-green);
             color: white;
@@ -248,11 +252,11 @@
             margin-top: 20px;
             transition: background-color 0.3s;
         }
-        
+
         .btn-deposit:hover {
             background-color: #00a843;
         }
-        
+
         .fee-info {
             background-color: var(--light-blue);
             border-radius: 8px;
@@ -260,19 +264,19 @@
             margin-top: 20px;
             font-size: 0.9rem;
         }
-        
+
         .processing-time {
             display: flex;
             align-items: center;
             margin-top: 10px;
             color: #a8c6e5;
         }
-        
+
         .processing-time i {
             margin-right: 8px;
             color: var(--warning-orange);
         }
-        
+
         /* Recent Deposits */
         .activity-item {
             display: flex;
@@ -280,11 +284,11 @@
             padding: 12px 0;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .activity-item:last-child {
             border-bottom: none;
         }
-        
+
         .activity-icon {
             width: 40px;
             height: 40px;
@@ -295,95 +299,96 @@
             margin-right: 15px;
             flex-shrink: 0;
         }
-        
+
         .activity-crypto {
             background-color: rgba(247, 147, 26, 0.2);
             color: #f7931a;
         }
-        
+
         .activity-bank {
             background-color: rgba(0, 82, 163, 0.2);
             color: var(--accent-blue);
         }
-        
+
         .activity-wire {
             background-color: rgba(0, 200, 83, 0.2);
             color: var(--success-green);
         }
-        
+
         .activity-cashapp {
             background-color: rgba(0, 207, 93, 0.2);
             color: #00cf5d;
         }
-        
+
         .activity-details {
             flex-grow: 1;
         }
-        
+
         .activity-amount {
             font-weight: 600;
         }
-        
+
         .status-pending {
             color: var(--warning-orange);
         }
-        
+
         .status-completed {
             color: var(--success-green);
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .sidebar {
                 min-height: auto;
                 width: 100%;
             }
-            
+
             .deposit-option {
                 min-width: 150px;
             }
-            
+
             .card-value {
                 font-size: 1.5rem;
             }
         }
-        
+
         @media (max-width: 576px) {
             .main-content {
                 padding: 15px 10px;
             }
-            
+
             .top-bar {
                 padding: 10px 15px;
             }
-            
+
             .dashboard-card {
                 padding: 15px;
             }
-            
+
             .deposit-options {
                 flex-direction: column;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
             <div class="col-md-3 col-lg-2 sidebar">
                 <div class="d-flex flex-column">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/">
                         <i class="fas fa-robot me-2"></i>Tenex
                     </a>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard.html">
+                            <a class="nav-link" href="dashboard">
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="portfolio.html">
+                            <a class="nav-link" href="portfolio">
                                 <i class="fas fa-chart-line"></i> Portfolio
                             </a>
                         </li>
@@ -393,12 +398,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="transactions.html">
+                            <a class="nav-link" href="transactions">
                                 <i class="fas fa-exchange-alt"></i> Transactions
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="deposit.html">
+                            <a class="nav-link" href="deposit">
                                 <i class="fas fa-plus-circle"></i> Deposit Funds
                             </a>
                         </li>
@@ -408,19 +413,19 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="settings.html">
+                            <a class="nav-link" href="settings">
                                 <i class="fas fa-cog"></i> Settings
                             </a>
                         </li>
                         <li class="nav-item mt-4">
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="/">
                                 <i class="fas fa-arrow-left"></i> Back to Main Site
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-            
+
             <!-- Main Content -->
             <div class="col-md-9 col-lg-10 main-content">
                 <!-- Top Bar -->
@@ -434,7 +439,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Account Summary -->
                 <div class="row mb-4">
                     <div class="col-md-4">
@@ -459,14 +464,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Deposit Options and Form -->
                 <div class="row">
                     <!-- Deposit Form -->
                     <div class="col-lg-8">
                         <div class="dashboard-card">
                             <div class="card-title">Deposit Funds</div>
-                            
+
                             <!-- Deposit Method Selection -->
                             <div class="deposit-options mb-4">
                                 <div class="deposit-option active" data-method="crypto">
@@ -498,7 +503,7 @@
                                     <small>Instant Transfer</small>
                                 </div>
                             </div>
-                            
+
                             <!-- Deposit Form -->
                             <form id="depositForm">
                                 <!-- Crypto Deposit -->
@@ -512,38 +517,43 @@
                                             <option value="usdc">USD Coin (USDC)</option>
                                         </select>
                                     </div>
-                                    
+
                                     <div class="mb-3">
                                         <label class="form-label">Deposit Amount (USD)</label>
-                                        <input type="number" class="form-control" id="cryptoAmount" placeholder="0.00" min="10" step="0.01">
+                                        <input type="number" class="form-control" id="cryptoAmount" placeholder="0.00"
+                                            min="10" step="0.01">
                                     </div>
-                                    
+
                                     <div class="crypto-address" id="btc-address">
                                         <div class="fw-bold mb-2">Send Bitcoin to this address:</div>
                                         <div class="address-text">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</div>
-                                        <button type="button" class="copy-btn" data-address="bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh">
+                                        <button type="button" class="copy-btn"
+                                            data-address="bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh">
                                             <i class="fas fa-copy me-1"></i> Copy Address
                                         </button>
-                                        
+
                                         <div class="qr-code">
                                             <div class="fw-bold mb-2">Or scan this QR code:</div>
-                                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" alt="Bitcoin QR Code">
+                                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh"
+                                                alt="Bitcoin QR Code">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="crypto-address" id="eth-address">
                                         <div class="fw-bold mb-2">Send Ethereum to this address:</div>
                                         <div class="address-text">0x71C7656EC7ab88b098defB751B7401B5f6d8976F</div>
-                                        <button type="button" class="copy-btn" data-address="0x71C7656EC7ab88b098defB751B7401B5f6d8976F">
+                                        <button type="button" class="copy-btn"
+                                            data-address="0x71C7656EC7ab88b098defB751B7401B5f6d8976F">
                                             <i class="fas fa-copy me-1"></i> Copy Address
                                         </button>
-                                        
+
                                         <div class="qr-code">
                                             <div class="fw-bold mb-2">Or scan this QR code:</div>
-                                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=0x71C7656EC7ab88b098defB751B7401B5f6d8976F" alt="Ethereum QR Code">
+                                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=0x71C7656EC7ab88b098defB751B7401B5f6d8976F"
+                                                alt="Ethereum QR Code">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="fee-info">
                                         <div class="fw-bold">Important Information:</div>
                                         <ul class="mt-2 mb-0">
@@ -553,15 +563,16 @@
                                             <li>Only send the selected cryptocurrency to this address</li>
                                         </ul>
                                     </div>
-                                    
+
                                     <div class="processing-time">
                                         <i class="fas fa-clock"></i>
                                         <span>Processing time: 10-30 minutes</span>
                                     </div>
-                                    
-                                    <button type="button" class="btn-deposit" id="cryptoSubmit">Generate Deposit Address</button>
+
+                                    <button type="button" class="btn-deposit" id="cryptoSubmit">Generate Deposit
+                                        Address</button>
                                 </div>
-                                
+
                                 <!-- Bank Transfer -->
                                 <div id="bank-form" class="deposit-form" style="display: none;">
                                     <div class="mb-3">
@@ -573,12 +584,13 @@
                                             <option value="new">Link New Bank Account</option>
                                         </select>
                                     </div>
-                                    
+
                                     <div class="mb-3">
                                         <label class="form-label">Deposit Amount (USD)</label>
-                                        <input type="number" class="form-control" placeholder="0.00" min="10" step="0.01">
+                                        <input type="number" class="form-control" placeholder="0.00" min="10"
+                                            step="0.01">
                                     </div>
-                                    
+
                                     <div class="fee-info">
                                         <div class="fw-bold">Important Information:</div>
                                         <ul class="mt-2 mb-0">
@@ -588,15 +600,15 @@
                                             <li>Transfers are processed on business days only</li>
                                         </ul>
                                     </div>
-                                    
+
                                     <div class="processing-time">
                                         <i class="fas fa-clock"></i>
                                         <span>Processing time: 1-3 business days</span>
                                     </div>
-                                    
+
                                     <button type="submit" class="btn-deposit">Initiate Bank Transfer</button>
                                 </div>
-                                
+
                                 <!-- Wire Transfer -->
                                 <div id="wire-form" class="deposit-form" style="display: none;">
                                     <div class="mb-3">
@@ -606,27 +618,29 @@
                                             <option value="international">International Wire Transfer</option>
                                         </select>
                                     </div>
-                                    
+
                                     <div class="mb-3">
                                         <label class="form-label">Deposit Amount (USD)</label>
-                                        <input type="number" class="form-control" placeholder="0.00" min="100" step="0.01">
+                                        <input type="number" class="form-control" placeholder="0.00" min="100"
+                                            step="0.01">
                                     </div>
-                                    
+
                                     <div class="mb-3">
                                         <label class="form-label">Reference/Notes</label>
                                         <input type="text" class="form-control" placeholder="Your name or account ID">
                                     </div>
-                                    
+
                                     <div class="fw-bold mb-2">Wire Transfer Instructions:</div>
                                     <div class="bg-dark p-3 rounded mb-3">
                                         <div class="mb-2"><strong>Beneficiary:</strong> Tenex Investments LLC</div>
                                         <div class="mb-2"><strong>Account Number:</strong> 780124589</div>
                                         <div class="mb-2"><strong>Routing Number:</strong> 021000021</div>
                                         <div class="mb-2"><strong>Bank:</strong> JPMorgan Chase Bank, N.A.</div>
-                                        <div class="mb-2"><strong>Address:</strong> 383 Madison Avenue, New York, NY 10179</div>
+                                        <div class="mb-2"><strong>Address:</strong> 383 Madison Avenue, New York, NY
+                                            10179</div>
                                         <div class="mb-0"><strong>Reference:</strong> [Your Account ID]</div>
                                     </div>
-                                    
+
                                     <div class="fee-info">
                                         <div class="fw-bold">Important Information:</div>
                                         <ul class="mt-2 mb-0">
@@ -636,39 +650,41 @@
                                             <li>Funds are typically available within 1 business day</li>
                                         </ul>
                                     </div>
-                                    
+
                                     <div class="processing-time">
                                         <i class="fas fa-clock"></i>
                                         <span>Processing time: 1 business day</span>
                                     </div>
-                                    
+
                                     <button type="submit" class="btn-deposit">Confirm Wire Transfer</button>
                                 </div>
-                                
+
                                 <!-- Cash App -->
                                 <div id="cashapp-form" class="deposit-form" style="display: none;">
                                     <div class="mb-3">
                                         <label class="form-label">Cash App Username</label>
                                         <input type="text" class="form-control" placeholder="Your Cash App $username">
                                     </div>
-                                    
+
                                     <div class="mb-3">
                                         <label class="form-label">Deposit Amount (USD)</label>
-                                        <input type="number" class="form-control" placeholder="0.00" min="10" step="0.01">
+                                        <input type="number" class="form-control" placeholder="0.00" min="10"
+                                            step="0.01">
                                     </div>
-                                    
+
                                     <div class="mb-3">
                                         <label class="form-label">Tenex Cash Tag</label>
                                         <div class="input-group">
                                             <span class="input-group-text">$</span>
                                             <input type="text" class="form-control" value="TenexInvest" readonly>
-                                            <button type="button" class="btn btn-outline-secondary copy-btn" data-address="TenexInvest">
+                                            <button type="button" class="btn btn-outline-secondary copy-btn"
+                                                data-address="TenexInvest">
                                                 <i class="fas fa-copy"></i>
                                             </button>
                                         </div>
                                         <div class="form-text">Send funds to this Cash Tag from your Cash App</div>
                                     </div>
-                                    
+
                                     <div class="fee-info">
                                         <div class="fw-bold">Important Information:</div>
                                         <ul class="mt-2 mb-0">
@@ -678,18 +694,18 @@
                                             <li>Include your account ID in the payment note</li>
                                         </ul>
                                     </div>
-                                    
+
                                     <div class="processing-time">
                                         <i class="fas fa-clock"></i>
                                         <span>Processing time: Instant</span>
                                     </div>
-                                    
+
                                     <button type="submit" class="btn-deposit">Initiate Cash App Transfer</button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    
+
                     <!-- Recent Deposits -->
                     <div class="col-lg-4">
                         <div class="dashboard-card">
@@ -747,7 +763,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Help Card -->
                         <div class="dashboard-card">
                             <div class="card-title">Need Help?</div>
@@ -769,7 +785,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Deposit method selection
@@ -901,4 +917,5 @@
         });
     </script>
 </body>
+
 </html>

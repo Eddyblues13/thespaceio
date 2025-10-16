@@ -350,7 +350,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
                 <i class="fas fa-robot me-2"></i>TheSpace
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -359,7 +359,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
@@ -376,14 +376,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="about">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact">Contact</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="faq">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="etf-funds.html">ETF & Funds</a>
+                        <a class="nav-link active" href="etf-funds">ETF & Funds</a>
                     </li>
                 </ul>
             </div>
@@ -394,7 +392,7 @@
     <section class="funds-hero">
         <div class="container">
             <h1 class="hero-title">TheSpace AI ETF & Funds</h1>
-            <p class="hero-subtitle">"Invest in the Intelligence That's Building Tomorrow."</p>
+            <p class="hero-subtitle">Invest in the Intelligence That's Building Tomorrow</p>
             <p class="hero-quote">The Future Is Intelligent Capital</p>
         </div>
     </section>
@@ -823,7 +821,7 @@
                 <div class="col-lg-2 mb-4">
                     <h5 class="footer-heading">Quick Links</h5>
                     <div class="footer-links">
-                        <a href="index.html">Home</a>
+                        <a href="/">Home</a>
                         <a href="about">About Us</a>
                         <a href="contact">Contact</a>
                         <a href="faq">FAQ</a>
@@ -853,7 +851,7 @@
             <hr class="mt-4" style="border-color: rgba(255, 255, 255, 0.1);">
 
             <div class="text-center py-3">
-                <p class="mb-0">&copy; 2023 TheSpace AI Investments. All rights reserved.</p>
+                <p class="mb-0">&copy; 1995 TheSpace AI Investments. All rights reserved.</p>
             </div>
         </div>
     </footer>

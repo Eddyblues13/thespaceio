@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,25 +22,25 @@
             --warning-orange: #ff9800;
             --danger-red: #f44336;
         }
-        
+
         body {
             background-color: var(--dark-blue);
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
         }
-        
+
         .navbar-brand {
             color: white;
             font-weight: bold;
         }
-        
+
         .payment-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         .payment-header {
             text-align: center;
             margin-bottom: 40px;
@@ -48,7 +49,7 @@
             border-radius: 10px;
             border: 1px solid var(--border-color);
         }
-        
+
         .payment-card {
             background-color: var(--primary-blue);
             border-radius: 10px;
@@ -57,18 +58,18 @@
             border: 1px solid var(--border-color);
             transition: all 0.3s;
         }
-        
+
         .payment-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-blue);
         }
-        
+
         .payment-card h3 {
             color: var(--accent-blue);
             margin-bottom: 20px;
             font-size: 1.4rem;
         }
-        
+
         .wallet-address {
             background-color: var(--light-blue);
             padding: 15px;
@@ -76,13 +77,13 @@
             margin-bottom: 15px;
             border: 1px solid var(--border-color);
         }
-        
+
         .wallet-address p {
             margin-bottom: 5px;
             font-size: 0.9rem;
             color: #a8c6e5;
         }
-        
+
         .address-box {
             display: flex;
             align-items: center;
@@ -91,7 +92,7 @@
             border-radius: 6px;
             margin-top: 10px;
         }
-        
+
         .address-text {
             flex-grow: 1;
             font-family: monospace;
@@ -99,7 +100,7 @@
             word-break: break-all;
             color: var(--text-color);
         }
-        
+
         .copy-btn {
             background-color: var(--accent-blue);
             color: white;
@@ -111,15 +112,15 @@
             margin-left: 10px;
             font-size: 0.9rem;
         }
-        
+
         .copy-btn:hover {
             background-color: #004080;
         }
-        
+
         .copy-btn.copied {
             background-color: var(--success-green);
         }
-        
+
         .upload-area {
             border: 2px dashed var(--border-color);
             border-radius: 10px;
@@ -130,39 +131,39 @@
             margin-top: 20px;
             background-color: rgba(10, 45, 77, 0.3);
         }
-        
+
         .upload-area:hover {
             border-color: var(--accent-blue);
             background-color: rgba(10, 45, 77, 0.5);
         }
-        
+
         .upload-area i {
             font-size: 3rem;
             color: var(--accent-blue);
             margin-bottom: 15px;
         }
-        
+
         .upload-area p {
             margin-bottom: 0;
             color: #a8c6e5;
         }
-        
+
         .upload-area input {
             display: none;
         }
-        
+
         .preview-container {
             margin-top: 20px;
             display: none;
         }
-        
+
         .preview-image {
             max-width: 100%;
             max-height: 300px;
             border-radius: 8px;
             border: 1px solid var(--border-color);
         }
-        
+
         .remove-btn {
             background-color: var(--danger-red);
             color: white;
@@ -173,7 +174,7 @@
             margin-top: 10px;
             font-size: 0.9rem;
         }
-        
+
         .payment-instructions {
             background-color: var(--light-blue);
             padding: 20px;
@@ -181,21 +182,21 @@
             margin-top: 30px;
             border-left: 4px solid var(--accent-blue);
         }
-        
+
         .payment-instructions h4 {
             color: var(--accent-blue);
             margin-bottom: 15px;
         }
-        
+
         .payment-instructions ol {
             padding-left: 20px;
         }
-        
+
         .payment-instructions li {
             margin-bottom: 10px;
             color: #a8c6e5;
         }
-        
+
         .submit-btn {
             background-color: var(--success-green);
             color: white;
@@ -210,37 +211,37 @@
             margin: 40px auto 0;
             width: 200px;
         }
-        
+
         .submit-btn:hover {
             background-color: #00a844;
             transform: translateY(-2px);
         }
-        
+
         .submit-btn:disabled {
             background-color: #666;
             cursor: not-allowed;
             transform: none;
         }
-        
+
         .alert {
             border-radius: 8px;
             margin-top: 20px;
         }
-        
+
         @media (max-width: 768px) {
             .payment-container {
                 padding: 15px;
             }
-            
+
             .payment-card {
                 padding: 20px;
             }
-            
+
             .address-box {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
+
             .copy-btn {
                 margin-left: 0;
                 margin-top: 10px;
@@ -249,11 +250,12 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--primary-blue);">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
                 <i class="fas fa-robot me-2"></i>TheSpace
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -262,13 +264,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                        <a class="nav-link" href="dashboard">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                        <a class="nav-link" href="portfolio">Portfolio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="installmental.html">Installmental Payment</a>
+                        <a class="nav-link active" href="installmental">Installmental Payment</a>
                     </li>
                 </ul>
             </div>
@@ -321,7 +323,8 @@
                         <p>Send exactly: <strong>30% of your investment deposit.00</strong></p>
                         <p>Ethereum Wallet Address:</p>
                         <div class="address-box">
-                            <span class="address-text" id="eth-address">0x742d35Cc6634C0532925a3b8D4B5e3a3A3a3a3a3</span>
+                            <span class="address-text"
+                                id="eth-address">0x742d35Cc6634C0532925a3b8D4B5e3a3A3a3a3a3</span>
                             <button class="copy-btn" data-address="eth-address">
                                 <i class="fas fa-copy me-1"></i> Copy
                             </button>
@@ -399,7 +402,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Copy wallet address functionality
@@ -530,4 +533,5 @@
         });
     </script>
 </body>
+
 </html>
