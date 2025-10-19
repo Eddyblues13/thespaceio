@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,14 +20,14 @@
             --cohere-orange: #ff6b35;
             --text-color: #e8f5e9;
         }
-        
+
         body {
             background-color: var(--dark-green);
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
         }
-        
+
         /* Floating code numbers background */
         #code-background {
             position: fixed;
@@ -37,7 +38,7 @@
             z-index: -1;
             opacity: 0.3;
         }
-        
+
         .code-number {
             position: absolute;
             color: var(--cohere-orange);
@@ -46,46 +47,49 @@
             opacity: 0;
             animation: float 15s infinite linear;
         }
-        
+
         @keyframes float {
             0% {
                 transform: translateY(100vh) rotate(0deg);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.7;
             }
+
             90% {
                 opacity: 0.7;
             }
+
             100% {
                 transform: translateY(-100px) rotate(360deg);
                 opacity: 0;
             }
         }
-        
+
         /* Navigation */
         .navbar {
             background-color: rgba(10, 46, 26, 0.9);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--cohere-orange);
         }
-        
+
         .navbar-brand {
             font-weight: bold;
             color: var(--cohere-orange) !important;
             font-size: 1.5rem;
         }
-        
+
         .nav-link {
             color: var(--text-color) !important;
             transition: color 0.3s;
         }
-        
+
         .nav-link:hover {
             color: var(--cohere-orange) !important;
         }
-        
+
         /* Hero Section */
         .hero-section {
             padding: 150px 0 100px;
@@ -93,7 +97,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
@@ -102,13 +106,13 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .hero-subtitle {
             font-size: 1.2rem;
             margin-bottom: 2rem;
             opacity: 0.9;
         }
-        
+
         /* Company Cards */
         .company-card {
             background: rgba(26, 77, 46, 0.7);
@@ -119,20 +123,20 @@
             border: 1px solid rgba(255, 107, 53, 0.3);
             height: 100%;
         }
-        
+
         .company-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
             border-color: var(--cohere-orange);
         }
-        
+
         .company-logo {
             height: 60px;
             margin-bottom: 15px;
             object-fit: contain;
             max-width: 100%;
         }
-        
+
         .stock-widget {
             background: rgba(10, 46, 26, 0.8);
             border-radius: 8px;
@@ -140,38 +144,38 @@
             margin-top: 15px;
             border-left: 4px solid var(--cohere-orange);
         }
-        
+
         .stock-price {
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--cohere-orange);
         }
-        
+
         .stock-change {
             font-size: 0.9rem;
         }
-        
+
         .positive {
             color: #7cfc00;
         }
-        
+
         .negative {
             color: #ff4d4d;
         }
-        
+
         /* Section Headers */
         .section-header {
             text-align: center;
             margin-bottom: 50px;
             position: relative;
         }
-        
+
         .section-header h2 {
             font-size: 2.5rem;
             margin-bottom: 15px;
             color: var(--cohere-orange);
         }
-        
+
         .section-header::after {
             content: '';
             display: block;
@@ -181,13 +185,13 @@
             margin: 0 auto;
             margin-top: 15px;
         }
-        
+
         /* Stock Charts Section */
         .stock-charts-section {
             padding: 80px 0;
             background: rgba(26, 77, 46, 0.3);
         }
-        
+
         .chart-container {
             background: rgba(26, 77, 46, 0.7);
             border-radius: 10px;
@@ -196,13 +200,13 @@
             border: 1px solid rgba(255, 107, 53, 0.3);
             height: 100%;
         }
-        
+
         .chart-title {
             color: var(--cohere-orange);
             margin-bottom: 15px;
             font-size: 1.2rem;
         }
-        
+
         /* Content Cards */
         .content-card {
             background: rgba(26, 77, 46, 0.7);
@@ -212,26 +216,26 @@
             border: 1px solid rgba(255, 107, 53, 0.3);
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        
+
         .content-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
             border-color: var(--cohere-orange);
         }
-        
+
         .content-card h3 {
             color: var(--cohere-orange);
             margin-bottom: 20px;
             font-size: 1.5rem;
         }
-        
+
         .content-card img {
             border-radius: 8px;
             margin-bottom: 15px;
             width: 100%;
             height: auto;
         }
-        
+
         /* Stats Cards */
         .stats-card {
             background: rgba(26, 77, 46, 0.7);
@@ -242,31 +246,31 @@
             text-align: center;
             transition: transform 0.3s;
         }
-        
+
         .stats-card:hover {
             transform: translateY(-5px);
             border-color: var(--cohere-orange);
         }
-        
+
         .stats-number {
             font-size: 2.5rem;
             font-weight: bold;
             color: var(--cohere-orange);
             margin-bottom: 10px;
         }
-        
+
         .stats-label {
             font-size: 1rem;
             opacity: 0.9;
         }
-        
+
         /* Timeline */
         .timeline {
             position: relative;
             padding-left: 30px;
             margin-top: 30px;
         }
-        
+
         .timeline::before {
             content: '';
             position: absolute;
@@ -276,12 +280,12 @@
             width: 2px;
             background: var(--cohere-orange);
         }
-        
+
         .timeline-item {
             position: relative;
             margin-bottom: 30px;
         }
-        
+
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -292,13 +296,13 @@
             border-radius: 50%;
             background: var(--cohere-orange);
         }
-        
+
         .timeline-date {
             font-weight: bold;
             color: var(--cohere-orange);
             margin-bottom: 5px;
         }
-        
+
         /* Footer */
         footer {
             background-color: rgba(10, 46, 26, 0.9);
@@ -306,13 +310,13 @@
             margin-top: 50px;
             border-top: 1px solid var(--cohere-orange);
         }
-        
+
         .footer-heading {
             color: var(--cohere-orange);
             margin-bottom: 20px;
             font-size: 1.2rem;
         }
-        
+
         /* Product Cards */
         .product-card {
             background: rgba(26, 77, 46, 0.7);
@@ -323,12 +327,12 @@
             transition: transform 0.3s;
             height: 100%;
         }
-        
+
         .product-card:hover {
             transform: translateY(-5px);
             border-color: var(--cohere-orange);
         }
-        
+
         .product-card img {
             border-radius: 8px;
             margin-bottom: 15px;
@@ -336,7 +340,7 @@
             height: 200px;
             object-fit: cover;
         }
-        
+
         /* Enterprise Focus Section */
         .enterprise-feature {
             background: rgba(26, 77, 46, 0.7);
@@ -346,18 +350,18 @@
             border: 1px solid rgba(255, 107, 53, 0.3);
             transition: transform 0.3s;
         }
-        
+
         .enterprise-feature:hover {
             transform: translateY(-5px);
             border-color: var(--cohere-orange);
         }
-        
+
         .enterprise-icon {
             font-size: 2.5rem;
             color: var(--cohere-orange);
             margin-bottom: 15px;
         }
-        
+
         /* Use Cases Grid */
         .use-cases-grid {
             display: grid;
@@ -365,7 +369,7 @@
             gap: 20px;
             margin-top: 20px;
         }
-        
+
         .use-case-item {
             background: rgba(26, 77, 46, 0.7);
             border-radius: 10px;
@@ -373,102 +377,103 @@
             border: 1px solid rgba(255, 107, 53, 0.3);
             transition: transform 0.3s;
         }
-        
+
         .use-case-item:hover {
             transform: translateY(-5px);
             border-color: var(--cohere-orange);
         }
-        
+
         .use-case-icon {
             font-size: 2rem;
             color: var(--cohere-orange);
             margin-bottom: 15px;
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
             }
-            
+
             .section-header h2 {
                 font-size: 2rem;
             }
-            
+
             .stats-number {
                 font-size: 2rem;
             }
-            
+
             .use-cases-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Floating Code Background -->
     <div id="code-background"></div>
-    
+
     <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="index">
-                    <i class="fas fa-brain me-2"></i>TheSpace
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Companies
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="companiesDropdown">
-                                <li><a class="dropdown-item" href="nvidia">Nvidia</a></li>
-                                <li><a class="dropdown-item" href="openai">OpenAI</a></li>
-                                <li><a class="dropdown-item" href="tesla">Tesla</a></li>
-                                <li><a class="dropdown-item" href="oracle">Oracle</a></li>
-                                <li><a class="dropdown-item" href="google">Google</a></li>
-                                <li><a class="dropdown-item" href="facebook">Facebook</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="anthropic">Anthropic</a></li>
-                                <li><a class="dropdown-item" href="stability">Stability AI</a></li>
-                                <li><a class="dropdown-item" href="cohere">Cohere</a></li>
-                                <li><a class="dropdown-item" href="huggingface">Hugging Face</a></li>
-                                <li><a class="dropdown-item" href="scale">Scale AI</a></li>
-                                <li><a class="dropdown-item" href="runway.html">Runway AI</a></li>
-                                <li><a class="dropdown-item" href="character">Character.AI</a></li>
-                                <li><a class="dropdown-item" href="inflection">Inflection AI</a></li>
-                                <li><a class="dropdown-item" href="mistral">Mistral AI</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="investment">Investment Tiers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="insurance">Insurance</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="etf&funds">Etf&Funds</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="faq">Faq</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about">About</a>
-                        </li>
-                    </ul>
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{url('/')}}">
+                <i class="fas fa-brain me-2"></i>TheSpace
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/')}}">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Companies
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="companiesDropdown">
+                            <li><a class="dropdown-item" href="nvidia">Nvidia</a></li>
+                            <li><a class="dropdown-item" href="openai">OpenAI</a></li>
+                            <li><a class="dropdown-item" href="tesla">Tesla</a></li>
+                            <li><a class="dropdown-item" href="oracle">Oracle</a></li>
+                            <li><a class="dropdown-item" href="google">Google</a></li>
+                            <li><a class="dropdown-item" href="facebook">Facebook</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="anthropic">Anthropic</a></li>
+                            <li><a class="dropdown-item" href="stability">Stability AI</a></li>
+                            <li><a class="dropdown-item" href="cohere">Cohere</a></li>
+                            <li><a class="dropdown-item" href="huggingface">Hugging Face</a></li>
+                            <li><a class="dropdown-item" href="scale">Scale AI</a></li>
+                            <li><a class="dropdown-item" href="runway.html">Runway AI</a></li>
+                            <li><a class="dropdown-item" href="character">Character.AI</a></li>
+                            <li><a class="dropdown-item" href="inflection">Inflection AI</a></li>
+                            <li><a class="dropdown-item" href="mistral">Mistral AI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="investment">Investment Tiers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="insurance">Insurance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="etf&funds">Etf&Funds</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq">Faq</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">About</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -529,35 +534,48 @@
                 <h2>Company Overview</h2>
                 <p>Understanding Cohere's mission to bring enterprise-grade AI language capabilities to businesses</p>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-8">
                     <div class="content-card">
                         <h3>About Cohere</h3>
-                        <p>Cohere is an enterprise-focused AI company that develops large language models specifically designed for business applications. Founded by former Google Brain researchers, Cohere focuses on creating AI systems that understand, generate, and reason with language to solve real-world business problems.</p>
-                        
-                        <p>Unlike consumer-focused AI companies, Cohere specifically targets enterprise needs with features like data privacy, custom model training, robust APIs, and industry-specific solutions. The company's models power applications in customer service, content generation, semantic search, and workflow automation for some of the world's largest companies.</p>
-                        
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Enterprise AI Applications" class="img-fluid">
-                        
+                        <p>Cohere is an enterprise-focused AI company that develops large language models specifically
+                            designed for business applications. Founded by former Google Brain researchers, Cohere
+                            focuses on creating AI systems that understand, generate, and reason with language to solve
+                            real-world business problems.</p>
+
+                        <p>Unlike consumer-focused AI companies, Cohere specifically targets enterprise needs with
+                            features like data privacy, custom model training, robust APIs, and industry-specific
+                            solutions. The company's models power applications in customer service, content generation,
+                            semantic search, and workflow automation for some of the world's largest companies.</p>
+
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Enterprise AI Applications" class="img-fluid">
+
                         <h4 class="mt-4">Core Philosophy</h4>
                         <ul>
-                            <li><strong>Enterprise-First Approach:</strong> Building AI specifically for business use cases and requirements</li>
-                            <li><strong>Data Privacy & Security:</strong> Ensuring enterprise data remains private and secure</li>
-                            <li><strong>Customization & Flexibility:</strong> Offering tailored solutions for specific industry needs</li>
-                            <li><strong>Production-Ready APIs:</strong> Providing robust, scalable infrastructure for business applications</li>
-                            <li><strong>Business Value Focus:</strong> Prioritizing ROI and measurable business outcomes</li>
+                            <li><strong>Enterprise-First Approach:</strong> Building AI specifically for business use
+                                cases and requirements</li>
+                            <li><strong>Data Privacy & Security:</strong> Ensuring enterprise data remains private and
+                                secure</li>
+                            <li><strong>Customization & Flexibility:</strong> Offering tailored solutions for specific
+                                industry needs</li>
+                            <li><strong>Production-Ready APIs:</strong> Providing robust, scalable infrastructure for
+                                business applications</li>
+                            <li><strong>Business Value Focus:</strong> Prioritizing ROI and measurable business outcomes
+                            </li>
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4">
                     <div class="content-card">
                         <h3>Leadership Team</h3>
                         <div class="mb-4">
                             <h5>Aidan Gomez</h5>
                             <p class="mb-1"><strong>CEO & Co-founder</strong></p>
-                            <p>Co-author of the landmark "Attention is All You Need" paper that introduced Transformers</p>
+                            <p>Co-author of the landmark "Attention is All You Need" paper that introduced Transformers
+                            </p>
                         </div>
                         <div class="mb-4">
                             <h5>Nick Frosst</h5>
@@ -575,32 +593,39 @@
                             <p>Former Bain & Company partner leading business operations and strategy</p>
                         </div>
                     </div>
-                    
+
                     <div class="content-card">
                         <h3>Major Investors</h3>
                         <div class="d-flex align-items-center mb-3">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Inovia_Capital_logo.svg/1200px-Inovia_Capital_logo.svg.png" alt="Inovia Capital" style="height: 30px; margin-right: 10px; background: white; padding: 5px; border-radius: 4px;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Inovia_Capital_logo.svg/1200px-Inovia_Capital_logo.svg.png"
+                                alt="Inovia Capital"
+                                style="height: 30px; margin-right: 10px; background: white; padding: 5px; border-radius: 4px;">
                             <div>
                                 <strong>Inovia Capital</strong>
                                 <div class="small">Lead Investor</div>
                             </div>
                         </div>
                         <div class="d-flex align-items-center mb-3">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Index_Ventures_logo.svg/1200px-Index_Ventures_logo.svg.png" alt="Index Ventures" style="height: 30px; margin-right: 10px; background: white; padding: 5px; border-radius: 4px;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Index_Ventures_logo.svg/1200px-Index_Ventures_logo.svg.png"
+                                alt="Index Ventures"
+                                style="height: 30px; margin-right: 10px; background: white; padding: 5px; border-radius: 4px;">
                             <div>
                                 <strong>Index Ventures</strong>
                                 <div class="small">Series A & B Investor</div>
                             </div>
                         </div>
                         <div class="d-flex align-items-center mb-3">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Tiger_Global_Management_logo.svg/1200px-Tiger_Global_Management_logo.svg.png" alt="Tiger Global" style="height: 30px; margin-right: 10px; background: white; padding: 5px; border-radius: 4px;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Tiger_Global_Management_logo.svg/1200px-Tiger_Global_Management_logo.svg.png"
+                                alt="Tiger Global"
+                                style="height: 30px; margin-right: 10px; background: white; padding: 5px; border-radius: 4px;">
                             <div>
                                 <strong>Tiger Global</strong>
                                 <div class="small">Series C Investor</div>
                             </div>
                         </div>
                         <div class="d-flex align-items-center">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Salesforce_logo.svg/1200px-Salesforce_logo.svg.png" alt="Salesforce" style="height: 30px; margin-right: 10px;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Salesforce_logo.svg/1200px-Salesforce_logo.svg.png"
+                                alt="Salesforce" style="height: 30px; margin-right: 10px;">
                             <div>
                                 <strong>Salesforce Ventures</strong>
                                 <div class="small">Strategic Investor</div>
@@ -609,14 +634,15 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Company Timeline -->
             <div class="content-card mt-4">
                 <h3>Company Timeline</h3>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-date">2019</div>
-                        <p>Cohere founded by Aidan Gomez, Nick Frosst, and Ivan Zhang with focus on enterprise language AI.</p>
+                        <p>Cohere founded by Aidan Gomez, Nick Frosst, and Ivan Zhang with focus on enterprise language
+                            AI.</p>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-date">June 2021</div>
@@ -636,11 +662,13 @@
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-date">June 1995</div>
-                        <p>Raised $270M Series C funding at $2.2B valuation with participation from NVIDIA and Oracle.</p>
+                        <p>Raised $270M Series C funding at $2.2B valuation with participation from NVIDIA and Oracle.
+                        </p>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-date">September 1995</div>
-                        <p>Launched Command model family with enhanced reasoning and instruction-following capabilities.</p>
+                        <p>Launched Command model family with enhanced reasoning and instruction-following capabilities.
+                        </p>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-date">March 2024</div>
@@ -658,13 +686,15 @@
                 <h2>Products & Technology</h2>
                 <p>Cohere's enterprise-focused AI language platform and models</p>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cohere Platform">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Cohere Platform">
                         <h4>Cohere Platform</h4>
-                        <p>Comprehensive API platform offering access to Cohere's language models with enterprise-grade security, scalability, and support for custom model training and fine-tuning.</p>
+                        <p>Comprehensive API platform offering access to Cohere's language models with enterprise-grade
+                            security, scalability, and support for custom model training and fine-tuning.</p>
                         <div class="mt-3">
                             <span class="badge bg-primary me-2">Enterprise API</span>
                             <span class="badge bg-primary me-2">Custom Models</span>
@@ -672,12 +702,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4 mb-4">
                     <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Command Models">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Command Models">
                         <h4>Command Model Family</h4>
-                        <p>Advanced language models optimized for enterprise use cases with strong reasoning capabilities, instruction following, and RAG (Retrieval Augmented Generation) support.</p>
+                        <p>Advanced language models optimized for enterprise use cases with strong reasoning
+                            capabilities, instruction following, and RAG (Retrieval Augmented Generation) support.</p>
                         <div class="mt-3">
                             <span class="badge bg-primary me-2">Command R+</span>
                             <span class="badge bg-primary me-2">Command R</span>
@@ -685,12 +717,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4 mb-4">
                     <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Embed & Classify">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Embed & Classify">
                         <h4>Embed & Classify</h4>
-                        <p>Specialized models for semantic search, text classification, and content understanding that power enterprise applications like recommendation systems and content moderation.</p>
+                        <p>Specialized models for semantic search, text classification, and content understanding that
+                            power enterprise applications like recommendation systems and content moderation.</p>
                         <div class="mt-3">
                             <span class="badge bg-primary me-2">Embeddings</span>
                             <span class="badge bg-primary me-2">Classification</span>
@@ -699,18 +733,21 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row mt-4">
                 <div class="col-lg-6 mb-4">
                     <div class="content-card">
                         <h3>Command R+ & RAG Optimization</h3>
-                        <p>Cohere's flagship 104B parameter model specifically designed for enterprise RAG applications:</p>
+                        <p>Cohere's flagship 104B parameter model specifically designed for enterprise RAG applications:
+                        </p>
                         <ul>
                             <li><strong>Tool Use:</strong> Ability to call external tools and APIs</li>
-                            <li><strong>RAG Optimization:</strong> Enhanced retrieval-augmented generation capabilities</li>
+                            <li><strong>RAG Optimization:</strong> Enhanced retrieval-augmented generation capabilities
+                            </li>
                             <li><strong>Multilingual Support:</strong> Strong performance across 10+ languages</li>
                             <li><strong>128K Context:</strong> Large context window for complex documents</li>
-                            <li><strong>Enterprise Security:</strong> Built with data privacy and security requirements</li>
+                            <li><strong>Enterprise Security:</strong> Built with data privacy and security requirements
+                            </li>
                         </ul>
                         <div class="mt-3">
                             <span class="badge bg-success me-2">RAG Optimized</span>
@@ -719,17 +756,19 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-6 mb-4">
                     <div class="content-card">
                         <h3>Enterprise Solutions</h3>
                         <p>Cohere offers comprehensive solutions tailored to specific enterprise needs:</p>
                         <ul>
                             <li><strong>Custom Model Training:</strong> Fine-tuned models on enterprise data</li>
-                            <li><strong>Dedicated Infrastructure:</strong> Private deployments and dedicated instances</li>
+                            <li><strong>Dedicated Infrastructure:</strong> Private deployments and dedicated instances
+                            </li>
                             <li><strong>Industry Solutions:</strong> Pre-built solutions for specific verticals</li>
                             <li><strong>Professional Services:</strong> Implementation and integration support</li>
-                            <li><strong>Compliance & Security:</strong> SOC 2, GDPR, and enterprise security standards</li>
+                            <li><strong>Compliance & Security:</strong> SOC 2, GDPR, and enterprise security standards
+                            </li>
                         </ul>
                         <div class="mt-3">
                             <span class="badge bg-warning me-2 text-dark">Custom Training</span>
@@ -739,7 +778,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Use Cases Grid -->
             <div class="content-card mt-4">
                 <h3>Enterprise Use Cases</h3>
@@ -799,31 +838,36 @@
                 <h2>Enterprise Focus & Competitive Differentiation</h2>
                 <p>How Cohere's enterprise-first approach creates competitive advantages</p>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-6 mb-4">
                     <div class="content-card">
                         <h3>Enterprise vs Consumer Focus</h3>
                         <p>Cohere's strategic positioning compared to consumer-focused AI companies:</p>
-                        
+
                         <div class="mb-3">
                             <h5>Enterprise Requirements</h5>
                             <div class="progress mb-2" style="height: 20px;">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">Security, Compliance, Customization</div>
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 85%;"
+                                    aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">Security, Compliance,
+                                    Customization</div>
                             </div>
                         </div>
-                        
+
                         <div class="mb-3">
                             <h5>Consumer Focus</h5>
                             <div class="progress mb-2" style="height: 20px;">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">User Experience, Virality</div>
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 45%;"
+                                    aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">User Experience, Virality
+                                </div>
                             </div>
                         </div>
-                        
-                        <p class="mt-3"><strong>Key Advantage:</strong> Cohere's enterprise-first approach addresses critical business requirements that consumer-focused companies often overlook.</p>
+
+                        <p class="mt-3"><strong>Key Advantage:</strong> Cohere's enterprise-first approach addresses
+                            critical business requirements that consumer-focused companies often overlook.</p>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-6 mb-4">
                     <div class="content-card">
                         <h3>Enterprise LLM Market Share</h3>
@@ -831,7 +875,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row mt-4">
                 <div class="col-lg-12">
                     <div class="content-card">
@@ -843,7 +887,8 @@
                                         <i class="fas fa-shield-alt"></i>
                                     </div>
                                     <h5>Security & Compliance</h5>
-                                    <p>Built-in enterprise security features and compliance with industry regulations</p>
+                                    <p>Built-in enterprise security features and compliance with industry regulations
+                                    </p>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-4">
@@ -878,43 +923,50 @@
                 <h2>Business Model & Market Position</h2>
                 <p>Cohere's revenue strategy and competitive landscape</p>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-6 mb-4">
                     <div class="content-card">
                         <h3>Revenue Model Breakdown</h3>
                         <p>Cohere employs a multi-tiered enterprise pricing strategy:</p>
-                        
+
                         <div class="mb-3">
                             <h5>API Usage & Subscriptions</h5>
                             <div class="progress mb-2" style="height: 20px;">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">Primary Revenue Source</div>
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 55%;"
+                                    aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">Primary Revenue Source
+                                </div>
                             </div>
                         </div>
-                        
+
                         <div class="mb-3">
                             <h5>Enterprise Contracts</h5>
                             <div class="progress mb-2" style="height: 20px;">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">Large Enterprise Deals</div>
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 30%;"
+                                    aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">Large Enterprise Deals
+                                </div>
                             </div>
                         </div>
-                        
+
                         <div class="mb-3">
                             <h5>Professional Services</h5>
                             <div class="progress mb-2" style="height: 20px;">
-                                <div class="progress-bar bg-primary" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Implementation & Training</div>
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 10%;"
+                                    aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Implementation & Training
+                                </div>
                             </div>
                         </div>
-                        
+
                         <div class="mb-3">
                             <h5>Partnership Revenue</h5>
                             <div class="progress mb-2" style="height: 20px;">
-                                <div class="progress-bar bg-warning text-dark" role="progressbar" style="width: 5%;" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">Channel Partnerships</div>
+                                <div class="progress-bar bg-warning text-dark" role="progressbar" style="width: 5%;"
+                                    aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">Channel Partnerships</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-6 mb-4">
                     <div class="content-card">
                         <h3>Revenue Projection</h3>
@@ -922,7 +974,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row mt-4">
                 <div class="col-lg-4 mb-4">
                     <div class="stats-card">
@@ -953,7 +1005,7 @@
                 <h2>Investment Analysis</h2>
                 <p>Comprehensive assessment of Cohere as an enterprise AI investment</p>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-6 mb-4">
                     <div class="chart-container">
@@ -961,21 +1013,21 @@
                         <canvas id="valuationChart"></canvas>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-6 mb-4">
                     <div class="chart-container">
                         <h4 class="chart-title">Funding Rounds</h4>
                         <canvas id="fundingChart"></canvas>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-6 mb-4">
                     <div class="chart-container">
                         <h4 class="chart-title">Customer Growth</h4>
                         <canvas id="customerGrowthChart"></canvas>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-6 mb-4">
                     <div class="chart-container">
                         <h4 class="chart-title">Enterprise AI Market Growth</h4>
@@ -983,7 +1035,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row mt-4">
                 <div class="col-lg-12">
                     <div class="content-card">
@@ -1013,7 +1065,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row mt-4">
                 <div class="col-lg-4 mb-4">
                     <div class="stats-card">
@@ -1043,24 +1095,25 @@
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <h5 class="footer-heading">AI Investment Platform</h5>
-                    <p>Harnessing the power of artificial intelligence to revolutionize investment strategies and portfolio management.</p>
+                    <p>Harnessing the power of artificial intelligence to revolutionize investment strategies and
+                        portfolio management.</p>
                     <div class="mt-3">
                         <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
                         <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
                         <a href="#" class="text-light me-3"><i class="fab fa-facebook fa-lg"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-2 mb-4">
                     <h5 class="footer-heading">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index" class="text-light">Home</a></li>
+                        <li><a href="{{url('/')}}" class="text-light">Home</a></li>
                         <li><a href="about" class="text-light">About Us</a></li>
                         <li><a href="contact" class="text-light">Contact</a></li>
                         <li><a href="faq" class="text-light">FAQ</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="col-lg-3 mb-4">
                     <h5 class="footer-heading">Companies</h5>
                     <ul class="list-unstyled">
@@ -1072,7 +1125,7 @@
                         <li><a href="cohere" class="text-light">Cohere</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="col-lg-3 mb-4">
                     <h5 class="footer-heading">Subscribe</h5>
                     <p>Get the latest investment insights delivered to your inbox.</p>
@@ -1082,9 +1135,9 @@
                     </div>
                 </div>
             </div>
-            
+
             <hr class="mt-4" style="border-color: rgba(255, 107, 53, 0.3);">
-            
+
             <div class="text-center py-3">
                 <p class="mb-0">&copy; 1995 AI Investment Platform. All rights reserved.</p>
             </div>
@@ -1093,7 +1146,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         // Create floating code numbers
         document.addEventListener('DOMContentLoaded', function() {
@@ -1387,4 +1440,5 @@
         }
     </script>
 </body>
+
 </html>

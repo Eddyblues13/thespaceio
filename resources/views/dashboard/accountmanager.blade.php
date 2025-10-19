@@ -748,7 +748,7 @@
     <!-- Responsive Navbar -->
     <nav class="navbar navbar-expand-lg navbar-TheSpace fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{url('/')}}">
                 <i class="fas fa-robot me-2"></i>TheSpace
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTheSpace"
@@ -798,7 +798,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="{{url('/')}}">
                             <i class="fas fa-arrow-left"></i> Back to Main Site
                         </a>
                     </li>

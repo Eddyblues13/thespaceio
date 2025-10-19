@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,14 +22,14 @@
             --warning-color: #ffc107;
             --danger-color: #dc3545;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
         .hero-section {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
@@ -36,7 +37,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-section::before {
             content: '';
             position: absolute;
@@ -48,19 +49,19 @@
             background-size: cover;
             background-position: center bottom;
         }
-        
+
         .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
         }
-        
+
         .hero-subtitle {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.9;
         }
-        
+
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
@@ -68,7 +69,7 @@
             color: var(--primary-color);
             position: relative;
         }
-        
+
         .section-title::after {
             content: '';
             display: block;
@@ -77,13 +78,13 @@
             background: var(--accent-color);
             margin-top: 10px;
         }
-        
+
         .section-subtitle {
             font-size: 1.2rem;
             color: #666;
             margin-bottom: 3rem;
         }
-        
+
         .insurance-card {
             background: white;
             border-radius: 10px;
@@ -94,25 +95,25 @@
             transition: transform 0.3s, box-shadow 0.3s;
             border-top: 4px solid var(--primary-color);
         }
-        
+
         .insurance-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
-        
+
         .insurance-icon {
             font-size: 3rem;
             color: var(--primary-color);
             margin-bottom: 20px;
         }
-        
+
         .insurance-title {
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 15px;
             color: var(--primary-color);
         }
-        
+
         .insurance-quote {
             font-style: italic;
             color: var(--secondary-color);
@@ -120,27 +121,27 @@
             padding-left: 15px;
             margin: 20px 0;
         }
-        
+
         .feature-list {
             list-style: none;
             padding: 0;
             margin: 20px 0;
         }
-        
+
         .feature-list li {
             padding: 8px 0;
             border-bottom: 1px solid #eee;
         }
-        
+
         .feature-list li:last-child {
             border-bottom: none;
         }
-        
+
         .feature-list li i {
             color: var(--success-color);
             margin-right: 10px;
         }
-        
+
         .btn-primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
@@ -148,87 +149,87 @@
             font-weight: 600;
             transition: all 0.3s;
         }
-        
+
         .btn-primary:hover {
             background-color: var(--secondary-color);
             border-color: var(--secondary-color);
             transform: translateY(-2px);
         }
-        
+
         .ai-section {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 100px 0;
         }
-        
+
         .ai-feature {
             text-align: center;
             padding: 20px;
         }
-        
+
         .ai-icon {
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 15px;
         }
-        
+
         .promise-section {
             background: var(--primary-color);
             color: white;
             padding: 80px 0;
         }
-        
+
         .promise-item {
             text-align: center;
             padding: 20px;
         }
-        
+
         .promise-icon {
             font-size: 2.5rem;
             color: var(--accent-color);
             margin-bottom: 15px;
         }
-        
+
         .cta-section {
             background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
             color: white;
             padding: 100px 0;
             text-align: center;
         }
-        
+
         .cta-title {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
         }
-        
+
         .calculator-section {
             background: #f8f9fa;
             padding: 80px 0;
         }
-        
+
         .calculator-card {
             background: white;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             padding: 30px;
         }
-        
+
         .form-label {
             font-weight: 600;
             color: var(--primary-color);
         }
-        
+
         .form-control {
             border: 1px solid #ddd;
             border-radius: 5px;
             padding: 10px 15px;
         }
-        
+
         .form-control:focus {
             border-color: var(--accent-color);
             box-shadow: 0 0 0 0.2rem rgba(58, 123, 213, 0.25);
         }
-        
+
         .result-box {
             background: var(--light-color);
             border-radius: 5px;
@@ -236,48 +237,49 @@
             margin-top: 20px;
             border-left: 4px solid var(--success-color);
         }
-        
+
         .navbar {
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .navbar-brand {
             font-weight: 700;
             color: var(--primary-color) !important;
         }
-        
+
         .nav-link {
             font-weight: 500;
             color: #333 !important;
         }
-        
+
         .nav-link:hover {
             color: var(--primary-color) !important;
         }
-        
+
         footer {
             background: var(--dark-color);
             color: white;
             padding: 60px 0 20px;
         }
-        
+
         .footer-heading {
             color: var(--accent-color);
             margin-bottom: 20px;
             font-size: 1.2rem;
         }
-        
+
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
             }
-            
+
             .section-title {
                 font-size: 2rem;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
@@ -285,13 +287,14 @@
             <a class="navbar-brand" href="#">
                 <i class="fas fa-shield-alt me-2"></i>TheSpace Assurance
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="{{url('/')}}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#insurance">Insurance Plans</a>
@@ -320,14 +323,17 @@
                 <div class="col-lg-6" data-aos="fade-right">
                     <h1 class="hero-title">TheSpace Assurance</h1>
                     <p class="hero-subtitle">Intelligent Protection for the Future</p>
-                    <p class="mb-4">At TheSpace, we don't just help you build wealth — we help you protect it. Introducing TheSpace Assurance, a next-generation insurance platform built on trust, innovation, and artificial intelligence.</p>
+                    <p class="mb-4">At TheSpace, we don't just help you build wealth — we help you protect it.
+                        Introducing TheSpace Assurance, a next-generation insurance platform built on trust, innovation,
+                        and artificial intelligence.</p>
                     <div class="mt-4">
                         <a href="#insurance" class="btn btn-light btn-lg me-3">Explore Plans</a>
                         <a href="#calculator" class="btn btn-outline-light btn-lg">Get a Quote</a>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Insurance Protection" class="img-fluid rounded shadow">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Insurance Protection" class="img-fluid rounded shadow">
                 </div>
             </div>
         </div>
@@ -339,8 +345,11 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center" data-aos="fade-up">
                     <h2 class="section-title">Our Mission</h2>
-                    <p class="section-subtitle">To safeguard every part of your life — your home, your health, your family, your car, your business, and your future.</p>
-                    <p class="lead">TheSpace Assurance combines AI-driven analytics, smart policy customization, and real-time risk prediction to deliver coverage that adapts to your lifestyle and needs — automatically.</p>
+                    <p class="section-subtitle">To safeguard every part of your life — your home, your health, your
+                        family, your car, your business, and your future.</p>
+                    <p class="lead">TheSpace Assurance combines AI-driven analytics, smart policy customization, and
+                        real-time risk prediction to deliver coverage that adapts to your lifestyle and needs —
+                        automatically.</p>
                 </div>
             </div>
         </div>
@@ -355,7 +364,7 @@
                     <p class="section-subtitle">Comprehensive protection powered by AI intelligence</p>
                 </div>
             </div>
-            
+
             <div class="row">
                 <!-- HomeShield -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
@@ -364,23 +373,26 @@
                             <i class="fas fa-home"></i>
                         </div>
                         <h3 class="insurance-title">TheSpace HomeShield</h3>
-                        <p>Protect your property, assets, and investments with AI-assisted home insurance that predicts risks before they occur.</p>
-                        
+                        <p>Protect your property, assets, and investments with AI-assisted home insurance that predicts
+                            risks before they occur.</p>
+
                         <ul class="feature-list">
                             <li><i class="fas fa-check"></i> Coverage for fire, flood, theft, and structural damage</li>
-                            <li><i class="fas fa-check"></i> Real-time smart monitoring integration with IoT devices</li>
+                            <li><i class="fas fa-check"></i> Real-time smart monitoring integration with IoT devices
+                            </li>
                             <li><i class="fas fa-check"></i> Instant claim processing and payout automation</li>
                             <li><i class="fas fa-check"></i> Premium discounts for energy-efficient and smart homes</li>
                         </ul>
-                        
+
                         <div class="insurance-quote">
                             "Because your home isn't just property — it's your foundation."
                         </div>
-                        
-                        <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#homeShieldModal">Learn More</button>
+
+                        <button class="btn btn-primary w-100" data-bs-toggle="modal"
+                            data-bs-target="#homeShieldModal">Learn More</button>
                     </div>
                 </div>
-                
+
                 <!-- AutoGuard -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="insurance-card">
@@ -388,23 +400,26 @@
                             <i class="fas fa-car"></i>
                         </div>
                         <h3 class="insurance-title">TheSpace AutoGuard</h3>
-                        <p>Drive with confidence under AI protection. Our algorithms analyze real-time road data, driving behavior, and environmental conditions.</p>
-                        
+                        <p>Drive with confidence under AI protection. Our algorithms analyze real-time road data,
+                            driving behavior, and environmental conditions.</p>
+
                         <ul class="feature-list">
                             <li><i class="fas fa-check"></i> Full coverage for accidents, damage, and theft</li>
                             <li><i class="fas fa-check"></i> Usage-based premiums that reward safe driving</li>
-                            <li><i class="fas fa-check"></i> 24-hour claim support powered by intelligent automation</li>
+                            <li><i class="fas fa-check"></i> 24-hour claim support powered by intelligent automation
+                            </li>
                             <li><i class="fas fa-check"></i> Coverage extends to electric and autonomous vehicles</li>
                         </ul>
-                        
+
                         <div class="insurance-quote">
                             "Your car learns to protect you — now your insurance does too."
                         </div>
-                        
-                        <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#autoGuardModal">Learn More</button>
+
+                        <button class="btn btn-primary w-100" data-bs-toggle="modal"
+                            data-bs-target="#autoGuardModal">Learn More</button>
                     </div>
                 </div>
-                
+
                 <!-- HealthSecure -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="insurance-card">
@@ -412,23 +427,26 @@
                             <i class="fas fa-heartbeat"></i>
                         </div>
                         <h3 class="insurance-title">TheSpace HealthSecure</h3>
-                        <p>Where healthcare meets intelligence. TheSpace HealthSecure uses predictive AI to track health trends and detect early warning signs.</p>
-                        
+                        <p>Where healthcare meets intelligence. TheSpace HealthSecure uses predictive AI to track health
+                            trends and detect early warning signs.</p>
+
                         <ul class="feature-list">
                             <li><i class="fas fa-check"></i> Comprehensive medical, dental, and emergency coverage</li>
                             <li><i class="fas fa-check"></i> Preventive care and AI-driven wellness programs</li>
-                            <li><i class="fas fa-check"></i> Integration with wearables for personalized health data</li>
+                            <li><i class="fas fa-check"></i> Integration with wearables for personalized health data
+                            </li>
                             <li><i class="fas fa-check"></i> Cashless hospital and telehealth access globally</li>
                         </ul>
-                        
+
                         <div class="insurance-quote">
                             "Stay covered. Stay healthy. Stay ahead."
                         </div>
-                        
-                        <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#healthSecureModal">Learn More</button>
+
+                        <button class="btn btn-primary w-100" data-bs-toggle="modal"
+                            data-bs-target="#healthSecureModal">Learn More</button>
                     </div>
                 </div>
-                
+
                 <!-- FamilyShield -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="insurance-card">
@@ -436,23 +454,25 @@
                             <i class="fas fa-users"></i>
                         </div>
                         <h3 class="insurance-title">TheSpace FamilyShield</h3>
-                        <p>Your family's future deserves intelligent protection with flexible family plans and lifetime benefits.</p>
-                        
+                        <p>Your family's future deserves intelligent protection with flexible family plans and lifetime
+                            benefits.</p>
+
                         <ul class="feature-list">
                             <li><i class="fas fa-check"></i> Flexible family plans with lifetime benefits</li>
                             <li><i class="fas fa-check"></i> Education and legacy funds for children</li>
                             <li><i class="fas fa-check"></i> AI-driven policy adjustments based on life events</li>
                             <li><i class="fas fa-check"></i> Quick, compassionate claim settlement process</li>
                         </ul>
-                        
+
                         <div class="insurance-quote">
                             "Protect what matters most — today and for generations."
                         </div>
-                        
-                        <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#familyShieldModal">Learn More</button>
+
+                        <button class="btn btn-primary w-100" data-bs-toggle="modal"
+                            data-bs-target="#familyShieldModal">Learn More</button>
                     </div>
                 </div>
-                
+
                 <!-- CorporateSure -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="insurance-card">
@@ -460,23 +480,28 @@
                             <i class="fas fa-building"></i>
                         </div>
                         <h3 class="insurance-title">TheSpace CorporateSure</h3>
-                        <p>For businesses that think beyond risk — TheSpace protects your people, assets, and data with AI-powered risk analysis.</p>
-                        
+                        <p>For businesses that think beyond risk — TheSpace protects your people, assets, and data with
+                            AI-powered risk analysis.</p>
+
                         <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> AI-powered risk analysis and business continuity coverage</li>
+                            <li><i class="fas fa-check"></i> AI-powered risk analysis and business continuity coverage
+                            </li>
                             <li><i class="fas fa-check"></i> Employee group insurance and benefits</li>
-                            <li><i class="fas fa-check"></i> Cybersecurity, data loss, and intellectual property protection</li>
-                            <li><i class="fas fa-check"></i> Tailored coverage for tech, finance, and industrial sectors</li>
+                            <li><i class="fas fa-check"></i> Cybersecurity, data loss, and intellectual property
+                                protection</li>
+                            <li><i class="fas fa-check"></i> Tailored coverage for tech, finance, and industrial sectors
+                            </li>
                         </ul>
-                        
+
                         <div class="insurance-quote">
                             "When innovation meets intelligence, security follows."
                         </div>
-                        
-                        <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#corporateSureModal">Learn More</button>
+
+                        <button class="btn btn-primary w-100" data-bs-toggle="modal"
+                            data-bs-target="#corporateSureModal">Learn More</button>
                     </div>
                 </div>
-                
+
                 <!-- Global Protection -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="insurance-card">
@@ -485,19 +510,20 @@
                         </div>
                         <h3 class="insurance-title">TheSpace Global Protection</h3>
                         <p>For elite investors and travelers with global coverage that knows no borders.</p>
-                        
+
                         <ul class="feature-list">
                             <li><i class="fas fa-check"></i> Global travel insurance (flight, luggage, emergency)</li>
                             <li><i class="fas fa-check"></i> Expat health coverage and relocation support</li>
                             <li><i class="fas fa-check"></i> International property and offshore asset protection</li>
                             <li><i class="fas fa-check"></i> Executive life & lifestyle assurance programs</li>
                         </ul>
-                        
+
                         <div class="insurance-quote">
                             "Because your world has no borders — and neither should your protection."
                         </div>
-                        
-                        <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#globalProtectionModal">Learn More</button>
+
+                        <button class="btn btn-primary w-100" data-bs-toggle="modal"
+                            data-bs-target="#globalProtectionModal">Learn More</button>
                     </div>
                 </div>
             </div>
@@ -510,10 +536,11 @@
             <div class="row">
                 <div class="col-12 text-center mb-5" data-aos="fade-up">
                     <h2 class="section-title">AI at the Core</h2>
-                    <p class="section-subtitle">Every TheSpace Assurance plan is powered by the TheSpace Intelligence Engine</p>
+                    <p class="section-subtitle">Every TheSpace Assurance plan is powered by the TheSpace Intelligence
+                        Engine</p>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="ai-feature">
@@ -524,7 +551,7 @@
                         <p>Our AI continuously analyzes data to predict potential risks before they occur.</p>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="ai-feature">
                         <div class="ai-icon">
@@ -534,7 +561,7 @@
                         <p>Dynamic pricing based on real-time risk assessment and customer behavior.</p>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="ai-feature">
                         <div class="ai-icon">
@@ -544,7 +571,7 @@
                         <p>Advanced algorithms identify and prevent fraudulent claims automatically.</p>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="ai-feature">
                         <div class="ai-icon">
@@ -555,7 +582,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row mt-5">
                 <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
                     <p class="lead">With TheSpace, you don't just get insurance — you get intelligent assurance.</p>
@@ -573,7 +600,7 @@
                     <p class="section-subtitle">Get an instant estimate for your personalized insurance plan</p>
                 </div>
             </div>
-            
+
             <div class="row justify-content-center">
                 <div class="col-lg-8" data-aos="fade-up">
                     <div class="calculator-card">
@@ -591,19 +618,21 @@
                                         <option value="global">Global Protection Suite</option>
                                     </select>
                                 </div>
-                                
+
                                 <div class="col-md-6 mb-3">
                                     <label for="coverageAmount" class="form-label">Coverage Amount ($)</label>
-                                    <input type="number" class="form-control" id="coverageAmount" min="1000" max="10000000" step="1000" placeholder="e.g., 500000" required>
+                                    <input type="number" class="form-control" id="coverageAmount" min="1000"
+                                        max="10000000" step="1000" placeholder="e.g., 500000" required>
                                 </div>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="age" class="form-label">Age</label>
-                                    <input type="number" class="form-control" id="age" min="18" max="100" placeholder="Your age" required>
+                                    <input type="number" class="form-control" id="age" min="18" max="100"
+                                        placeholder="Your age" required>
                                 </div>
-                                
+
                                 <div class="col-md-6 mb-3">
                                     <label for="location" class="form-label">Location</label>
                                     <select class="form-select" id="location" required>
@@ -614,13 +643,14 @@
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="deductible" class="form-label">Deductible Amount ($)</label>
-                                    <input type="number" class="form-control" id="deductible" min="100" max="10000" step="100" placeholder="e.g., 1000" required>
+                                    <input type="number" class="form-control" id="deductible" min="100" max="10000"
+                                        step="100" placeholder="e.g., 1000" required>
                                 </div>
-                                
+
                                 <div class="col-md-6 mb-3">
                                     <label for="paymentFrequency" class="form-label">Payment Frequency</label>
                                     <select class="form-select" id="paymentFrequency" required>
@@ -630,12 +660,12 @@
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary btn-lg">Calculate Premium</button>
                             </div>
                         </form>
-                        
+
                         <div id="premiumResult" class="result-box" style="display: none;">
                             <h4>Your Estimated Premium</h4>
                             <div class="row mt-3">
@@ -646,11 +676,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <p><strong>Payment Frequency:</strong> <span id="resultFrequency"></span></p>
-                                    <p><strong>Estimated Premium:</strong> <span id="resultPremium" class="fs-4 text-success"></span></p>
+                                    <p><strong>Estimated Premium:</strong> <span id="resultPremium"
+                                            class="fs-4 text-success"></span></p>
                                 </div>
                             </div>
                             <div class="mt-3">
-                                <button class="btn btn-success me-2"><a href="accountmanager.html">Apply Now</a></button>
+                                <button class="btn btn-success me-2"><a href="accountmanager.html">Apply
+                                        Now</a></button>
                                 <button class="btn btn-outline-primary" id="resetCalculator">Calculate Again</button>
                             </div>
                         </div>
@@ -668,7 +700,7 @@
                     <h2 class="text-white">Our Promise</h2>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="promise-item">
@@ -679,7 +711,7 @@
                         <p>Clear, understandable policies with no hidden clauses.</p>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="promise-item">
                         <div class="promise-icon">
@@ -689,7 +721,7 @@
                         <p>All your policies accessible anytime, anywhere.</p>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="promise-item">
                         <div class="promise-icon">
@@ -699,7 +731,7 @@
                         <p>Fast, fair claim processing powered by AI.</p>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="promise-item">
                         <div class="promise-icon">
@@ -710,7 +742,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row mt-5">
                 <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
                     <h3 class="mb-3">TheSpace Assurance — Where protection meets innovation.</h3>
@@ -725,7 +757,8 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
                     <h2 class="cta-title">Ready to Protect Your Future?</h2>
-                    <p class="mb-4">Join thousands of satisfied customers who trust TheSpace Assurance for their protection needs.</p>
+                    <p class="mb-4">Join thousands of satisfied customers who trust TheSpace Assurance for their
+                        protection needs.</p>
                     <a href="#calculator" class="btn btn-light btn-lg me-3">Get a Quote</a>
                     <a href="accountmanager" class="btn btn-outline-light btn-lg">Contact Us</a>
                 </div>
@@ -733,14 +766,15 @@
         </div>
     </section>
 
-    
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <h4 class="footer-heading">TheSpace Assurance</h4>
-                    <p>Intelligent Protection for the Future. Combining AI-driven analytics with comprehensive insurance coverage to safeguard what matters most.</p>
+                    <p>Intelligent Protection for the Future. Combining AI-driven analytics with comprehensive insurance
+                        coverage to safeguard what matters most.</p>
                     <div class="mt-3">
                         <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
                         <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
@@ -766,7 +800,7 @@
                         <li><a href="#" class="text-light">FamilyShield</a></li>
                     </ul>
                 </div>
-                
+
             </div>
             <div class="text-center pt-3 border-top border-secondary">
                 <p>&copy; 1995 TheSpace Assurance. All rights reserved.</p>
@@ -778,7 +812,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+
     <script>
         // Initialize AOS
         AOS.init({
@@ -876,4 +910,5 @@
         });
     </script>
 </body>
-</html>     
+
+</html>

@@ -331,7 +331,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{url('/')}}">
                 <i class="fas fa-brain me-2"></i>TheSpace
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -340,7 +340,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="{{url('/')}}">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
@@ -445,39 +445,39 @@
                             <p class="contact-detail">Qatar</p>
                         </div>
                         <div class="contact-info-card">
-                        <div class="text-center">
-                            <i class="fas fa-phone contact-icon"></i>
-                            <h4>Phone & Email</h4>
-                            <p class="contact-detail">
-                                <a href="tel:+11234567890" class="contact-link">
-                                    <i class="fas fa-phone me-2"></i>+974-3335-4751
-                                </a>
-                            </p>
-                            <p class="contact-detail">
-                                <a href="mailto:info@aiinvest.com" class="contact-link">
-                                    <i class="fas fa-envelope me-2"></i>info@thespace.com
-                                </a>
-                            </p>
+                            <div class="text-center">
+                                <i class="fas fa-phone contact-icon"></i>
+                                <h4>Phone & Email</h4>
+                                <p class="contact-detail">
+                                    <a href="tel:+11234567890" class="contact-link">
+                                        <i class="fas fa-phone me-2"></i>+974-3335-4751
+                                    </a>
+                                </p>
+                                <p class="contact-detail">
+                                    <a href="mailto:info@aiinvest.com" class="contact-link">
+                                        <i class="fas fa-envelope me-2"></i>info@thespace.com
+                                    </a>
+                                </p>
+                            </div>
                         </div>
-                    </div>
                     </div>
 
-                    
-                   <section>
-                    <div class="contact-info-card">
-                        <div class="text-center">
-                            <i class="fas fa-clock contact-icon"></i>
-                            <h4>Business Hours</h4>
-                            <p class="contact-detail">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                            <p class="contact-detail">Saturday: 10:00 AM - 4:00 PM</p>
-                            <p class="contact-detail">Sunday: Closed</p>
+
+                    <section>
+                        <div class="contact-info-card">
+                            <div class="text-center">
+                                <i class="fas fa-clock contact-icon"></i>
+                                <h4>Business Hours</h4>
+                                <p class="contact-detail">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <p class="contact-detail">Saturday: 10:00 AM - 4:00 PM</p>
+                                <p class="contact-detail">Sunday: Closed</p>
+                            </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
-        </section>
-    
+    </section>
+
 
     <!-- Map Section -->
     <section class="map-section">
@@ -497,7 +497,7 @@
             </div>
         </div>
     </section>
-     <br>
+    <br>
     <!-- FAQ Section -->
     <section class="faq-section">
         <div class="container">
@@ -603,7 +603,7 @@
                 <div class="col-lg-2 mb-4">
                     <h5 class="footer-heading">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index" class="text-light">Home</a></li>
+                        <li><a href="{{url('/')}}" class="text-light">Home</a></li>
                         <li><a href="about" class="text-light">About Us</a></li>
                         <li><a href="contact" class="text-light">Contact</a></li>
                         <li><a href="faq" class="text-light">FAQ</a></li>

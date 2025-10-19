@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,14 +20,14 @@
             --text-color: #e8f5e9;
             --meta-blue: #1877f2;
         }
-        
+
         body {
             background-color: var(--dark-green);
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
         }
-        
+
         /* Floating code numbers background */
         #code-background {
             position: fixed;
@@ -37,7 +38,7 @@
             z-index: -1;
             opacity: 0.3;
         }
-        
+
         .code-number {
             position: absolute;
             color: var(--accent-green);
@@ -46,46 +47,49 @@
             opacity: 0;
             animation: float 15s infinite linear;
         }
-        
+
         @keyframes float {
             0% {
                 transform: translateY(100vh) rotate(0deg);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.7;
             }
+
             90% {
                 opacity: 0.7;
             }
+
             100% {
                 transform: translateY(-100px) rotate(360deg);
                 opacity: 0;
             }
         }
-        
+
         /* Navigation */
         .navbar {
             background-color: rgba(10, 46, 26, 0.9);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--accent-green);
         }
-        
+
         .navbar-brand {
             font-weight: bold;
             color: var(--accent-green) !important;
             font-size: 1.5rem;
         }
-        
+
         .nav-link {
             color: var(--text-color) !important;
             transition: color 0.3s;
         }
-        
+
         .nav-link:hover {
             color: var(--accent-green) !important;
         }
-        
+
         /* Hero Section */
         .company-hero {
             padding: 150px 0 100px;
@@ -93,40 +97,40 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
         }
-        
+
         .hero-subtitle {
             font-size: 1.2rem;
             margin-bottom: 2rem;
             opacity: 0.9;
         }
-        
+
         .meta-blue {
             color: var(--meta-blue);
         }
-        
+
         /* Content Sections */
         .content-section {
             padding: 80px 0;
         }
-        
+
         .section-header {
             text-align: center;
             margin-bottom: 50px;
             position: relative;
         }
-        
+
         .section-header h2 {
             font-size: 2.5rem;
             margin-bottom: 15px;
             color: var(--accent-green);
         }
-        
+
         .section-header::after {
             content: '';
             display: block;
@@ -136,7 +140,7 @@
             margin: 0 auto;
             margin-top: 15px;
         }
-        
+
         /* Stock Widget */
         .stock-widget-large {
             background: rgba(26, 77, 46, 0.7);
@@ -145,26 +149,26 @@
             border: 1px solid rgba(60, 179, 113, 0.3);
             margin-bottom: 30px;
         }
-        
+
         .stock-price-large {
             font-size: 2.5rem;
             font-weight: bold;
             color: var(--meta-blue);
         }
-        
+
         .stock-change-large {
             font-size: 1.2rem;
             margin-bottom: 15px;
         }
-        
+
         .positive {
             color: #7cfc00;
         }
-        
+
         .negative {
             color: #ff4d4d;
         }
-        
+
         /* Detail Cards */
         .detail-card {
             background: rgba(26, 77, 46, 0.7);
@@ -175,18 +179,18 @@
             transition: transform 0.3s;
             height: 100%;
         }
-        
+
         .detail-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-green);
         }
-        
+
         .card-icon {
             font-size: 2rem;
             color: var(--meta-blue);
             margin-bottom: 15px;
         }
-        
+
         /* Chart Container */
         .chart-container {
             background: rgba(26, 77, 46, 0.7);
@@ -196,12 +200,12 @@
             border: 1px solid rgba(60, 179, 113, 0.3);
             height: 100%;
         }
-        
+
         /* AI Analysis */
         .ai-analysis {
             background: rgba(26, 77, 46, 0.3);
         }
-        
+
         .analysis-card {
             background: rgba(10, 46, 26, 0.7);
             border-radius: 10px;
@@ -210,7 +214,7 @@
             border: 1px solid rgba(60, 179, 113, 0.3);
             height: 100%;
         }
-        
+
         .confidence-meter {
             height: 10px;
             background: rgba(255, 255, 255, 0.1);
@@ -218,20 +222,20 @@
             margin: 15px 0;
             overflow: hidden;
         }
-        
+
         .confidence-level {
             height: 100%;
             border-radius: 5px;
         }
-        
+
         .high-confidence {
             background: linear-gradient(to right, #7cfc00, #3cb371);
         }
-        
+
         .medium-confidence {
             background: linear-gradient(to right, #ffa500, #ff8c00);
         }
-        
+
         /* Key Metrics */
         .metrics-grid {
             display: grid;
@@ -239,7 +243,7 @@
             gap: 20px;
             margin-top: 30px;
         }
-        
+
         .metric-item {
             background: rgba(10, 46, 26, 0.7);
             border-radius: 8px;
@@ -247,14 +251,14 @@
             text-align: center;
             border: 1px solid rgba(60, 179, 113, 0.3);
         }
-        
+
         .metric-value {
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--meta-blue);
             margin-bottom: 5px;
         }
-        
+
         /* Platform Grid */
         .platforms-grid {
             display: grid;
@@ -262,7 +266,7 @@
             gap: 20px;
             margin-top: 30px;
         }
-        
+
         .platform-item {
             background: rgba(10, 46, 26, 0.7);
             border-radius: 8px;
@@ -271,18 +275,18 @@
             border: 1px solid rgba(60, 179, 113, 0.3);
             transition: transform 0.3s;
         }
-        
+
         .platform-item:hover {
             transform: translateY(-5px);
             border-color: var(--meta-blue);
         }
-        
+
         .platform-icon {
             font-size: 2.5rem;
             color: var(--meta-blue);
             margin-bottom: 15px;
         }
-        
+
         /* User Metrics */
         .user-metrics {
             display: grid;
@@ -290,7 +294,7 @@
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .user-metric {
             background: rgba(10, 46, 26, 0.9);
             border-radius: 8px;
@@ -298,14 +302,14 @@
             text-align: center;
             border: 1px solid rgba(60, 179, 113, 0.3);
         }
-        
+
         .user-metric-value {
             font-size: 1.3rem;
             font-weight: bold;
             color: var(--meta-blue);
             margin-bottom: 5px;
         }
-        
+
         /* Footer */
         footer {
             background-color: rgba(10, 46, 26, 0.9);
@@ -313,101 +317,102 @@
             margin-top: 50px;
             border-top: 1px solid var(--accent-green);
         }
-        
+
         .footer-heading {
             color: var(--accent-green);
             margin-bottom: 20px;
             font-size: 1.2rem;
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
             }
-            
+
             .stock-price-large {
                 font-size: 2rem;
             }
-            
+
             .metrics-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
-            
+
             .platforms-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .user-metrics {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Floating Code Background -->
     <div id="code-background"></div>
-    
+
     <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="index">
-                    <i class="fas fa-brain me-2"></i>TheSpace
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Companies
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="companiesDropdown">
-                                <li><a class="dropdown-item" href="nvidia">Nvidia</a></li>
-                                <li><a class="dropdown-item" href="openai">OpenAI</a></li>
-                                <li><a class="dropdown-item" href="tesla">Tesla</a></li>
-                                <li><a class="dropdown-item" href="oracle">Oracle</a></li>
-                                <li><a class="dropdown-item" href="google">Google</a></li>
-                                <li><a class="dropdown-item" href="facebook">Facebook</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="anthropic">Anthropic</a></li>
-                                <li><a class="dropdown-item" href="stability">Stability AI</a></li>
-                                <li><a class="dropdown-item" href="cohere">Cohere</a></li>
-                                <li><a class="dropdown-item" href="huggingface">Hugging Face</a></li>
-                                <li><a class="dropdown-item" href="scale">Scale AI</a></li>
-                                <li><a class="dropdown-item" href="runway.html">Runway AI</a></li>
-                                <li><a class="dropdown-item" href="character">Character.AI</a></li>
-                                <li><a class="dropdown-item" href="inflection">Inflection AI</a></li>
-                                <li><a class="dropdown-item" href="mistral">Mistral AI</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="investment">Investment Tiers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="insurance">Insurance</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="etf&funds">Etf&Funds</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="faq">Faq</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about">About</a>
-                        </li>
-                    </ul>
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{url('/')}}">
+                <i class="fas fa-brain me-2"></i>TheSpace
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/')}}">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Companies
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="companiesDropdown">
+                            <li><a class="dropdown-item" href="nvidia">Nvidia</a></li>
+                            <li><a class="dropdown-item" href="openai">OpenAI</a></li>
+                            <li><a class="dropdown-item" href="tesla">Tesla</a></li>
+                            <li><a class="dropdown-item" href="oracle">Oracle</a></li>
+                            <li><a class="dropdown-item" href="google">Google</a></li>
+                            <li><a class="dropdown-item" href="facebook">Facebook</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="anthropic">Anthropic</a></li>
+                            <li><a class="dropdown-item" href="stability">Stability AI</a></li>
+                            <li><a class="dropdown-item" href="cohere">Cohere</a></li>
+                            <li><a class="dropdown-item" href="huggingface">Hugging Face</a></li>
+                            <li><a class="dropdown-item" href="scale">Scale AI</a></li>
+                            <li><a class="dropdown-item" href="runway.html">Runway AI</a></li>
+                            <li><a class="dropdown-item" href="character">Character.AI</a></li>
+                            <li><a class="dropdown-item" href="inflection">Inflection AI</a></li>
+                            <li><a class="dropdown-item" href="mistral">Mistral AI</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="investment">Investment Tiers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="insurance">Insurance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="etf&funds">Etf&Funds</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq">Faq</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">About</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="company-hero">
@@ -415,16 +420,21 @@
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <div class="d-flex align-items-center mb-4">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1200px-Meta_Platforms_Inc._logo.svg.png" alt="Meta" style="height: 80px; margin-right: 20px;">
-                        <h1 class="hero-title meta-blue">Meta Platforms, Inc. <span class="badge bg-secondary">META</span></h1>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1200px-Meta_Platforms_Inc._logo.svg.png"
+                            alt="Meta" style="height: 80px; margin-right: 20px;">
+                        <h1 class="hero-title meta-blue">Meta Platforms, Inc. <span
+                                class="badge bg-secondary">META</span></h1>
                     </div>
-                    <p class="hero-subtitle">Building technologies that help people connect, find communities, and grow businesses. Meta's family of apps includes Facebook, Instagram, WhatsApp, Messenger, and the metaverse vision through Reality Labs.</p>
-                    
+                    <p class="hero-subtitle">Building technologies that help people connect, find communities, and grow
+                        businesses. Meta's family of apps includes Facebook, Instagram, WhatsApp, Messenger, and the
+                        metaverse vision through Reality Labs.</p>
+
                     <div class="stock-widget-large">
                         <div class="row align-items-center">
                             <div class="col-md-6">
                                 <div class="stock-price-large">$318.25</div>
-                                <div class="stock-change-large positive">+3.12% <i class="fas fa-arrow-up"></i> (+$9.62)</div>
+                                <div class="stock-change-large positive">+3.12% <i class="fas fa-arrow-up"></i> (+$9.62)
+                                </div>
                                 <div class="text-muted">NASDAQ: META • Last updated: 10:15 AM EST</div>
                             </div>
                             <div class="col-md-6">
@@ -464,7 +474,7 @@
                 <h2>Company Overview</h2>
                 <p>Comprehensive analysis of Meta's business and market position</p>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-8">
                     <div class="detail-card">
@@ -474,13 +484,17 @@
                         <h3>Business Model</h3>
                         <p>Meta operates as a social technology company with two main segments:</p>
                         <ul>
-                            <li><strong>Family of Apps:</strong> Facebook, Instagram, WhatsApp, and Messenger generating revenue primarily through advertising</li>
-                            <li><strong>Reality Labs:</strong> Augmented and virtual reality products, consumer hardware, and software for the metaverse vision</li>
+                            <li><strong>Family of Apps:</strong> Facebook, Instagram, WhatsApp, and Messenger generating
+                                revenue primarily through advertising</li>
+                            <li><strong>Reality Labs:</strong> Augmented and virtual reality products, consumer
+                                hardware, and software for the metaverse vision</li>
                         </ul>
-                        <p>The company's core advertising business leverages its massive user base and sophisticated targeting capabilities, while Reality Labs represents the long-term bet on the next computing platform.</p>
+                        <p>The company's core advertising business leverages its massive user base and sophisticated
+                            targeting capabilities, while Reality Labs represents the long-term bet on the next
+                            computing platform.</p>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4">
                     <div class="detail-card">
                         <div class="card-icon">
@@ -508,7 +522,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row mt-4">
                 <div class="col-lg-6">
                     <div class="detail-card">
@@ -517,15 +531,20 @@
                         </div>
                         <h3>Competitive Advantages</h3>
                         <ul>
-                            <li><strong>Network Effects:</strong> Unprecedented global user base creates powerful moat</li>
-                            <li><strong>Data Advantage:</strong> Vast amounts of user data enable superior ad targeting</li>
-                            <li><strong>Platform Ecosystem:</strong> Interconnected apps create stickiness and cross-platform engagement</li>
-                            <li><strong>AI & Machine Learning:</strong> Industry-leading algorithms for content delivery and ad optimization</li>
-                            <li><strong>Strategic Acquisitions:</strong> Successful integration of Instagram and WhatsApp</li>
+                            <li><strong>Network Effects:</strong> Unprecedented global user base creates powerful moat
+                            </li>
+                            <li><strong>Data Advantage:</strong> Vast amounts of user data enable superior ad targeting
+                            </li>
+                            <li><strong>Platform Ecosystem:</strong> Interconnected apps create stickiness and
+                                cross-platform engagement</li>
+                            <li><strong>AI & Machine Learning:</strong> Industry-leading algorithms for content delivery
+                                and ad optimization</li>
+                            <li><strong>Strategic Acquisitions:</strong> Successful integration of Instagram and
+                                WhatsApp</li>
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-6">
                     <div class="detail-card">
                         <div class="card-icon">
@@ -533,11 +552,16 @@
                         </div>
                         <h3>Risk Factors</h3>
                         <ul>
-                            <li><strong>Regulatory Pressure:</strong> Increasing global scrutiny on privacy, antitrust, and content moderation</li>
-                            <li><strong>Apple iOS Changes:</strong> App Tracking Transparency significantly impacted ad targeting capabilities</li>
-                            <li><strong>TikTok Competition:</strong> Rising competition for user attention, especially among younger demographics</li>
-                            <li><strong>Reality Labs Losses:</strong> Significant ongoing investments in metaverse with uncertain ROI timeline</li>
-                            <li><strong>Economic Sensitivity:</strong> Advertising revenue vulnerable to economic downturns</li>
+                            <li><strong>Regulatory Pressure:</strong> Increasing global scrutiny on privacy, antitrust,
+                                and content moderation</li>
+                            <li><strong>Apple iOS Changes:</strong> App Tracking Transparency significantly impacted ad
+                                targeting capabilities</li>
+                            <li><strong>TikTok Competition:</strong> Rising competition for user attention, especially
+                                among younger demographics</li>
+                            <li><strong>Reality Labs Losses:</strong> Significant ongoing investments in metaverse with
+                                uncertain ROI timeline</li>
+                            <li><strong>Economic Sensitivity:</strong> Advertising revenue vulnerable to economic
+                                downturns</li>
                         </ul>
                     </div>
                 </div>
@@ -552,7 +576,7 @@
                 <h2>Platform Ecosystem</h2>
                 <p>Meta's family of apps and services</p>
             </div>
-            
+
             <div class="platforms-grid">
                 <div class="platform-item">
                     <div class="platform-icon">
@@ -571,7 +595,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="platform-item">
                     <div class="platform-icon">
                         <i class="fab fa-instagram"></i>
@@ -589,7 +613,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="platform-item">
                     <div class="platform-icon">
                         <i class="fab fa-whatsapp"></i>
@@ -607,7 +631,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="platform-item">
                     <div class="platform-icon">
                         <i class="fas fa-vr-cardboard"></i>
@@ -636,7 +660,7 @@
                 <h2>AI Investment Analysis</h2>
                 <p>Our proprietary algorithms evaluate Meta's investment potential</p>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-6">
                     <div class="analysis-card">
@@ -645,8 +669,10 @@
                             <div class="display-4 meta-blue me-3">BUY</div>
                             <div class="bg-success text-white px-3 py-1 rounded">Strong Positive</div>
                         </div>
-                        <p>Our AI models indicate Meta presents strong recovery potential following 2022 challenges. Cost discipline initiatives and AI-driven efficiency improvements position the company for renewed growth despite Reality Labs losses.</p>
-                        
+                        <p>Our AI models indicate Meta presents strong recovery potential following 2022 challenges.
+                            Cost discipline initiatives and AI-driven efficiency improvements position the company for
+                            renewed growth despite Reality Labs losses.</p>
+
                         <div class="mt-4">
                             <div class="d-flex justify-content-between mb-1">
                                 <span>Confidence Level</span>
@@ -658,7 +684,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-6">
                     <div class="analysis-card">
                         <h3 class="meta-blue">Price Targets</h3>
@@ -679,7 +705,7 @@
                                 <small>(3-5 years)</small>
                             </div>
                         </div>
-                        
+
                         <div class="mt-4">
                             <h5>Key Growth Drivers</h5>
                             <ul>
@@ -692,7 +718,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row mt-4">
                 <div class="col-lg-12">
                     <div class="analysis-card">
@@ -702,7 +728,8 @@
                                 <h5>Market Sentiment</h5>
                                 <div class="d-flex align-items-center my-2">
                                     <div class="progress flex-grow-1 me-2" style="height: 20px;">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 78%;" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">78% Positive</div>
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 78%;"
+                                            aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">78% Positive</div>
                                     </div>
                                 </div>
                             </div>
@@ -710,7 +737,8 @@
                                 <h5>Analyst Consensus</h5>
                                 <div class="d-flex align-items-center my-2">
                                     <div class="progress flex-grow-1 me-2" style="height: 20px;">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 72%;" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">72% Buy</div>
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 72%;"
+                                            aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">72% Buy</div>
                                     </div>
                                 </div>
                             </div>
@@ -718,7 +746,8 @@
                                 <h5>AI Confidence</h5>
                                 <div class="d-flex align-items-center my-2">
                                     <div class="progress flex-grow-1 me-2" style="height: 20px;">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 84%;" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100">84% Confident</div>
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 84%;"
+                                            aria-valuenow="84" aria-valuemin="0" aria-valuemax="100">84% Confident</div>
                                     </div>
                                 </div>
                             </div>
@@ -736,7 +765,7 @@
                 <h2>Financial Performance</h2>
                 <p>Key financial metrics and trends</p>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-8">
                     <div class="chart-container">
@@ -780,24 +809,25 @@
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <h5 class="footer-heading">AI Investment Platform</h5>
-                    <p>Harnessing the power of artificial intelligence to revolutionize investment strategies and portfolio management.</p>
+                    <p>Harnessing the power of artificial intelligence to revolutionize investment strategies and
+                        portfolio management.</p>
                     <div class="mt-3">
                         <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
                         <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
                         <a href="#" class="text-light me-3"><i class="fab fa-facebook fa-lg"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-2 mb-4">
                     <h5 class="footer-heading">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index" class="text-light">Home</a></li>
+                        <li><a href="{{url('/')}}" class="text-light">Home</a></li>
                         <li><a href="about" class="text-light">About Us</a></li>
                         <li><a href="contact" class="text-light">Contact</a></li>
                         <li><a href="faq" class="text-light">FAQ</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="col-lg-3 mb-4">
                     <h5 class="footer-heading">Companies</h5>
                     <ul class="list-unstyled">
@@ -807,7 +837,7 @@
                         <li><a href="facebook" class="text-light">Meta (Facebook)</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="col-lg-3 mb-4">
                     <h5 class="footer-heading">Subscribe</h5>
                     <p>Get the latest investment insights delivered to your inbox.</p>
@@ -817,9 +847,9 @@
                     </div>
                 </div>
             </div>
-            
+
             <hr class="mt-4" style="border-color: rgba(60, 179, 113, 0.3);">
-            
+
             <div class="text-center py-3">
                 <p class="mb-0">&copy; 1995 AI Investment Platform. All rights reserved.</p>
             </div>
@@ -828,7 +858,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         // Create floating code numbers
         document.addEventListener('DOMContentLoaded', function() {
@@ -953,4 +983,5 @@
         }
     </script>
 </body>
+
 </html>
