@@ -78,7 +78,7 @@ class DepositController extends Controller
         // In a real application, you would generate a unique crypto address here
         // For demo purposes, we'll return static addresses
         $addresses = [
-            'bitcoin' => 'bc1qxy2kgttyuui',
+            'bitcoin' => 'bc1qvntpvkhresleqz9jwkny4a0ln2zdx00zpeuc92',
             'ethereum' => '0x71C7656EC7ab88b098defB751B7401B5f6d8976F',
             'usdt' => '0x71C7656EC7ab88b098defB751B7401B5f6d8976F',
             'usdc' => '0x71C7656EC7ab88b098defB751B7401B5f6d8976F',
