@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,14 +18,14 @@
             --accent-color: #3a7bd5;
             --text-color: #e8f5e9;
         }
-
+        
         body {
             background-color: var(--dark-bg);
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
         }
-
+        
         /* Floating code numbers background */
         #code-background {
             position: fixed;
@@ -37,7 +36,7 @@
             z-index: -1;
             opacity: 0.3;
         }
-
+        
         .code-number {
             position: absolute;
             color: var(--accent-color);
@@ -46,49 +45,46 @@
             opacity: 0;
             animation: float 15s infinite linear;
         }
-
+        
         @keyframes float {
             0% {
                 transform: translateY(100vh) rotate(0deg);
                 opacity: 0;
             }
-
             10% {
                 opacity: 0.7;
             }
-
             90% {
                 opacity: 0.7;
             }
-
             100% {
                 transform: translateY(-100px) rotate(360deg);
                 opacity: 0;
             }
         }
-
+        
         /* Navigation */
         .navbar {
             background-color: rgba(10, 25, 41, 0.9);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--accent-color);
         }
-
+        
         .navbar-brand {
             font-weight: bold;
             color: var(--accent-color) !important;
             font-size: 1.5rem;
         }
-
+        
         .nav-link {
             color: var(--text-color) !important;
             transition: color 0.3s;
         }
-
+        
         .nav-link:hover {
             color: var(--accent-color) !important;
         }
-
+        
         /* Hero Section */
         .hero-section {
             padding: 150px 0 100px;
@@ -96,7 +92,7 @@
             position: relative;
             overflow: hidden;
         }
-
+        
         .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
@@ -105,13 +101,13 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
+        
         .hero-subtitle {
             font-size: 1.2rem;
             margin-bottom: 2rem;
             opacity: 0.9;
         }
-
+        
         /* 3D Container */
         #ai-model-container {
             width: 100%;
@@ -120,7 +116,7 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
-
+        
         /* Company Cards */
         .company-card {
             background: rgba(26, 47, 77, 0.7);
@@ -131,18 +127,18 @@
             border: 1px solid rgba(58, 123, 213, 0.3);
             height: 100%;
         }
-
+        
         .company-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
             border-color: var(--accent-color);
         }
-
+        
         .company-logo {
             height: 60px;
             margin-bottom: 15px;
         }
-
+        
         .stock-widget {
             background: rgba(10, 25, 41, 0.8);
             border-radius: 8px;
@@ -150,38 +146,38 @@
             margin-top: 15px;
             border-left: 4px solid var(--accent-color);
         }
-
+        
         .stock-price {
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--accent-color);
         }
-
+        
         .stock-change {
             font-size: 0.9rem;
         }
-
+        
         .positive {
             color: #5dade2;
         }
-
+        
         .negative {
             color: #ff4d4d;
         }
-
+        
         /* Section Headers */
         .section-header {
             text-align: center;
             margin-bottom: 50px;
             position: relative;
         }
-
+        
         .section-header h2 {
             font-size: 2.5rem;
             margin-bottom: 15px;
             color: var(--accent-color);
         }
-
+        
         .section-header::after {
             content: '';
             display: block;
@@ -191,7 +187,7 @@
             margin: 0 auto;
             margin-top: 15px;
         }
-
+        
         /* Footer */
         footer {
             background-color: rgba(10, 25, 41, 0.9);
@@ -199,23 +195,23 @@
             margin-top: 50px;
             border-top: 1px solid var(--accent-color);
         }
-
+        
         .footer-heading {
             color: var(--accent-color);
             margin-bottom: 20px;
             font-size: 1.2rem;
         }
-
+        
         /* Company Pages */
         .company-hero {
             padding: 150px 0 80px;
             background: linear-gradient(135deg, var(--dark-bg) 0%, var(--medium-bg) 100%);
         }
-
+        
         .company-details {
             padding: 80px 0;
         }
-
+        
         .detail-card {
             background: rgba(26, 47, 77, 0.7);
             border-radius: 10px;
@@ -223,28 +219,28 @@
             margin-bottom: 30px;
             border: 1px solid rgba(58, 123, 213, 0.3);
         }
-
+        
         /* FAQ Section */
         .faq-section {
             padding: 80px 0;
         }
-
+        
         .accordion-button {
             background-color: rgba(26, 47, 77, 0.7);
             color: var(--text-color);
             border: 1px solid rgba(58, 123, 213, 0.3);
         }
-
+        
         .accordion-button:not(.collapsed) {
             background-color: rgba(58, 123, 213, 0.2);
             color: var(--accent-color);
         }
-
+        
         .accordion-body {
             background-color: rgba(10, 25, 41, 0.7);
             color: var(--text-color);
         }
-
+        
         /* Contact Form */
         .contact-form {
             background: rgba(26, 47, 77, 0.7);
@@ -252,45 +248,44 @@
             padding: 30px;
             border: 1px solid rgba(58, 123, 213, 0.3);
         }
-
+        
         .form-control {
             background-color: rgba(10, 25, 41, 0.7);
             border: 1px solid rgba(58, 123, 213, 0.3);
             color: var(--text-color);
         }
-
+        
         .form-control:focus {
             background-color: rgba(10, 25, 41, 0.9);
             border-color: var(--accent-color);
             color: var(--text-color);
             box-shadow: 0 0 0 0.25rem rgba(58, 123, 213, 0.25);
         }
-
+        
         .btn-primary {
             background-color: var(--accent-color);
             border-color: var(--accent-color);
             color: var(--dark-bg);
             font-weight: bold;
         }
-
+        
         .btn-primary:hover {
             background-color: #2e6bb5;
             border-color: #2e6bb5;
         }
-
+        
         /* TheSpace Section Styles */
         .TheSpace-section {
             padding: 100px 0;
-            background: var(--dark-bg);
-            /* Updated to match FAQ page background */
+            background: var(--dark-bg); /* Updated to match FAQ page background */
         }
-
+        
         .TheSpace-logo {
             font-size: 3rem;
             color: var(--accent-color);
             margin-bottom: 20px;
         }
-
+        
         .TheSpace-header {
             font-size: 2.8rem;
             font-weight: 700;
@@ -298,14 +293,14 @@
             color: var(--accent-color);
             text-align: center;
         }
-
+        
         .TheSpace-subheader {
             font-size: 1.5rem;
             margin-bottom: 50px;
             text-align: center;
             opacity: 0.9;
         }
-
+        
         .TheSpace-card {
             background: rgba(26, 47, 77, 0.7);
             border-radius: 15px;
@@ -315,13 +310,13 @@
             border: 1px solid rgba(58, 123, 213, 0.3);
             height: 100%;
         }
-
+        
         .TheSpace-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             border-color: var(--accent-color);
         }
-
+        
         .TheSpace-card h3 {
             color: var(--accent-color);
             margin-bottom: 20px;
@@ -329,7 +324,7 @@
             position: relative;
             padding-bottom: 10px;
         }
-
+        
         .TheSpace-card h3::after {
             content: '';
             position: absolute;
@@ -339,36 +334,36 @@
             height: 3px;
             background: var(--accent-color);
         }
-
+        
         .TheSpace-icon {
             font-size: 2.5rem;
             color: var(--accent-color);
             margin-bottom: 20px;
         }
-
+        
         .TheSpace-highlight {
             color: var(--accent-color);
             font-weight: 600;
         }
-
+        
         .TheSpace-list {
             list-style-type: none;
             padding-left: 0;
         }
-
+        
         .TheSpace-list li {
             margin-bottom: 10px;
             padding-left: 25px;
             position: relative;
         }
-
+        
         .TheSpace-list li::before {
             content: '▸';
             position: absolute;
             left: 0;
             color: var(--accent-color);
         }
-
+        
         .TheSpace-cta {
             background: rgba(58, 123, 213, 0.2);
             border-radius: 15px;
@@ -377,80 +372,100 @@
             margin-top: 50px;
             border: 2px solid var(--accent-color);
         }
-
+        
         .TheSpace-cta h3 {
             color: var(--accent-color);
             margin-bottom: 20px;
             font-size: 2rem;
         }
-
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
             }
-
+            
             #ai-model-container {
                 height: 300px;
             }
-
+            
             .TheSpace-header {
                 font-size: 2.2rem;
             }
-
+            
             .TheSpace-subheader {
                 font-size: 1.2rem;
             }
         }
     </style>
 </head>
-
 <body>
     <!-- Floating Code Background -->
     <div id="code-background"></div>
-
+    
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <i class="fas fa-brain me-2"></i>TheSpace
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
-                            data-bs-toggle="dropdown">
-                            Companies
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="tesla">Tesla</a></li>
-                            <li><a class="dropdown-item" href="oracle">Oracle</a></li>
-                            <li><a class="dropdown-item" href="google">Google</a></li>
-                            <li><a class="dropdown-item" href="facebook">Facebook</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about">About Us</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="faq">FAQ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="etf&funds">ETF&Funds</a>
-                    </li>
-                </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index">
+                    <i class="fas fa-brain me-2"></i>TheSpace
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Companies
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="companiesDropdown">
+                                <li><a class="dropdown-item" href="nvidia">Nvidia</a></li>
+                                <li><a class="dropdown-item" href="openai">OpenAI</a></li>
+                                <li><a class="dropdown-item" href="tesla">Tesla</a></li>
+                                <li><a class="dropdown-item" href="oracle">Oracle</a></li>
+                                <li><a class="dropdown-item" href="google">Google</a></li>
+                                <li><a class="dropdown-item" href="facebook">Facebook</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="anthropic">Anthropic</a></li>
+                                <li><a class="dropdown-item" href="stability">Stability AI</a></li>
+                                <li><a class="dropdown-item" href="cohere">Cohere</a></li>
+                                <li><a class="dropdown-item" href="huggingface">Hugging Face</a></li>
+                                <li><a class="dropdown-item" href="scale">Scale AI</a></li>
+                                <li><a class="dropdown-item" href="runway.html">Runway AI</a></li>
+                                <li><a class="dropdown-item" href="character">Character.AI</a></li>
+                                <li><a class="dropdown-item" href="inflection">Inflection AI</a></li>
+                                <li><a class="dropdown-item" href="mistral">Mistral AI</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="investment">Investment Tiers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="insurance">Insurance</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="etf&funds">Etf&Funds</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="faq">Faq</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about">About</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
 
+    
     <!-- TheSpace Section -->
     <section id="TheSpace" class="TheSpace-section">
         <div class="container">
@@ -458,25 +473,18 @@
                 <h2>🌍 About TheSpace</h2>
                 <p>Architects of the Future in AI Investment</p>
             </div>
-
+            
             <div class="row mb-5">
                 <div class="col-lg-12">
                     <div class="TheSpace-card">
                         <h3>Who We Are</h3>
-                        <p>At TheSpace, we are more than an investment company — we are architects of the future. Our
-                            vision is to connect investors of every scale to the most transformative force of our
-                            generation: <span class="TheSpace-highlight">Artificial Intelligence</span>.</p>
-                        <p>The world is shifting at lightning speed. AI is no longer a distant promise; it is the core
-                            driver of global innovation. From business operations and healthcare to finance,
-                            transportation, and creativity, AI is creating unprecedented opportunities and trillions in
-                            new market value.</p>
-                        <p>TheSpace exists to give investors direct access to this revolution. We combine the stability
-                            of established leaders with the explosive growth potential of startups to create one
-                            powerful, diversified AI portfolio.</p>
+                        <p>At TheSpace, we are more than an investment company — we are architects of the future. Our vision is to connect investors of every scale to the most transformative force of our generation: <span class="TheSpace-highlight">Artificial Intelligence</span>.</p>
+                        <p>The world is shifting at lightning speed. AI is no longer a distant promise; it is the core driver of global innovation. From business operations and healthcare to finance, transportation, and creativity, AI is creating unprecedented opportunities and trillions in new market value.</p>
+                        <p>TheSpace exists to give investors direct access to this revolution. We combine the stability of established leaders with the explosive growth potential of startups to create one powerful, diversified AI portfolio.</p>
                     </div>
                 </div>
             </div>
-
+            
             <div class="row mb-5">
                 <div class="col-lg-4 mb-4">
                     <div class="TheSpace-card text-center">
@@ -484,35 +492,31 @@
                             <i class="fas fa-bullseye"></i>
                         </div>
                         <h3>Our Mission</h3>
-                        <p>To democratize access to the AI revolution — making it possible for individuals,
-                            institutions, and corporations alike to invest directly in the intelligence economy and
-                            share in the extraordinary growth it generates.</p>
+                        <p>To democratize access to the AI revolution — making it possible for individuals, institutions, and corporations alike to invest directly in the intelligence economy and share in the extraordinary growth it generates.</p>
                     </div>
                 </div>
-
+                
                 <div class="col-lg-4 mb-4">
                     <div class="TheSpace-card text-center">
                         <div class="TheSpace-icon">
                             <i class="fas fa-eye"></i>
                         </div>
                         <h3>Our Vision</h3>
-                        <p>To make TheSpace the world's most trusted gateway into Artificial Intelligence investments —
-                            a bridge that connects today's investors to tomorrow's digital economy.</p>
+                        <p>To make TheSpace the world's most trusted gateway into Artificial Intelligence investments — a bridge that connects today's investors to tomorrow's digital economy.</p>
                     </div>
                 </div>
-
+                
                 <div class="col-lg-4 mb-4">
                     <div class="TheSpace-card text-center">
                         <div class="TheSpace-icon">
                             <i class="fas fa-handshake"></i>
                         </div>
                         <h3>The TheSpace Promise</h3>
-                        <p>At TheSpace, we believe: When AI grows, you grow. When AI profits, you profit. When AI
-                            becomes the fabric of life itself, you own a share of it.</p>
+                        <p>At TheSpace, we believe: When AI grows, you grow. When AI profits, you profit. When AI becomes the fabric of life itself, you own a share of it.</p>
                     </div>
                 </div>
             </div>
-
+            
             <div class="row mb-5">
                 <div class="col-lg-12">
                     <div class="TheSpace-card">
@@ -520,73 +524,58 @@
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <h4 class="TheSpace-highlight">Invest in AI Giants</h4>
-                                <p>We allocate capital into global leaders such as Microsoft, Nvidia, Google, Amazon,
-                                    and Tesla — companies already shaping AI's present and future.</p>
+                                <p>We allocate capital into global leaders such as Microsoft, Nvidia, Google, Amazon, and Tesla — companies already shaping AI's present and future.</p>
                             </div>
                             <div class="col-md-6 mb-4">
                                 <h4 class="TheSpace-highlight">Partner with Breakthrough Innovators</h4>
-                                <p>We gain exposure to high-growth private startups like OpenAI, Anthropic, Stability
-                                    AI, and Hugging Face, ensuring our investors benefit from the breakthroughs before
-                                    they reach public markets.</p>
+                                <p>We gain exposure to high-growth private startups like OpenAI, Anthropic, Stability AI, and Hugging Face, ensuring our investors benefit from the breakthroughs before they reach public markets.</p>
                             </div>
                             <div class="col-md-6 mb-4">
                                 <h4 class="TheSpace-highlight">Accelerate Emerging Startups</h4>
-                                <p>We identify and support the next wave of innovators — from generative AI to robotics,
-                                    healthcare AI, fintech, and creative tools — fueling their growth while securing
-                                    long-term value for our investors.</p>
+                                <p>We identify and support the next wave of innovators — from generative AI to robotics, healthcare AI, fintech, and creative tools — fueling their growth while securing long-term value for our investors.</p>
                             </div>
                             <div class="col-md-6 mb-4">
                                 <h4 class="TheSpace-highlight">Build a Diversified AI Portfolio</h4>
-                                <p>With TheSpace, investors don't have to choose one company or one sector. They gain
-                                    access to the entire AI ecosystem, spreading risk while maximizing growth potential.
-                                </p>
+                                <p>With TheSpace, investors don't have to choose one company or one sector. They gain access to the entire AI ecosystem, spreading risk while maximizing growth potential.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            
             <div class="row mb-5">
                 <div class="col-lg-12">
                     <div class="TheSpace-card">
                         <h3>Why AI? Why Now?</h3>
-                        <p>Artificial Intelligence is projected to add trillions of dollars to the global economy in the
-                            next decade. It is not just reshaping industries; it is becoming the infrastructure of the
-                            modern world.</p>
-
+                        <p>Artificial Intelligence is projected to add trillions of dollars to the global economy in the next decade. It is not just reshaping industries; it is becoming the infrastructure of the modern world.</p>
+                        
                         <div class="row mt-4">
                             <div class="col-md-6">
                                 <ul class="TheSpace-list">
-                                    <li><span class="TheSpace-highlight">In business:</span> AI drives strategy,
-                                        operations, and efficiency.</li>
-                                    <li><span class="TheSpace-highlight">In healthcare:</span> AI improves diagnosis,
-                                        drug discovery, and patient care.</li>
-                                    <li><span class="TheSpace-highlight">In finance:</span> AI powers trading, fraud
-                                        detection, and risk management.</li>
+                                    <li><span class="TheSpace-highlight">In business:</span> AI drives strategy, operations, and efficiency.</li>
+                                    <li><span class="TheSpace-highlight">In healthcare:</span> AI improves diagnosis, drug discovery, and patient care.</li>
+                                    <li><span class="TheSpace-highlight">In finance:</span> AI powers trading, fraud detection, and risk management.</li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
                                 <ul class="TheSpace-list">
-                                    <li><span class="TheSpace-highlight">In creativity:</span> AI produces art, music,
-                                        design, and video at scale.</li>
-                                    <li><span class="TheSpace-highlight">In daily life:</span> AI is the invisible
-                                        engine in our phones, cars, and homes.</li>
+                                    <li><span class="TheSpace-highlight">In creativity:</span> AI produces art, music, design, and video at scale.</li>
+                                    <li><span class="TheSpace-highlight">In daily life:</span> AI is the invisible engine in our phones, cars, and homes.</li>
                                 </ul>
                             </div>
                         </div>
-
-                        <p class="mt-4">By investing in TheSpace, you don't just buy into a single trend — you secure a
-                            stake in the foundation of the new digital economy.</p>
+                        
+                        <p class="mt-4">By investing in TheSpace, you don't just buy into a single trend — you secure a stake in the foundation of the new digital economy.</p>
                     </div>
                 </div>
             </div>
-
+            
             <div class="row mb-5">
                 <div class="col-lg-12">
                     <div class="TheSpace-card">
                         <h3>Our Advantage</h3>
                         <p>What sets TheSpace apart?</p>
-
+                        
                         <div class="row mt-4">
                             <div class="col-md-6 mb-4">
                                 <h4 class="TheSpace-highlight">Breadth & Depth</h4>
@@ -606,20 +595,19 @@
                             </div>
                             <div class="col-md-6 mb-4">
                                 <h4 class="TheSpace-highlight">Trust & Transparency</h4>
-                                <p>We provide clear reporting, updates, and insights to keep our investors informed
-                                    every step of the way.</p>
+                                <p>We provide clear reporting, updates, and insights to keep our investors informed every step of the way.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            
             <div class="row">
                 <div class="col-lg-12">
                     <div class="TheSpace-card">
                         <h3>Our Investors</h3>
                         <p>TheSpace is built for everyone with vision:</p>
-
+                        
                         <div class="row mt-4">
                             <div class="col-md-4 mb-4 text-center">
                                 <div class="TheSpace-icon">
@@ -643,17 +631,16 @@
                                 <p>Building AI-powered futures at scale.</p>
                             </div>
                         </div>
-
-                        <p class="mt-4">Whether you are investing to secure your family's future, expand your portfolio,
-                            or build a generational legacy, TheSpace is your partner in the intelligence economy.</p>
+                        
+                        <p class="mt-4">Whether you are investing to secure your family's future, expand your portfolio, or build a generational legacy, TheSpace is your partner in the intelligence economy.</p>
                     </div>
                 </div>
             </div>
-
+            
             <div class="TheSpace-cta">
                 <h3>✨ TheSpace is not just an investment. It is ownership of the future.</h3>
                 <p class="mb-4">Join us. Invest in intelligence. Invest in TheSpace.</p>
-                <a href="" class="btn btn-primary btn-lg">Get Started Today</a>
+                <a href="contact.html" class="btn btn-primary btn-lg">Get Started Today</a>
             </div>
         </div>
     </section>
@@ -665,7 +652,7 @@
                 <h2>Our AI Technology</h2>
                 <p>How our advanced algorithms analyze market data</p>
             </div>
-
+            
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <div class="text-center">
@@ -673,30 +660,27 @@
                             <i class="fas fa-chart-line fa-3x" style="color: var(--accent-color);"></i>
                         </div>
                         <h4>Predictive Analytics</h4>
-                        <p>Our AI models analyze historical data and market patterns to forecast stock performance with
-                            remarkable accuracy.</p>
+                        <p>Our AI models analyze historical data and market patterns to forecast stock performance with remarkable accuracy.</p>
                     </div>
                 </div>
-
+                
                 <div class="col-lg-4 mb-4">
                     <div class="text-center">
                         <div class="mb-3">
                             <i class="fas fa-robot fa-3x" style="color: var(--accent-color);"></i>
                         </div>
                         <h4>Machine Learning</h4>
-                        <p>Continuous learning algorithms adapt to market changes, improving predictions over time
-                            without human intervention.</p>
+                        <p>Continuous learning algorithms adapt to market changes, improving predictions over time without human intervention.</p>
                     </div>
                 </div>
-
+                
                 <div class="col-lg-4 mb-4">
                     <div class="text-center">
                         <div class="mb-3">
                             <i class="fas fa-database fa-3x" style="color: var(--accent-color);"></i>
                         </div>
                         <h4>Big Data Processing</h4>
-                        <p>We process millions of data points daily from diverse sources to generate comprehensive
-                            investment insights.</p>
+                        <p>We process millions of data points daily from diverse sources to generate comprehensive investment insights.</p>
                     </div>
                 </div>
             </div>
@@ -709,25 +693,24 @@
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <h5 class="footer-heading">AI Investment Platform</h5>
-                    <p>Harnessing the power of artificial intelligence to revolutionize investment strategies and
-                        portfolio management.</p>
+                    <p>Harnessing the power of artificial intelligence to revolutionize investment strategies and portfolio management.</p>
                     <div class="mt-3">
                         <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
                         <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
                         <a href="#" class="text-light me-3"><i class="fab fa-facebook fa-lg"></i></a>
                     </div>
                 </div>
-
+                
                 <div class="col-lg-2 mb-4">
                     <h5 class="footer-heading">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="/" class="text-light">Home</a></li>
+                        <li><a href="index" class="text-light">Home</a></li>
                         <li><a href="about" class="text-light">About Us</a></li>
-
+                        <li><a href="contact" class="text-light">Contact</a></li>
                         <li><a href="faq" class="text-light">FAQ</a></li>
                     </ul>
                 </div>
-
+                
                 <div class="col-lg-3 mb-4">
                     <h5 class="footer-heading">Companies</h5>
                     <ul class="list-unstyled">
@@ -737,7 +720,7 @@
                         <li><a href="facebook" class="text-light">Facebook</a></li>
                     </ul>
                 </div>
-
+                
                 <div class="col-lg-3 mb-4">
                     <h5 class="footer-heading">Subscribe</h5>
                     <p>Get the latest investment insights delivered to your inbox.</p>
@@ -747,9 +730,9 @@
                     </div>
                 </div>
             </div>
-
+            
             <hr class="mt-4" style="border-color: rgba(58, 123, 213, 0.3);">
-
+            
             <div class="text-center py-3">
                 <p class="mb-0">&copy; 1995 AI Investment Platform. All rights reserved.</p>
             </div>
@@ -758,7 +741,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
+    
     <script>
         // Create floating code numbers
         document.addEventListener('DOMContentLoaded', function() {
@@ -845,5 +828,4 @@
         }
     </script>
 </body>
-
 </html>

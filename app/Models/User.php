@@ -124,4 +124,35 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function investments()
+    {
+        return $this->hasMany(Investment::class);
+    }
+
+    public function getTotalInvestmentAttribute()
+    {
+        return $this->investments()->sum('current_value');
+    }
+
+    public function getTotalReturnsAttribute()
+    {
+        return $this->investments()->sum('returns');
+    }
+
+    public function getMonthlyReturnAttribute()
+    {
+        // This would be calculated based on recent transactions
+        return $this->transactions()
+            ->where('type', 'dividend')
+            ->whereMonth('created_at', now()->month)
+            ->sum('amount');
+    }
 }

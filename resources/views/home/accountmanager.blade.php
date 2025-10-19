@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,17 +23,16 @@
             --michael-gold: #FFD700;
             --premium-gold: #FFD700;
         }
-
+        
         body {
             background-color: var(--dark-blue);
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
-            padding-top: 70px;
-            /* Account for fixed navbar */
+            padding-top: 70px; /* Account for fixed navbar */
         }
-
+        
         /* Responsive Navbar */
         .navbar-TheSpace {
             background-color: var(--primary-blue);
@@ -43,18 +41,18 @@
             transition: all 0.3s;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
-
+        
         .navbar-brand {
             color: white;
             font-weight: bold;
             display: flex;
             align-items: center;
         }
-
+        
         .navbar-brand i {
             margin-right: 10px;
         }
-
+        
         .navbar-nav .nav-link {
             color: #a8c6e5;
             padding: 10px 15px;
@@ -62,32 +60,31 @@
             border-radius: 5px;
             margin: 2px 0;
         }
-
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
+        
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
             background-color: var(--light-blue);
             color: white;
         }
-
+        
         .navbar-nav .nav-link i {
             width: 20px;
             text-align: center;
             margin-right: 8px;
         }
-
+        
         .navbar-toggler {
             border: 1px solid var(--border-color);
             padding: 5px 10px;
         }
-
+        
         .navbar-toggler:focus {
             box-shadow: 0 0 0 2px rgba(0, 82, 163, 0.25);
         }
-
+        
         .navbar-toggler-icon {
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
-
+        
         /* Dropdown for smaller screens */
         @media (max-width: 991px) {
             .navbar-collapse {
@@ -99,17 +96,17 @@
                 max-height: 70vh;
                 overflow-y: auto;
             }
-
+            
             .navbar-nav {
                 margin-top: 10px;
             }
         }
-
+        
         /* Main Content */
         .main-content {
             padding: 20px;
         }
-
+        
         /* Top Bar */
         .top-bar {
             background-color: var(--primary-blue);
@@ -118,12 +115,12 @@
             margin-bottom: 20px;
             border-radius: 8px;
         }
-
+        
         .user-info {
             display: flex;
             align-items: center;
         }
-
+        
         .user-avatar {
             width: 40px;
             height: 40px;
@@ -136,7 +133,7 @@
             font-weight: bold;
             margin-right: 10px;
         }
-
+        
         /* Dashboard Cards */
         .dashboard-card {
             background-color: var(--primary-blue);
@@ -145,38 +142,38 @@
             margin-bottom: 20px;
             border: 1px solid var(--border-color);
         }
-
+        
         .card-title {
             font-size: 1.3rem;
             color: var(--text-color);
             margin-bottom: 15px;
             font-weight: 600;
         }
-
+        
         .card-subtitle {
             font-size: 1rem;
             color: #a8c6e5;
             margin-bottom: 20px;
         }
-
+        
         /* Account Manager Selection */
         .selection-container {
             text-align: center;
             margin-bottom: 30px;
         }
-
+        
         .selection-title {
             font-size: 1.8rem;
             margin-bottom: 10px;
             color: var(--text-color);
         }
-
+        
         .selection-subtitle {
             font-size: 1.1rem;
             color: #a8c6e5;
             margin-bottom: 30px;
         }
-
+        
         /* Premium Manager Notice */
         .premium-notice {
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 82, 163, 0.1) 100%);
@@ -186,13 +183,13 @@
             border: 2px solid rgba(255, 215, 0, 0.3);
             text-align: center;
         }
-
+        
         .premium-icon {
             color: var(--premium-gold);
             font-size: 2rem;
             margin-bottom: 10px;
         }
-
+        
         /* Vertical Scrollable Container */
         .vertical-scroll-container {
             position: relative;
@@ -204,7 +201,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             border: 2px solid var(--border-color);
         }
-
+        
         .vertical-managers-track {
             position: absolute;
             top: 0;
@@ -212,7 +209,7 @@
             width: 100%;
             transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-
+        
         .vertical-manager-card {
             width: 100%;
             height: 160px;
@@ -224,28 +221,28 @@
             transition: all 0.3s ease;
             opacity: 0.7;
         }
-
+        
         .vertical-manager-card:last-child {
             border-bottom: none;
         }
-
+        
         .vertical-manager-card.active {
             background-color: var(--light-blue);
             border-left: 4px solid var(--accent-blue);
             opacity: 1;
             transform: scale(1.02);
         }
-
+        
         .vertical-manager-card.premium {
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, var(--primary-blue) 100%);
             border-left: 4px solid var(--premium-gold);
         }
-
+        
         .vertical-manager-card.premium.active {
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, var(--light-blue) 100%);
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
         }
-
+        
         .vertical-manager-avatar {
             width: 80px;
             height: 80px;
@@ -255,34 +252,34 @@
             margin-right: 20px;
             flex-shrink: 0;
         }
-
+        
         .vertical-manager-card.premium .vertical-manager-avatar {
             border-color: var(--premium-gold);
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
         }
-
+        
         .vertical-manager-info {
             flex-grow: 1;
             text-align: left;
         }
-
+        
         .vertical-manager-name {
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 5px;
             color: var(--text-color);
         }
-
+        
         .vertical-manager-card.premium .vertical-manager-name {
             color: var(--premium-gold);
         }
-
+        
         .vertical-manager-title {
             font-size: 0.95rem;
             color: #a8c6e5;
             margin-bottom: 8px;
         }
-
+        
         .vertical-manager-specialty {
             font-size: 0.85rem;
             color: var(--accent-blue);
@@ -291,38 +288,38 @@
             border-radius: 15px;
             display: inline-block;
         }
-
+        
         .vertical-manager-card.premium .vertical-manager-specialty {
             background-color: rgba(255, 215, 0, 0.2);
             color: var(--premium-gold);
         }
-
+        
         .vertical-manager-stats {
             display: flex;
             gap: 20px;
             margin-top: 10px;
         }
-
+        
         .vertical-stat {
             text-align: center;
         }
-
+        
         .vertical-stat-value {
             font-size: 1.1rem;
             font-weight: 700;
             color: var(--accent-blue);
             margin-bottom: 2px;
         }
-
+        
         .vertical-manager-card.premium .vertical-stat-value {
             color: var(--premium-gold);
         }
-
+        
         .vertical-stat-label {
             font-size: 0.75rem;
             color: #a8c6e5;
         }
-
+        
         .premium-badge {
             display: inline-flex;
             align-items: center;
@@ -335,7 +332,7 @@
             font-weight: 600;
             margin-left: 15px;
         }
-
+        
         .availability {
             position: absolute;
             top: 20px;
@@ -345,11 +342,11 @@
             border-radius: 50%;
             background-color: var(--danger-red);
         }
-
+        
         .availability.available {
             background-color: var(--success-green);
         }
-
+        
         /* Controls */
         .controls-container {
             display: flex;
@@ -357,7 +354,7 @@
             gap: 20px;
             margin-top: 30px;
         }
-
+        
         .control-btn {
             background-color: var(--accent-blue);
             color: white;
@@ -371,38 +368,38 @@
             align-items: center;
             gap: 8px;
         }
-
+        
         .control-btn:hover {
             background-color: #00458a;
             transform: translateY(-2px);
         }
-
+        
         .control-btn:disabled {
             background-color: var(--border-color);
             cursor: not-allowed;
             transform: none;
         }
-
+        
         .control-btn.secondary {
             background-color: transparent;
             border: 1px solid var(--border-color);
         }
-
+        
         .control-btn.secondary:hover {
             background-color: rgba(255, 255, 255, 0.05);
         }
-
+        
         .premium-btn {
             background-color: var(--premium-gold);
             color: var(--dark-blue);
             font-weight: 600;
         }
-
+        
         .premium-btn:hover {
             background-color: #e6c200;
             transform: translateY(-2px);
         }
-
+        
         /* Selected Manager */
         .selected-manager {
             text-align: center;
@@ -414,24 +411,17 @@
             display: none;
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
         }
-
+        
         .selected-manager.show {
             display: block;
             animation: fadeIn 0.5s ease-in-out;
         }
-
+        
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
+        
         .selected-avatar {
             width: 120px;
             height: 120px;
@@ -440,20 +430,20 @@
             border: 3px solid var(--premium-gold);
             margin-bottom: 15px;
         }
-
+        
         .selected-name {
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 5px;
             color: var(--premium-gold);
         }
-
+        
         .selected-title {
             font-size: 1.1rem;
             color: #a8c6e5;
             margin-bottom: 15px;
         }
-
+        
         .selected-bio {
             max-width: 600px;
             margin: 0 auto 20px;
@@ -461,42 +451,42 @@
             line-height: 1.6;
             display: none;
         }
-
+        
         .selected-bio.show {
             display: block;
             animation: fadeIn 0.5s ease-in-out;
         }
-
+        
         .stats-container {
             display: flex;
             justify-content: center;
             gap: 30px;
             margin-bottom: 25px;
         }
-
+        
         .stat {
             text-align: center;
         }
-
+        
         .stat-value {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--premium-gold);
             margin-bottom: 5px;
         }
-
+        
         .stat-label {
             font-size: 0.9rem;
             color: #a8c6e5;
         }
-
+        
         /* Action Buttons */
         .action-buttons {
             display: flex;
             justify-content: space-between;
             margin-top: 25px;
         }
-
+        
         .action-btn {
             background-color: transparent;
             color: var(--premium-gold);
@@ -510,12 +500,12 @@
             align-items: center;
             gap: 8px;
         }
-
+        
         .action-btn:hover {
             background-color: rgba(255, 215, 0, 0.1);
             transform: translateY(-2px);
         }
-
+        
         /* Contact Modal */
         .contact-modal {
             position: fixed;
@@ -532,12 +522,12 @@
             visibility: hidden;
             transition: all 0.3s ease;
         }
-
+        
         .contact-modal.show {
             opacity: 1;
             visibility: visible;
         }
-
+        
         .contact-content {
             background-color: var(--primary-blue);
             border-radius: 15px;
@@ -550,11 +540,11 @@
             transform: translateY(20px);
             transition: transform 0.3s ease;
         }
-
+        
         .contact-modal.show .contact-content {
             transform: translateY(0);
         }
-
+        
         .contact-avatar {
             width: 150px;
             height: 150px;
@@ -564,33 +554,33 @@
             margin: 0 auto 20px;
             display: block;
         }
-
+        
         .contact-name {
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 5px;
             color: var(--premium-gold);
         }
-
+        
         .contact-title {
             font-size: 1.1rem;
             color: #a8c6e5;
             margin-bottom: 20px;
         }
-
+        
         .contact-description {
             color: #a8c6e5;
             margin-bottom: 25px;
             line-height: 1.6;
         }
-
+        
         .contact-links {
             display: flex;
             justify-content: center;
             gap: 20px;
             margin-bottom: 25px;
         }
-
+        
         .contact-link {
             display: flex;
             flex-direction: column;
@@ -603,22 +593,22 @@
             background-color: rgba(255, 255, 255, 0.05);
             width: 140px;
         }
-
+        
         .contact-link:hover {
             background-color: rgba(255, 215, 0, 0.1);
             transform: translateY(-5px);
             color: var(--premium-gold);
         }
-
+        
         .contact-icon {
             font-size: 2.5rem;
             margin-bottom: 10px;
         }
-
+        
         .contact-link-text {
             font-weight: 500;
         }
-
+        
         .contact-close {
             background-color: transparent;
             color: var(--premium-gold);
@@ -629,11 +619,11 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-
+        
         .contact-close:hover {
             background-color: rgba(255, 215, 0, 0.1);
         }
-
+        
         /* Scroll Indicators */
         .scroll-indicators {
             display: flex;
@@ -641,7 +631,7 @@
             gap: 10px;
             margin-top: 20px;
         }
-
+        
         .scroll-indicator {
             width: 8px;
             height: 8px;
@@ -649,156 +639,154 @@
             background-color: var(--border-color);
             transition: all 0.3s;
         }
-
+        
         .scroll-indicator.active {
             background-color: var(--premium-gold);
             transform: scale(1.3);
         }
-
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .dashboard-card {
                 padding: 20px;
             }
-
+            
             .vertical-scroll-container {
                 height: 400px;
             }
-
+            
             .vertical-manager-card {
                 height: 140px;
                 padding: 15px;
             }
-
+            
             .vertical-manager-avatar {
                 width: 70px;
                 height: 70px;
                 margin-right: 15px;
             }
-
+            
             .vertical-manager-stats {
                 gap: 15px;
             }
-
+            
             .stats-container {
                 flex-direction: column;
                 gap: 15px;
             }
-
+            
             .action-buttons {
                 flex-direction: column;
                 gap: 15px;
             }
-
+            
             .contact-links {
                 flex-direction: column;
                 align-items: center;
             }
-
+            
             .contact-link {
                 width: 100%;
                 max-width: 250px;
             }
         }
-
+        
         @media (max-width: 576px) {
             .main-content {
                 padding: 15px 10px;
             }
-
+            
             .top-bar {
                 padding: 10px 15px;
             }
-
+            
             .dashboard-card {
                 padding: 15px;
             }
-
+            
             .controls-container {
                 flex-direction: column;
                 align-items: center;
             }
-
+            
             .control-btn {
                 width: 100%;
                 max-width: 250px;
                 justify-content: center;
             }
-
+            
             .vertical-manager-card {
                 flex-direction: column;
                 height: auto;
                 padding: 15px;
                 text-align: center;
             }
-
+            
             .vertical-manager-avatar {
                 margin-right: 0;
                 margin-bottom: 10px;
             }
-
+            
             .vertical-manager-info {
                 text-align: center;
             }
         }
     </style>
 </head>
-
 <body>
     <!-- Responsive Navbar -->
     <nav class="navbar navbar-expand-lg navbar-TheSpace fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="index.html">
                 <i class="fas fa-robot me-2"></i>TheSpace
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTheSpace"
-                aria-controls="navbarTheSpace" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTheSpace" aria-controls="navbarTheSpace" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTheSpace">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard">
+                        <a class="nav-link" href="dashboard.html">
                             <i class="fas fa-tachometer-alt"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="portfolio">
+                        <a class="nav-link" href="portfolio.html">
                             <i class="fas fa-chart-line"></i> Portfolio
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="investments">
+                        <a class="nav-link" href="investments.html">
                             <i class="fas fa-wallet"></i> Investments
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="directdeposit">
+                        <a class="nav-link" href="directdeposit.html">
                             <i class="fas fa-money-bill-transfer"></i> Direct Deposit
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="account-manager">
+                        <a class="nav-link active" href="account-manager.html">
                             <i class="fas fa-user-tie"></i> Account Manager
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="transactions">
+                        <a class="nav-link" href="transactions.html">
                             <i class="fas fa-exchange-alt"></i> Transactions
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="reports">
+                        <a class="nav-link" href="reports.html">
                             <i class="fas fa-file-invoice-dollar"></i> Reports
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="settings">
+                        <a class="nav-link" href="settings.html">
                             <i class="fas fa-cog"></i> Settings
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/">
+                        <a class="nav-link" href="index.html">
                             <i class="fas fa-arrow-left"></i> Back to Main Site
                         </a>
                     </li>
@@ -830,7 +818,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Selection Interface -->
                 <div class="dashboard-card">
                     <div class="selection-container">
@@ -838,29 +826,28 @@
                         <p class="selection-subtitle">
                             Scroll through our portfolio managers. Michael Saylor is our exclusive premium manager.
                         </p>
-
+                        
                         <!-- Premium Manager Notice -->
                         <div class="premium-notice">
                             <div class="premium-icon">
                                 <i class="fas fa-crown"></i>
                             </div>
                             <h4>Exclusive Premium Manager Available</h4>
-                            <p class="mb-0">Michael Saylor is our only premium account manager with specialized
-                                expertise in Bitcoin and digital asset strategies.</p>
+                            <p class="mb-0">Michael Saylor is our only premium account manager with specialized expertise in Bitcoin and digital asset strategies.</p>
                         </div>
-
+                        
                         <!-- Vertical Scrollable Container -->
                         <div class="vertical-scroll-container">
                             <div class="vertical-managers-track" id="verticalManagersTrack">
                                 <!-- Manager cards will be inserted here by JavaScript -->
                             </div>
                         </div>
-
+                        
                         <!-- Scroll Indicators -->
                         <div class="scroll-indicators" id="scrollIndicators">
                             <!-- Indicators will be inserted here by JavaScript -->
                         </div>
-
+                        
                         <!-- Controls -->
                         <div class="controls-container">
                             <button class="control-btn secondary" id="scrollUpBtn">
@@ -875,14 +862,13 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Selected Manager Display -->
                 <div class="selected-manager" id="selectedManager">
-                    <img src="img/micheal saylor.jpeg" alt="Account Manager" class="selected-avatar"
-                        id="selectedAvatar">
+                    <img src="img/micheal saylor.jpeg" alt="Account Manager" class="selected-avatar" id="selectedAvatar">
                     <h2 class="selected-name" id="selectedName">Michael Saylor</h2>
                     <p class="selected-title" id="selectedTitle">Bitcoin Strategy Director</p>
-
+                    
                     <div class="stats-container">
                         <div class="stat">
                             <div class="stat-value" id="statClients">50+</div>
@@ -897,16 +883,12 @@
                             <div class="stat-label">Success Rate</div>
                         </div>
                     </div>
-
+                    
                     <!-- Bio section that appears when About button is clicked -->
                     <p class="selected-bio" id="selectedBio">
-                        Michael Saylor is our exclusive premium Bitcoin Strategy Director with over 10 years of
-                        experience in digital asset allocation. He specializes in Bitcoin investment strategies and has
-                        achieved remarkable 215% success rates for his clients through strategic cryptocurrency
-                        portfolio management. As our only premium manager, he offers exclusive access to high-yield
-                        digital asset opportunities.
+                        Michael Saylor is our exclusive premium Bitcoin Strategy Director with over 10 years of experience in digital asset allocation. He specializes in Bitcoin investment strategies and has achieved remarkable 215% success rates for his clients through strategic cryptocurrency portfolio management. As our only premium manager, he offers exclusive access to high-yield digital asset opportunities.
                     </p>
-
+                    
                     <!-- Action buttons at the bottom -->
                     <div class="action-buttons">
                         <button class="action-btn" id="contactBtn">
@@ -924,14 +906,13 @@
     <!-- Contact Modal -->
     <div class="contact-modal" id="contactModal">
         <div class="contact-content">
-            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="Michael Saylor Representative" class="contact-avatar">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Michael Saylor Representative" class="contact-avatar">
             <h2 class="contact-name">Eleanor Vance</h2>
             <p class="contact-title">Senior Client Relations Manager</p>
             <p class="contact-description">
-                Eleanor is Michael Saylor's dedicated representative and your primary point of contact.
+                Eleanor is Michael Saylor's dedicated representative and your primary point of contact. 
             </p>
-
+            
             <div class="contact-links">
                 <a href="https://teams.live.com/l/invite/FEATnsW2wwr1UOlVwE?v=g1" class="contact-link" id="teamsLink">
                     <i class="fab fa-microsoft contact-icon"></i>
@@ -942,14 +923,14 @@
                     <span class="contact-link-text">Telegram</span>
                 </a>
             </div>
-
+            
             <button class="contact-close" id="contactClose">Close</button>
         </div>
     </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Elements
@@ -1297,5 +1278,4 @@
         });
     </script>
 </body>
-
 </html>

@@ -14,206 +14,167 @@
             --dark-bg: #0a1929;
             --medium-bg: #1a2f4d;
             --light-bg: #2e4b6b;
-            --input-bg: #0f223a;
             --accent-color: #3a7bd5;
             --accent-hover: #2e6bb5;
             --text-color: #e8f5e9;
-            --medium-text: #b0bec5;
-            --success-color: #28a745;
+            --white-bg: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-text: #333333;
+            --medium-text: #6c757d;
             --error-color: #dc3545;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --success-color: #28a745;
         }
 
         body {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--medium-bg) 100%);
+            background-color: var(--dark-bg);
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 20px 0;
         }
 
         .auth-container {
-            background: var(--medium-bg);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background: var(--white-bg);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             width: 100%;
-            max-width: 1100px;
-            min-height: 700px;
+            max-width: 1000px;
+            min-height: 600px;
             display: flex;
-            position: relative;
         }
 
         .auth-left {
             flex: 1;
             background: linear-gradient(135deg, var(--dark-bg) 0%, var(--medium-bg) 100%);
-            padding: 60px 50px;
+            padding: 50px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             color: var(--text-color);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .auth-left::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(58, 123, 213, 0.1) 0%, transparent 70%);
         }
 
         .auth-right {
             flex: 1;
-            padding: 60px 50px;
+            padding: 50px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background: var(--medium-bg);
+            background: var(--white-bg);
         }
 
         .auth-logo {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: bold;
             color: var(--accent-color);
-            margin-bottom: 40px;
-            display: flex;
-            align-items: center;
-        }
-
-        .auth-logo i {
-            margin-right: 12px;
-            font-size: 2.4rem;
+            margin-bottom: 30px;
         }
 
         .auth-title {
-            font-size: 2.4rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            color: var(--text-color);
-            background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark-text);
         }
 
         .auth-subtitle {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--medium-text);
-            margin-bottom: 40px;
-            line-height: 1.6;
+            margin-bottom: 30px;
         }
 
         .form-control {
-            background-color: var(--input-bg);
-            border: 2px solid var(--light-bg);
-            color: var(--text-color);
-            padding: 14px 18px;
+            background-color: var(--light-gray);
+            border: 1px solid #e1e5eb;
+            color: var(--dark-text);
+            padding: 12px 15px;
             margin-bottom: 20px;
-            border-radius: 10px;
+            border-radius: 8px;
             transition: all 0.3s;
-            font-size: 1rem;
         }
 
         .form-control:focus {
-            background-color: var(--input-bg);
+            background-color: var(--white-bg);
             border-color: var(--accent-color);
-            color: var(--text-color);
-            box-shadow: 0 0 0 0.25rem rgba(58, 123, 213, 0.15);
-        }
-
-        .form-control::placeholder {
-            color: var(--medium-text);
+            color: var(--dark-text);
+            box-shadow: 0 0 0 0.25rem rgba(58, 123, 213, 0.25);
         }
 
         .form-label {
-            color: var(--text-color);
+            color: var(--dark-text);
             font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 1rem;
+            margin-bottom: 8px;
         }
 
         .btn-auth {
-            background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+            background: var(--accent-color);
             border: none;
-            color: var(--text-color);
+            color: var(--white-bg);
             font-weight: bold;
-            padding: 16px 30px;
-            border-radius: 10px;
+            padding: 12px 30px;
+            border-radius: 8px;
             transition: all 0.3s;
             width: 100%;
             margin-top: 10px;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(58, 123, 213, 0.3);
         }
 
         .btn-auth:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(58, 123, 213, 0.4);
-            color: var(--text-color);
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .auth-divider {
             display: flex;
             align-items: center;
-            margin: 30px 0;
+            margin: 25px 0;
         }
 
         .auth-divider::before,
         .auth-divider::after {
             content: '';
             flex: 1;
-            border-bottom: 1px solid var(--light-bg);
+            border-bottom: 1px solid #e1e5eb;
         }
 
         .auth-divider-text {
             padding: 0 15px;
             color: var(--medium-text);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .btn-social {
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--input-bg);
-            border: 2px solid var(--light-bg);
-            color: var(--text-color);
-            padding: 12px 15px;
-            border-radius: 10px;
+            background: var(--white-bg);
+            border: 1px solid #e1e5eb;
+            color: var(--dark-text);
+            padding: 10px 15px;
+            border-radius: 8px;
             transition: all 0.3s;
             width: 100%;
-            margin-bottom: 15px;
-            font-weight: 600;
+            margin-bottom: 10px;
         }
 
         .btn-social:hover {
-            background: var(--light-bg);
+            background: var(--light-gray);
             border-color: var(--accent-color);
-            transform: translateY(-2px);
-            color: var(--text-color);
         }
 
         .btn-social i {
-            margin-right: 12px;
-            font-size: 1.2rem;
+            margin-right: 10px;
+            font-size: 1.1rem;
         }
 
         .auth-switch {
             text-align: center;
             margin-top: 30px;
             color: var(--medium-text);
-            font-size: 1rem;
         }
 
         .auth-link {
@@ -231,38 +192,32 @@
         .auth-feature {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 25px;
         }
 
         .auth-feature-icon {
-            background: rgba(58, 123, 213, 0.15);
+            background: rgba(58, 123, 213, 0.1);
             color: var(--accent-color);
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
+            margin-right: 15px;
             flex-shrink: 0;
-            font-size: 1.4rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .auth-feature-text h4 {
             color: var(--text-color);
-            margin-bottom: 8px;
-            font-size: 1.3rem;
-            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
         }
 
         .auth-feature-text p {
-            color: rgba(232, 245, 233, 0.85);
-            font-size: 1rem;
+            color: rgba(232, 245, 233, 0.8);
+            font-size: 0.9rem;
             margin: 0;
-            line-height: 1.6;
         }
 
         .form-check-input:checked {
@@ -271,211 +226,80 @@
         }
 
         .form-check-label {
-            color: var(--text-color);
+            color: var(--dark-text);
         }
 
         .password-toggle {
             position: absolute;
-            right: 18px;
+            right: 15px;
             top: 50%;
             transform: translateY(-50%);
             background: none;
             border: none;
             color: var(--medium-text);
             cursor: pointer;
-            z-index: 10;
         }
 
         .password-container {
             position: relative;
         }
 
-        /* Testimonial styling */
-        .testimonial {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 40px;
-            position: relative;
-            z-index: 1;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: var(--text-color);
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            margin-right: 15px;
-            font-size: 1.2rem;
-        }
-
-        .author-info strong {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--text-color);
-        }
-
-        .author-info p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: var(--medium-text);
-        }
-
-        /* Form validation styling */
-        .is-valid {
-            border-color: var(--success-color) !important;
-        }
-
+        /* Form validation styles */
         .is-invalid {
             border-color: var(--error-color) !important;
+        }
+
+        .is-valid {
+            border-color: var(--success-color) !important;
         }
 
         .invalid-feedback {
             display: none;
             color: var(--error-color);
-            font-size: 0.9rem;
-            margin-top: 5px;
+            font-size: 0.875rem;
+            margin-top: -15px;
+            margin-bottom: 15px;
         }
 
         .was-validated .form-control:invalid~.invalid-feedback {
             display: block;
         }
 
-        .forgot-password {
-            text-align: right;
-            margin-top: -10px;
-            margin-bottom: 20px;
-        }
-
-        /* Alert styling */
-        .alert {
-            border-radius: 10px;
-            border: none;
-            padding: 15px 20px;
-            margin-bottom: 20px;
-        }
-
-        .alert-success {
-            background-color: rgba(40, 167, 69, 0.1);
-            color: var(--text-color);
-            border-left: 4px solid var(--success-color);
-        }
-
-        .alert-danger {
-            background-color: rgba(220, 53, 69, 0.1);
-            color: var(--text-color);
-            border-left: 4px solid var(--error-color);
-        }
-
-        /* Mobile-first responsive design */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .auth-container {
                 flex-direction: column;
-                min-height: auto;
-                margin: 10px;
-                border-radius: 15px;
-            }
-
-            .auth-left,
-            .auth-right {
-                padding: 30px 25px;
+                max-width: 90%;
+                margin: 20px;
             }
 
             .auth-left {
-                order: 2;
+                padding: 30px;
             }
 
             .auth-right {
-                order: 1;
-            }
-
-            .auth-logo {
-                font-size: 1.8rem;
-                margin-bottom: 25px;
-            }
-
-            .auth-title {
-                font-size: 2rem;
-            }
-
-            .auth-feature {
-                flex-direction: column;
-                text-align: center;
-                margin-bottom: 25px;
-            }
-
-            .auth-feature-icon {
-                margin-right: 0;
-                margin-bottom: 15px;
-                align-self: center;
-            }
-
-            .testimonial {
-                margin-top: 25px;
-                padding: 20px;
+                padding: 30px;
             }
         }
 
-        @media (min-width: 769px) and (max-width: 992px) {
-            .auth-container {
-                max-width: 95%;
-                margin: 20px auto;
-            }
-
-            .auth-left,
-            .auth-right {
-                padding: 40px 35px;
-            }
+        /* Demo credentials box */
+        .demo-credentials {
+            background-color: rgba(58, 123, 213, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
         }
 
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
+        .demo-credentials h6 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
 
-            .auth-container {
-                margin: 5px;
-                border-radius: 12px;
-            }
-
-            .auth-left,
-            .auth-right {
-                padding: 25px 20px;
-            }
-
-            .auth-title {
-                font-size: 1.8rem;
-            }
-
-            .auth-logo {
-                font-size: 1.6rem;
-            }
-
-            .btn-auth,
-            .btn-social {
-                padding: 14px 20px;
-                font-size: 1rem;
-            }
+        .demo-credentials p {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: var(--dark-text);
         }
     </style>
 </head>
@@ -485,54 +309,37 @@
         <!-- Left Side - Branding & Features -->
         <div class="auth-left">
             <div class="auth-logo">
-                <i class="fas fa-brain"></i>THE-SPACE
+                <i class="fas fa-brain me-2"></i>TheSpace
             </div>
-            <h2 class="mb-4">Welcome Back to AI Investment</h2>
-            <p class="mb-5">Continue your journey with cutting-edge AI technology to maximize your investment returns.
-            </p>
+            <h2 class="mb-4">Welcome Back to the AI Investment Revolution</h2>
 
-            <div class="auth-features">
-                <div class="auth-feature">
-                    <div class="auth-feature-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="auth-feature-text">
-                        <h4>Real-time Insights</h4>
-                        <p>Access the latest AI-driven market analysis and investment opportunities.</p>
-                    </div>
+            <div class="auth-feature">
+                <div class="auth-feature-icon">
+                    <i class="fas fa-chart-line"></i>
                 </div>
-
-                <div class="auth-feature">
-                    <div class="auth-feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="auth-feature-text">
-                        <h4>Portfolio Growth</h4>
-                        <p>Track your investment performance with advanced analytics and reporting.</p>
-                    </div>
-                </div>
-
-                <div class="auth-feature">
-                    <div class="auth-feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="auth-feature-text">
-                        <h4>Secure Access</h4>
-                        <p>Your data and investments are protected with bank-level security.</p>
-                    </div>
+                <div class="auth-feature-text">
+                    <h4>Track Your Portfolio</h4>
+                    <p>Monitor your investments with real-time AI-powered analytics.</p>
                 </div>
             </div>
 
-            <!-- Testimonial -->
-            <div class="testimonial">
-                <p class="testimonial-text">"Since joining this platform, my portfolio has grown by 35%. The AI insights
-                    are incredibly accurate and valuable."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">SM</div>
-                    <div class="author-info">
-                        <strong>Sarah Miller</strong>
-                        <p>Investor since 2023</p>
-                    </div>
+            <div class="auth-feature">
+                <div class="auth-feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="auth-feature-text">
+                    <h4>Smart Insights</h4>
+                    <p>Get personalized investment recommendations based on market trends.</p>
+                </div>
+            </div>
+
+            <div class="auth-feature">
+                <div class="auth-feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="auth-feature-text">
+                    <h4>Secure & Protected</h4>
+                    <p>Your financial data is encrypted and protected with bank-level security.</p>
                 </div>
             </div>
         </div>
@@ -541,8 +348,15 @@
         <div class="auth-right">
             <!-- Sign In Form -->
             <div class="auth-form" id="signin-form">
-                <h2 class="auth-title">Welcome Back</h2>
-                <p class="auth-subtitle">Sign in to access your AI-powered investment dashboard</p>
+                <h2 class="auth-title">Sign In</h2>
+                <p class="auth-subtitle">Welcome back! Please enter your details</p>
+
+                <!-- Demo credentials for testing -->
+                <div class="demo-credentials">
+                    <h6><i class="fas fa-info-circle me-2"></i>Demo Credentials</h6>
+                    <p><strong>Email:</strong> demo@thespace.com</p>
+                    <p><strong>Password:</strong> demo1234</p>
+                </div>
 
                 <!-- Success/Error Messages -->
                 @if(session('success'))
@@ -643,40 +457,71 @@
                 });
             }
             
-            setupPasswordToggle('toggleLoginPassword', 'login-password');
+            setupPasswordToggle('toggleSigninPassword', 'signin-password');
             
-            // Form submission
+            // Form validation
             const form = document.getElementById('signinForm');
             
+            // Form submission
             form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Check form validity
                 if (!form.checkValidity()) {
-                    e.preventDefault();
-                    e.stopPropagation();
                     form.classList.add('was-validated');
+                    return;
+                }
+                
+                // Get form values
+                const email = document.getElementById('signin-email').value;
+                const password = document.getElementById('signin-password').value;
+                const rememberMe = document.getElementById('rememberMe').checked;
+                
+                // Demo authentication logic
+                if (email === 'demo@thespace.com' && password === 'demo1234') {
+                    // Successful login
+                    alert('Login successful! Welcome back to TheSpace.');
+                    
+                    // In a real application, you would redirect to dashboard
+                    // window.location.href = 'dashboard.html';
+                } else {
+                    // Failed login
+                    alert('Invalid email or password. Please try again.\n\nHint: Use the demo credentials provided.');
+                    
+                    // Add error styling to inputs
+                    document.getElementById('signin-email').classList.add('is-invalid');
+                    document.getElementById('signin-password').classList.add('is-invalid');
                 }
             });
             
-            // Real-time validation
-            const inputs = form.querySelectorAll('input');
+            // Real-time validation for fields
+            const inputs = form.querySelectorAll('input[required]');
             inputs.forEach(input => {
-                input.addEventListener('blur', function() {
+                input.addEventListener('input', function() {
                     if (input.checkValidity()) {
-                        input.classList.add('is-valid');
                         input.classList.remove('is-invalid');
+                        input.classList.add('is-valid');
                     } else {
-                        input.classList.add('is-invalid');
                         input.classList.remove('is-valid');
+                        input.classList.add('is-invalid');
                     }
                 });
             });
-
-            // Auto-hide alerts after 5 seconds
-            const alerts = document.querySelectorAll('.alert');
-            alerts.forEach(alert => {
-                setTimeout(() => {
-                    alert.style.opacity = '0';
-                    setTimeout(() => alert.remove(), 300);
-                }, 5000);
+            
+            // Auto-fill demo credentials for testing
+            document.getElementById('signin-email').addEventListener('focus', function() {
+                if (this.value === '') {
+                    this.value = 'demo@thespace.com';
+                    this.classList.add('is-valid');
+                }
+            });
+            
+            document.getElementById('signin-password').addEventListener('focus', function() {
+                if (this.value === '') {
+                    this.value = 'demo1234';
+                    this.classList.add('is-valid');
+                }
             });
         });
     </script>

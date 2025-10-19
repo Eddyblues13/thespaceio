@@ -28,42 +28,110 @@
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            padding-top: 70px;
+            /* Added for fixed navbar */
         }
 
-        /* Sidebar */
-        .sidebar {
-            background-color: var(--primary-blue);
-            min-height: 100vh;
-            padding: 0;
-            border-right: 1px solid var(--border-color);
-            transition: all 0.3s;
-        }
-
-        .sidebar .navbar-brand {
-            color: white;
-            font-weight: bold;
-            padding: 20px 15px;
+        /* Enhanced Navigation */
+        .navbar {
+            background-color: var(--primary-blue) !important;
             border-bottom: 1px solid var(--border-color);
-            text-align: center;
+            padding: 0.5rem 0;
+            height: 70px;
+            transition: all 0.3s ease;
         }
 
-        .sidebar .nav-link {
-            color: #a8c6e5;
-            padding: 12px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s;
+        .navbar.scrolled {
+            background-color: var(--dark-blue) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        .sidebar .nav-link:hover,
-        .sidebar .nav-link.active {
+        .navbar-brand {
+            color: white !important;
+            font-weight: bold;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand i {
+            margin-right: 8px;
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #a8c6e5 !important;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.2rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
             background-color: var(--light-blue);
-            color: white;
+            color: white !important;
+            transform: translateY(-1px);
         }
 
-        .sidebar .nav-link i {
-            width: 25px;
-            text-align: center;
-            margin-right: 10px;
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        .navbar-toggler {
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28168, 198, 229, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Mobile menu adjustments */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background-color: var(--primary-blue);
+                margin-top: 10px;
+                border-radius: 10px;
+                border: 1px solid var(--border-color);
+                padding: 15px;
+            }
+
+            .nav-link {
+                margin: 0.2rem 0;
+                padding: 0.8rem 1rem !important;
+            }
+
+            .nav-link.active::after {
+                display: none;
+            }
+        }
+
+        /* Compact navbar for very small screens */
+        @media (max-width: 576px) {
+            .navbar-brand span {
+                display: none;
+            }
+
+            .navbar-brand i {
+                margin-right: 0;
+                font-size: 2rem;
+            }
         }
 
         /* Main Content */
@@ -361,11 +429,6 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .sidebar {
-                min-height: auto;
-                width: 100%;
-            }
-
             .transaction-filters {
                 flex-direction: column;
             }
@@ -417,64 +480,71 @@
 </head>
 
 <body>
+    <!-- Enhanced Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <i class="fas fa-robot"></i>
+                <span>TheSpace</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard') }}">
+                            <i class="fas fa-tachometer-alt me-1"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.portfolio') }}">
+                            <i class="fas fa-chart-line me-1"></i> Portfolio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.investments') }}">
+                            <i class="fas fa-wallet me-1"></i> Investments
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('dashboard.transactions') }}">
+                            <i class="fas fa-exchange-alt me-1"></i> Transactions
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.insurance') }}">
+                            <i class="fas fa-file-invoice-dollar me-1"></i> Insurance
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.settings') }}">
+                            <i class="fas fa-cog me-1"></i> Settings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/') }}">
+                            <i class="fas fa-arrow-left me-1"></i> Main Site
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-3 col-lg-2 sidebar">
-                <div class="d-flex flex-column">
-                    <a class="navbar-brand" href="/">
-                        <i class="fas fa-robot me-2"></i>TheSpace
-                    </a>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="dashboard">
-                                <i class="fas fa-tachometer-alt"></i> Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="portfolio">
-                                <i class="fas fa-chart-line"></i> Portfolio
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="investment">
-                                <i class="fas fa-wallet"></i> Investments
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="transactions">
-                                <i class="fas fa-exchange-alt"></i> Transactions
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="insurance">
-                                <i class="fas fa-file-invoice-dollar"></i> Insurance
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="settings">
-                                <i class="fas fa-cog"></i> Settings
-                            </a>
-                        </li>
-                        <li class="nav-item mt-4">
-                            <a class="nav-link" href="/">
-                                <i class="fas fa-arrow-left"></i> Back to Main Site
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Main Content -->
-            <div class="col-md-9 col-lg-10 main-content">
+            <div class="col-12 main-content">
                 <!-- Top Bar -->
                 <div class="top-bar d-flex justify-content-between align-items-center">
                     <h4 class="mb-0">Transaction History</h4>
                     <div class="user-info">
-                        <div class="user-avatar">JD</div>
+                        <div class="user-avatar">{{ strtoupper(substr($user->name, 0, 2)) }}</div>
                         <div>
-                            <div class="fw-bold">John Doe</div>
-                            <small class="text-muted">Growth Tier Investor</small>
+                            <div class="fw-bold">{{ $user->name }}</div>
+                            <small class="text-muted">{{ $user->investor_tier }}</small>
                         </div>
                     </div>
                 </div>
@@ -499,7 +569,7 @@
                             <i class="fas fa-print"></i>
                             Print Statement
                         </a>
-                        <a href="#" class="action-btn">
+                        <a href="#" class="action-btn" id="refreshTransactions">
                             <i class="fas fa-sync-alt"></i>
                             Refresh
                         </a>
@@ -511,7 +581,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="dashboard-card">
                             <div class="card-title">Available Balance</div>
-                            <div class="card-value">$12,450.75</div>
+                            <div class="card-value">${{ number_format($user->cash_balance, 2) }}</div>
                             <div class="card-change">
                                 As of today
                             </div>
@@ -520,7 +590,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="dashboard-card">
                             <div class="card-title">Total Deposits</div>
-                            <div class="card-value">$85,200.00</div>
+                            <div class="card-value">${{ number_format($summary['total_deposits'], 2) }}</div>
                             <div class="card-change positive">
                                 <i class="fas fa-arrow-up"></i> All time
                             </div>
@@ -529,7 +599,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="dashboard-card">
                             <div class="card-title">Total Withdrawals</div>
-                            <div class="card-value">$15,750.25</div>
+                            <div class="card-value">${{ number_format($summary['total_withdrawals'], 2) }}</div>
                             <div class="card-change">
                                 All time
                             </div>
@@ -538,9 +608,9 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="dashboard-card">
                             <div class="card-title">Pending Transactions</div>
-                            <div class="card-value">2</div>
+                            <div class="card-value">{{ $summary['pending_transactions'] }}</div>
                             <div class="card-change">
-                                $5,000.00 total
+                                ${{ number_format($summary['pending_amount'] ?? 0, 2) }} total
                             </div>
                         </div>
                     </div>
@@ -551,19 +621,21 @@
                     <h5 class="mb-4" style="color: var(--accent-blue);">Transaction Summary</h5>
                     <div class="summary-grid">
                         <div class="summary-item">
-                            <div class="summary-value positive">$12,450</div>
+                            <div class="summary-value positive">${{ number_format($summary['monthly_deposits'], 2) }}
+                            </div>
                             <div class="summary-label">This Month Deposits</div>
                         </div>
                         <div class="summary-item">
-                            <div class="summary-value">$3,250</div>
+                            <div class="summary-value">${{ number_format($summary['monthly_withdrawals'], 2) }}</div>
                             <div class="summary-label">This Month Withdrawals</div>
                         </div>
                         <div class="summary-item">
-                            <div class="summary-value positive">$9,200</div>
+                            <div class="summary-value positive">${{ number_format($summary['monthly_deposits'] -
+                                $summary['monthly_withdrawals'], 2) }}</div>
                             <div class="summary-label">Net Cash Flow</div>
                         </div>
                         <div class="summary-item">
-                            <div class="summary-value">24</div>
+                            <div class="summary-value">{{ $transactions->total() }}</div>
                             <div class="summary-label">Total Transactions</div>
                         </div>
                     </div>
@@ -572,33 +644,44 @@
                 <!-- Date Range Selector -->
                 <div class="date-range-selector">
                     <h6 class="mb-3" style="color: var(--accent-blue);">Filter by Date Range</h6>
-                    <div class="date-inputs">
-                        <div class="date-input-group">
-                            <label class="form-label">From Date</label>
-                            <input type="date" class="form-control" id="fromDate">
+                    <form method="GET" action="{{ route('dashboard.transactions') }}">
+                        <div class="date-inputs">
+                            <div class="date-input-group">
+                                <label class="form-label">From Date</label>
+                                <input type="date" class="form-control" name="from_date"
+                                    value="{{ request('from_date') }}">
+                            </div>
+                            <div class="date-input-group">
+                                <label class="form-label">To Date</label>
+                                <input type="date" class="form-control" name="to_date" value="{{ request('to_date') }}">
+                            </div>
+                            <div class="date-input-group">
+                                <label class="form-label">&nbsp;</label>
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-filter me-2"></i> Apply Filter
+                                </button>
+                            </div>
                         </div>
-                        <div class="date-input-group">
-                            <label class="form-label">To Date</label>
-                            <input type="date" class="form-control" id="toDate">
-                        </div>
-                        <div class="date-input-group">
-                            <label class="form-label">&nbsp;</label>
-                            <button class="btn btn-primary w-100" id="applyDateFilter">
-                                <i class="fas fa-filter me-2"></i> Apply Filter
-                            </button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
 
                 <!-- Transaction Filters -->
                 <div class="transaction-filters">
-                    <button class="filter-btn active" data-filter="all">All Transactions</button>
-                    <button class="filter-btn" data-filter="deposit">Deposits</button>
-                    <button class="filter-btn" data-filter="withdrawal">Withdrawals</button>
-                    <button class="filter-btn" data-filter="investment">Investments</button>
-                    <button class="filter-btn" data-filter="dividend">Dividends</button>
-                    <button class="filter-btn" data-filter="pending">Pending</button>
-                    <button class="filter-btn" data-filter="completed">Completed</button>
+                    <a href="{{ route('dashboard.transactions') }}"
+                        class="filter-btn {{ !request('type') ? 'active' : '' }}">All
+                        Transactions</a>
+                    <a href="{{ route('dashboard.transactions', ['type' => 'deposit']) }}"
+                        class="filter-btn {{ request('type') == 'deposit' ? 'active' : '' }}">Deposits</a>
+                    <a href="{{ route('dashboard.transactions', ['type' => 'withdrawal']) }}"
+                        class="filter-btn {{ request('type') == 'withdrawal' ? 'active' : '' }}">Withdrawals</a>
+                    <a href="{{ route('dashboard.transactions', ['type' => 'investment']) }}"
+                        class="filter-btn {{ request('type') == 'investment' ? 'active' : '' }}">Investments</a>
+                    <a href="{{ route('dashboard.transactions', ['type' => 'dividend']) }}"
+                        class="filter-btn {{ request('type') == 'dividend' ? 'active' : '' }}">Dividends</a>
+                    <a href="{{ route('dashboard.transactions', ['status' => 'pending']) }}"
+                        class="filter-btn {{ request('status') == 'pending' ? 'active' : '' }}">Pending</a>
+                    <a href="{{ route('dashboard.transactions', ['status' => 'completed']) }}"
+                        class="filter-btn {{ request('status') == 'completed' ? 'active' : '' }}">Completed</a>
                 </div>
 
                 <!-- Transaction History -->
@@ -606,28 +689,74 @@
                     <div class="card-title d-flex justify-content-between align-items-center">
                         <span>Transaction History</span>
                         <div>
-                            <button class="btn btn-sm btn-outline-primary me-2" id="exportTransactions">
+                            <a href="{{ route('dashboard.transactions', array_merge(request()->all(), ['export' => 'csv'])) }}"
+                                class="btn btn-sm btn-outline-primary me-2">
                                 <i class="fas fa-download me-1"></i> Export
-                            </button>
-                            <button class="btn btn-sm btn-primary" id="refreshTransactions">
+                            </a>
+                            <a href="{{ route('dashboard.transactions') }}" class="btn btn-sm btn-primary">
                                 <i class="fas fa-sync-alt me-1"></i> Refresh
-                            </button>
+                            </a>
                         </div>
                     </div>
 
-                    <div id="transactionsContainer">
-                        <!-- Transactions will be dynamically inserted here -->
+                    @if($transactions->count() > 0)
+                    @foreach($transactions as $transaction)
+                    <div class="transaction-card {{ $transaction->type }} {{ $transaction->status }}">
+                        <div class="transaction-header">
+                            <div>
+                                <div class="transaction-title">{{ $transaction->title }}</div>
+                                <div class="transaction-date">{{ $transaction->created_at->format('M d, Y \a\t g:i A')
+                                    }}</div>
+                            </div>
+                            <div class="transaction-amount {{ $transaction->amount > 0 ? 'positive' : 'negative' }}">
+                                {{ $transaction->amount > 0 ? '+' : '' }}${{ number_format(abs($transaction->amount), 2)
+                                }}
+                            </div>
+                        </div>
+                        <div class="transaction-content">{{ $transaction->description }}</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge {{ $transaction->status == 'completed' ? 'bg-success' : 'bg-warning' }}">
+                                {{ ucfirst($transaction->status) }}
+                            </span>
+                            <small class="text-muted">Transaction ID: #TX-{{ str_pad($transaction->id, 4, '0',
+                                STR_PAD_LEFT) }}</small>
+                        </div>
                     </div>
+                    @endforeach
 
-                    <!-- Empty State (initially hidden) -->
-                    <div class="empty-state" id="emptyState" style="display: none;">
+                    <!-- Pagination -->
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <div class="text-muted">
+                            Showing {{ $transactions->firstItem() }} to {{ $transactions->lastItem() }} of {{
+                            $transactions->total() }} transactions
+                        </div>
+                        <nav>
+                            <ul class="pagination">
+                                <li class="page-item {{ $transactions->onFirstPage() ? 'disabled' : '' }}">
+                                    <a class="page-link" href="{{ $transactions->previousPageUrl() }}">Previous</a>
+                                </li>
+                                @foreach(range(1, $transactions->lastPage()) as $page)
+                                <li class="page-item {{ $transactions->currentPage() == $page ? 'active' : '' }}">
+                                    <a class="page-link" href="{{ $transactions->url($page) }}">{{ $page }}</a>
+                                </li>
+                                @endforeach
+                                <li class="page-item {{ $transactions->hasMorePages() ? '' : 'disabled' }}">
+                                    <a class="page-link" href="{{ $transactions->nextPageUrl() }}">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    @else
+                    <!-- Empty State -->
+                    <div class="empty-state">
                         <i class="fas fa-exchange-alt"></i>
                         <h5>No Transactions Found</h5>
                         <p>You don't have any transactions matching your current filters.</p>
-                        <button class="btn btn-primary mt-2" id="makeFirstTransaction">
+                        <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#depositModal">
                             <i class="fas fa-plus me-2"></i> Make Your First Transaction
                         </button>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -642,30 +771,34 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="depositAmount" class="form-label">Amount</label>
-                        <input type="number" class="form-control" id="depositAmount" placeholder="Enter amount">
+                <form method="POST" action="{{ route('transactions.deposit.store') }}">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="depositAmount" class="form-label">Amount</label>
+                            <input type="number" class="form-control" id="depositAmount" name="amount"
+                                placeholder="Enter amount" min="1" step="0.01" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="depositMethod" class="form-label">Payment Method</label>
+                            <select class="form-control" id="depositMethod" name="method" required>
+                                <option value="bank">Bank Transfer</option>
+                                <option value="card">Credit/Debit Card</option>
+                                <option value="crypto">Cryptocurrency</option>
+                                <option value="wire">Wire Transfer</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="depositNotes" class="form-label">Notes (Optional)</label>
+                            <textarea class="form-control" id="depositNotes" name="notes" rows="3"
+                                placeholder="Add any notes about this deposit"></textarea>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="depositMethod" class="form-label">Payment Method</label>
-                        <select class="form-control" id="depositMethod">
-                            <option value="bank">Bank Transfer</option>
-                            <option value="card">Credit/Debit Card</option>
-                            <option value="crypto">Cryptocurrency</option>
-                            <option value="wire">Wire Transfer</option>
-                        </select>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Confirm Deposit</button>
                     </div>
-                    <div class="mb-3">
-                        <label for="depositNotes" class="form-label">Notes (Optional)</label>
-                        <textarea class="form-control" id="depositNotes" rows="3"
-                            placeholder="Add any notes about this deposit"></textarea>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="confirmDeposit">Confirm Deposit</button>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -680,29 +813,34 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="withdrawalAmount" class="form-label">Amount</label>
-                        <input type="number" class="form-control" id="withdrawalAmount" placeholder="Enter amount">
+                <form method="POST" action="{{ route('transactions.withdrawal.store') }}">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="withdrawalAmount" class="form-label">Amount</label>
+                            <input type="number" class="form-control" id="withdrawalAmount" name="amount"
+                                placeholder="Enter amount" min="1" step="0.01" max="{{ $user->cash_balance }}" required>
+                            <div class="form-text">Available balance: ${{ number_format($user->cash_balance, 2) }}</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="withdrawalMethod" class="form-label">Withdrawal Method</label>
+                            <select class="form-control" id="withdrawalMethod" name="method" required>
+                                <option value="bank">Bank Transfer</option>
+                                <option value="crypto">Cryptocurrency</option>
+                                <option value="check">Check</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="withdrawalNotes" class="form-label">Notes (Optional)</label>
+                            <textarea class="form-control" id="withdrawalNotes" name="notes" rows="3"
+                                placeholder="Add any notes about this withdrawal"></textarea>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="withdrawalMethod" class="form-label">Withdrawal Method</label>
-                        <select class="form-control" id="withdrawalMethod">
-                            <option value="bank">Bank Transfer</option>
-                            <option value="crypto">Cryptocurrency</option>
-                            <option value="check">Check</option>
-                        </select>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Confirm Withdrawal</button>
                     </div>
-                    <div class="mb-3">
-                        <label for="withdrawalNotes" class="form-label">Notes (Optional)</label>
-                        <textarea class="form-control" id="withdrawalNotes" rows="3"
-                            placeholder="Add any notes about this withdrawal"></textarea>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="confirmWithdrawal">Confirm Withdrawal</button>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -711,303 +849,42 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Sample transaction data
-        const sampleTransactions = [
-            {
-                id: 1,
-                type: 'deposit',
-                title: 'Bank Transfer Deposit',
-                content: 'Funds deposited from Chase Bank ending in 4589',
-                amount: 5000.00,
-                date: '2023-11-15',
-                status: 'completed'
-            },
-            {
-                id: 2,
-                type: 'investment',
-                title: 'NVDA Stock Purchase',
-                content: 'Purchased 10 shares of NVIDIA at $480.25',
-                amount: -4802.50,
-                date: '2023-11-14',
-                status: 'completed'
-            },
-            {
-                id: 3,
-                type: 'dividend',
-                title: 'MSFT Dividend Payment',
-                content: 'Quarterly dividend from Microsoft shares',
-                amount: 45.60,
-                date: '2023-11-12',
-                status: 'completed'
-            },
-            {
-                id: 4,
-                type: 'withdrawal',
-                title: 'Bank Transfer Withdrawal',
-                content: 'Withdrawal to Bank of America ending in 1234',
-                amount: -1500.00,
-                date: '2023-11-10',
-                status: 'completed'
-            },
-            {
-                id: 5,
-                type: 'investment',
-                title: 'AI Growth Fund Investment',
-                content: 'Allocated funds to TheSpace AI Growth Fund',
-                amount: -10000.00,
-                date: '2023-11-08',
-                status: 'completed'
-            },
-            {
-                id: 6,
-                type: 'dividend',
-                title: 'TSLA Special Dividend',
-                content: 'Special dividend payment from Tesla',
-                amount: 120.75,
-                date: '2023-11-05',
-                status: 'completed'
-            },
-            {
-                id: 7,
-                type: 'deposit',
-                title: 'Crypto Deposit',
-                content: 'Bitcoin deposit from Coinbase wallet',
-                amount: 2500.00,
-                date: '2023-11-02',
-                status: 'completed'
-            },
-            {
-                id: 8,
-                type: 'withdrawal',
-                title: 'Crypto Withdrawal',
-                content: 'Ethereum withdrawal to external wallet',
-                amount: -750.25,
-                date: '2023-10-28',
-                status: 'completed'
-            },
-            {
-                id: 9,
-                type: 'deposit',
-                title: 'Wire Transfer Deposit',
-                content: 'International wire transfer from HSBC',
-                amount: 10000.00,
-                date: '2023-10-25',
-                status: 'completed'
-            },
-            {
-                id: 10,
-                type: 'withdrawal',
-                title: 'Pending Withdrawal',
-                content: 'Withdrawal request to Chase Bank - Processing',
-                amount: -2000.00,
-                date: '2023-11-16',
-                status: 'pending'
-            }
-        ];
-
-        // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
-            const transactionsContainer = document.getElementById('transactionsContainer');
-            const emptyState = document.getElementById('emptyState');
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const applyDateFilterBtn = document.getElementById('applyDateFilter');
-            const refreshTransactionsBtn = document.getElementById('refreshTransactions');
-            const exportTransactionsBtn = document.getElementById('exportTransactions');
-            const makeFirstTransactionBtn = document.getElementById('makeFirstTransaction');
-            const confirmDepositBtn = document.getElementById('confirmDeposit');
-            const confirmWithdrawalBtn = document.getElementById('confirmWithdrawal');
-            
-            let currentTransactions = [...sampleTransactions];
-            let currentFilter = 'all';
-            let fromDate = '';
-            let toDate = '';
-            
-            // Format currency
-            function formatCurrency(amount) {
-                return new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: 'USD'
-                }).format(amount);
-            }
-            
-            // Format date
-            function formatDate(dateString) {
-                const options = { year: 'numeric', month: 'short', day: 'numeric' };
-                return new Date(dateString).toLocaleDateString('en-US', options);
-            }
-            
-            // Render transactions based on current filter and date range
-            function renderTransactions() {
-                transactionsContainer.innerHTML = '';
-                
-                const filteredTransactions = currentTransactions.filter(transaction => {
-                    // Apply type filter
-                    if (currentFilter !== 'all' && transaction.type !== currentFilter && 
-                        transaction.status !== currentFilter) {
-                        return false;
-                    }
-                    
-                    // Apply date filter
-                    if (fromDate && transaction.date < fromDate) return false;
-                    if (toDate && transaction.date > toDate) return false;
-                    
-                    return true;
-                });
-                
-                if (filteredTransactions.length === 0) {
-                    emptyState.style.display = 'block';
-                    return;
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
                 }
-                
-                emptyState.style.display = 'none';
-                
-                // Sort transactions by date (newest first)
-                filteredTransactions.sort((a, b) => new Date(b.date) - new Date(a.date));
-                
-                filteredTransactions.forEach(transaction => {
-                    const transactionElement = document.createElement('div');
-                    transactionElement.className = `transaction-card ${transaction.type} ${transaction.status === 'pending' ? 'pending' : ''}`;
-                    
-                    const isPositive = transaction.amount > 0;
-                    const amountClass = isPositive ? 'positive' : 'negative';
-                    const amountPrefix = isPositive ? '+' : '';
-                    
-                    transactionElement.innerHTML = `
-                        <div class="transaction-header">
-                            <div>
-                                <div class="transaction-title">${transaction.title}</div>
-                                <div class="transaction-date">${formatDate(transaction.date)}</div>
-                            </div>
-                            <div class="transaction-amount ${amountClass}">
-                                ${amountPrefix}${formatCurrency(Math.abs(transaction.amount))}
-                            </div>
-                        </div>
-                        <div class="transaction-content">${transaction.content}</div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="badge ${transaction.status === 'completed' ? 'bg-success' : 'bg-warning'}">
-                                ${transaction.status === 'completed' ? 'Completed' : 'Pending'}
-                            </span>
-                            <small class="text-muted">Transaction ID: #TX-${transaction.id.toString().padStart(4, '0')}</small>
-                        </div>
-                    `;
-                    
-                    transactionsContainer.appendChild(transactionElement);
-                });
-            }
-            
-            // Filter transactions
-            filterButtons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    filterButtons.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    currentFilter = this.getAttribute('data-filter');
-                    renderTransactions();
-                });
             });
-            
-            // Apply date filter
-            applyDateFilterBtn.addEventListener('click', function() {
-                fromDate = document.getElementById('fromDate').value;
-                toDate = document.getElementById('toDate').value;
-                renderTransactions();
-            });
-            
+
             // Refresh transactions
-            refreshTransactionsBtn.addEventListener('click', function() {
-                // In a real app, this would fetch updated data from the server
-                renderTransactions();
-                alert('Transactions refreshed!');
+            document.getElementById('refreshTransactions').addEventListener('click', function() {
+                window.location.reload();
             });
+
+            // Set max date for date inputs to today
+            const today = new Date().toISOString().split('T')[0];
+            document.querySelector('input[name="to_date"]').max = today;
             
-            // Export transactions
-            exportTransactionsBtn.addEventListener('click', function() {
-                // In a real app, this would generate and download a CSV file
-                alert('Export functionality would be implemented here');
+            // If from_date is set, ensure to_date is not before it
+            const fromDateInput = document.querySelector('input[name="from_date"]');
+            const toDateInput = document.querySelector('input[name="to_date"]');
+            
+            fromDateInput.addEventListener('change', function() {
+                toDateInput.min = this.value;
             });
-            
-            // Make first transaction
-            makeFirstTransactionBtn.addEventListener('click', function() {
-                // Show deposit modal
-                const depositModal = new bootstrap.Modal(document.getElementById('depositModal'));
-                depositModal.show();
-            });
-            
-            // Confirm deposit
-            confirmDepositBtn.addEventListener('click', function() {
-                const amount = parseFloat(document.getElementById('depositAmount').value);
-                const method = document.getElementById('depositMethod').value;
-                const notes = document.getElementById('depositNotes').value;
-                
-                if (!amount || amount <= 0) {
-                    alert('Please enter a valid deposit amount');
-                    return;
-                }
-                
-                // Create new deposit transaction
-                const newTransaction = {
-                    id: currentTransactions.length + 1,
-                    type: 'deposit',
-                    title: `${method.charAt(0).toUpperCase() + method.slice(1)} Deposit`,
-                    content: notes || `Funds deposited via ${method}`,
-                    amount: amount,
-                    date: new Date().toISOString().split('T')[0],
-                    status: 'pending'
-                };
-                
-                currentTransactions.unshift(newTransaction);
-                renderTransactions();
-                
-                // Close modal and reset form
-                bootstrap.Modal.getInstance(document.getElementById('depositModal')).hide();
-                document.getElementById('depositAmount').value = '';
-                document.getElementById('depositNotes').value = '';
-                
-                alert(`Deposit of ${formatCurrency(amount)} submitted successfully!`);
-            });
-            
-            // Confirm withdrawal
-            confirmWithdrawalBtn.addEventListener('click', function() {
-                const amount = parseFloat(document.getElementById('withdrawalAmount').value);
-                const method = document.getElementById('withdrawalMethod').value;
-                const notes = document.getElementById('withdrawalNotes').value;
-                
-                if (!amount || amount <= 0) {
-                    alert('Please enter a valid withdrawal amount');
-                    return;
-                }
-                
-                // Create new withdrawal transaction
-                const newTransaction = {
-                    id: currentTransactions.length + 1,
-                    type: 'withdrawal',
-                    title: `${method.charAt(0).toUpperCase() + method.slice(1)} Withdrawal`,
-                    content: notes || `Funds withdrawn via ${method}`,
-                    amount: -amount,
-                    date: new Date().toISOString().split('T')[0],
-                    status: 'pending'
-                };
-                
-                currentTransactions.unshift(newTransaction);
-                renderTransactions();
-                
-                // Close modal and reset form
-                bootstrap.Modal.getInstance(document.getElementById('withdrawalModal')).hide();
-                document.getElementById('withdrawalAmount').value = '';
-                document.getElementById('withdrawalNotes').value = '';
-                
-                alert(`Withdrawal of ${formatCurrency(amount)} submitted successfully!`);
-            });
-            
-            // Set default date values (last 30 days)
-            const today = new Date();
-            const thirtyDaysAgo = new Date();
-            thirtyDaysAgo.setDate(today.getDate() - 30);
-            
-            document.getElementById('fromDate').value = thirtyDaysAgo.toISOString().split('T')[0];
-            document.getElementById('toDate').value = today.toISOString().split('T')[0];
-            
-            // Initial render
-            renderTransactions();
+
+            // Success messages
+            @if(session('success'))
+                alert('{{ session('success') }}');
+            @endif
+
+            @if($errors->any())
+                alert('{{ $errors->first() }}');
+            @endif
         });
     </script>
 </body>

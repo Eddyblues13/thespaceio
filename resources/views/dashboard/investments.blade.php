@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tenex - Investment Dashboard</title>
+    <title>TheSpace - Investment Dashboard</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -30,66 +30,72 @@
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            padding-top: 70px;
+            /* Account for fixed navbar */
         }
 
-        /* Sidebar */
-        .sidebar {
+        /* Navigation Bar */
+        .navbar-TheSpace {
             background-color: var(--primary-blue);
-            min-height: 100vh;
-            padding: 0;
-            border-right: 1px solid var(--border-color);
-            transition: all 0.3s;
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
         }
 
-        .sidebar .navbar-brand {
+        .navbar-brand {
             color: white;
             font-weight: bold;
-            padding: 20px 15px;
-            border-bottom: 1px solid var(--border-color);
-            text-align: center;
         }
 
-        .sidebar .nav-link {
+        .navbar-brand i {
+            margin-right: 8px;
+        }
+
+        .navbar-nav .nav-link {
             color: #a8c6e5;
-            padding: 12px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 10px 15px;
             transition: all 0.3s;
+            border-radius: 5px;
         }
 
-        .sidebar .nav-link:hover,
-        .sidebar .nav-link.active {
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
             background-color: var(--light-blue);
             color: white;
         }
 
-        .sidebar .nav-link i {
-            width: 25px;
+        .navbar-nav .nav-link i {
+            width: 20px;
             text-align: center;
-            margin-right: 10px;
+            margin-right: 8px;
         }
 
-        /* Main Content */
-        .main-content {
-            padding: 20px;
+        .navbar-toggler {
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.5rem;
         }
 
-        /* Top Bar */
-        .top-bar {
-            background-color: var(--primary-blue);
-            padding: 15px 20px;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 20px;
-            border-radius: 8px;
+        .navbar-toggler:focus {
+            box-shadow: none;
         }
 
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* User Info in Navbar */
         .user-info {
             display: flex;
             align-items: center;
         }
 
         .user-avatar {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             background-color: var(--accent-blue);
             display: flex;
@@ -98,6 +104,11 @@
             color: white;
             font-weight: bold;
             margin-right: 10px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 20px;
         }
 
         /* Dashboard Cards */
@@ -330,11 +341,6 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .sidebar {
-                min-height: auto;
-                width: 100%;
-            }
-
             .card-value {
                 font-size: 1.5rem;
             }
@@ -357,10 +363,6 @@
                 padding: 15px 10px;
             }
 
-            .top-bar {
-                padding: 10px 15px;
-            }
-
             .dashboard-card {
                 padding: 15px;
             }
@@ -372,234 +374,258 @@
             .quick-actions {
                 grid-template-columns: 1fr;
             }
+
+            .navbar-nav .nav-link {
+                padding: 8px 12px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container-fluid">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-TheSpace">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <i class="fas fa-robot"></i>TheSpace
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard') }}">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.portfolio') }}">
+                            <i class="fas fa-chart-line"></i> Portfolio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('dashboard.investments') }}">
+                            <i class="fas fa-wallet"></i> Investments
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.transactions') }}">
+                            <i class="fas fa-exchange-alt"></i> Transactions
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.insurance') }}">
+                            <i class="fas fa-file-invoice-dollar"></i> Insurance
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.settings') }}">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/') }}">
+                            <i class="fas fa-arrow-left"></i> Back to Main Site
+                        </a>
+                    </li>
+                </ul>
+                <div class="user-info">
+                    <div class="user-avatar">{{ strtoupper(substr($user->name, 0, 2)) }}</div>
+                    <div>
+                        <div class="fw-bold">{{ $user->name }}</div>
+                        <small class="text-muted">{{ $user->investor_tier }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid main-content">
+        <!-- Quick Actions -->
+        <div class="dashboard-card">
+            <div class="card-title">Quick Actions</div>
+            <div class="quick-actions">
+                <a href="{{ route('dashboard.deposit') }}" class="action-btn">
+                    <i class="fas fa-plus-circle"></i>
+                    Add Funds
+                </a>
+                <a href="{{ route('dashboard.insurance') }}" class="action-btn">
+                    <i class="fas fa-search-dollar"></i>
+                    Find Opportunities
+                </a>
+                <a href="#" class="action-btn">
+                    <i class="fas fa-download"></i>
+                    Export Report
+                </a>
+                <a href="#" class="action-btn">
+                    <i class="fas fa-bell"></i>
+                    Set Alerts
+                </a>
+                <a href="{{ route('dashboard') }}" class="action-btn">
+                    <i class="fas fa-question-circle"></i>
+                    Get Support
+                </a>
+            </div>
+        </div>
+
+        <!-- Investment Overview -->
         <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-3 col-lg-2 sidebar">
-                <div class="d-flex flex-column">
-                    <a class="navbar-brand" href="/">
-                        <i class="fas fa-robot me-2"></i>Tenex
-                    </a>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="dashboard">
-                                <i class="fas fa-tachometer-alt"></i> Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="portfolio">
-                                <i class="fas fa-chart-line"></i> Portfolio
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="investment">
-                                <i class="fas fa-wallet"></i> Investments
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="transactions">
-                                <i class="fas fa-exchange-alt"></i> Transactions
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="insurance">
-                                <i class="fas fa-file-invoice-dollar"></i> Insurance
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="settings">
-                                <i class="fas fa-cog"></i> Settings
-                            </a>
-                        </li>
-                        <li class="nav-item mt-4">
-                            <a class="nav-link" href="/">
-                                <i class="fas fa-arrow-left"></i> Back to Main Site
-                            </a>
-                        </li>
-                    </ul>
+            <div class="col-md-3 col-sm-6">
+                <div class="dashboard-card">
+                    <div class="card-title">Total Investment</div>
+                    <div class="card-value">${{ number_format($investmentData['total_investment'], 2) }}</div>
+                    <div class="card-change positive">
+                        <i class="fas fa-arrow-up"></i> +{{ number_format($investmentData['return_percentage'], 2) }}%
+                        (${{ number_format($investmentData['total_returns'], 2) }})
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="dashboard-card">
+                    <div class="card-title">Available Cash</div>
+                    <div class="card-value">${{ number_format($user->cash_balance, 2) }}</div>
+                    <div class="card-change">
+                        Ready to invest
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="dashboard-card">
+                    <div class="card-title">Monthly Return</div>
+                    <div class="card-value positive">+${{ number_format($investmentData['monthly_return'], 2) }}</div>
+                    <div class="card-change positive">
+                        <i class="fas fa-arrow-up"></i> +{{ number_format($investmentData['monthly_return_percentage'],
+                        2) }}%
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="dashboard-card">
+                    <div class="card-title">Total Return</div>
+                    <div class="card-value positive">+${{ number_format($investmentData['total_returns'], 2) }}</div>
+                    <div class="card-change positive">
+                        <i class="fas fa-arrow-up"></i> +{{ number_format($investmentData['return_percentage'], 2) }}%
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Metrics -->
+        <div class="dashboard-card">
+            <div class="card-title">Investment Performance Metrics</div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value positive">{{ $performanceData['ytd_return'] }}%</div>
+                    <div class="metric-label">YTD Return</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value positive">{{ $performanceData['one_year_return'] }}%</div>
+                    <div class="metric-label">1-Year Return</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">{{ $performanceData['sharpe_ratio'] }}</div>
+                    <div class="metric-label">Sharpe Ratio</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">{{ $performanceData['volatility'] }}%</div>
+                    <div class="metric-label">Volatility</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">{{ $performanceData['beta'] }}</div>
+                    <div class="metric-label">Beta</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">${{ number_format($performanceData['dividends_ytd'], 2) }}</div>
+                    <div class="metric-label">Dividends YTD</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Investment Performance & Allocation -->
+        <div class="row">
+            <!-- Performance Chart -->
+            <div class="col-lg-8">
+                <div class="dashboard-card">
+                    <div class="card-title">Investment Performance</div>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
                 </div>
             </div>
 
-            <!-- Main Content -->
-            <div class="col-md-9 col-lg-10 main-content">
-                <!-- Top Bar -->
-                <div class="top-bar d-flex justify-content-between align-items-center">
-                    <h4 class="mb-0">Investment Dashboard</h4>
-                    <div class="user-info">
-                        <div class="user-avatar">JD</div>
-                        <div>
-                            <div class="fw-bold">John Doe</div>
-                            <small class="text-muted">Tier 2 Investor</small>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick Actions -->
+            <!-- Portfolio Allocation -->
+            <div class="col-lg-4">
                 <div class="dashboard-card">
-                    <div class="card-title">Quick Actions</div>
-                    <div class="quick-actions">
-                        <a href="directdeposit" class="action-btn">
-                            <i class="fas fa-plus-circle"></i>
-                            Add Funds
-                        </a>
-                        <a href="insurance" class="action-btn">
-                            <i class="fas fa-search-dollar"></i>
-                            Find Opportunities
-                        </a>
-                        <a href="reports" class="action-btn">
-                            <i class="fas fa-download"></i>
-                            Export Report
-                        </a>
-                        <a href="alert" class="action-btn">
-                            <i class="fas fa-bell"></i>
-                            Set Alerts
-                        </a>
-                        <a href="accountmanager3" class="action-btn">
-                            <i class="fas fa-question-circle"></i>
-                            Get Support
-                        </a>
+                    <div class="card-title">Investment Allocation</div>
+                    <div class="chart-container">
+                        <canvas id="allocationChart"></canvas>
+                    </div>
+                    <div class="mt-3">
+                        @foreach($allocationData as $allocation)
+                        <div class="allocation-item">
+                            <div class="allocation-name">
+                                <div class="allocation-color" style="background-color: {{ $allocation['color'] }};">
+                                </div>
+                                <span>{{ $allocation['name'] }}</span>
+                            </div>
+                            <div class="allocation-percent">{{ number_format($allocation['percentage'], 1) }}%</div>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <!-- Investment Overview -->
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="dashboard-card">
-                            <div class="card-title">Total Investment</div>
-                            <div class="card-value">$247,850</div>
-                            <div class="card-change positive">
-                                <i class="fas fa-arrow-up"></i> +2.34% ($5,670)
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="dashboard-card">
-                            <div class="card-title">Available Cash</div>
-                            <div class="card-value">$12,450</div>
-                            <div class="card-change">
-                                Ready to invest
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="dashboard-card">
-                            <div class="card-title">Monthly Return</div>
-                            <div class="card-value positive">+$3,245</div>
-                            <div class="card-change positive">
-                                <i class="fas fa-arrow-up"></i> +1.33%
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="dashboard-card">
-                            <div class="card-title">Total Return</div>
-                            <div class="card-value positive">+$47,850</div>
-                            <div class="card-change positive">
-                                <i class="fas fa-arrow-up"></i> +23.9%
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Investments List -->
+        <div class="dashboard-card">
+            <div class="card-title">Your Investments</div>
+            <div class="holdings-table">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Investment</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Current Value</th>
+                            <th>Returns</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($investments as $investment)
+                        <tr>
+                            <td>
+                                <div class="fw-bold">{{ $investment->name }}</div>
+                                <small class="text-muted">Added {{ $investment->created_at->format('M d, Y') }}</small>
+                            </td>
+                            <td>
+                                <span class="badge bg-primary">{{ ucfirst($investment->type) }}</span>
+                            </td>
+                            <td>${{ number_format($investment->amount, 2) }}</td>
+                            <td>${{ number_format($investment->current_value, 2) }}</td>
+                            <td class="{{ $investment->returns >= 0 ? 'positive' : 'negative' }}">
+                                ${{ number_format($investment->returns, 2) }}
+                            </td>
+                            <td class="{{ $investment->return_percentage >= 0 ? 'positive' : 'negative' }}">
+                                {{ $investment->return_percentage >= 0 ? '+' : '' }}{{
+                                number_format($investment->return_percentage, 2) }}%
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-                <!-- Performance Metrics -->
-                <div class="dashboard-card">
-                    <div class="card-title">Investment Performance Metrics</div>
-                    <div class="metrics-grid">
-                        <div class="metric-card">
-                            <div class="metric-value positive">18.7%</div>
-                            <div class="metric-label">YTD Return</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-value positive">24.3%</div>
-                            <div class="metric-label">1-Year Return</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-value">1.12</div>
-                            <div class="metric-label">Sharpe Ratio</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-value">14.2%</div>
-                            <div class="metric-label">Volatility</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-value">0.94</div>
-                            <div class="metric-label">Beta</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-value">$2,450</div>
-                            <div class="metric-label">Dividends YTD</div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-                <!-- Investment Performance & Allocation -->
-                <div class="row">
-                    <!-- Performance Chart -->
-                    <div class="col-lg-8">
-                        <div class="dashboard-card">
-                            <div class="card-title">Investment Performance</div>
-                            <div class="chart-container">
-                                <canvas id="performanceChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Portfolio Allocation -->
-                    <div class="col-lg-4">
-                        <div class="dashboard-card">
-                            <div class="card-title">Investment Allocation</div>
-                            <div class="chart-container">
-                                <canvas id="allocationChart"></canvas>
-                            </div>
-                            <div class="mt-3">
-                                <div class="allocation-item">
-                                    <div class="allocation-name">
-                                        <div class="allocation-color" style="background-color: #3b82f6;"></div>
-                                        <span>AI ETF</span>
-                                    </div>
-                                    <div class="allocation-percent">42%</div>
-                                </div>
-                                <div class="allocation-item">
-                                    <div class="allocation-name">
-                                        <div class="allocation-color" style="background-color: #10b981;"></div>
-                                        <span>Growth Fund</span>
-                                    </div>
-                                    <div class="allocation-percent">35%</div>
-                                </div>
-                                <div class="allocation-item">
-                                    <div class="allocation-name">
-                                        <div class="allocation-color" style="background-color: #f59e0b;"></div>
-                                        <span>Infrastructure</span>
-                                    </div>
-                                    <div class="allocation-percent">18%</div>
-                                </div>
-                                <div class="allocation-item">
-                                    <div class="allocation-name">
-                                        <div class="allocation-color" style="background-color: #ef4444;"></div>
-                                        <span>Cash</span>
-                                    </div>
-                                    <div class="allocation-percent">5%</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-                <!-- Bootstrap JS -->
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
-                </script>
-
-                <script>
-                    // Initialize charts when the page loads
+    <script>
+        // Initialize charts when the page loads
         document.addEventListener('DOMContentLoaded', function() {
             // Performance Chart
             const performanceCtx = document.getElementById('performanceChart').getContext('2d');
@@ -609,7 +635,7 @@
                     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                     datasets: [{
                         label: 'Investment Value',
-                        data: [200000, 205000, 210500, 215200, 218000, 222500, 225800, 230200, 235600, 240300, 245100, 247850],
+                        data: [200000, 205000, 210500, 215200, 218000, 222500, 225800, 230200, 235600, 240300, 245100, {{ $investmentData['total_investment'] }}],
                         borderColor: '#0052a3',
                         backgroundColor: 'rgba(0, 82, 163, 0.1)',
                         borderWidth: 2,
@@ -655,15 +681,10 @@
             const allocationChart = new Chart(allocationCtx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['AI ETF', 'Growth Fund', 'Infrastructure', 'Cash'],
+                    labels: {!! json_encode(collect($allocationData)->pluck('name')->toArray()) !!},
                     datasets: [{
-                        data: [42, 35, 18, 5],
-                        backgroundColor: [
-                            '#3b82f6',
-                            '#10b981',
-                            '#f59e0b',
-                            '#ef4444'
-                        ],
+                        data: {!! json_encode(collect($allocationData)->pluck('percentage')->toArray()) !!},
+                        backgroundColor: {!! json_encode(collect($allocationData)->pluck('color')->toArray()) !!},
                         borderWidth: 0
                     }]
                 },
@@ -679,7 +700,7 @@
                 }
             });
         });
-                </script>
+    </script>
 </body>
 
 </html>

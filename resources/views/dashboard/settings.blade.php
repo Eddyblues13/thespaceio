@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tenex - Settings Dashboard</title>
+    <title>TheSpace - Settings Dashboard</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -28,42 +28,110 @@
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            padding-top: 70px;
+            /* Added for fixed navbar */
         }
 
-        /* Sidebar */
-        .sidebar {
-            background-color: var(--primary-blue);
-            min-height: 100vh;
-            padding: 0;
-            border-right: 1px solid var(--border-color);
-            transition: all 0.3s;
-        }
-
-        .sidebar .navbar-brand {
-            color: white;
-            font-weight: bold;
-            padding: 20px 15px;
+        /* Enhanced Navigation */
+        .navbar {
+            background-color: var(--primary-blue) !important;
             border-bottom: 1px solid var(--border-color);
-            text-align: center;
+            padding: 0.5rem 0;
+            height: 70px;
+            transition: all 0.3s ease;
         }
 
-        .sidebar .nav-link {
-            color: #a8c6e5;
-            padding: 12px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s;
+        .navbar.scrolled {
+            background-color: var(--dark-blue) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        .sidebar .nav-link:hover,
-        .sidebar .nav-link.active {
+        .navbar-brand {
+            color: white !important;
+            font-weight: bold;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand i {
+            margin-right: 8px;
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #a8c6e5 !important;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.2rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
             background-color: var(--light-blue);
-            color: white;
+            color: white !important;
+            transform: translateY(-1px);
         }
 
-        .sidebar .nav-link i {
-            width: 25px;
-            text-align: center;
-            margin-right: 10px;
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        .navbar-toggler {
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28168, 198, 229, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Mobile menu adjustments */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background-color: var(--primary-blue);
+                margin-top: 10px;
+                border-radius: 10px;
+                border: 1px solid var(--border-color);
+                padding: 15px;
+            }
+
+            .nav-link {
+                margin: 0.2rem 0;
+                padding: 0.8rem 1rem !important;
+            }
+
+            .nav-link.active::after {
+                display: none;
+            }
+        }
+
+        /* Compact navbar for very small screens */
+        @media (max-width: 576px) {
+            .navbar-brand span {
+                display: none;
+            }
+
+            .navbar-brand i {
+                margin-right: 0;
+                font-size: 2rem;
+            }
         }
 
         /* Main Content */
@@ -286,11 +354,6 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .sidebar {
-                min-height: auto;
-                width: 100%;
-            }
-
             .settings-item {
                 flex-direction: column;
                 align-items: flex-start;
@@ -331,64 +394,71 @@
 </head>
 
 <body>
+    <!-- Enhanced Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <i class="fas fa-robot"></i>
+                <span>TheSpace</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard') }}">
+                            <i class="fas fa-tachometer-alt me-1"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.portfolio') }}">
+                            <i class="fas fa-chart-line me-1"></i> Portfolio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.investments') }}">
+                            <i class="fas fa-wallet me-1"></i> Investments
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.transactions') }}">
+                            <i class="fas fa-exchange-alt me-1"></i> Transactions
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard.insurance') }}">
+                            <i class="fas fa-file-invoice-dollar me-1"></i> Insurance
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('dashboard.settings') }}">
+                            <i class="fas fa-cog me-1"></i> Settings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/') }}">
+                            <i class="fas fa-arrow-left me-1"></i> Main Site
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-3 col-lg-2 sidebar">
-                <div class="d-flex flex-column">
-                    <a class="navbar-brand" href="/">
-                        <i class="fas fa-robot me-2"></i>Tenex
-                    </a>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="dashboard">
-                                <i class="fas fa-tachometer-alt"></i> Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="portfolio">
-                                <i class="fas fa-chart-line"></i> Portfolio
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="investment">
-                                <i class="fas fa-wallet"></i> Investments
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="transactions">
-                                <i class="fas fa-exchange-alt"></i> Transactions
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="insurance">
-                                <i class="fas fa-file-invoice-dollar"></i> Insurance
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="settings">
-                                <i class="fas fa-cog"></i> Settings
-                            </a>
-                        </li>
-                        <li class="nav-item mt-4">
-                            <a class="nav-link" href="/">
-                                <i class="fas fa-arrow-left"></i> Back to Main Site
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Main Content -->
-            <div class="col-md-9 col-lg-10 main-content">
+            <div class="col-12 main-content">
                 <!-- Top Bar -->
                 <div class="top-bar d-flex justify-content-between align-items-center">
                     <h4 class="mb-0">Settings Dashboard</h4>
                     <div class="user-info">
-                        <div class="user-avatar">JD</div>
+                        <div class="user-avatar">{{ strtoupper(substr($user->name, 0, 2)) }}</div>
                         <div>
-                            <div class="fw-bold">John Doe</div>
-                            <small class="text-muted">Tier 2 Investor</small>
+                            <div class="fw-bold">{{ $user->name }}</div>
+                            <small class="text-muted">{{ $user->investor_tier }}</small>
                         </div>
                     </div>
                 </div>
@@ -397,15 +467,15 @@
                 <div class="dashboard-card">
                     <div class="card-title">Quick Actions</div>
                     <div class="quick-actions">
-                        <a href="#" class="action-btn">
+                        <a href="#profile" class="action-btn">
                             <i class="fas fa-user-edit"></i>
                             Edit Profile
                         </a>
-                        <a href="#" class="action-btn">
+                        <a href="#security" class="action-btn">
                             <i class="fas fa-shield-alt"></i>
                             Security
                         </a>
-                        <a href="#" class="action-btn">
+                        <a href="#notifications" class="action-btn">
                             <i class="fas fa-bell"></i>
                             Notifications
                         </a>
@@ -413,7 +483,7 @@
                             <i class="fas fa-download"></i>
                             Export Data
                         </a>
-                        <a href="#" class="action-btn">
+                        <a href="#appearance" class="action-btn">
                             <i class="fas fa-palette"></i>
                             Appearance
                         </a>
@@ -425,86 +495,93 @@
                 </div>
 
                 <!-- Account Settings -->
-                <div class="settings-section">
+                <div class="settings-section" id="profile">
                     <div class="section-header">
                         <div class="section-title">Account Settings</div>
                         <div class="section-description">Manage your personal information and account preferences</div>
                     </div>
 
                     <div class="profile-header">
-                        <div class="profile-avatar">JD</div>
-                        <h5>John Doe</h5>
-                        <p class="text-muted">Tier 2 Investor • Member since 2021</p>
+                        <div class="profile-avatar">{{ strtoupper(substr($user->name, 0, 2)) }}</div>
+                        <h5>{{ $user->name }}</h5>
+                        <p class="text-muted">{{ $user->investor_tier }} • Member since {{
+                            $user->created_at->format('Y') }}</p>
                         <button class="btn btn-outline-primary btn-sm">
                             <i class="fas fa-camera me-1"></i> Change Photo
                         </button>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label">First Name</label>
-                                <input type="text" class="form-control" value="John">
+                    <form method="POST" action="{{ route('settings.profile.update') }}">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" class="form-control" name="name" value="{{ $user->name }}"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" name="email" value="{{ $user->email }}"
+                                        required>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label">Last Name</label>
-                                <input type="text" class="form-control" value="Doe">
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label">Email Address</label>
-                                <input type="email" class="form-control" value="john.doe@example.com">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" name="phone" value="{{ $user->phone }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Investor Tier</label>
+                                    <input type="text" class="form-control" value="{{ $user->investor_tier }}" readonly>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label">Phone Number</label>
-                                <input type="tel" class="form-control" value="+1 (555) 123-4567">
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Address</label>
-                        <input type="text" class="form-control" value="123 Investment Street">
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">Address</label>
+                            <input type="text" class="form-control" name="address" value="{{ $user->address }}">
+                        </div>
 
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label class="form-label">City</label>
-                                <input type="text" class="form-control" value="New York">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">City</label>
+                                    <input type="text" class="form-control" name="city" value="{{ $user->city }}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">State</label>
+                                    <input type="text" class="form-control" name="state" value="{{ $user->state }}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">ZIP Code</label>
+                                    <input type="text" class="form-control" name="zip_code"
+                                        value="{{ $user->zip_code }}">
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label class="form-label">State</label>
-                                <input type="text" class="form-control" value="NY">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label class="form-label">ZIP Code</label>
-                                <input type="text" class="form-control" value="10001">
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="text-end">
-                        <button class="btn btn-primary">
-                            <i class="fas fa-save me-1"></i> Save Changes
-                        </button>
-                    </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-1"></i> Save Changes
+                            </button>
+                        </div>
+                    </form>
                 </div>
 
                 <!-- Security Settings -->
-                <div class="settings-section">
+                <div class="settings-section" id="security">
                     <div class="section-header">
                         <div class="section-title">Security Settings</div>
                         <div class="section-description">Manage your account security and privacy preferences</div>
@@ -520,156 +597,125 @@
                         </div>
                     </div>
 
-                    <div class="settings-item">
-                        <div class="settings-info">
-                            <div class="settings-label">Two-Factor Authentication</div>
-                            <div class="settings-description">Add an extra layer of security to your account</div>
-                        </div>
-                        <div class="settings-controls">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="2faSwitch" checked>
-                                <label class="form-check-label" for="2faSwitch">Enabled</label>
+                    <form method="POST" action="{{ route('settings.security.update') }}">
+                        @csrf
+                        <div class="settings-item">
+                            <div class="settings-info">
+                                <div class="settings-label">Two-Factor Authentication</div>
+                                <div class="settings-description">Add an extra layer of security to your account</div>
+                            </div>
+                            <div class="settings-controls">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" name="two_factor_enabled"
+                                        id="2faSwitch" {{ $user->two_factor_enabled ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="2faSwitch">{{ $user->two_factor_enabled ?
+                                        'Enabled' : 'Disabled' }}</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="settings-item">
-                        <div class="settings-info">
-                            <div class="settings-label">Login Notifications</div>
-                            <div class="settings-description">Get notified when someone logs into your account</div>
-                        </div>
-                        <div class="settings-controls">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="loginNotifications" checked>
-                                <label class="form-check-label" for="loginNotifications">Enabled</label>
+                        <div class="settings-item">
+                            <div class="settings-info">
+                                <div class="settings-label">Login Notifications</div>
+                                <div class="settings-description">Get notified when someone logs into your account</div>
+                            </div>
+                            <div class="settings-controls">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" name="login_notifications"
+                                        id="loginNotifications" {{ $user->login_notifications ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="loginNotifications">{{
+                                        $user->login_notifications ? 'Enabled' : 'Disabled' }}</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="settings-item">
-                        <div class="settings-info">
-                            <div class="settings-label">Session Timeout</div>
-                            <div class="settings-description">Automatically log out after period of inactivity</div>
+                        <div class="settings-item">
+                            <div class="settings-info">
+                                <div class="settings-label">Session Timeout</div>
+                                <div class="settings-description">Automatically log out after period of inactivity</div>
+                            </div>
+                            <div class="settings-controls">
+                                <select class="form-select" name="session_timeout" style="width: 200px;">
+                                    <option value="15" {{ $user->session_timeout == 15 ? 'selected' : '' }}>15 minutes
+                                    </option>
+                                    <option value="30" {{ $user->session_timeout == 30 ? 'selected' : '' }}>30 minutes
+                                    </option>
+                                    <option value="60" {{ $user->session_timeout == 60 ? 'selected' : '' }}>1 hour
+                                    </option>
+                                    <option value="240" {{ $user->session_timeout == 240 ? 'selected' : '' }}>4 hours
+                                    </option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="settings-controls">
-                            <select class="form-select" style="width: 200px;">
-                                <option>15 minutes</option>
-                                <option selected>30 minutes</option>
-                                <option>1 hour</option>
-                                <option>4 hours</option>
-                            </select>
-                        </div>
-                    </div>
 
-                    <div class="settings-item">
-                        <div class="settings-info">
-                            <div class="settings-label">Password</div>
-                            <div class="settings-description">Last changed 2 months ago</div>
-                        </div>
-                        <div class="settings-controls">
-                            <button class="btn btn-outline-primary">
-                                <i class="fas fa-edit me-1"></i> Change Password
+                        <div class="text-end mt-3">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-1"></i> Update Security Settings
                             </button>
                         </div>
-                    </div>
-
-                    <div class="settings-item">
-                        <div class="settings-info">
-                            <div class="settings-label">Active Sessions</div>
-                            <div class="settings-description">Manage your active login sessions</div>
-                        </div>
-                        <div class="settings-controls">
-                            <button class="btn btn-outline-secondary">
-                                <i class="fas fa-desktop me-1"></i> View Sessions
-                            </button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
 
                 <!-- Notification Settings -->
-                <div class="settings-section">
+                <div class="settings-section" id="notifications">
                     <div class="section-header">
                         <div class="section-title">Notification Preferences</div>
                         <div class="section-description">Control how and when you receive notifications</div>
                     </div>
 
-                    <div class="settings-item">
-                        <div class="settings-info">
-                            <div class="settings-label">Email Notifications</div>
-                            <div class="settings-description">Receive notifications via email</div>
-                        </div>
-                        <div class="settings-controls">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
-                                <label class="form-check-label" for="emailNotifications">Enabled</label>
+                    <form method="POST" action="{{ route('settings.notifications.update') }}">
+                        @csrf
+                        <div class="settings-item">
+                            <div class="settings-info">
+                                <div class="settings-label">Email Notifications</div>
+                                <div class="settings-description">Receive notifications via email</div>
+                            </div>
+                            <div class="settings-controls">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" name="email_notifications"
+                                        id="emailNotifications" {{ $user->email_notifications ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="emailNotifications">{{
+                                        $user->email_notifications ? 'Enabled' : 'Disabled' }}</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="settings-item">
-                        <div class="settings-info">
-                            <div class="settings-label">Push Notifications</div>
-                            <div class="settings-description">Receive push notifications on your devices</div>
-                        </div>
-                        <div class="settings-controls">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="pushNotifications" checked>
-                                <label class="form-check-label" for="pushNotifications">Enabled</label>
+                        <div class="settings-item">
+                            <div class="settings-info">
+                                <div class="settings-label">Push Notifications</div>
+                                <div class="settings-description">Receive push notifications on your devices</div>
+                            </div>
+                            <div class="settings-controls">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" name="push_notifications"
+                                        id="pushNotifications" {{ $user->push_notifications ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="pushNotifications">{{ $user->push_notifications
+                                        ? 'Enabled' : 'Disabled' }}</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="settings-item">
-                        <div class="settings-info">
-                            <div class="settings-label">SMS Alerts</div>
-                            <div class="settings-description">Receive important alerts via SMS</div>
-                        </div>
-                        <div class="settings-controls">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="smsAlerts">
-                                <label class="form-check-label" for="smsAlerts">Enabled</label>
+                        <div class="settings-item">
+                            <div class="settings-info">
+                                <div class="settings-label">SMS Alerts</div>
+                                <div class="settings-description">Receive important alerts via SMS</div>
+                            </div>
+                            <div class="settings-controls">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" name="sms_alerts" id="smsAlerts" {{
+                                        $user->sms_alerts ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="smsAlerts">{{ $user->sms_alerts ? 'Enabled' :
+                                        'Disabled' }}</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="settings-item">
-                        <div class="settings-info">
-                            <div class="settings-label">Portfolio Updates</div>
-                            <div class="settings-description">Daily portfolio performance summaries</div>
+                        <div class="text-end mt-3">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-1"></i> Update Notification Settings
+                            </button>
                         </div>
-                        <div class="settings-controls">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="portfolioUpdates" checked>
-                                <label class="form-check-label" for="portfolioUpdates">Enabled</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="settings-item">
-                        <div class="settings-info">
-                            <div class="settings-label">Market Alerts</div>
-                            <div class="settings-description">Important market movements and news</div>
-                        </div>
-                        <div class="settings-controls">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="marketAlerts" checked>
-                                <label class="form-check-label" for="marketAlerts">Enabled</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="settings-item">
-                        <div class="settings-info">
-                            <div class="settings-label">Dividend Notifications</div>
-                            <div class="settings-description">When dividends are paid or announced</div>
-                        </div>
-                        <div class="settings-controls">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="dividendNotifications" checked>
-                                <label class="form-check-label" for="dividendNotifications">Enabled</label>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
                 </div>
 
                 <!-- Investment Preferences -->
@@ -686,9 +732,11 @@
                         </div>
                         <div class="settings-controls">
                             <select class="form-select" style="width: 200px;">
-                                <option>Conservative</option>
-                                <option selected>Moderate</option>
-                                <option>Aggressive</option>
+                                <option {{ $user->risk_tolerance == 'Conservative' ? 'selected' : '' }}>Conservative
+                                </option>
+                                <option {{ $user->risk_tolerance == 'Moderate' ? 'selected' : '' }}>Moderate</option>
+                                <option {{ $user->risk_tolerance == 'Aggressive' ? 'selected' : '' }}>Aggressive
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -700,8 +748,10 @@
                         </div>
                         <div class="settings-controls">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="autoRebalancing">
-                                <label class="form-check-label" for="autoRebalancing">Enabled</label>
+                                <input class="form-check-input" type="checkbox" id="autoRebalancing" {{
+                                    $user->auto_rebalancing ? 'checked' : '' }}>
+                                <label class="form-check-label" for="autoRebalancing">{{ $user->auto_rebalancing ?
+                                    'Enabled' : 'Disabled' }}</label>
                             </div>
                         </div>
                     </div>
@@ -713,43 +763,20 @@
                         </div>
                         <div class="settings-controls">
                             <select class="form-select" style="width: 200px;">
-                                <option selected>USD - US Dollar</option>
-                                <option>EUR - Euro</option>
-                                <option>GBP - British Pound</option>
-                                <option>JPY - Japanese Yen</option>
+                                <option {{ $user->default_currency == 'USD' ? 'selected' : '' }}>USD - US Dollar
+                                </option>
+                                <option {{ $user->default_currency == 'EUR' ? 'selected' : '' }}>EUR - Euro</option>
+                                <option {{ $user->default_currency == 'GBP' ? 'selected' : '' }}>GBP - British Pound
+                                </option>
+                                <option {{ $user->default_currency == 'JPY' ? 'selected' : '' }}>JPY - Japanese Yen
+                                </option>
                             </select>
-                        </div>
-                    </div>
-
-                    <div class="settings-item">
-                        <div class="settings-info">
-                            <div class="settings-label">Tax-Loss Harvesting</div>
-                            <div class="settings-description">Automatically optimize for tax efficiency</div>
-                        </div>
-                        <div class="settings-controls">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="taxLossHarvesting" checked>
-                                <label class="form-check-label" for="taxLossHarvesting">Enabled</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="settings-item">
-                        <div class="settings-info">
-                            <div class="settings-label">AI Investment Recommendations</div>
-                            <div class="settings-description">Receive AI-powered investment suggestions</div>
-                        </div>
-                        <div class="settings-controls">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="aiRecommendations" checked>
-                                <label class="form-check-label" for="aiRecommendations">Enabled</label>
-                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Appearance Settings -->
-                <div class="settings-section">
+                <div class="settings-section" id="appearance">
                     <div class="section-header">
                         <div class="section-title">Appearance & Display</div>
                         <div class="section-description">Customize the look and feel of your dashboard</div>
@@ -762,9 +789,9 @@
                         </div>
                         <div class="settings-controls">
                             <select class="form-select" style="width: 200px;">
-                                <option selected>Dark Theme</option>
-                                <option>Light Theme</option>
-                                <option>Auto (System)</option>
+                                <option {{ $user->theme == 'dark' ? 'selected' : '' }}>Dark Theme</option>
+                                <option {{ $user->theme == 'light' ? 'selected' : '' }}>Light Theme</option>
+                                <option {{ $user->theme == 'auto' ? 'selected' : '' }}>Auto (System)</option>
                             </select>
                         </div>
                     </div>
@@ -776,37 +803,9 @@
                         </div>
                         <div class="settings-controls">
                             <select class="form-select" style="width: 200px;">
-                                <option selected>Standard</option>
-                                <option>Compact</option>
-                                <option>Detailed</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="settings-item">
-                        <div class="settings-info">
-                            <div class="settings-label">Charts Display</div>
-                            <div class="settings-description">How charts and graphs are displayed</div>
-                        </div>
-                        <div class="settings-controls">
-                            <select class="form-select" style="width: 200px;">
-                                <option selected>Interactive</option>
-                                <option>Static</option>
-                                <option>Minimal</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="settings-item">
-                        <div class="settings-info">
-                            <div class="settings-label">Number Formatting</div>
-                            <div class="settings-description">How numbers and currencies are displayed</div>
-                        </div>
-                        <div class="settings-controls">
-                            <select class="form-select" style="width: 200px;">
-                                <option selected>Standard (1,000.00)</option>
-                                <option>Compact (1K)</option>
-                                <option>Detailed (1,000.00)</option>
+                                <option {{ $user->dashboard_layout == 'standard' ? 'selected' : '' }}>Standard</option>
+                                <option {{ $user->dashboard_layout == 'compact' ? 'selected' : '' }}>Compact</option>
+                                <option {{ $user->dashboard_layout == 'detailed' ? 'selected' : '' }}>Detailed</option>
                             </select>
                         </div>
                     </div>
@@ -863,19 +862,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Settings functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Add confirmation for dangerous actions
-            const dangerButtons = document.querySelectorAll('.danger-zone .btn');
-            dangerButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    const action = this.textContent.trim();
-                    if (!confirm(`Are you sure you want to ${action}? This action cannot be undone.`)) {
-                        e.preventDefault();
-                    }
-                });
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
             });
-            
+
+            // Success messages
+            @if(session('success'))
+                alert('{{ session('success') }}');
+            @endif
+
             // Toggle switch feedback
             const toggleSwitches = document.querySelectorAll('.form-check-input');
             toggleSwitches.forEach(switchElement => {
@@ -888,26 +890,30 @@
                     }
                 });
             });
-            
-            // Save settings functionality
-            const saveButtons = document.querySelectorAll('.btn-primary');
-            saveButtons.forEach(button => {
-                if (button.textContent.includes('Save')) {
-                    button.addEventListener('click', function() {
-                        // Simulate saving
-                        const originalText = this.innerHTML;
-                        this.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Saving...';
-                        this.disabled = true;
-                        
-                        setTimeout(() => {
-                            this.innerHTML = '<i class="fas fa-check me-1"></i> Saved!';
-                            setTimeout(() => {
-                                this.innerHTML = originalText;
-                                this.disabled = false;
-                            }, 2000);
-                        }, 1000);
-                    });
-                }
+
+            // Smooth scroll for quick actions
+            document.querySelectorAll('.action-btn[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add confirmation for dangerous actions
+            const dangerButtons = document.querySelectorAll('.danger-zone .btn');
+            dangerButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const action = this.textContent.trim();
+                    if (!confirm(`Are you sure you want to ${action}? This action cannot be undone.`)) {
+                        e.preventDefault();
+                    }
+                });
             });
         });
     </script>

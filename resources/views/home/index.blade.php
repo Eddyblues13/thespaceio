@@ -856,7 +856,7 @@
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
-
+                
             }
 
             #ai-model-container {
@@ -977,7 +977,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="index">
                     <i class="fas fa-brain me-2"></i>TheSpace
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -987,7 +987,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
+                            <a class="nav-link" href="index">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
@@ -1009,27 +1009,26 @@
                                 <li><a class="dropdown-item" href="cohere">Cohere</a></li>
                                 <li><a class="dropdown-item" href="huggingface">Hugging Face</a></li>
                                 <li><a class="dropdown-item" href="scale">Scale AI</a></li>
-                                <li><a class="dropdown-item" href="runway">Runway AI</a></li>
+                                <li><a class="dropdown-item" href="runway.html">Runway AI</a></li>
                                 <li><a class="dropdown-item" href="character">Character.AI</a></li>
                                 <li><a class="dropdown-item" href="inflection">Inflection AI</a></li>
                                 <li><a class="dropdown-item" href="mistral">Mistral AI</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about">About Us</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="faq">FAQ</a>
+                            <a class="nav-link" href="investment">Investment Tiers</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="insurance">Insurance</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="etf&funds">ETF&Funds</a>
+                            <a class="nav-link" href="etf&funds">Etf&Funds</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="investment">Investment Tiers</a>
+                            <a class="nav-link" href="faq">Faq</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about">About</a>
                         </li>
                     </ul>
                 </div>
@@ -1344,7 +1343,7 @@
                                 <small>Latest Valuation</small>
                             </div>
 
-                            <a href="runway" class="btn btn-outline-light mt-3">View Analysis</a>
+                            <a href="runway.html" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
 
@@ -1632,9 +1631,9 @@
                     <div class="col-lg-2 mb-4">
                         <h4 class="footer-heading">Quick Links</h4>
                         <ul class="list-unstyled">
-                            <li><a href="/" class="text-light">Home</a></li>
+                            <li><a href="index" class="text-light">Home</a></li>
                             <li><a href="about" class="text-light">About Us</a></li>
-
+                            <li><a href="contact" class="text-light">Contact</a></li>
                             <li><a href="faq" class="text-light">FAQ</a></li>
                         </ul>
                     </div>
@@ -1652,7 +1651,7 @@
                         <ul class="list-unstyled">
                             <li><i class="fas fa-map-marker-alt me-2"></i> 123 AI Street, TechCity, Qatar.</li>
                             <li><i class="fas fa-phone me-2"></i> +971-3335-5678</li>
-                            <li><i class="fas fa-envelope me-2"></i> info@thspace.io</li>
+                            <li><i class="fas fa-envelope me-2"></i> info@thespace.com</li>
                         </ul>
                     </div>
                 </div>

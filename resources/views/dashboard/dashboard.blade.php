@@ -624,7 +624,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
         <div class="container-fluid">
             <!-- Brand/Logo -->
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{route('dashboard')}}">
                 <i class="fas fa-robot me-2"></i>
                 <span class="brand-text">TheSpace</span>
             </a>
@@ -639,35 +639,35 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <!-- Dashboard -->
                     <li class="nav-item">
-                        <a class="nav-link active" href="dashboard.html">
+                        <a class="nav-link active" href="{{route('dashboard')}}">
                             <i class="fas fa-tachometer-alt me-1"></i>Dashboard
                         </a>
                     </li>
 
                     <!-- Portfolio -->
                     <li class="nav-item">
-                        <a class="nav-link" href="portfolio.html">
+                        <a class="nav-link" href="{{route('dashboard.portfolio')}}">
                             <i class="fas fa-chart-line me-1"></i>Portfolio
                         </a>
                     </li>
 
                     <!-- Investments -->
                     <li class="nav-item">
-                        <a class="nav-link" href="investment.html">
+                        <a class="nav-link" href="{{route('dashboard.investments')}}">
                             <i class="fas fa-wallet me-1"></i>Investments
                         </a>
                     </li>
 
                     <!-- Transactions -->
                     <li class="nav-item">
-                        <a class="nav-link" href="transactions.html">
+                        <a class="nav-link" href="{{route('dashboard.transactions')}}">
                             <i class="fas fa-exchange-alt me-1"></i>Transactions
                         </a>
                     </li>
 
                     <!-- Insurance -->
                     <li class="nav-item">
-                        <a class="nav-link" href="insurance.html">
+                        <a class="nav-link" href="{{route('dashboard.insurance')}}">
                             <i class="fas fa-shield-alt me-1"></i>Insurance
                         </a>
                     </li>
@@ -677,7 +677,7 @@
                 <ul class="navbar-nav ms-auto">
                     <!-- Settings -->
                     <li class="nav-item">
-                        <a class="nav-link" href="settings.html">
+                        <a class="nav-link" href="{{route('dashboard.settings')}}">
                             <i class="fas fa-cog me-1"></i>Settings
                         </a>
                     </li>
@@ -686,13 +686,22 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                             <div class="user-info-nav">
-                                <div class="user-avatar-nav">JD</div>
+                                <div class="user-avatar-nav">
+                                    {{ strtoupper(substr(Auth::user()->first_name ?? Auth::user()->name, 0, 1)) }}
+                                    {{ strtoupper(substr(Auth::user()->last_name ?? '', 0, 1)) }}
+                                </div>
                                 <div class="user-details-nav">
-                                    <div class="user-name">John Doe</div>
-                                    <small class="user-tier">Tier 2 Investor</small>
+                                    <div class="user-name">
+                                        {{ Auth::user()->first_name ?? Auth::user()->name }}{{ Auth::user()->last_name
+                                        ?? '' }}
+                                    </div>
+                                    <small class="user-tier">
+                                        {{ Auth::user()->tier ?? Auth::user()->role ?? 'Investor' }}
+                                    </small>
                                 </div>
                             </div>
                         </a>
+
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i>Profile</a>
                             </li>
@@ -707,7 +716,7 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <a class="dropdown-item text-danger" href="index.html">
+                                <a class="dropdown-item text-danger" href="{{route('dashboard')}}">
                                     <i class="fas fa-arrow-left me-2"></i>Back to Main Site
                                 </a>
                             </li>
@@ -721,7 +730,7 @@
     <!-- Welcome Notification -->
     <div class="welcome-notification" id="welcomeNotification">
         <div class="notification-header">
-            <h3 class="notification-title">Welcome Back, John!</h3>
+            <h3 class="notification-title">Welcome Back, {{ Auth::user()->first_name ?? Auth::user()->name }}!</h3>
             <button class="notification-close" id="notificationClose">
                 <i class="fas fa-times"></i>
             </button>
@@ -819,18 +828,18 @@
                     <div class="action-buttons-section">
                         <h3 class="action-buttons-title">Take Action</h3>
                         <div class="action-buttons-container">
-                            <a href="accountmanager.html" class="action-button manager-button top-button"
-                                id="requestManagerBtn">
+                            <a href="{{route('dashboard.accountmanager')}}"
+                                class="action-button manager-button top-button" id="requestManagerBtn">
                                 <i class="fas fa-user-tie"></i>
                                 Request Account Manager
                             </a>
                             <div class="bottom-buttons">
-                                <a href="directdeposit.html" class="action-button direct-deposit-button">
+                                <a href="{{route('dashboard.deposit')}}" class="action-button direct-deposit-button">
                                     <i class="fas fa-money-bill-wave"></i>
                                     Direct Deposit
                                 </a>
-                                <a href="installmentalpayment.html" class="action-button installment-button"
-                                    id="installmentBtn">
+                                <a href="{{route('dashboard.installmentpayment')}}"
+                                    class="action-button installment-button" id="installmentBtn">
                                     <i class="fas fa-calendar-alt"></i>
                                     Installment Payment
                                 </a>
@@ -853,7 +862,7 @@
             
             navLinks.forEach(link => {
                 const linkHref = link.getAttribute('href');
-                if (linkHref === currentPage || (currentPage === '' && linkHref === 'dashboard.html')) {
+                if (linkHref === currentPage || (currentPage === '' && linkHref === 'href="{{route('dashboard')}}"')) {
                     link.classList.add('active');
                 } else {
                     link.classList.remove('active');

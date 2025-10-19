@@ -451,7 +451,7 @@
                             </a>
                         </li>
                         <li class="nav-item mt-4">
-                            <a class="nav-link" href="dashboard">
+                            <a class="nav-link" href="{{route('dashboard')}}">
                                 <i class="fas fa-arrow-left"></i> User Dashboard
                             </a>
                         </li>
@@ -625,9 +625,14 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <div class="user-avatar me-2"
-                                                style="width: 35px; height: 35px; font-size: 0.8rem;">JD</div>
+                                                style="width: 35px; height: 35px; font-size: 0.8rem;"> {{
+                                                strtoupper(substr(Auth::user()->first_name ?? Auth::user()->name, 0, 1))
+                                                }}
+                                                {{ strtoupper(substr(Auth::user()->last_name ?? '', 0, 1)) }}</div>
                                             <div>
-                                                <div class="fw-bold">John Doe</div>
+                                                <div class="fw-bold"> {{ Auth::user()->first_name ?? Auth::user()->name
+                                                    }}{{ Auth::user()->last_name
+                                                    ?? '' }}</div>
                                                 <small class="text-muted">JD-1245</small>
                                             </div>
                                         </div>

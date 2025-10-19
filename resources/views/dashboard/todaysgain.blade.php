@@ -347,37 +347,37 @@
                     </a>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard">
+                            <a class="nav-link" href="{{route('dashboard')}}">
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="todaysgain">
+                            <a class="nav-link active" href="{{route('dashboard.todaysgain')}}">
                                 <i class="fas fa-chart-line"></i> Today's Gain
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="portfolio">
+                            <a class="nav-link" href="{{route('dashboard.portfolio')}}">
                                 <i class="fas fa-wallet"></i> Portfolio
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="investment">
+                            <a class="nav-link" href="{{route('dashboard.investments')}}">
                                 <i class="fas fa-money-bill-wave"></i> Investments
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="transactions">
+                            <a class="nav-link" href="{{route('dashboard.transactions')}}">
                                 <i class="fas fa-exchange-alt"></i> Transactions
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="insurance">
+                            <a class="nav-link" href="{{route('dashboard.insurance')}}">
                                 <i class="fas fa-file-invoice-dollar"></i> Insurance
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="settings">
+                            <a class="nav-link" href="c">
                                 <i class="fas fa-cog"></i> Settings
                             </a>
                         </li>
@@ -396,9 +396,13 @@
                 <div class="top-bar d-flex justify-content-between align-items-center">
                     <h4 class="mb-0">Today's Gain Analysis</h4>
                     <div class="user-info">
-                        <div class="user-avatar">JD</div>
+                        <div class="user-avatar"> {{ strtoupper(substr(Auth::user()->first_name ?? Auth::user()->name,
+                            0, 1)) }}
+                            {{ strtoupper(substr(Auth::user()->last_name ?? '', 0, 1)) }}</div>
                         <div>
-                            <div class="fw-bold">John Doe</div>
+                            <div class="fw-bold"> {{ Auth::user()->first_name ?? Auth::user()->name }}{{
+                                Auth::user()->last_name
+                                ?? '' }}</div>
                             <small class="text-muted">Growth Tier Investor</small>
                         </div>
                     </div>

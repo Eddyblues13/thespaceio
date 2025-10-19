@@ -30,42 +30,110 @@
             color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            padding-top: 70px;
+            /* Added for fixed navbar */
         }
 
-        /* Sidebar */
-        .sidebar {
-            background-color: var(--primary-blue);
-            min-height: 100vh;
-            padding: 0;
-            border-right: 1px solid var(--border-color);
-            transition: all 0.3s;
-        }
-
-        .sidebar .navbar-brand {
-            color: white;
-            font-weight: bold;
-            padding: 20px 15px;
+        /* Enhanced Navigation */
+        .navbar {
+            background-color: var(--primary-blue) !important;
             border-bottom: 1px solid var(--border-color);
-            text-align: center;
+            padding: 0.5rem 0;
+            height: 70px;
+            transition: all 0.3s ease;
         }
 
-        .sidebar .nav-link {
-            color: #a8c6e5;
-            padding: 12px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s;
+        .navbar.scrolled {
+            background-color: var(--dark-blue) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        .sidebar .nav-link:hover,
-        .sidebar .nav-link.active {
+        .navbar-brand {
+            color: white !important;
+            font-weight: bold;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand i {
+            margin-right: 8px;
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #a8c6e5 !important;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.2rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
             background-color: var(--light-blue);
-            color: white;
+            color: white !important;
+            transform: translateY(-1px);
         }
 
-        .sidebar .nav-link i {
-            width: 25px;
-            text-align: center;
-            margin-right: 10px;
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        .navbar-toggler {
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28168, 198, 229, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Mobile menu adjustments */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background-color: var(--primary-blue);
+                margin-top: 10px;
+                border-radius: 10px;
+                border: 1px solid var(--border-color);
+                padding: 15px;
+            }
+
+            .nav-link {
+                margin: 0.2rem 0;
+                padding: 0.8rem 1rem !important;
+            }
+
+            .nav-link.active::after {
+                display: none;
+            }
+        }
+
+        /* Compact navbar for very small screens */
+        @media (max-width: 576px) {
+            .navbar-brand span {
+                display: none;
+            }
+
+            .navbar-brand i {
+                margin-right: 0;
+                font-size: 2rem;
+            }
         }
 
         /* Main Content */
@@ -314,11 +382,6 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .sidebar {
-                min-height: auto;
-                width: 100%;
-            }
-
             .card-value {
                 font-size: 1.5rem;
             }
@@ -361,63 +424,74 @@
 </head>
 
 <body>
+    <!-- Enhanced Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{url('/')}}">
+                <i class="fas fa-robot"></i>
+                <span>TheSpace</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('dashboard')}}">
+                            <i class="fas fa-tachometer-alt me-1"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{route('dashboard.portfolio')}}">
+                            <i class="fas fa-chart-line me-1"></i> Portfolio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('dashboard.investments')}}">
+                            <i class="fas fa-wallet me-1"></i> Investments
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('dashboard.transactions')}}">
+                            <i class="fas fa-exchange-alt me-1"></i> Transactions
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('dashboard.insurance')}}">
+                            <i class="fas fa-file-invoice-dollar me-1"></i> Insurance
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('dashboard.settings')}}">
+                            <i class="fas fa-cog me-1"></i> Settings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/')}}">
+                            <i class="fas fa-arrow-left me-1"></i> Main Site
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-3 col-lg-2 sidebar">
-                <div class="d-flex flex-column">
-                    <a class="navbar-brand" href="/">
-                        <i class="fas fa-robot me-2"></i>TheSpace
-                    </a>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="dashboard">
-                                <i class="fas fa-tachometer-alt"></i> Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="portfolio">
-                                <i class="fas fa-chart-line"></i> Portfolio
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="investment">
-                                <i class="fas fa-wallet"></i> Investments
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="transactions">
-                                <i class="fas fa-exchange-alt"></i> Transactions
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="insurance">
-                                <i class="fas fa-file-invoice-dollar"></i> Insurance
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="settings">
-                                <i class="fas fa-cog"></i> Settings
-                            </a>
-                        </li>
-                        <li class="nav-item mt-4">
-                            <a class="nav-link" href="/">
-                                <i class="fas fa-arrow-left"></i> Back to Main Site
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Main Content -->
-            <div class="col-md-9 col-lg-10 main-content">
+            <div class="col-12 main-content">
                 <!-- Top Bar -->
                 <div class="top-bar d-flex justify-content-between align-items-center">
                     <h4 class="mb-0">Portfolio Dashboard</h4>
                     <div class="user-info">
-                        <div class="user-avatar">JD</div>
+                        <div class="user-avatar"> {{ strtoupper(substr(Auth::user()->first_name ?? Auth::user()->name,
+                            0, 1)) }}
+                            {{ strtoupper(substr(Auth::user()->last_name ?? '', 0, 1)) }}</div>
                         <div>
-                            <div class="fw-bold">John Doe</div>
+                            <div class="fw-bold"> {{ Auth::user()->first_name ?? Auth::user()->name }}{{
+                                Auth::user()->last_name
+                                ?? '' }}</div>
                             <small class="text-muted">Tier 2 Investor</small>
                         </div>
                     </div>
@@ -427,23 +501,23 @@
                 <div class="dashboard-card">
                     <div class="card-title">Quick Actions</div>
                     <div class="quick-actions">
-                        <a href="directdeposit" class="action-btn">
+                        <a href="directdeposit.html" class="action-btn">
                             <i class="fas fa-plus-circle"></i>
                             Add Funds
                         </a>
-                        <a href="reports" class="action-btn">
+                        <a href="reports.html" class="action-btn">
                             <i class="fas fa-download"></i>
                             Export Report
                         </a>
-                        <a href="transactions" class="action-btn">
+                        <a href="{{route('dashboard.transactions')}}" class="action-btn">
                             <i class="fas fa-history"></i>
                             Transaction History
                         </a>
-                        <a href="alert" class="action-btn">
+                        <a href="alert.html" class="action-btn">
                             <i class="fas fa-bell"></i>
                             Alerts
                         </a>
-                        <a href="accountmanager3" class="action-btn">
+                        <a href="accountmanager.html" class="action-btn">
                             <i class="fas fa-question-circle"></i>
                             Support
                         </a>
@@ -690,6 +764,38 @@
                     },
                     cutout: '70%'
                 }
+            });
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Active nav link highlighting
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
             });
             
             // Initialize portfolio values

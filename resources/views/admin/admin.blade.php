@@ -423,8 +423,45 @@
                             </a>
                         </li>
                         <li class="nav-item mt-4">
-                            <a class="nav-link" href="dashboard">
+                            <a class="nav-link" href="{{route('dashboard')}}">
                                 <i class="fas fa-arrow-left"></i> User Dashboard
+                            </a>
+                        </li>
+
+                    </ul>
+                    <ul class="nav nav-primary">
+                        <li class="nav-item active">
+                            <a href="{{ route('admin.home') }}">
+                                <i class="fas fa-home"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('admin.users.index') }}">
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                <p>Manage Users</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('admin.properties.index') }}">
+                                <i class="fas fa-home"></i>
+                                <p>Manage Properties</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('admin.testimonials.index') }}">
+                                <i class="fas fa-comment"></i>
+                                <p>Manage Testimonials</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('admin.homepage.edit') }}">
+                                <i class="fas fa-cog"></i>
+                                <p>Homepage Settings</p>
                             </a>
                         </li>
                     </ul>
@@ -536,7 +573,9 @@
                                     <label class="form-label">Select User</label>
                                     <select class="form-select" id="depositUser">
                                         <option value="">Select a user...</option>
-                                        <option value="user1">John Doe (JD-1245)</option>
+                                        <option value="user1"> {{ Auth::user()->first_name ?? Auth::user()->name }}{{
+                                            Auth::user()->last_name
+                                            ?? '' }} (JD-1245)</option>
                                         <option value="user2">Sarah Johnson (SJ-3678)</option>
                                         <option value="user3">Michael Brown (MB-5891)</option>
                                         <option value="user4">Emily Davis (ED-7123)</option>
@@ -577,7 +616,9 @@
                                     <label class="form-label">Select User</label>
                                     <select class="form-select" id="profitUser">
                                         <option value="">Select a user...</option>
-                                        <option value="user1">John Doe (JD-1245)</option>
+                                        <option value="user1"> {{ Auth::user()->first_name ?? Auth::user()->name }}{{
+                                            Auth::user()->last_name
+                                            ?? '' }} (JD-1245)</option>
                                         <option value="user2">Sarah Johnson (SJ-3678)</option>
                                         <option value="user3">Michael Brown (MB-5891)</option>
                                         <option value="user4">Emily Davis (ED-7123)</option>
@@ -617,7 +658,9 @@
                                 <label class="form-label">Pending Withdrawals</label>
                                 <select class="form-select" id="pendingWithdrawals">
                                     <option value="">Select a withdrawal to process...</option>
-                                    <option value="withdrawal1">John Doe - $2,500 (Bank Transfer)</option>
+                                    <option value="withdrawal1"> {{ Auth::user()->first_name ?? Auth::user()->name }}{{
+                                        Auth::user()->last_name
+                                        ?? '' }} - $2,500 (Bank Transfer)</option>
                                     <option value="withdrawal2">Sarah Johnson - $1,200 (Crypto)</option>
                                     <option value="withdrawal3">Michael Brown - $5,000 (Wire)</option>
                                     <option value="withdrawal4">Emily Davis - $750 (Cash App)</option>
@@ -685,9 +728,15 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="user-avatar me-2"
-                                                        style="width: 35px; height: 35px; font-size: 0.8rem;">JD</div>
+                                                        style="width: 35px; height: 35px; font-size: 0.8rem;"> {{
+                                                        strtoupper(substr(Auth::user()->first_name ??
+                                                        Auth::user()->name, 0, 1)) }}
+                                                        {{ strtoupper(substr(Auth::user()->last_name ?? '', 0, 1)) }}
+                                                    </div>
                                                     <div>
-                                                        <div class="fw-bold">John Doe</div>
+                                                        <div class="fw-bold"> {{ Auth::user()->first_name ??
+                                                            Auth::user()->name }}{{ Auth::user()->last_name
+                                                            ?? '' }}</div>
                                                         <small class="text-muted">JD-1245</small>
                                                     </div>
                                                 </div>
@@ -846,7 +895,9 @@
                                     </div>
                                     <div class="activity-details">
                                         <div class="fw-bold">Deposit Added</div>
-                                        <small>John Doe - $2,500 • Manual Adjustment</small>
+                                        <small> {{ Auth::user()->first_name ?? Auth::user()->name }}{{
+                                            Auth::user()->last_name
+                                            ?? '' }} - $2,500 • Manual Adjustment</small>
                                     </div>
                                     <div class="text-muted">2 hours ago</div>
                                 </div>

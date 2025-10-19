@@ -331,8 +331,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/">
-                <i class="fas fa-brain me-2"></i>THE-SPACE
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-brain me-2"></i>TheSpace
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -340,7 +340,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
@@ -442,27 +442,28 @@
                             <h4>Our Office</h4>
                             <p class="contact-detail">123 AI Boulevard</p>
                             <p class="contact-detail">Tech Valley, CA 94025</p>
-                            <p class="contact-detail">United States</p>
+                            <p class="contact-detail">Qatar</p>
                         </div>
-                    </div>
-
-                    <div class="contact-info-card">
+                        <div class="contact-info-card">
                         <div class="text-center">
                             <i class="fas fa-phone contact-icon"></i>
                             <h4>Phone & Email</h4>
                             <p class="contact-detail">
                                 <a href="tel:+11234567890" class="contact-link">
-                                    <i class="fas fa-phone me-2"></i>+1 (123) 456-7890
+                                    <i class="fas fa-phone me-2"></i>+974-3335-4751
                                 </a>
                             </p>
                             <p class="contact-detail">
                                 <a href="mailto:info@aiinvest.com" class="contact-link">
-                                    <i class="fas fa-envelope me-2"></i>info@aiinvest.com
+                                    <i class="fas fa-envelope me-2"></i>info@thespace.com
                                 </a>
                             </p>
                         </div>
                     </div>
+                    </div>
 
+                    
+                   <section>
                     <div class="contact-info-card">
                         <div class="text-center">
                             <i class="fas fa-clock contact-icon"></i>
@@ -475,7 +476,8 @@
                 </div>
             </div>
         </div>
-    </section>
+        </section>
+    
 
     <!-- Map Section -->
     <section class="map-section">
@@ -495,7 +497,7 @@
             </div>
         </div>
     </section>
-
+     <br>
     <!-- FAQ Section -->
     <section class="faq-section">
         <div class="container">
@@ -601,9 +603,9 @@
                 <div class="col-lg-2 mb-4">
                     <h5 class="footer-heading">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="/" class="text-light">Home</a></li>
+                        <li><a href="index" class="text-light">Home</a></li>
                         <li><a href="about" class="text-light">About Us</a></li>
-
+                        <li><a href="contact" class="text-light">Contact</a></li>
                         <li><a href="faq" class="text-light">FAQ</a></li>
                     </ul>
                 </div>
@@ -631,7 +633,7 @@
             <hr class="mt-4" style="border-color: rgba(58, 123, 213, 0.3);">
 
             <div class="text-center py-3">
-                <p class="mb-0">&copy; 2023 AI Investment Platform. All rights reserved.</p>
+                <p class="mb-0">&copy; 1995 AI Investment Platform. All rights reserved.</p>
             </div>
         </div>
     </footer>

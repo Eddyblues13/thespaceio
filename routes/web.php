@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\DepositController;
+use App\Http\Controllers\User\SettingsController;
+use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\User\InvestmentController;
+use App\Http\Controllers\User\WithdrawalController;
+use App\Http\Controllers\User\TransactionController;
 
 Route::get('/', function () {
     return view('home.index');
@@ -154,5 +160,43 @@ Route::post('/skip-code', [App\Http\Controllers\Auth\EmailVerificationController
 
 
 Route::prefix('user')->middleware('user')->group(function () {
-    Route::get('/dashboard', [App\Http\Controllers\User\UserController::class, 'dashboard'])->name('dashboard');
+
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/home', [DashboardController::class, 'index'])->name('home');
+    Route::get('/todaysgain', [DashboardController::class, 'todaysGain'])->name('dashboard.todaysgain');
+    Route::get('/portfolio', [DashboardController::class, 'portfolio'])->name('dashboard.portfolio');
+
+    Route::get('/insurance', [DashboardController::class, 'insurance'])->name('dashboard.insurance');
+
+    Route::get('/account-manager', [DashboardController::class, 'accountManager'])->name('dashboard.accountmanager');
+
+
+    Route::get('/installment-payment', [DashboardController::class, 'installmentPayment'])->name('dashboard.installmentpayment');
+
+
+
+    // Deposit
+    Route::get('/deposit', [DepositController::class, 'index'])->name('dashboard.deposit');
+    Route::post('/deposit', [DepositController::class, 'store'])->name('deposit.store');
+    Route::post('/deposit/generate-address', [DepositController::class, 'generateCryptoAddress'])->name('deposit.generate.address');
+    Route::get('/deposit/payment-details/{method}', [DepositController::class, 'getPaymentDetails'])->name('deposit.payment.details');
+
+    // Investments
+    Route::get('/investments', [InvestmentController::class, 'index'])->name('dashboard.investments');
+
+    // Settings
+    Route::get('/settings', [SettingsController::class, 'index'])->name('dashboard.settings');
+    Route::post('/settings/profile', [SettingsController::class, 'updateProfile'])->name('settings.profile.update');
+    Route::post('/settings/security', [SettingsController::class, 'updateSecurity'])->name('settings.security.update');
+    Route::post('/settings/notifications', [SettingsController::class, 'updateNotifications'])->name('settings.notifications.update');
+
+    // Transactions
+    Route::get('/transactions', [TransactionController::class, 'index'])->name('dashboard.transactions');
+    Route::post('/transactions/deposit', [TransactionController::class, 'storeDeposit'])->name('transactions.deposit.store');
+    Route::post('/transactions/withdrawal', [TransactionController::class, 'storeWithdrawal'])->name('transactions.withdrawal.store');
+
+    // Withdrawal
+    Route::get('/withdrawal', [WithdrawalController::class, 'index'])->name('dashboard.withdrawal');
+    Route::post('/withdrawal', [WithdrawalController::class, 'store'])->name('withdrawal.store');
 });
