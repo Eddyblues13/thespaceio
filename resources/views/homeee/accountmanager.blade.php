@@ -748,7 +748,7 @@
     <!-- Responsive Navbar -->
     <nav class="navbar navbar-expand-lg navbar-TheSpace fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="{{url('/')}}">
                 <i class="fas fa-robot me-2"></i>TheSpace
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTheSpace"
@@ -758,59 +758,55 @@
             <div class="collapse navbar-collapse" id="navbarTheSpace">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('dashboard')}}">
+                        <a class="nav-link" href="dashboard.html">
                             <i class="fas fa-tachometer-alt"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('dashboard.portfolio')}}">
+                        <a class="nav-link" href="portfolio.html">
                             <i class="fas fa-chart-line"></i> Portfolio
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="investments">
+                        <a class="nav-link" href="investments.html">
                             <i class="fas fa-wallet"></i> Investments
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="directdeposit">
+                        <a class="nav-link" href="directdeposit.html">
                             <i class="fas fa-money-bill-transfer"></i> Direct Deposit
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="account-manager">
+                        <a class="nav-link active" href="account-manager.html">
                             <i class="fas fa-user-tie"></i> Account Manager
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('dashboard.transactions')}}">
+                        <a class="nav-link" href="transactions.html">
                             <i class="fas fa-exchange-alt"></i> Transactions
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="reports">
+                        <a class="nav-link" href="reports.html">
                             <i class="fas fa-file-invoice-dollar"></i> Reports
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('dashboard.settings')}}">
+                        <a class="nav-link" href="settings.html">
                             <i class="fas fa-cog"></i> Settings
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/">
+                        <a class="nav-link" href="{{url('/')}}">
                             <i class="fas fa-arrow-left"></i> Back to Main Site
                         </a>
                     </li>
                 </ul>
                 <div class="d-flex user-info">
-                    <div class="user-avatar"> {{ strtoupper(substr(Auth::user()->first_name ?? Auth::user()->name, 0,
-                        1)) }}
-                        {{ strtoupper(substr(Auth::user()->last_name ?? '', 0, 1)) }}</div>
+                    <div class="user-avatar">JD</div>
                     <div>
-                        <div class="fw-bold"> {{ Auth::user()->first_name ?? Auth::user()->name }}{{
-                            Auth::user()->last_name
-                            ?? '' }}</div>
+                        <div class="fw-bold">John Doe</div>
                         <small class="text-muted">Tier 2 Investor</small>
                     </div>
                 </div>
@@ -827,13 +823,9 @@
                 <div class="top-bar d-flex justify-content-between align-items-center">
                     <h4 class="mb-0">Request Account Manager</h4>
                     <div class="user-info d-none d-md-flex">
-                        <div class="user-avatar"> {{ strtoupper(substr(Auth::user()->first_name ?? Auth::user()->name,
-                            0, 1)) }}
-                            {{ strtoupper(substr(Auth::user()->last_name ?? '', 0, 1)) }}</div>
+                        <div class="user-avatar">JD</div>
                         <div>
-                            <div class="fw-bold"> {{ Auth::user()->first_name ?? Auth::user()->name }}{{
-                                Auth::user()->last_name
-                                ?? '' }}</div>
+                            <div class="fw-bold">John Doe</div>
                             <small class="text-muted">Tier 2 Investor</small>
                         </div>
                     </div>

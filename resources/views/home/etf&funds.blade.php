@@ -819,7 +819,7 @@
             <h2 class="cta-title">Ready to Invest in AI Intelligence?</h2>
             <p class="cta-subtitle">Join the revolution and position your portfolio for the AI-driven future with
                 TheSpace's diversified funds.</p>
-            <a href="contact.html" class="btn btn-cta btn-lg">Start Investing Today</a>
+            <a href="contact" class="btn btn-cta btn-lg">Start Investing Today</a>
         </div>
     </section>
 

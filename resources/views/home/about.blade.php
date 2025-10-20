@@ -674,7 +674,7 @@
             <div class="TheSpace-cta">
                 <h3>✨ TheSpace is not just an investment. It is ownership of the future.</h3>
                 <p class="mb-4">Join us. Invest in intelligence. Invest in TheSpace.</p>
-                <a href="contact.html" class="btn btn-primary btn-lg">Get Started Today</a>
+                <a href="contact" class="btn btn-primary btn-lg">Get Started Today</a>
             </div>
         </div>
     </section>

@@ -356,38 +356,58 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="{{url('/')}}">
                 <i class="fas fa-brain me-2"></i>TheSpace
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="{{url('/')}}">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="companiesDropdown" role="button"
-                            data-bs-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             Companies
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" aria-labelledby="companiesDropdown">
+                            <li><a class="dropdown-item" href="nvidia">Nvidia</a></li>
+                            <li><a class="dropdown-item" href="openai">OpenAI</a></li>
                             <li><a class="dropdown-item" href="tesla">Tesla</a></li>
                             <li><a class="dropdown-item" href="oracle">Oracle</a></li>
                             <li><a class="dropdown-item" href="google">Google</a></li>
-                            <li><a class="dropdown-item active" href="facebook">Meta (Facebook)</a></li>
+                            <li><a class="dropdown-item" href="facebook">Facebook</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="anthropic">Anthropic</a></li>
+                            <li><a class="dropdown-item" href="stability">Stability AI</a></li>
+                            <li><a class="dropdown-item" href="cohere">Cohere</a></li>
+                            <li><a class="dropdown-item" href="huggingface">Hugging Face</a></li>
+                            <li><a class="dropdown-item" href="scale">Scale AI</a></li>
+                            <li><a class="dropdown-item" href="runway.html">Runway AI</a></li>
+                            <li><a class="dropdown-item" href="character">Character.AI</a></li>
+                            <li><a class="dropdown-item" href="inflection">Inflection AI</a></li>
+                            <li><a class="dropdown-item" href="mistral">Mistral AI</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about">About Us</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="faq">FAQ</a>
+                        <a class="nav-link" href="investment">Investment Tiers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="etf&funds">ETF&Funds</a>
+                        <a class="nav-link" href="insurance">Insurance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="etf&funds">Etf&Funds</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq">Faq</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">About</a>
                     </li>
                 </ul>
             </div>
@@ -801,9 +821,9 @@
                 <div class="col-lg-2 mb-4">
                     <h5 class="footer-heading">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="/" class="text-light">Home</a></li>
+                        <li><a href="{{url('/')}}" class="text-light">Home</a></li>
                         <li><a href="about" class="text-light">About Us</a></li>
-
+                        <li><a href="contact" class="text-light">Contact</a></li>
                         <li><a href="faq" class="text-light">FAQ</a></li>
                     </ul>
                 </div>

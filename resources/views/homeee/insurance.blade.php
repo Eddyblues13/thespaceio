@@ -294,7 +294,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="{{url('/')}}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#insurance">Insurance Plans</a>
@@ -681,7 +681,7 @@
                                 </div>
                             </div>
                             <div class="mt-3">
-                                <button class="btn btn-success me-2"><a href="accountmanager">Apply
+                                <button class="btn btn-success me-2"><a href="accountmanager.html">Apply
                                         Now</a></button>
                                 <button class="btn btn-outline-primary" id="resetCalculator">Calculate Again</button>
                             </div>
@@ -760,73 +760,12 @@
                     <p class="mb-4">Join thousands of satisfied customers who trust TheSpace Assurance for their
                         protection needs.</p>
                     <a href="#calculator" class="btn btn-light btn-lg me-3">Get a Quote</a>
-                    <a href="#contact" class="btn btn-outline-light btn-lg">Contact Us</a>
+                    <a href="accountmanager" class="btn btn-outline-light btn-lg">Contact Us</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5" data-aos="fade-up">
-                    <h2 class="section-title">Contact Us</h2>
-                    <p class="section-subtitle">Get in touch with our insurance experts</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-8 mx-auto" data-aos="fade-up">
-                    <div class="row">
-                        <div class="col-md-4 mb-4 text-center">
-                            <div class="promise-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <h4>Call Us</h4>
-                            <p>+1 (800) TheSpace-00</p>
-                        </div>
-
-                        <div class="col-md-4 mb-4 text-center">
-                            <div class="promise-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <h4>Email Us</h4>
-                            <p>info@TheSpaceassurance.com</p>
-                        </div>
-
-                        <div class="col-md-4 mb-4 text-center">
-                            <div class="promise-icon">
-                                <i class="fas fa-comments"></i>
-                            </div>
-                            <h4>Live Chat</h4>
-                            <p>Available 24/7 on our website</p>
-                        </div>
-                    </div>
-
-                    <form class="mt-4">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control" placeholder="Your Name" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <input type="email" class="form-control" placeholder="Your Email" required>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Subject" required>
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer>
@@ -861,14 +800,7 @@
                         <li><a href="#" class="text-light">FamilyShield</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 mb-4">
-                    <h4 class="footer-heading">Contact Info</h4>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Assurance Ave, Tech City</li>
-                        <li><i class="fas fa-phone me-2"></i> +1 (800) TheSpace-00</li>
-                        <li><i class="fas fa-envelope me-2"></i> info@TheSpaceassurance.com</li>
-                    </ul>
-                </div>
+
             </div>
             <div class="text-center pt-3 border-top border-secondary">
                 <p>&copy; 1995 TheSpace Assurance. All rights reserved.</p>

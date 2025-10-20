@@ -455,7 +455,7 @@
                                 </p>
                                 <p class="contact-detail">
                                     <a href="mailto:info@aiinvest.com" class="contact-link">
-                                        <i class="fas fa-envelope me-2"></i>info@thespace.com
+                                        <i class="fas fa-envelope me-2"></i>info@thspace.io
                                     </a>
                                 </p>
                             </div>

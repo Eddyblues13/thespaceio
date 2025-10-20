@@ -354,7 +354,7 @@
                 <!-- Demo credentials for testing -->
                 <div class="demo-credentials">
                     <h6><i class="fas fa-info-circle me-2"></i>Demo Credentials</h6>
-                    <p><strong>Email:</strong> demo@thespace.com</p>
+                    <p><strong>Email:</strong> demo@thspace.io</p>
                     <p><strong>Password:</strong> demo1234</p>
                 </div>
 
@@ -479,7 +479,7 @@
                 const rememberMe = document.getElementById('rememberMe').checked;
                 
                 // Demo authentication logic
-                if (email === 'demo@thespace.com' && password === 'demo1234') {
+                if (email === 'demo@thspace.io' && password === 'demo1234') {
                     // Successful login
                     alert('Login successful! Welcome back to TheSpace.');
                     
@@ -512,7 +512,7 @@
             // Auto-fill demo credentials for testing
             document.getElementById('signin-email').addEventListener('focus', function() {
                 if (this.value === '') {
-                    this.value = 'demo@thespace.com';
+                    this.value = 'demo@thspace.io';
                     this.classList.add('is-valid');
                 }
             });

@@ -492,7 +492,7 @@
                         <h3 class="mb-4" style="color: var(--accent-color);">Ready to Invest in the AI Revolution?</h3>
                         <p class="mb-4" style="color: var(--dark-text);">Contact our investment specialists to discuss
                             which tier is right for you</p>
-                        <a href="contact.html" class="btn btn-primary btn-lg">Contact Us Today</a>
+                        <a href="contact" class="btn btn-primary btn-lg">Contact Us Today</a>
                     </div>
                 </div>
             </div>

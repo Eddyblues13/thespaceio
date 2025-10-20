@@ -340,40 +340,60 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/">
-                <i class="fas fa-robot me-2"></i>TheSpace
+            <a class="navbar-brand" href="{{url('/')}}">
+                <i class="fas fa-brain me-2"></i>TheSpace
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="{{url('/')}}">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="companiesDropdown" role="button"
-                            data-bs-toggle="dropdown">
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             Companies
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" aria-labelledby="companiesDropdown">
+                            <li><a class="dropdown-item" href="nvidia">Nvidia</a></li>
+                            <li><a class="dropdown-item" href="openai">OpenAI</a></li>
                             <li><a class="dropdown-item" href="tesla">Tesla</a></li>
                             <li><a class="dropdown-item" href="oracle">Oracle</a></li>
                             <li><a class="dropdown-item" href="google">Google</a></li>
-                            <li><a class="dropdown-item" href="facebook">Meta (Facebook)</a></li>
+                            <li><a class="dropdown-item" href="facebook">Facebook</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="anthropic">Anthropic</a></li>
+                            <li><a class="dropdown-item" href="stability">Stability AI</a></li>
+                            <li><a class="dropdown-item" href="cohere">Cohere</a></li>
+                            <li><a class="dropdown-item" href="huggingface">Hugging Face</a></li>
+                            <li><a class="dropdown-item" href="scale">Scale AI</a></li>
+                            <li><a class="dropdown-item" href="runway.html">Runway AI</a></li>
+                            <li><a class="dropdown-item" href="character">Character.AI</a></li>
+                            <li><a class="dropdown-item" href="inflection">Inflection AI</a></li>
+                            <li><a class="dropdown-item" href="mistral">Mistral AI</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about">About Us</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="faq">FAQ</a>
+                        <a class="nav-link" href="investment">Investment Tiers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="etf&funds">ETF&Funds</a>
+                        <a class="nav-link" href="insurance">Insurance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="etf&funds">Etf&Funds</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq">Faq</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">About</a>
                     </li>
                 </ul>
             </div>
@@ -897,7 +917,7 @@
             <h2 class="cta-title">Ready to Invest in the Future of AI?</h2>
             <p class="cta-subtitle">Join thousands of investors who are already benefiting from the AI revolution with
                 TheSpace. Start with as little as $10,000 and watch your portfolio grow.</p>
-            <a href="contact" class="btn btn-cta btn-lg">Start Investing Today</a>
+            <a href="insurance" class="btn btn-cta btn-lg">Start Investing Today</a>
         </div>
     </section>
 
@@ -919,7 +939,7 @@
                 <div class="col-lg-2 mb-4">
                     <h5 class="footer-heading">Quick Links</h5>
                     <div class="footer-links">
-                        <a href="/">Home</a>
+                        <a href="{{url('/')}}">Home</a>
                         <a href="about">About Us</a>
                         <a href="contact">Contact</a>
                         <a href="faq">FAQ</a>
@@ -939,9 +959,9 @@
                 <div class="col-lg-3 mb-4">
                     <h5 class="footer-heading">Contact Info</h5>
                     <div class="footer-links">
-                        <a href="mailto:invest@TheSpace.ai"><i class="fas fa-envelope me-2"></i>invest@TheSpace.ai</a>
-                        <a href="https://www.TheSpace.ai" target="_blank"><i
-                                class="fas fa-globe me-2"></i>www.TheSpace.ai</a>
+                        <a href="mailto:invest@TheSpace.ai"><i class="fas fa-envelope me-2"></i>info@Thspace.io</a>
+                        <a href="https://www.Thspace.io" target="_blank"><i
+                                class="fas fa-globe me-2"></i>www.Thspace.io</a>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,25 +18,25 @@
             --apple-blue: #0071e3;
             --apple-green: #42b529;
         }
-
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             color: #1d1d1f;
             line-height: 1.6;
             background-color: var(--apple-white);
         }
-
+        
         .navbar {
             background-color: rgba(29, 29, 31, 0.8);
             backdrop-filter: blur(20px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
+        
         .navbar-brand {
             color: var(--apple-white) !important;
             font-weight: 600;
         }
-
+        
         .hero-section {
             background: linear-gradient(135deg, var(--apple-black) 0%, #000 100%);
             color: white;
@@ -45,7 +44,7 @@
             position: relative;
             overflow: hidden;
         }
-
+        
         .hero-section::before {
             content: '';
             position: absolute;
@@ -56,13 +55,13 @@
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.03"><path fill="white" d="M500,250c138.07,0,250,111.93,250,250S638.07,750,500,750S250,638.07,250,500S361.93,250,500,250z M500,200c-165.69,0-300,134.31-300,300s134.31,300,300,300s300-134.31,300-300S665.69,200,500,200L500,200z"/></svg>');
             background-size: 200px;
         }
-
+        
         .section-title {
             position: relative;
             margin-bottom: 2rem;
             padding-bottom: 0.5rem;
         }
-
+        
         .section-title:after {
             content: '';
             position: absolute;
@@ -72,51 +71,51 @@
             height: 3px;
             background-color: var(--apple-gray);
         }
-
+        
         .card {
             border: none;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s ease;
             margin-bottom: 20px;
             border-radius: 12px;
             overflow: hidden;
         }
-
+        
         .card:hover {
             transform: translateY(-5px);
         }
-
+        
         .stats-card {
             text-align: center;
             padding: 30px 20px;
             border-radius: 12px;
             background: white;
         }
-
+        
         .stats-number {
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--apple-black);
         }
-
+        
         .feature-icon {
             font-size: 2.5rem;
             color: var(--apple-black);
             margin-bottom: 1rem;
         }
-
+        
         .chart-container {
             position: relative;
             height: 300px;
             margin-bottom: 30px;
         }
-
+        
         .timeline {
             position: relative;
             max-width: 1200px;
             margin: 0 auto;
         }
-
+        
         .timeline::after {
             content: '';
             position: absolute;
@@ -127,14 +126,14 @@
             left: 50%;
             margin-left: -3px;
         }
-
+        
         .timeline-item {
             padding: 10px 40px;
             position: relative;
             width: 50%;
             box-sizing: border-box;
         }
-
+        
         .timeline-item::after {
             content: '';
             position: absolute;
@@ -146,102 +145,102 @@
             top: 15px;
             z-index: 1;
         }
-
+        
         .left {
             left: 0;
         }
-
+        
         .right {
             left: 50%;
         }
-
+        
         .left::after {
             right: -13px;
         }
-
+        
         .right::after {
             left: -13px;
         }
-
+        
         .timeline-content {
             padding: 20px 30px;
             background-color: white;
             position: relative;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
-
+        
         .ai-product-card {
             border-top: 4px solid var(--apple-black);
         }
-
+        
         .ai-investment-card {
             border-top: 4px solid var(--apple-blue);
         }
-
+        
         footer {
             background-color: var(--apple-black);
             color: var(--apple-white);
             padding: 50px 0 20px;
         }
-
+        
         .footer-links a {
             color: var(--apple-gray);
             text-decoration: none;
             transition: color 0.3s ease;
         }
-
+        
         .footer-links a:hover {
             color: var(--apple-white);
         }
-
+        
         .apple-gradient {
             height: 8px;
-            background: linear-gradient(90deg,
-                    #ff2d55 0%,
-                    #5856d6 25%,
-                    #007aff 50%,
-                    #34c759 75%,
-                    #ffcc00 100%);
+            background: linear-gradient(90deg, 
+                #ff2d55 0%, 
+                #5856d6 25%, 
+                #007aff 50%, 
+                #34c759 75%, 
+                #ffcc00 100%);
         }
-
+        
         .product-showcase {
             background: linear-gradient(135deg, #f5f5f7 0%, #fff 100%);
             border-radius: 18px;
             padding: 40px;
             margin: 40px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-
+        
         @media screen and (max-width: 768px) {
             .timeline::after {
                 left: 31px;
             }
-
+            
             .timeline-item {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 25px;
             }
-
+            
             .timeline-item::after {
                 left: 21px;
             }
-
+            
             .right {
                 left: 0%;
             }
         }
-
+        
         .nav-link {
-            color: rgba(255, 255, 255, 0.8) !important;
+            color: rgba(255,255,255,0.8) !important;
             transition: color 0.3s ease;
         }
-
+        
         .nav-link:hover {
             color: white !important;
         }
-
+        
         .btn-apple {
             background-color: var(--apple-blue);
             color: white;
@@ -249,14 +248,13 @@
             padding: 10px 25px;
             font-weight: 500;
         }
-
+        
         .btn-apple:hover {
             background-color: #0056b3;
             color: white;
         }
     </style>
 </head>
-
 <body>
     <!-- Apple Gradient Bar -->
     <div class="apple-gradient"></div>
@@ -299,13 +297,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <h1 class="display-4 fw-bold mb-4">Apple Intelligence</h1>
-                    <p class="lead mb-4">Personal intelligence designed to empower your creativity and productivity
-                        while protecting your privacy.</p>
+                    <p class="lead mb-4">Personal intelligence designed to empower your creativity and productivity while protecting your privacy.</p>
                     <a href="#ai-products" class="btn btn-apple btn-lg">Explore Apple AI</a>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                        alt="Apple Devices" class="img-fluid rounded">
+                    <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Apple Devices" class="img-fluid rounded">
                 </div>
             </div>
         </div>
@@ -317,19 +313,12 @@
             <h2 class="section-title">About Apple</h2>
             <div class="row">
                 <div class="col-lg-6">
-                    <p class="mb-4">Apple Inc. is an American multinational technology company headquartered in
-                        Cupertino, California. Founded in 1976 by Steve Jobs, Steve Wozniak, and Ronald Wayne, Apple
-                        designs, develops, and sells consumer electronics, computer software, and online services.</p>
-                    <p class="mb-4">Under CEO Tim Cook's leadership, Apple has become the world's most valuable publicly
-                        traded company, known for its innovative hardware including the iPhone, iPad, Mac, Apple Watch,
-                        and AirPods, as well as its software and services ecosystem.</p>
-                    <p>Apple's approach to AI is distinct - focusing on privacy-preserving on-device intelligence that
-                        enhances user experiences while maintaining the company's commitment to user privacy and
-                        security.</p>
+                    <p class="mb-4">Apple Inc. is an American multinational technology company headquartered in Cupertino, California. Founded in 1976 by Steve Jobs, Steve Wozniak, and Ronald Wayne, Apple designs, develops, and sells consumer electronics, computer software, and online services.</p>
+                    <p class="mb-4">Under CEO Tim Cook's leadership, Apple has become the world's most valuable publicly traded company, known for its innovative hardware including the iPhone, iPad, Mac, Apple Watch, and AirPods, as well as its software and services ecosystem.</p>
+                    <p>Apple's approach to AI is distinct - focusing on privacy-preserving on-device intelligence that enhances user experiences while maintaining the company's commitment to user privacy and security.</p>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1587132137056-4c6e31846b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                        alt="Apple Park" class="img-fluid rounded shadow">
+                    <img src="https://images.unsplash.com/photo-1587132137056-4c6e31846b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Apple Park" class="img-fluid rounded shadow">
                 </div>
             </div>
         </div>
@@ -376,9 +365,7 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto text-center">
                         <h3>Apple Intelligence</h3>
-                        <p class="lead">Personal intelligence for the things you do every day. Integrated into iOS,
-                            iPadOS, and macOS to understand personal context and deliver intelligence that's incredibly
-                            useful and relevant.</p>
+                        <p class="lead">Personal intelligence for the things you do every day. Integrated into iOS, iPadOS, and macOS to understand personal context and deliver intelligence that's incredibly useful and relevant.</p>
                     </div>
                 </div>
             </div>
@@ -390,8 +377,7 @@
                                 <i class="fas fa-robot"></i>
                             </div>
                             <h4 class="card-title">Siri</h4>
-                            <p class="card-text">Apple's intelligent assistant, enhanced with large language models for
-                                more natural conversations and deeper integration across apps.</p>
+                            <p class="card-text">Apple's intelligent assistant, enhanced with large language models for more natural conversations and deeper integration across apps.</p>
                             <ul>
                                 <li>On-device processing</li>
                                 <li>App integration</li>
@@ -407,8 +393,7 @@
                                 <i class="fas fa-magic"></i>
                             </div>
                             <h4 class="card-title">Generative AI</h4>
-                            <p class="card-text">Creative tools integrated across Apple's ecosystem for writing, image
-                                creation, and communication enhancement.</p>
+                            <p class="card-text">Creative tools integrated across Apple's ecosystem for writing, image creation, and communication enhancement.</p>
                             <ul>
                                 <li>Writing Tools</li>
                                 <li>Image Playground</li>
@@ -424,8 +409,7 @@
                                 <i class="fas fa-camera"></i>
                             </div>
                             <h4 class="card-title">Computational Photography</h4>
-                            <p class="card-text">Advanced AI-powered camera systems that deliver professional-quality
-                                photos and videos through machine learning.</p>
+                            <p class="card-text">Advanced AI-powered camera systems that deliver professional-quality photos and videos through machine learning.</p>
                             <ul>
                                 <li>Photonic Engine</li>
                                 <li>Night mode</li>
@@ -444,9 +428,7 @@
             <h2 class="section-title">Apple's AI Strategy & Investments</h2>
             <div class="row mb-5">
                 <div class="col-lg-6">
-                    <p>While Apple is famously secretive about its AI investments and acquisitions, the company has made
-                        strategic moves to bolster its AI capabilities through talent acquisition, company purchases,
-                        and massive R&D spending.</p>
+                    <p>While Apple is famously secretive about its AI investments and acquisitions, the company has made strategic moves to bolster its AI capabilities through talent acquisition, company purchases, and massive R&D spending.</p>
                     <p>Apple's AI strategy focuses on:</p>
                     <div class="card ai-investment-card mt-4">
                         <div class="card-body">
@@ -466,15 +448,14 @@
                     </div>
                 </div>
             </div>
-
+            
             <h3 class="mb-4">Key AI Acquisitions & Talent Investments</h3>
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100 ai-investment-card">
                         <div class="card-body">
                             <h4 class="card-title">Siri (Original Acquisition)</h4>
-                            <p class="card-text">Apple's initial foray into AI began with the 2010 acquisition of Siri,
-                                which became the foundation for its voice assistant technology.</p>
+                            <p class="card-text">Apple's initial foray into AI began with the 2010 acquisition of Siri, which became the foundation for its voice assistant technology.</p>
                             <p><strong>Acquisition:</strong> 2010</p>
                             <p><strong>Focus:</strong> Voice AI, Natural Language Processing</p>
                         </div>
@@ -484,8 +465,7 @@
                     <div class="card h-100 ai-investment-card">
                         <div class="card-body">
                             <h4 class="card-title">Turi (Dato)</h4>
-                            <p class="card-text">Machine learning platform acquisition that enhanced Apple's
-                                capabilities in developer tools and machine learning systems.</p>
+                            <p class="card-text">Machine learning platform acquisition that enhanced Apple's capabilities in developer tools and machine learning systems.</p>
                             <p><strong>Acquisition:</strong> 2016</p>
                             <p><strong>Focus:</strong> Machine Learning Platform</p>
                         </div>
@@ -495,15 +475,14 @@
                     <div class="card h-100 ai-investment-card">
                         <div class="card-body">
                             <h4 class="card-title">Laserlike</h4>
-                            <p class="card-text">AI startup focused on content discovery and personalization, with
-                                talent that joined Apple's AI team.</p>
+                            <p class="card-text">AI startup focused on content discovery and personalization, with talent that joined Apple's AI team.</p>
                             <p><strong>Acquisition:</strong> 2019</p>
                             <p><strong>Focus:</strong> Content Discovery, Personalization</p>
                         </div>
                     </div>
                 </div>
             </div>
-
+            
             <div class="row mt-5">
                 <div class="col-lg-6">
                     <div class="chart-container">
@@ -512,8 +491,7 @@
                 </div>
                 <div class="col-lg-6">
                     <h4>Massive R&D Investment</h4>
-                    <p>Apple's approach to AI is characterized by massive investment in research and development, with a
-                        significant portion dedicated to AI and machine learning technologies.</p>
+                    <p>Apple's approach to AI is characterized by massive investment in research and development, with a significant portion dedicated to AI and machine learning technologies.</p>
                     <p>Key investment areas include:</p>
                     <ul>
                         <li>Neural engine development for Apple Silicon</li>
@@ -524,8 +502,7 @@
                     <div class="card mt-4">
                         <div class="card-body">
                             <h5>Privacy-First AI</h5>
-                            <p>Apple differentiates its AI approach through a strong emphasis on privacy, with most
-                                processing happening on-device and private cloud compute for more complex tasks.</p>
+                            <p>Apple differentiates its AI approach through a strong emphasis on privacy, with most processing happening on-device and private cloud compute for more complex tasks.</p>
                         </div>
                     </div>
                 </div>
@@ -554,20 +531,14 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">AI's Role in Apple's Ecosystem</h4>
-                            <p>While Apple doesn't break out AI-specific revenue, AI capabilities are deeply integrated
-                                throughout its product ecosystem:</p>
+                            <p>While Apple doesn't break out AI-specific revenue, AI capabilities are deeply integrated throughout its product ecosystem:</p>
                             <ul>
-                                <li><strong>iPhone:</strong> Computational photography, Siri, predictive text, and
-                                    battery optimization</li>
-                                <li><strong>Services:</strong> App Store recommendations, Apple Music personalization
-                                </li>
-                                <li><strong>Wearables:</strong> Health monitoring, activity tracking, fall detection
-                                </li>
-                                <li><strong>Privacy:</strong> Differential privacy for data collection while protecting
-                                    user information</li>
+                                <li><strong>iPhone:</strong> Computational photography, Siri, predictive text, and battery optimization</li>
+                                <li><strong>Services:</strong> App Store recommendations, Apple Music personalization</li>
+                                <li><strong>Wearables:</strong> Health monitoring, activity tracking, fall detection</li>
+                                <li><strong>Privacy:</strong> Differential privacy for data collection while protecting user information</li>
                             </ul>
-                            <p>Apple's AI strategy enhances the value of its ecosystem, driving device upgrades and
-                                service subscriptions.</p>
+                            <p>Apple's AI strategy enhances the value of its ecosystem, driving device upgrades and service subscriptions.</p>
                         </div>
                     </div>
                 </div>
@@ -595,36 +566,31 @@
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <h5>2016</h5>
-                        <p>Apple acquires Turi and begins developing Core ML, its machine learning framework for
-                            developers.</p>
+                        <p>Apple acquires Turi and begins developing Core ML, its machine learning framework for developers.</p>
                     </div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
                         <h5>2017</h5>
-                        <p>Introduces A11 Bionic chip with Neural Engine, dedicated hardware for on-device AI
-                            processing.</p>
+                        <p>Introduces A11 Bionic chip with Neural Engine, dedicated hardware for on-device AI processing.</p>
                     </div>
                 </div>
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <h5>2019</h5>
-                        <p>Acquires Laserlike and Drive.ai, expanding AI talent in content discovery and autonomous
-                            systems.</p>
+                        <p>Acquires Laserlike and Drive.ai, expanding AI talent in content discovery and autonomous systems.</p>
                     </div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
                         <h5>2020</h5>
-                        <p>Announces Apple Silicon transition with enhanced Neural Engine, significantly boosting
-                            on-device AI capabilities.</p>
+                        <p>Announces Apple Silicon transition with enhanced Neural Engine, significantly boosting on-device AI capabilities.</p>
                     </div>
                 </div>
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <h5>1995</h5>
-                        <p>Unveils Apple Intelligence, a personal intelligence system deeply integrated into iOS,
-                            iPadOS, and macOS.</p>
+                        <p>Unveils Apple Intelligence, a personal intelligence system deeply integrated into iOS, iPadOS, and macOS.</p>
                     </div>
                 </div>
             </div>
@@ -690,7 +656,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
+    
     <!-- Custom JavaScript -->
     <script>
         // AI Investment Chart
@@ -836,5 +802,4 @@
         });
     </script>
 </body>
-
 </html>
