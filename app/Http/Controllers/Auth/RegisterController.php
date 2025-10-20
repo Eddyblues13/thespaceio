@@ -188,6 +188,7 @@ class RegisterController extends Controller
 
         // Send the email
         Mail::to($user->email)->send(new VerificationEmail($vmessage));
+             // Mail::to($user->email)->send(new WelcomeEmail($user));
 
         // Prepare and send admin notification email with user details
         $adminMessage = "

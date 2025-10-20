@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Mail\WelcomeEmail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
@@ -82,12 +85,12 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         $userData = [
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'country_code' => $data['country_code'],
-            'phone' => $data['phone'],
-            'password' => Hash::make($data['password']),
+            'first_name'    => $data['first_name'],
+            'last_name'     => $data['last_name'],
+            'email'         => $data['email'],
+            'country_code'  => $data['country_code'],
+            'phone'         => $data['phone'],
+            'password'      => Hash::make($data['password']),
         ];
 
         // If referral code is provided, find the referrer
@@ -98,8 +101,19 @@ class AuthController extends Controller
             }
         }
 
-        return User::create($userData);
+        // ✅ First, create the user
+        $user = User::create($userData);
+
+        // ✅ Then, send the welcome email
+        try {
+            Mail::to($user->email)->send(new WelcomeEmail($user));
+        } catch (\Exception $e) {
+            Log::error('Failed to send welcome email: ' . $e->getMessage());
+        }
+
+        return $user;
     }
+
 
     /**
      * Show the login form.
@@ -158,5 +172,4 @@ class AuthController extends Controller
     /**
      * Show the dashboard.
      */
-  
 }
