@@ -7,6 +7,8 @@ use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\InvestmentController;
 use App\Http\Controllers\User\WithdrawalController;
 use App\Http\Controllers\User\TransactionController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 Route::get('/', function () {
     return view('home.index');
@@ -138,13 +140,19 @@ Route::middleware('guest')->group(function () {
 
 
 
-// Forgot Password routes
-Route::get('/forgot-password', [App\Http\Controllers\Auth\AuthController::class, 'showForgotPasswordForm'])->name('password.request');
-Route::post('/forgot-password', [App\Http\Controllers\Auth\AuthController::class, 'sendResetLinkEmail'])->name('password.email');
+// Password Reset Routes
+// Password Reset Routes
+Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])
+    ->name('password.request');
 
-// Password Reset routes
-Route::get('/reset-password/{token}', [App\Http\Controllers\Auth\AuthController::class, 'showResetForm'])->name('password.reset');
-Route::post('/reset-password', [App\Http\Controllers\Auth\AuthController::class, 'reset'])->name('password.update');
+Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])
+    ->name('password.email');
+
+Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])
+    ->name('password.reset');
+
+Route::post('password/reset', [ResetPasswordController::class, 'reset'])
+    ->name('password.update');
 Route::post('/logout', [App\Http\Controllers\Auth\AuthController::class, 'logout'])->name('user.logout');
 
 // Email & User Verification
