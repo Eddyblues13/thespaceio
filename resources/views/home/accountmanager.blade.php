@@ -804,10 +804,16 @@
                     </li>
                 </ul>
                 <div class="d-flex user-info">
-                    <div class="user-avatar">JD</div>
+                    <div class="user-avatar"> {{ strtoupper(substr(Auth::user()->first_name ?? Auth::user()->name, 0,
+                        1)) }}
+                        {{ strtoupper(substr(Auth::user()->last_name ?? '', 0, 1)) }}</div>
                     <div>
-                        <div class="fw-bold">John Doe</div>
-                        <small class="text-muted">Tier 2 Investor</small>
+                        <div class="fw-bold"> {{ Auth::user()->first_name ?? Auth::user()->name }}{{
+                            Auth::user()->last_name
+                            ?? '' }}</div>
+                        <small class="text-muted">
+                            {{ Auth::user()->tier ?? Auth::user()->role ?? 'Investor' }}
+                        </small>
                     </div>
                 </div>
             </div>
@@ -823,10 +829,16 @@
                 <div class="top-bar d-flex justify-content-between align-items-center">
                     <h4 class="mb-0">Request Account Manager</h4>
                     <div class="user-info d-none d-md-flex">
-                        <div class="user-avatar">JD</div>
+                        <div class="user-avatar"> {{ strtoupper(substr(Auth::user()->first_name ?? Auth::user()->name,
+                            0, 1)) }}
+                            {{ strtoupper(substr(Auth::user()->last_name ?? '', 0, 1)) }}</div>
                         <div>
-                            <div class="fw-bold">John Doe</div>
-                            <small class="text-muted">Tier 2 Investor</small>
+                            <div class="fw-bold"> {{ Auth::user()->first_name ?? Auth::user()->name }}{{
+                                Auth::user()->last_name
+                                ?? '' }}</div>
+                            <small class="text-muted">
+                                {{ Auth::user()->tier ?? Auth::user()->role ?? 'Investor' }}
+                            </small>
                         </div>
                     </div>
                 </div>

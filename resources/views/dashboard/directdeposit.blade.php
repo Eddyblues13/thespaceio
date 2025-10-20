@@ -463,7 +463,9 @@
                             <div class="fw-bold"> {{ Auth::user()->first_name ?? Auth::user()->name }}{{
                                 Auth::user()->last_name
                                 ?? '' }}</div>
-                            <small class="text-muted">Tier 2 Investor</small>
+                            <small class="text-muted">
+                                {{ Auth::user()->tier ?? Auth::user()->role ?? 'Investor' }}
+                            </small>
                         </div>
                     </div>
                 </div>

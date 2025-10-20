@@ -26,6 +26,11 @@ Route::get('/faq', function () {
     return view('home.faq');
 });
 
+
+Route::get('/apple', function () {
+    return view('home.apple');
+});
+
 Route::get('/investment', function () {
     return view('home.investment');
 });
