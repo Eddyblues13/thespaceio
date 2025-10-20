@@ -425,7 +425,7 @@
                     </div>
 
                     <button type="button" class="btn btn-social">
-                        <i class="fab fa-google"></i> Continue with Google
+                        <i class="fab fa-google"></i> Continue with Google 
                     </button>
 
                     <button type="button" class="btn btn-social">
