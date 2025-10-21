@@ -238,7 +238,6 @@
             border: none;
             color: var(--medium-text);
             cursor: pointer;
-            z-index: 10;
         }
 
         .password-container {
@@ -360,29 +359,50 @@
                 </div>
 
                 <!-- Success/Error Messages -->
-                <div id="message-container"></div>
+                @if(session('success'))
+                <div class="alert alert-success">
+                    <i class="fas fa-check-circle me-2"></i>{{ session('success') }}
+                </div>
+                @endif
 
-                <form method="POST" id="signinForm" class="needs-validation" novalidate>
+                @if($errors->any())
+                <div class="alert alert-danger">
+                    <i class="fas fa-exclamation-triangle me-2"></i>{{ $errors->first() }}
+                </div>
+                @endif
+
+                <form method="POST" action="{{ route('login') }}" id="signinForm" class="needs-validation" novalidate>
+                    @csrf
+
                     <div class="mb-3">
                         <label for="login-email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="login-email" name="email"
-                            placeholder="Enter your email" required>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="login-email"
+                            name="email" placeholder="Enter your email" value="{{ old('email') }}" required>
                         <div class="invalid-feedback">
                             Please provide a valid email address.
                         </div>
+                        @error('email')
+                        <div class="invalid-feedback d-block">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
 
                     <div class="mb-3 password-container">
                         <label for="login-password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="login-password" name="password"
-                            placeholder="Enter your password" required>
+                        <input type="password" class="form-control @error('password') is-invalid @enderror"
+                            id="login-password" name="password" placeholder="Enter your password" required>
                         <button type="button" class="password-toggle" id="toggleLoginPassword">
-                            <br><br>
                             <i class="fas fa-eye"></i>
                         </button>
                         <div class="invalid-feedback">
                             Please provide your password.
                         </div>
+                        @error('password')
+                        <div class="invalid-feedback d-block">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
 
                     <div class="mb-4">
@@ -396,11 +416,21 @@
 
                     <button type="submit" class="btn btn-auth">Sign In</button>
 
-                    <div class="forgot-password mt-2">
+                    <div class="forgot-password">
                         <a href="{{ route('password.request') }}" class="auth-link">Forgot your password?</a>
                     </div>
 
+                    <div class="auth-divider">
+                        <span class="auth-divider-text">Or continue with</span>
+                    </div>
 
+                    <button type="button" class="btn btn-social">
+                        <i class="fab fa-google"></i> Continue with Google
+                    </button>
+
+                    <button type="button" class="btn btn-social">
+                        <i class="fab fa-apple"></i> Continue with Apple
+                    </button>
 
                     <div class="auth-switch">
                         Don't have an account? <a href="{{ route('register') }}" class="auth-link">Sign up</a>
@@ -427,11 +457,10 @@
                 });
             }
             
-            setupPasswordToggle('toggleLoginPassword', 'login-password');
+            setupPasswordToggle('toggleSigninPassword', 'signin-password');
             
             // Form validation
             const form = document.getElementById('signinForm');
-            const messageContainer = document.getElementById('message-container');
             
             // Form submission
             form.addEventListener('submit', function(e) {
@@ -445,35 +474,24 @@
                 }
                 
                 // Get form values
-                const email = document.getElementById('login-email').value;
-                const password = document.getElementById('login-password').value;
-                const rememberMe = document.getElementById('remember').checked;
-                
-                // Clear previous messages
-                messageContainer.innerHTML = '';
+                const email = document.getElementById('signin-email').value;
+                const password = document.getElementById('signin-password').value;
+                const rememberMe = document.getElementById('rememberMe').checked;
                 
                 // Demo authentication logic
                 if (email === 'demo@thspace.io' && password === 'demo1234') {
                     // Successful login
-                    messageContainer.innerHTML = `
-                        <div class="alert alert-success">
-                            <i class="fas fa-check-circle me-2"></i>Login successful! Welcome back to TheSpace.
-                        </div>
-                    `;
+                    alert('Login successful! Welcome back to TheSpace.');
                     
                     // In a real application, you would redirect to dashboard
                     // window.location.href = 'dashboard.html';
                 } else {
                     // Failed login
-                    messageContainer.innerHTML = `
-                        <div class="alert alert-danger">
-                            <i class="fas fa-exclamation-triangle me-2"></i>Invalid email or password. Please try again.
-                        </div>
-                    `;
+                    alert('Invalid email or password. Please try again.\n\nHint: Use the demo credentials provided.');
                     
                     // Add error styling to inputs
-                    document.getElementById('login-email').classList.add('is-invalid');
-                    document.getElementById('login-password').classList.add('is-invalid');
+                    document.getElementById('signin-email').classList.add('is-invalid');
+                    document.getElementById('signin-password').classList.add('is-invalid');
                 }
             });
             
@@ -492,14 +510,14 @@
             });
             
             // Auto-fill demo credentials for testing
-            document.getElementById('login-email').addEventListener('focus', function() {
+            document.getElementById('signin-email').addEventListener('focus', function() {
                 if (this.value === '') {
                     this.value = 'demo@thspace.io';
                     this.classList.add('is-valid');
                 }
             });
             
-            document.getElementById('login-password').addEventListener('focus', function() {
+            document.getElementById('signin-password').addEventListener('focus', function() {
                 if (this.value === '') {
                     this.value = 'demo1234';
                     this.classList.add('is-valid');
