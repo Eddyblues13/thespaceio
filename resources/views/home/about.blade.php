@@ -444,7 +444,7 @@
                             <li><a class="dropdown-item" href="cohere">Cohere</a></li>
                             <li><a class="dropdown-item" href="huggingface">Hugging Face</a></li>
                             <li><a class="dropdown-item" href="scale">Scale AI</a></li>
-                            <li><a class="dropdown-item" href="runway.html">Runway AI</a></li>
+                            <li><a class="dropdown-item" href="runway">Runway AI</a></li>
                             <li><a class="dropdown-item" href="character">Character.AI</a></li>
                             <li><a class="dropdown-item" href="inflection">Inflection AI</a></li>
                             <li><a class="dropdown-item" href="mistral">Mistral AI</a></li>

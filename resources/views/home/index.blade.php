@@ -1023,7 +1023,7 @@ window.smartsupp||(function(d) {
                                 <li><a class="dropdown-item" href="cohere">Cohere</a></li>
                                 <li><a class="dropdown-item" href="huggingface">Hugging Face</a></li>
                                 <li><a class="dropdown-item" href="scale">Scale AI</a></li>
-                                <li><a class="dropdown-item" href="runway.html">Runway AI</a></li>
+                                <li><a class="dropdown-item" href="runway">Runway AI</a></li>
                                 <li><a class="dropdown-item" href="character">Character.AI</a></li>
                                 <li><a class="dropdown-item" href="inflection">Inflection AI</a></li>
                                 <li><a class="dropdown-item" href="mistral">Mistral AI</a></li>
@@ -1357,7 +1357,7 @@ window.smartsupp||(function(d) {
                                 <small>Latest Valuation</small>
                             </div>
 
-                            <a href="runway.html" class="btn btn-outline-light mt-3">View Analysis</a>
+                            <a href="runway" class="btn btn-outline-light mt-3">View Analysis</a>
                         </div>
                     </div>
 
