@@ -179,6 +179,7 @@ Route::prefix('user')->middleware('user')->group(function () {
     Route::get('/home', [DashboardController::class, 'index'])->name('home');
     Route::get('/todaysgain', [DashboardController::class, 'todaysGain'])->name('dashboard.todaysgain');
     Route::get('/portfolio', [DashboardController::class, 'portfolio'])->name('dashboard.portfolio');
+    Route::get('/reports', [DashboardController::class, 'reports'])->name('dashboard.reports');
 
     Route::get('/insurance', [DashboardController::class, 'insurance'])->name('dashboard.insurance');
 

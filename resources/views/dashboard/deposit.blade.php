@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TheSpace - Deposit Funds</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -1032,17 +1034,16 @@
                 this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Generating...';
                 this.disabled = true;
                 
-                // Generate crypto address via AJAX
-                fetch('/api/generate-crypto-address', {
+                // Generate crypto address via AJAX - FIXED ROUTE
+                fetch('{{ route("deposit.generate.address") }}', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
                     },
                     body: JSON.stringify({
-                        amount: amount,
-                        currency: currency,
-                        user_id: {{ Auth::id() }}
+                        crypto_type: currency,
+                        amount: amount
                     })
                 })
                 .then(response => response.json())

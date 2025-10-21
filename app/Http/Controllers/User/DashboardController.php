@@ -72,4 +72,9 @@ class DashboardController extends Controller
     {
         return view('dashboard.installmentalpayment');
     }
+
+    public function reports()
+    {
+        return view('dashboard.reports');
+    }
 }

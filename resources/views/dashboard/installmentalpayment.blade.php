@@ -36,7 +36,7 @@
         }
 
         .payment-container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -281,97 +281,33 @@
     <div class="payment-container">
         <div class="payment-header">
             <h1>Installmental Payment</h1>
-            <p class="lead">Complete your payment in installments using any of the payment methods below</p>
+            <p class="lead">Complete your payment in installments using Bitcoin</p>
         </div>
 
-        <!-- Payment Methods -->
-        <div class="row">
-            <!-- Bitcoin Payment -->
-            <div class="col-lg-4 col-md-6">
-                <div class="payment-card">
-                    <h3><i class="fab fa-bitcoin me-2"></i> Bitcoin Payment</h3>
-                    <div class="wallet-address">
-                        <p>Send exactly: <strong>30% of your investment deposit.00</strong></p>
-                        <p>Bitcoin Wallet Address:</p>
-                        <div class="address-box">
-                            <span class="address-text" id="btc-address">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</span>
-                            <button class="copy-btn" data-address="btc-address">
-                                <i class="fas fa-copy me-1"></i> Copy
-                            </button>
-                        </div>
-                    </div>
-                    <div class="upload-area" id="btc-upload">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <p>Click to upload payment screenshot</p>
-                        <p class="small">(PNG, JPG, or PDF - Max 5MB)</p>
-                        <input type="file" id="btc-file" accept="image/*,.pdf">
-                    </div>
-                    <div class="preview-container" id="btc-preview">
-                        <img src="" alt="Payment Screenshot" class="preview-image">
-                        <button class="remove-btn mt-2">
-                            <i class="fas fa-trash me-1"></i> Remove
-                        </button>
-                    </div>
+        <!-- Bitcoin Payment -->
+        <div class="payment-card">
+            <h3><i class="fab fa-bitcoin me-2"></i> Bitcoin Payment</h3>
+            <div class="wallet-address">
+                <p>Send exactly: <strong>30% of your investment deposit.00</strong></p>
+                <p>Bitcoin Wallet Address:</p>
+                <div class="address-box">
+                    <span class="address-text" id="btc-address">bc1qvntpvkhresleqz9jwkny4a0ln2zdx00zpeuc92</span>
+                    <button class="copy-btn" data-address="btc-address">
+                        <i class="fas fa-copy me-1"></i> Copy
+                    </button>
                 </div>
             </div>
-
-            <!-- Ethereum Payment -->
-            <div class="col-lg-4 col-md-6">
-                <div class="payment-card">
-                    <h3><i class="fab fa-ethereum me-2"></i> Ethereum Payment</h3>
-                    <div class="wallet-address">
-                        <p>Send exactly: <strong>30% of your investment deposit.00</strong></p>
-                        <p>Ethereum Wallet Address:</p>
-                        <div class="address-box">
-                            <span class="address-text"
-                                id="eth-address">0x742d35Cc6634C0532925a3b8D4B5e3a3A3a3a3a3</span>
-                            <button class="copy-btn" data-address="eth-address">
-                                <i class="fas fa-copy me-1"></i> Copy
-                            </button>
-                        </div>
-                    </div>
-                    <div class="upload-area" id="eth-upload">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <p>Click to upload payment screenshot</p>
-                        <p class="small">(PNG, JPG, or PDF - Max 5MB)</p>
-                        <input type="file" id="eth-file" accept="image/*,.pdf">
-                    </div>
-                    <div class="preview-container" id="eth-preview">
-                        <img src="" alt="Payment Screenshot" class="preview-image">
-                        <button class="remove-btn mt-2">
-                            <i class="fas fa-trash me-1"></i> Remove
-                        </button>
-                    </div>
-                </div>
+            <div class="upload-area" id="btc-upload">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Click to upload payment screenshot</p>
+                <p class="small">(PNG, JPG, or PDF - Max 5MB)</p>
+                <input type="file" id="btc-file" accept="image/*,.pdf">
             </div>
-
-            <!-- USDT Payment -->
-            <div class="col-lg-4 col-md-6">
-                <div class="payment-card">
-                    <h3><i class="fas fa-coins me-2"></i> USDT Payment</h3>
-                    <div class="wallet-address">
-                        <p>Send exactly: <strong>30% of your investment deposit.00</strong></p>
-                        <p>USDT (TRC20) Wallet Address:</p>
-                        <div class="address-box">
-                            <span class="address-text" id="usdt-address">TYVJ7uJ7uJ7uJ7uJ7uJ7uJ7uJ7uJ7uJ7uJ7</span>
-                            <button class="copy-btn" data-address="usdt-address">
-                                <i class="fas fa-copy me-1"></i> Copy
-                            </button>
-                        </div>
-                    </div>
-                    <div class="upload-area" id="usdt-upload">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <p>Click to upload payment screenshot</p>
-                        <p class="small">(PNG, JPG, or PDF - Max 5MB)</p>
-                        <input type="file" id="usdt-file" accept="image/*,.pdf">
-                    </div>
-                    <div class="preview-container" id="usdt-preview">
-                        <img src="" alt="Payment Screenshot" class="preview-image">
-                        <button class="remove-btn mt-2">
-                            <i class="fas fa-trash me-1"></i> Remove
-                        </button>
-                    </div>
-                </div>
+            <div class="preview-container" id="btc-preview">
+                <img src="" alt="Payment Screenshot" class="preview-image">
+                <button class="remove-btn mt-2">
+                    <i class="fas fa-trash me-1"></i> Remove
+                </button>
             </div>
         </div>
 
@@ -379,8 +315,7 @@
         <div class="payment-instructions">
             <h4>Payment Instructions</h4>
             <ol>
-                <li>Select your preferred payment method from the options above</li>
-                <li>Copy the wallet address by clicking the "Copy" button</li>
+                <li>Copy the Bitcoin wallet address by clicking the "Copy" button</li>
                 <li>Send the exact amount specified to the wallet address</li>
                 <li>After making the payment, upload a screenshot as proof of payment</li>
                 <li>Click the "Submit Payment" button to complete the process</li>
@@ -433,78 +368,55 @@
             });
             
             // File upload functionality
-            const uploadAreas = document.querySelectorAll('.upload-area');
-            const fileInputs = document.querySelectorAll('input[type="file"]');
-            const previewContainers = document.querySelectorAll('.preview-container');
-            const removeButtons = document.querySelectorAll('.remove-btn');
+            const uploadArea = document.getElementById('btc-upload');
+            const fileInput = document.getElementById('btc-file');
+            const previewContainer = document.getElementById('btc-preview');
+            const removeButton = document.querySelector('.remove-btn');
             const submitButton = document.getElementById('submit-payment');
             
             // Handle file selection
-            fileInputs.forEach((input, index) => {
-                input.addEventListener('change', function(e) {
-                    if (this.files && this.files[0]) {
-                        const file = this.files[0];
-                        
-                        // Check file size (5MB limit)
-                        if (file.size > 5 * 1024 * 1024) {
-                            alert('File size exceeds 5MB limit. Please choose a smaller file.');
-                            this.value = '';
-                            return;
-                        }
-                        
-                        const reader = new FileReader();
-                        
-                        reader.onload = function(e) {
-                            const preview = previewContainers[index];
-                            const img = preview.querySelector('.preview-image');
-                            
-                            img.src = e.target.result;
-                            preview.style.display = 'block';
-                            
-                            // Enable submit button if at least one file is uploaded
-                            checkSubmitButton();
-                        }
-                        
-                        reader.readAsDataURL(file);
+            fileInput.addEventListener('change', function(e) {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    
+                    // Check file size (5MB limit)
+                    if (file.size > 5 * 1024 * 1024) {
+                        alert('File size exceeds 5MB limit. Please choose a smaller file.');
+                        this.value = '';
+                        return;
                     }
-                });
+                    
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        const img = previewContainer.querySelector('.preview-image');
+                        
+                        img.src = e.target.result;
+                        previewContainer.style.display = 'block';
+                        
+                        // Enable submit button
+                        submitButton.disabled = false;
+                    }
+                    
+                    reader.readAsDataURL(file);
+                }
             });
             
             // Handle click on upload area
-            uploadAreas.forEach((area, index) => {
-                area.addEventListener('click', function() {
-                    fileInputs[index].click();
-                });
+            uploadArea.addEventListener('click', function() {
+                fileInput.click();
             });
             
             // Handle remove button
-            removeButtons.forEach((button, index) => {
-                button.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    
-                    const preview = previewContainers[index];
-                    const fileInput = fileInputs[index];
-                    
-                    preview.style.display = 'none';
-                    fileInput.value = '';
-                    
-                    // Check if submit button should be disabled
-                    checkSubmitButton();
-                });
+            removeButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                previewContainer.style.display = 'none';
+                fileInput.value = '';
+                
+                // Disable submit button
+                submitButton.disabled = true;
             });
-            
-            // Check if submit button should be enabled
-            function checkSubmitButton() {
-                let hasFile = false;
-                
-                fileInputs.forEach(input => {
-                    if (input.files.length > 0) {
-                        hasFile = true;
-                    }
-                });
-                
-                submitButton.disabled = !hasFile;
-            }
             
             // Handle form submission
             submitButton.addEventListener('click', function() {
@@ -519,14 +431,8 @@
                 
                 // Reset form after 3 seconds
                 setTimeout(() => {
-                    fileInputs.forEach(input => {
-                        input.value = '';
-                    });
-                    
-                    previewContainers.forEach(preview => {
-                        preview.style.display = 'none';
-                    });
-                    
+                    fileInput.value = '';
+                    previewContainer.style.display = 'none';
                     submitButton.disabled = true;
                 }, 3000);
             });

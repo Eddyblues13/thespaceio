@@ -503,11 +503,11 @@
                 <div class="dashboard-card">
                     <div class="card-title">Quick Actions</div>
                     <div class="quick-actions">
-                        <a href="directdeposit.html" class="action-btn">
+                        <a href="{{ route('dashboard.deposit') }}" class="action-btn">
                             <i class="fas fa-plus-circle"></i>
                             Add Funds
                         </a>
-                        <a href="reports.html" class="action-btn">
+                        <a href="{{ route('dashboard.reports') }}" class="action-btn">
                             <i class="fas fa-download"></i>
                             Export Report
                         </a>

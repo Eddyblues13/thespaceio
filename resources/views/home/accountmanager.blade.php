@@ -773,7 +773,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="directdeposit.html">
+                        <a class="nav-link" href="{{ route('dashboard.deposit') }}">
                             <i class="fas fa-money-bill-transfer"></i> Direct Deposit
                         </a>
                     </li>
@@ -788,7 +788,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="reports.html">
+                        <a class="nav-link" href="{{ route('dashboard.reports') }}">
                             <i class="fas fa-file-invoice-dollar"></i> Reports
                         </a>
                     </li>
