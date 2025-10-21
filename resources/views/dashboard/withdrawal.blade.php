@@ -1633,7 +1633,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="investments.html">
+                        <a class="nav-link" {{route('dashboard.investments')}}>
                             <i class="fas fa-wallet"></i> Investments
                         </a>
                     </li>

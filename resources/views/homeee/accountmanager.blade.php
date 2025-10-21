@@ -758,7 +758,7 @@
             <div class="collapse navbar-collapse" id="navbarTheSpace">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.html">
+                        <a class="nav-link" {{route('dashboard')}}>
                             <i class="fas fa-tachometer-alt"></i> Dashboard
                         </a>
                     </li>
@@ -768,7 +768,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="investments.html">
+                        <a class="nav-link" {{route('dashboard.investments')}}>
                             <i class="fas fa-wallet"></i> Investments
                         </a>
                     </li>
@@ -783,7 +783,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="transactions.html">
+                        <a class="nav-link" {{route('dashboard.transactions')}}>
                             <i class="fas fa-exchange-alt"></i> Transactions
                         </a>
                     </li>

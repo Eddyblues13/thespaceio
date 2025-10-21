@@ -717,14 +717,15 @@ window.smartsupp||(function(d) {
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i>Profile</a>
+                            <li><a class="dropdown-item" href="{{route('dashboard')}}"><i
+                                        class="fas fa-user me-2"></i>Profile</a>
                             </li>
-                            <li><a class="dropdown-item" href="security.html"><i
+                            <li><a class="dropdown-item" href="{{route('dashboard')}}"><i
                                         class="fas fa-lock me-2"></i>Security</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="help.html"><i
+                            <li><a class="dropdown-item" href="{{route('dashboard')}}"><i
                                         class="fas fa-question-circle me-2"></i>Help & Support</a></li>
                             <li>
                                 <hr class="dropdown-divider">
