@@ -334,6 +334,7 @@
                             <input type="password" class="form-control" id="signin-password"
                                 placeholder="Enter your password" required>
                             <button type="button" class="password-toggle" id="toggleSigninPassword">
+                                <br>
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>

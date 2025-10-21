@@ -264,7 +264,7 @@
                     <a href="#ai-investments" class="btn btn-light btn-lg">Explore AI Investments</a>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1633419461181-2ee8d0ac59c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Microsoft AI" class="img-fluid rounded shadow">
+                    <img src="data:image/jpeg;base64,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" alt="Microsoft AI" class="img-fluid rounded shadow">
                 </div>
             </div>
         </div>
@@ -565,43 +565,7 @@
                         <a href="#" class="text-light me-3"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4 footer-links">
-                    <h5>Company</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">About Microsoft</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Investors</a></li>
-                        <li><a href="#">Diversity & Inclusion</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4 footer-links">
-                    <h5>AI Products</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Azure AI</a></li>
-                        <li><a href="#">Microsoft Copilot</a></li>
-                        <li><a href="#">Azure OpenAI</a></li>
-                        <li><a href="#">Cognitive Services</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4 footer-links">
-                    <h5>Resources</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">AI Blog</a></li>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Learning Resources</a></li>
-                        <li><a href="#">Research</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4 footer-links">
-                    <h5>Legal</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Privacy & Cookies</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Trademarks</a></li>
-                        <li><a href="#">AI Principles</a></li>
-                    </ul>
-                </div>
-            </div>
+                
             <hr class="mt-4 mb-4">
             <div class="text-center">
                 <p>&copy; 1995 Microsoft Corporation. All rights reserved.</p>
