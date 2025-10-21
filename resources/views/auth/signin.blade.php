@@ -377,6 +377,7 @@
                         <input type="password" class="form-control" id="login-password" name="password"
                             placeholder="Enter your password" required>
                         <button type="button" class="password-toggle" id="toggleLoginPassword">
+                            <br><br>
                             <i class="fas fa-eye"></i>
                         </button>
                         <div class="invalid-feedback">

@@ -618,6 +618,7 @@
                         <input type="password" class="form-control" id="signup-password" name="password"
                             placeholder="Create a password" required minlength="8">
                         <button type="button" class="password-toggle" id="toggleSignupPassword">
+                            <br><br>
                             <i class="fas fa-eye"></i>
                         </button>
                         <div class="invalid-feedback">
@@ -630,6 +631,7 @@
                         <input type="password" class="form-control" id="signup-confirm-password"
                             name="password_confirmation" placeholder="Confirm your password" required>
                         <button type="button" class="password-toggle" id="toggleConfirmPassword">
+                            <br><br>
                             <i class="fas fa-eye"></i>
                         </button>
                         <div class="invalid-feedback">
