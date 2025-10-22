@@ -448,7 +448,7 @@
         <div class="dashboard-card">
             <div class="card-title">Quick Actions</div>
             <div class="quick-actions">
-                <a href="{{ route('dashboard.deposit') }}" class="action-btn">
+                <a href="{{ route('dashboard.directdeposit') }}" class="action-btn">
                     <i class="fas fa-plus-circle"></i>
                     Add Funds
                 </a>
@@ -456,14 +456,7 @@
                     <i class="fas fa-search-dollar"></i>
                     Find Opportunities
                 </a>
-                <a href="#" class="action-btn">
-                    <i class="fas fa-download"></i>
-                    Export Report
-                </a>
-                <a href="#" class="action-btn">
-                    <i class="fas fa-bell"></i>
-                    Set Alerts
-                </a>
+                
                 <a href="{{ route('dashboard') }}" class="action-btn">
                     <i class="fas fa-question-circle"></i>
                     Get Support

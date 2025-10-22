@@ -493,7 +493,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('dashboard.deposit') }}">
+                        <a class="nav-link" href="{{ route('dashboard.directdeposit') }}">
                             <i class="fas fa-plus-circle"></i> Deposit Funds
                         </a>
                     </li>

@@ -830,7 +830,7 @@ window.smartsupp||(function(d) {
                         <div class="key-terms">
                             <h4 class="key-terms-title">Key Terms:</h4>
                             <ul class="key-terms-list">
-                                <li>You may complete your installment payments in up to four (3) transactions.</li>
+                                <li>You may complete your installment payments in up to four (4) transactions.</li>
                                 <li>Your investment will officially commence after the total target amount has been
                                     fully deposited.</li>
                                 <li>Following your first installment, you will begin receiving company bonuses, which
@@ -849,7 +849,7 @@ window.smartsupp||(function(d) {
                                 Request Account Manager
                             </a>
                             <div class="bottom-buttons">
-                                <a href="{{route('dashboard.deposit')}}" class="action-button direct-deposit-button">
+                                <a href="{{route('dashboard.directdeposit')}}" class="action-button direct-deposit-button">
                                     <i class="fas fa-money-bill-wave"></i>
                                     Direct Deposit
                                 </a>

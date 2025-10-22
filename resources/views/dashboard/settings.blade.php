@@ -501,15 +501,7 @@
                         <div class="section-description">Manage your personal information and account preferences</div>
                     </div>
 
-                    <div class="profile-header">
-                        <div class="profile-avatar">{{ strtoupper(substr($user->name, 0, 2)) }}</div>
-                        <h5>{{ $user->name }}</h5>
-                        <p class="text-muted">{{ $user->investor_tier }} • Member since {{
-                            $user->created_at->format('Y') }}</p>
-                        <button class="btn btn-outline-primary btn-sm">
-                            <i class="fas fa-camera me-1"></i> Change Photo
-                        </button>
-                    </div>
+                    
 
                     <form method="POST" action="{{ route('settings.profile.update') }}">
                         @csrf
@@ -568,6 +560,13 @@
                                     <label class="form-label">ZIP Code</label>
                                     <input type="text" class="form-control" name="zip_code"
                                         value="{{ $user->zip_code }}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Referral ID</label>
+                                    <input type="text" class="form-control" name="referral_id"
+                                        value="{{ $user->referral_id }}">
                                 </div>
                             </div>
                         </div>

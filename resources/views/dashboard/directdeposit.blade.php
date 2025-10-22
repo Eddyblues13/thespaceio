@@ -422,7 +422,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="directdeposit">
+                            <a class="nav-link" href="{{route('dashboard.directdeposit')}}">
                                 <i class="fas fa-money-bill-transfer"></i> Direct Deposit
                             </a>
                         </li>
@@ -542,7 +542,7 @@
 
                     <div class="wallet-address-container">
                         <div class="wallet-label">Bitcoin Wallet Address</div>
-                        <div class="wallet-address" id="walletAddress">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</div>
+                        <div class="wallet-address" id="walletAddress">bc1qvntpvkhresleqz9jwkny4a0ln2zdx00zpeuc92</div>
                         <button class="copy-btn" id="copyWalletBtn">
                             <i class="fas fa-copy me-1"></i> Copy Address
                         </button>
@@ -572,32 +572,6 @@
                 <div class="dashboard-card wire-transfer-section" id="wireTransferSection">
                     <h3 class="card-title">Wire Transfer Instructions</h3>
 
-                    <div class="wire-info">
-                        <h4 class="mb-3">Bank Account Details</h4>
-                        <div class="wire-detail">
-                            <div class="wire-label">Bank Name:</div>
-                            <div class="wire-value">Global Trust Bank</div>
-                        </div>
-                        <div class="wire-detail">
-                            <div class="wire-label">Account Name:</div>
-                            <div class="wire-value">Tenex Investments LLC</div>
-                        </div>
-                        <div class="wire-detail">
-                            <div class="wire-label">Account Number:</div>
-                            <div class="wire-value">7501 9845 6321 0452</div>
-                        </div>
-                        <div class="wire-detail">
-                            <div class="wire-label">Routing Number:</div>
-                            <div class="wire-value">021000021</div>
-                        </div>
-                        <div class="wire-detail">
-                            <div class="wire-label">SWIFT Code:</div>
-                            <div class="wire-value">GTBUS33</div>
-                        </div>
-                        <div class="wire-detail">
-                            <div class="wire-label">Address:</div>
-                            <div class="wire-value">123 Financial District, New York, NY 10005</div>
-                        </div>
                     </div>
 
                     <div class="alert alert-info" role="alert">
@@ -606,9 +580,10 @@
                         ensure proper handling and personalized service.
                     </div>
 
+                        
                     <button class="contact-manager-btn" id="contactManagerBtn">
-                        <i class="fas fa-user-tie me-1"></i> Contact Investment Manager
-                    </button>
+                        <i class="fas fa-user-tie me-1"></i><a class="nav-link" href="{{route('dashboard.accountmanager')}}">Contact Investment Manager
+                    </a></button>
                 </div>
             </div>
         </div>

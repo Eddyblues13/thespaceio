@@ -739,12 +739,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="directdeposit">
+                            <a class="nav-link" href="{{route('dashboard.directdeposit')}}">
                                 <i class="fas fa-money-bill-transfer"></i> Direct Deposit
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="account-manager">
+                            <a class="nav-link" href="{{route('dashboard.account-manager')}}">
                                 <i class="fas fa-user-tie"></i> Account Manager
                             </a>
                         </li>
@@ -754,7 +754,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="reports">
+                            <a class="nav-link" href="{{route('dashboard.reports')}}">
                                 <i class="fas fa-file-invoice-dollar"></i> Reports
                             </a>
                         </li>

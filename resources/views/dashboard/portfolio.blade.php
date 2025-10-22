@@ -503,22 +503,16 @@
                 <div class="dashboard-card">
                     <div class="card-title">Quick Actions</div>
                     <div class="quick-actions">
-                        <a href="{{ route('dashboard.deposit') }}" class="action-btn">
+                        <a href="{{ route('dashboard.directdeposit') }}" class="action-btn">
                             <i class="fas fa-plus-circle"></i>
                             Add Funds
                         </a>
-                        <a href="{{ route('dashboard.reports') }}" class="action-btn">
-                            <i class="fas fa-download"></i>
-                            Export Report
-                        </a>
+                        
                         <a href="{{route('dashboard.transactions')}}" class="action-btn">
                             <i class="fas fa-history"></i>
                             Transaction History
                         </a>
-                        <a href="alert.html" class="action-btn">
-                            <i class="fas fa-bell"></i>
-                            Alerts
-                        </a>
+                        
                         <a href="accountmanager.html" class="action-btn">
                             <i class="fas fa-question-circle"></i>
                             Support
@@ -561,6 +555,15 @@
                             <div class="card-value" id="withdrawalBonus">$0.00</div>
                             <div class="card-change">
                                 Available to invest
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="dashboard-card">
+                            <div class="card-title">Referral Bonus</div>
+                            <div class="card-value" id="ReferralBonus">$0.00</div>
+                            <div class="card-change">
+                                Available to Withdrawal
                             </div>
                         </div>
                     </div>
