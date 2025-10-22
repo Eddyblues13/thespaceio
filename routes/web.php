@@ -192,6 +192,7 @@ Route::prefix('user')->middleware('user')->group(function () {
 
     // Deposit
     Route::get('/deposit', [DepositController::class, 'index'])->name('dashboard.deposit');
+    Route::get('/direct-deposit', [DepositController::class, 'directDeposit'])->name('dashboard.directdeposit');
     Route::post('/deposit', [DepositController::class, 'store'])->name('deposit.store');
     Route::post('/deposit/generate-address', [DepositController::class, 'generateCryptoAddress'])->name('deposit.generate.address');
     Route::get('/deposit/payment-details/{method}', [DepositController::class, 'getPaymentDetails'])->name('deposit.payment.details');

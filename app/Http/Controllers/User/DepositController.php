@@ -35,6 +35,34 @@ class DepositController extends Controller
         return view('dashboard.deposit', compact('user', 'recentDeposits', 'accountSummary'));
     }
 
+
+    public function directDeposit()
+    {
+        $user = Auth::user();
+        $recentDeposits = $user->transactions()
+            ->deposits()
+            ->latest()
+            ->take(5)
+            ->get();
+
+        // Get user's account summary
+        $accountSummary = [
+            'cash_balance' => $user->cash_balance,
+            'pending_deposits' => $user->transactions()
+                ->deposits()
+                ->pending()
+                ->sum('amount'),
+            'last_deposit' => $user->transactions()
+                ->deposits()
+                ->completed()
+                ->latest()
+                ->first(),
+        ];
+
+        return view('dashboard.directdeposit', compact('user', 'recentDeposits', 'accountSummary'));
+    }
+
+
     public function store(Request $request)
     {
         $request->validate([
