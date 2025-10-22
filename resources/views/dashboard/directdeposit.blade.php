@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tenex - Direct Deposit</title>
+    <title>TheSpace - Direct Deposit</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -403,7 +403,7 @@
             <div class="col-md-3 col-lg-2 sidebar">
                 <div class="d-flex flex-column">
                     <a class="navbar-brand" href="/">
-                        <i class="fas fa-robot me-2"></i>Tenex
+                        <i class="fas fa-robot me-2"></i>TheSpace
                     </a>
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -572,21 +572,22 @@
                 <div class="dashboard-card wire-transfer-section" id="wireTransferSection">
                     <h3 class="card-title">Wire Transfer Instructions</h3>
 
-                    </div>
-
-                    <div class="alert alert-info" role="alert">
-                        <i class="fas fa-info-circle me-2"></i>
-                        For wire transfers of $100,000 or more, we require you to contact your Investment Manager to
-                        ensure proper handling and personalized service.
-                    </div>
-
-                        
-                    <button class="contact-manager-btn" id="contactManagerBtn">
-                        <i class="fas fa-user-tie me-1"></i><a class="nav-link" href="{{route('dashboard.accountmanager')}}">Contact Investment Manager
-                    </a></button>
                 </div>
+
+                <div class="alert alert-info" role="alert">
+                    <i class="fas fa-info-circle me-2"></i>
+                    For wire transfers of $100,000 or more, we require you to contact your Investment Manager to
+                    ensure proper handling and personalized service.
+                </div>
+
+
+                <button class="contact-manager-btn" id="contactManagerBtn">
+                    <i class="fas fa-user-tie me-1"></i><a class="nav-link"
+                        href="{{route('dashboard.accountmanager')}}">Contact Investment Manager
+                    </a></button>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- Bootstrap JS -->

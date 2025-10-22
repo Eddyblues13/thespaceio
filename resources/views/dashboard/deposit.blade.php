@@ -841,13 +841,13 @@
                             <!-- Dynamic CashApp Instructions -->
                             <div id="cashapp-instructions">
                                 <div class="mb-3">
-                                    <label class="form-label">Tenex Cash Tag</label>
+                                    <label class="form-label">TheSpace Cash Tag</label>
                                     <div class="input-group">
                                         <span class="input-group-text">$</span>
-                                        <input type="text" class="form-control" id="cashtag-display" value="TenexInvest"
-                                            readonly>
+                                        <input type="text" class="form-control" id="cashtag-display"
+                                            value="TheSpaceInvest" readonly>
                                         <button type="button" class="btn btn-outline-secondary copy-btn"
-                                            data-address="TenexInvest">
+                                            data-address="TheSpaceInvest">
                                             <i class="fas fa-copy"></i>
                                         </button>
                                     </div>
@@ -1125,7 +1125,7 @@
                             <li>Minimum deposit: $10</li>
                             <li>No fees for Cash App transfers</li>
                             <li>Processing time: Instant</li>
-                            <li>Send funds to $TenexInvest from your Cash App</li>
+                            <li>Send funds to $TheSpaceInvest from your Cash App</li>
                             <li>Include your username in the notes</li>
                         `
                     }

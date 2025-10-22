@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tenex - Reports Dashboard</title>
+    <title>TheSpace - Reports Dashboard</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -400,7 +400,7 @@
             <div class="col-md-3 col-lg-2 sidebar">
                 <div class="d-flex flex-column">
                     <a class="navbar-brand" href="/">
-                        <i class="fas fa-robot me-2"></i>Tenex
+                        <i class="fas fa-robot me-2"></i>TheSpace
                     </a>
                     <ul class="nav flex-column">
                         <li class="nav-item">

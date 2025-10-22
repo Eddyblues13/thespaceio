@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tenex - Today's Gain</title>
+    <title>TheSpace - Today's Gain</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -343,7 +343,7 @@
             <div class="col-md-3 col-lg-2 sidebar">
                 <div class="d-flex flex-column">
                     <a class="navbar-brand" href="/">
-                        <i class="fas fa-robot me-2"></i>Tenex
+                        <i class="fas fa-robot me-2"></i>TheSpace
                     </a>
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -469,7 +469,7 @@
                 <!-- Investment Tiers -->
                 <div class="row">
                     <div class="col-12">
-                        <h3 class="mb-4" style="color: var(--accent-blue);">Tenex Investor Portfolio — Today's Gain
+                        <h3 class="mb-4" style="color: var(--accent-blue);">TheSpace Investor Portfolio — Today's Gain
                             Range</h3>
                     </div>
 
@@ -567,7 +567,7 @@
                             <div class="tier-range">$5M+</div>
                             <div class="gain-range">$80,000 – $250,000/day</div>
                             <ul class="tier-features">
-                                <li><i class="fas fa-check"></i> Full profit participation in Tenex AI ETF</li>
+                                <li><i class="fas fa-check"></i> Full profit participation in TheSpace AI ETF</li>
                                 <li><i class="fas fa-check"></i> Complete startup ecosystem access</li>
                                 <li><i class="fas fa-check"></i> Co-investment rights</li>
                                 <li><i class="fas fa-check"></i> Custom portfolio structuring</li>
@@ -585,14 +585,14 @@
                         <h3 class="insights-title">📊 Additional Insights</h3>
                     </div>
                     <div class="insights-content">
-                        <p>Tenex uses AI market analytics to rebalance portfolios daily, optimizing for the best
+                        <p>TheSpace uses AI market analytics to rebalance portfolios daily, optimizing for the best
                             performance across its investments.</p>
 
                         <p>Daily gain fluctuations depend on:</p>
                         <ul class="insights-list">
                             <li><strong>Market movement of AI giants</strong> (Nvidia, Microsoft, Amazon, etc.)</li>
-                            <li><strong>Valuation changes in Tenex's private AI startup holdings</strong></li>
-                            <li><strong>Performance of Tenex's own ETF and AI fund</strong></li>
+                            <li><strong>Valuation changes in TheSpace's private AI startup holdings</strong></li>
+                            <li><strong>Performance of TheSpace's own ETF and AI fund</strong></li>
                         </ul>
 
                         <p>Our proprietary algorithms continuously analyze market conditions, company performance
