@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\DepositController;
 use App\Http\Controllers\User\SettingsController;
@@ -215,3 +216,67 @@ Route::prefix('user')->middleware('user')->group(function () {
     Route::get('/withdrawal', [WithdrawalController::class, 'index'])->name('dashboard.withdrawal');
     Route::post('/withdrawal', [WithdrawalController::class, 'store'])->name('withdrawal.store');
 });
+
+
+Route::get('admin/login', [App\Http\Controllers\Auth\AdminLoginController::class, 'adminLoginForm'])->name('admin.login');
+Route::post('admin/login', [App\Http\Controllers\Auth\AdminLoginController::class, 'login'])->name('login.submit');
+
+// Admin Routes
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::post('logout', [App\Http\Controllers\Auth\AdminLoginController::class, 'logout'])->name('logout');
+
+    // Protecting admin routes using the 'admin' middleware
+    Route::middleware(['admin'])->group(function () { // Admin Profile Routes
+        // Dashboard
+        Route::get('/home', [App\Http\Controllers\Admin\AdminController::class, 'dashboard'])->name('home');
+        Route::get('/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'dashboard'])->name('dashboard');
+
+        // Users Management
+        Route::prefix('users')->name('users.')->group(function () {
+            Route::get('/', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('index');
+            Route::get('/create', [App\Http\Controllers\Admin\UserController::class, 'create'])->name('create');
+            Route::post('/', [App\Http\Controllers\Admin\UserController::class, 'store'])->name('store');
+            Route::get('/{user}', [App\Http\Controllers\Admin\UserController::class, 'show'])->name('show');
+            Route::get('/{user}/edit', [App\Http\Controllers\Admin\UserController::class, 'edit'])->name('edit');
+            Route::put('/{user}', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('update');
+            Route::delete('/{user}', [App\Http\Controllers\Admin\UserController::class, 'destroy'])->name('destroy');
+            Route::post('/{user}/login-as', [App\Http\Controllers\Admin\UserController::class, 'loginAs'])->name('login-as');
+            Route::post('/{user}/fund', [App\Http\Controllers\Admin\UserController::class, 'addFunds'])->name('fund');
+            Route::post('/{user}/send-email', [App\Http\Controllers\Admin\UserController::class, 'sendEmail'])->name('send-email');
+            Route::get('/{user}/transactions', [App\Http\Controllers\Admin\UserController::class, 'userTransactions'])->name('transactions');
+            Route::get('/{user}/investments', [App\Http\Controllers\Admin\UserController::class, 'userInvestments'])->name('investments');
+        });
+
+        // Transactions Management
+        Route::prefix('transactions')->name('transactions.')->group(function () {
+            Route::get('/', [App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('index');
+            Route::get('/create', [App\Http\Controllers\Admin\TransactionController::class, 'create'])->name('create');
+            Route::post('/', [App\Http\Controllers\Admin\TransactionController::class, 'store'])->name('store');
+            Route::get('/{transaction}', [App\Http\Controllers\Admin\TransactionController::class, 'show'])->name('show');
+            Route::get('/{transaction}/edit', [App\Http\Controllers\Admin\TransactionController::class, 'edit'])->name('edit');
+            Route::put('/{transaction}', [App\Http\Controllers\Admin\TransactionController::class, 'update'])->name('update');
+            Route::delete('/{transaction}', [App\Http\Controllers\Admin\TransactionController::class, 'destroy'])->name('destroy');
+            Route::post('/{transaction}/approve', [App\Http\Controllers\Admin\TransactionController::class, 'approve'])->name('approve');
+            Route::post('/{transaction}/reject', [App\Http\Controllers\Admin\TransactionController::class, 'reject'])->name('reject');
+        });
+
+        // Investments Management
+        Route::prefix('investments')->name('investments.')->group(function () {
+            Route::get('/', [App\Http\Controllers\Admin\InvestmentController::class, 'index'])->name('index');
+            Route::get('/create', [App\Http\Controllers\Admin\InvestmentController::class, 'create'])->name('create');
+            Route::post('/', [App\Http\Controllers\Admin\InvestmentController::class, 'store'])->name('store');
+            Route::get('/{investment}', [App\Http\Controllers\Admin\InvestmentController::class, 'show'])->name('show');
+            Route::get('/{investment}/edit', [App\Http\Controllers\Admin\InvestmentController::class, 'edit'])->name('edit');
+            Route::put('/{investment}', [App\Http\Controllers\Admin\InvestmentController::class, 'update'])->name('update');
+            Route::delete('/{investment}', [App\Http\Controllers\Admin\InvestmentController::class, 'destroy'])->name('destroy');
+        });
+    });
+});
+
+
+
+// Logout Route (if not using Laravel's default auth)
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+})->name('logout');
