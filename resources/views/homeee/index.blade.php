@@ -1649,7 +1649,7 @@
                     <div class="col-lg-3 mb-4">
                         <h4 class="footer-heading">Contact Info</h4>
                         <ul class="list-unstyled">
-                            <li><i class="fas fa-map-marker-alt me-2"></i> 123 AI Street, TechCity, Qatar.</li>
+                            <li><i class="fas fa-map-marker-alt me-2"></i> 25 Canada Square, Canary Wharf, London.</li>
                             <li><i class="fas fa-phone me-2"></i> +971-3335-5678</li>
                             <li><i class="fas fa-envelope me-2"></i> info@thspace.io</li>
                         </ul>

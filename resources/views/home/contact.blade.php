@@ -440,9 +440,7 @@
                         <div class="text-center">
                             <i class="fas fa-map-marker-alt contact-icon"></i>
                             <h4>Our Office</h4>
-                            <p class="contact-detail">123 AI Boulevard</p>
-                            <p class="contact-detail">Tech Valley, CA 94025</p>
-                            <p class="contact-detail">Qatar</p>
+                            <p class="contact-detail">25 Canada Square, Canary Wharf, London</p>
                         </div>
                         <div class="contact-info-card">
                             <div class="text-center">
