@@ -398,6 +398,29 @@
             display: block;
         }
 
+        /* Alert styling */
+        .alert {
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 25px;
+        }
+
+        .alert-danger {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: #f8d7da;
+            border-left: 4px solid var(--error-color);
+        }
+
+        .alert-success {
+            background-color: rgba(40, 167, 69, 0.1);
+            color: #d4edda;
+            border-left: 4px solid var(--success-color);
+        }
+
+        .alert .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+
         /* Mobile-first responsive design */
         @media (max-width: 768px) {
             .auth-container {
@@ -550,85 +573,141 @@
 
         <!-- Right Side - Forms -->
         <div class="auth-right">
+            <!-- Error Display Section -->
+            @if($errors->any())
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <h5 class="alert-heading">Registration Failed!</h5>
+                <ul class="mb-0">
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+
+            @if(session('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+
+            @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+
             <!-- Sign Up Form -->
             <div class="auth-form" id="signup-form">
                 <h2 class="auth-title">Create Account</h2>
                 <p class="auth-subtitle">Join thousands of investors using AI to grow their wealth</p>
 
-                <form method="POST" action="{{ route('register') }}" id="signupForm" class="needs-validation"
+                <form method="POST" action="{{ route('register.submit') }}" id="signupForm" class="needs-validation"
                     novalidate>
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="signup-firstname" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="signup-firstname" name="first_name"
-                                    placeholder="Enter your first name" required>
+                                <input type="text" class="form-control @error('first_name') is-invalid @enderror"
+                                    id="signup-firstname" name="first_name" placeholder="Enter your first name"
+                                    value="{{ old('first_name') }}" required>
                                 <div class="invalid-feedback">
                                     Please provide a valid first name.
                                 </div>
+                                @error('first_name')
+                                <div class="text-danger small mt-1">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="signup-lastname" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="signup-lastname" name="last_name"
-                                    placeholder="Enter your last name" required>
+                                <input type="text" class="form-control @error('last_name') is-invalid @enderror"
+                                    id="signup-lastname" name="last_name" placeholder="Enter your last name"
+                                    value="{{ old('last_name') }}" required>
                                 <div class="invalid-feedback">
                                     Please provide a valid last name.
                                 </div>
+                                @error('last_name')
+                                <div class="text-danger small mt-1">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="signup-email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="signup-email" name="email"
-                            placeholder="Enter your email" required>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="signup-email"
+                            name="email" placeholder="Enter your email" value="{{ old('email') }}" required>
                         <div class="invalid-feedback">
                             Please provide a valid email address.
                         </div>
+                        @error('email')
+                        <div class="text-danger small mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <!-- Phone Number with Country Code -->
                     <div class="mb-3">
                         <label for="signup-phone" class="form-label">Phone Number</label>
                         <div class="phone-input-group">
-                            <select class="form-control country-select" id="country-code" name="country_code" required>
-                                <option value="" disabled selected>Code</option>
-                                <option value="+1">+1 (USA)</option>
-                                <option value="+44">+44 (UK)</option>
-                                <option value="+61">+61 (AUS)</option>
-                                <option value="+49">+49 (GER)</option>
-                                <option value="+33">+33 (FRA)</option>
-                                <option value="+81">+81 (JPN)</option>
-                                <option value="+86">+86 (CHN)</option>
-                                <option value="+91">+91 (IND)</option>
+                            <select class="form-control country-select @error('country_code') is-invalid @enderror"
+                                id="country-code" name="country_code" required>
+                                <option value="" disabled {{ old('country_code') ? '' : 'selected' }}>Code</option>
+                                <option value="+1" {{ old('country_code')=='+1' ? 'selected' : '' }}>+1 (USA)</option>
+                                <option value="+44" {{ old('country_code')=='+44' ? 'selected' : '' }}>+44 (UK)</option>
+                                <option value="+61" {{ old('country_code')=='+61' ? 'selected' : '' }}>+61 (AUS)
+                                </option>
+                                <option value="+49" {{ old('country_code')=='+49' ? 'selected' : '' }}>+49 (GER)
+                                </option>
+                                <option value="+33" {{ old('country_code')=='+33' ? 'selected' : '' }}>+33 (FRA)
+                                </option>
+                                <option value="+81" {{ old('country_code')=='+81' ? 'selected' : '' }}>+81 (JPN)
+                                </option>
+                                <option value="+86" {{ old('country_code')=='+86' ? 'selected' : '' }}>+86 (CHN)
+                                </option>
+                                <option value="+91" {{ old('country_code')=='+91' ? 'selected' : '' }}>+91 (IND)
+                                </option>
                             </select>
-                            <input type="tel" class="form-control phone-input" id="signup-phone" name="phone"
-                                placeholder="Enter your phone number" required>
+                            <input type="tel" class="form-control phone-input @error('phone') is-invalid @enderror"
+                                id="signup-phone" name="phone" placeholder="Enter your phone number"
+                                value="{{ old('phone') }}" required>
                         </div>
                         <div class="invalid-feedback">
                             Please provide a valid phone number.
                         </div>
+                        @error('country_code')
+                        <div class="text-danger small mt-1">{{ $message }}</div>
+                        @enderror
+                        @error('phone')
+                        <div class="text-danger small mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="mb-3 password-container">
                         <label for="signup-password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="signup-password" name="password"
-                            placeholder="Create a password" required minlength="8">
+                        <input type="password" class="form-control @error('password') is-invalid @enderror"
+                            id="signup-password" name="password" placeholder="Create a password" required minlength="8">
                         <button type="button" class="password-toggle" id="toggleSignupPassword">
                             <i class="fas fa-eye"></i>
                         </button>
                         <div class="invalid-feedback">
                             Password must be at least 8 characters long.
                         </div>
+                        @error('password')
+                        <div class="text-danger small mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="mb-3 password-container">
                         <label for="signup-confirm-password" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="signup-confirm-password"
-                            name="password_confirmation" placeholder="Confirm your password" required>
+                        <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror"
+                            id="signup-confirm-password" name="password_confirmation"
+                            placeholder="Confirm your password" required>
                         <button type="button" class="password-toggle" id="toggleConfirmPassword">
                             <i class="fas fa-eye"></i>
                         </button>
@@ -640,14 +719,19 @@
                     <!-- Referral Code (Optional) -->
                     <div class="mb-4">
                         <label for="referral-code" class="form-label optional-label">Referral Code</label>
-                        <input type="text" class="form-control" id="referral-code" name="referral_code"
-                            placeholder="Enter referral code (if any)">
+                        <input type="text" class="form-control @error('referral_code') is-invalid @enderror"
+                            id="referral-code" name="referral_code" placeholder="Enter referral code (if any)"
+                            value="{{ old('referral_code') }}">
                         <div class="form-text">If you were referred by someone, enter their code here</div>
+                        @error('referral_code')
+                        <div class="text-danger small mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="mb-4">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="agreeTerms" name="agree_terms" required>
+                            <input class="form-check-input @error('agree_terms') is-invalid @enderror" type="checkbox"
+                                id="agreeTerms" name="agree_terms" {{ old('agree_terms') ? 'checked' : '' }} required>
                             <label class="form-check-label" for="agreeTerms">
                                 I agree to the <a href="#" class="auth-link">Terms of Service</a> and <a href="#"
                                     class="auth-link">Privacy Policy</a>
@@ -655,15 +739,16 @@
                             <div class="invalid-feedback">
                                 You must agree before submitting.
                             </div>
+                            @error('agree_terms')
+                            <div class="text-danger small mt-1">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
 
                     <button type="submit" class="btn btn-auth">Create Account</button>
 
-
-
                     <div class="auth-switch">
-                        Already have an account? <a href="{{ route('login') }}" class="auth-link">Sign in</a>
+                        Already have an account? <a href="{{ route('login.page') }}" class="auth-link">Sign in</a>
                     </div>
                 </form>
             </div>
@@ -748,6 +833,15 @@
                         input.classList.remove('is-valid');
                     }
                 });
+            });
+            
+            // Auto-dismiss alerts after 5 seconds
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                setTimeout(() => {
+                    const bsAlert = new bootstrap.Alert(alert);
+                    bsAlert.close();
+                }, 5000);
             });
         });
     </script>

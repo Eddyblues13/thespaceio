@@ -28,24 +28,35 @@ class AuthController extends Controller
      */
     public function register(Request $request)
     {
+        // Debug logging
+        Log::info('Registration attempt:', $request->except('password', 'password_confirmation'));
+
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
+            Log::info('Validation failed:', $validator->errors()->toArray());
             return redirect()->back()
                 ->withErrors($validator)
-                ->withInput();
+                ->withInput($request->except('password', 'password_confirmation'));
         }
 
         try {
+            Log::info('Creating user...');
             $user = $this->create($request->all());
+            Log::info('User created:', ['id' => $user->id, 'email' => $user->email]);
+
             Auth::login($user);
+            Log::info('User logged in successfully');
 
             return redirect()->route('dashboard')
                 ->with('success', 'Registration successful! Welcome to AI Investment Platform.');
         } catch (\Exception $e) {
+            Log::error('Registration exception: ' . $e->getMessage());
+            Log::error('Registration trace: ' . $e->getTraceAsString());
+
             return redirect()->back()
-                ->with('error', 'Registration failed. Please try again.')
-                ->withInput();
+                ->with('error', 'Registration failed: ' . $e->getMessage())
+                ->withInput($request->except('password', 'password_confirmation'));
         }
     }
 
@@ -101,12 +112,16 @@ class AuthController extends Controller
             }
         }
 
+        // Generate referral code for the new user
+        $userData['referral_code'] = $this->generateReferralCode();
+
         // ✅ First, create the user
         $user = User::create($userData);
 
         // ✅ Then, send the welcome email
         try {
             Mail::to($user->email)->send(new WelcomeEmail($user));
+            Log::info('Welcome email sent to: ' . $user->email);
         } catch (\Exception $e) {
             Log::error('Failed to send welcome email: ' . $e->getMessage());
         }
@@ -114,6 +129,17 @@ class AuthController extends Controller
         return $user;
     }
 
+    /**
+     * Generate a unique referral code.
+     */
+    private function generateReferralCode()
+    {
+        do {
+            $code = strtoupper(substr(md5(uniqid(rand(), true)), 0, 8));
+        } while (User::where('referral_code', $code)->exists());
+
+        return $code;
+    }
 
     /**
      * Show the login form.
@@ -168,8 +194,4 @@ class AuthController extends Controller
         return redirect('/')
             ->with('success', 'You have been logged out successfully.');
     }
-
-    /**
-     * Show the dashboard.
-     */
 }

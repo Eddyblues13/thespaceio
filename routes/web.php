@@ -120,11 +120,6 @@ Route::get('/signin', function () {
     return view('home.signin');
 });
 
-
-
-
-
-
 // Login routes (only accessible to guests)
 Route::middleware('guest')->group(function () {
     Route::get('/login', [App\Http\Controllers\Auth\AuthController::class, 'showLoginForm'])->name('login.page');
@@ -142,11 +137,6 @@ Route::middleware('guest')->group(function () {
     Route::get('/signup/{referral_code}', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('referral.signup');
 });
 
-
-
-
-
-// Password Reset Routes
 // Password Reset Routes
 Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])
     ->name('password.request');
@@ -169,14 +159,15 @@ Route::post('/verify-code', [App\Http\Controllers\Auth\EmailVerificationControll
 Route::get('/resend-verification-code', [App\Http\Controllers\Auth\EmailVerificationController::class, 'resendVerificationCode'])->name('resend.verification.code');
 Route::post('/skip-code', [App\Http\Controllers\Auth\EmailVerificationController::class, 'skipCode'])->name('skip.code');
 
-
-
-
+// Dashboard route accessible after registration (temporary for testing)
+Route::get('/dashboard', function () {
+    return view('user.dashboard');
+})->name('dashboard')->middleware('auth');
 
 Route::prefix('user')->middleware('user')->group(function () {
 
     // Dashboard
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard');
     Route::get('/home', [DashboardController::class, 'index'])->name('home');
     Route::get('/todaysgain', [DashboardController::class, 'todaysGain'])->name('dashboard.todaysgain');
     Route::get('/portfolio', [DashboardController::class, 'portfolio'])->name('dashboard.portfolio');
@@ -272,8 +263,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
         });
     });
 });
-
-
 
 // Logout Route (if not using Laravel's default auth)
 Route::post('/logout', function () {
