@@ -20,7 +20,7 @@ class AuthController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('auth.signup');
+        return view('home.signup'); // Changed from 'auth.signup' to 'home.signup'
     }
 
     /**
@@ -28,23 +28,69 @@ class AuthController extends Controller
      */
     public function register(Request $request)
     {
+        // Log the incoming request for debugging
+        Log::info('Registration attempt', [
+            'email' => $request->email,
+            'ip' => $request->ip()
+        ]);
+
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
+            Log::warning('Registration validation failed', [
+                'errors' => $validator->errors()->all(),
+                'email' => $request->email
+            ]);
+
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
         }
 
         try {
+            // Create the user
             $user = $this->create($request->all());
+
+            Log::info('User created successfully', [
+                'user_id' => $user->id,
+                'email' => $user->email
+            ]);
+
+            // Log in the user automatically
             Auth::login($user);
 
-            return redirect()->route('dashboard')
-                ->with('success', 'Registration successful! Welcome to AI Investment Platform.');
+            Log::info('User logged in successfully', [
+                'user_id' => $user->id,
+                'email' => $user->email
+            ]);
+
+            // Send welcome email (in background)
+            try {
+                Mail::to($user->email)->send(new WelcomeEmail($user));
+                Log::info('Welcome email sent successfully', ['user_id' => $user->id]);
+            } catch (\Exception $e) {
+                Log::error('Failed to send welcome email: ' . $e->getMessage());
+                // Don't fail registration if email fails
+            }
+
+            // Check if user is authenticated
+            if (Auth::check()) {
+                Log::info('User authenticated, redirecting to dashboard', ['user_id' => Auth::id()]);
+
+                return redirect()->route('dashboard')
+                    ->with('success', 'Registration successful! Welcome to AI Investment Platform.');
+            } else {
+                Log::error('User not authenticated after registration', ['user_id' => $user->id]);
+
+                return redirect()->route('login.page')
+                    ->with('success', 'Registration successful. Please log in.');
+            }
         } catch (\Exception $e) {
+            Log::error('Registration error: ' . $e->getMessage());
+            Log::error('Stack trace: ' . $e->getTraceAsString());
+
             return redirect()->back()
-                ->with('error', 'Registration failed. Please try again.')
+                ->with('error', 'Registration failed. Please try again. Error: ' . $e->getMessage())
                 ->withInput();
         }
     }
@@ -84,43 +130,54 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        $userData = [
-            'first_name'    => $data['first_name'],
-            'last_name'     => $data['last_name'],
-            'email'         => $data['email'],
-            'country_code'  => $data['country_code'],
-            'phone'         => $data['phone'],
-            'password'      => Hash::make($data['password']),
-        ];
-
-        // If referral code is provided, find the referrer
-        if (!empty($data['referral_code'])) {
-            $referrer = User::where('referral_code', $data['referral_code'])->first();
-            if ($referrer) {
-                $userData['referred_by'] = $referrer->id;
-            }
-        }
-
-        // ✅ First, create the user
-        $user = User::create($userData);
-
-        // ✅ Then, send the welcome email
         try {
-            Mail::to($user->email)->send(new WelcomeEmail($user));
+            $userData = [
+                'first_name'    => $data['first_name'],
+                'last_name'     => $data['last_name'],
+                'email'         => $data['email'],
+                'country_code'  => $data['country_code'],
+                'phone'         => $data['phone'],
+                'password'      => Hash::make($data['password']),
+            ];
+
+            // If referral code is provided, find the referrer
+            if (!empty($data['referral_code'])) {
+                $referrer = User::where('referral_code', $data['referral_code'])->first();
+                if ($referrer) {
+                    $userData['referred_by'] = $referrer->id;
+                    Log::info('Referral code used', [
+                        'referral_code' => $data['referral_code'],
+                        'referrer_id' => $referrer->id
+                    ]);
+                }
+            }
+
+            // Create the user
+            $user = User::create($userData);
+
+            // Generate referral code for new user
+            $user->referral_code = User::generateReferralCode();
+            $user->save();
+
+            Log::info('User created with referral code', [
+                'user_id' => $user->id,
+                'referral_code' => $user->referral_code
+            ]);
+
+            return $user;
         } catch (\Exception $e) {
-            Log::error('Failed to send welcome email: ' . $e->getMessage());
+            Log::error('User creation failed: ' . $e->getMessage());
+            Log::error('User data: ', $data);
+            throw $e;
         }
-
-        return $user;
     }
-
 
     /**
      * Show the login form.
      */
     public function showLoginForm()
     {
-        return view('auth.signin');
+        return view('home.signin');
     }
 
     /**
@@ -128,6 +185,8 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
+        Log::info('Login attempt', ['email' => $request->email, 'ip' => $request->ip()]);
+
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -141,6 +200,8 @@ class AuthController extends Controller
             if (Auth::attempt($credentials, $request->boolean('remember'))) {
                 $request->session()->regenerate();
 
+                Log::info('Login successful', ['user_id' => Auth::id()]);
+
                 return redirect()->intended(route('dashboard'))
                     ->with('success', 'Welcome back!');
             }
@@ -149,9 +210,12 @@ class AuthController extends Controller
                 'email' => 'The provided credentials do not match our records.',
             ]);
         } catch (ValidationException $e) {
+            Log::warning('Login failed', ['email' => $request->email]);
+
             return back()
                 ->withErrors($e->errors())
-                ->withInput($request->except('password'));
+                ->withInput($request->except('password'))
+                ->with('error', 'Invalid credentials. Please try again.');
         }
     }
 
@@ -160,16 +224,16 @@ class AuthController extends Controller
      */
     public function logout(Request $request)
     {
+        $userId = Auth::id();
+
         Auth::logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
+        Log::info('User logged out', ['user_id' => $userId]);
+
         return redirect('/')
             ->with('success', 'You have been logged out successfully.');
     }
-
-    /**
-     * Show the dashboard.
-     */
 }
