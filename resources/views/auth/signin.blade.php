@@ -420,18 +420,6 @@
                         <a href="{{ route('password.request') }}" class="auth-link">Forgot your password?</a>
                     </div>
 
-                    <div class="auth-divider">
-                        <span class="auth-divider-text">Or continue with</span>
-                    </div>
-
-                    <button type="button" class="btn btn-social">
-                        <i class="fab fa-google"></i> Continue with Google
-                    </button>
-
-                    <button type="button" class="btn btn-social">
-                        <i class="fab fa-apple"></i> Continue with Apple
-                    </button>
-
                     <div class="auth-switch">
                         Don't have an account? <a href="{{ route('register') }}" class="auth-link">Sign up</a>
                     </div>

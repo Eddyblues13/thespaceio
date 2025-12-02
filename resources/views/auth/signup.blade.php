@@ -555,7 +555,7 @@
                 <h2 class="auth-title">Create Account</h2>
                 <p class="auth-subtitle">Join thousands of investors using AI to grow their wealth</p>
 
-                <form method="POST" action="{{ route('register') }}" id="signupForm" class="needs-validation"
+                <form method="POST" action="{{ route('register.submit') }}" id="signupForm" class="needs-validation"
                     novalidate>
                     @csrf
                     <div class="row">
