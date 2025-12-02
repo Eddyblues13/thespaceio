@@ -555,33 +555,6 @@
                 <h2 class="auth-title">Create Account</h2>
                 <p class="auth-subtitle">Join thousands of investors using AI to grow their wealth</p>
 
-                <!-- Error Messages -->
-                @if($errors->any())
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <h5 class="alert-heading">Please fix the following errors:</h5>
-                    <ul class="mb-0">
-                        @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                @endif
-
-                @if(session('error'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('error') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                @endif
-
-                @if(session('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                @endif
-
                 <form method="POST" action="{{ route('register') }}" id="signupForm" class="needs-validation"
                     novalidate>
                     @csrf
@@ -590,7 +563,7 @@
                             <div class="mb-3">
                                 <label for="signup-firstname" class="form-label">First Name</label>
                                 <input type="text" class="form-control" id="signup-firstname" name="first_name"
-                                    placeholder="Enter your first name" value="{{ old('first_name') }}" required>
+                                    placeholder="Enter your first name" required>
                                 <div class="invalid-feedback">
                                     Please provide a valid first name.
                                 </div>
@@ -600,7 +573,7 @@
                             <div class="mb-3">
                                 <label for="signup-lastname" class="form-label">Last Name</label>
                                 <input type="text" class="form-control" id="signup-lastname" name="last_name"
-                                    placeholder="Enter your last name" value="{{ old('last_name') }}" required>
+                                    placeholder="Enter your last name" required>
                                 <div class="invalid-feedback">
                                     Please provide a valid last name.
                                 </div>
@@ -611,7 +584,7 @@
                     <div class="mb-3">
                         <label for="signup-email" class="form-label">Email Address</label>
                         <input type="email" class="form-control" id="signup-email" name="email"
-                            placeholder="Enter your email" value="{{ old('email') }}" required>
+                            placeholder="Enter your email" required>
                         <div class="invalid-feedback">
                             Please provide a valid email address.
                         </div>
@@ -622,24 +595,18 @@
                         <label for="signup-phone" class="form-label">Phone Number</label>
                         <div class="phone-input-group">
                             <select class="form-control country-select" id="country-code" name="country_code" required>
-                                <option value="" disabled {{ old('country_code') ? '' : 'selected' }}>Code</option>
-                                <option value="+1" {{ old('country_code')=='+1' ? 'selected' : '' }}>+1 (USA)</option>
-                                <option value="+44" {{ old('country_code')=='+44' ? 'selected' : '' }}>+44 (UK)</option>
-                                <option value="+61" {{ old('country_code')=='+61' ? 'selected' : '' }}>+61 (AUS)
-                                </option>
-                                <option value="+49" {{ old('country_code')=='+49' ? 'selected' : '' }}>+49 (GER)
-                                </option>
-                                <option value="+33" {{ old('country_code')=='+33' ? 'selected' : '' }}>+33 (FRA)
-                                </option>
-                                <option value="+81" {{ old('country_code')=='+81' ? 'selected' : '' }}>+81 (JPN)
-                                </option>
-                                <option value="+86" {{ old('country_code')=='+86' ? 'selected' : '' }}>+86 (CHN)
-                                </option>
-                                <option value="+91" {{ old('country_code')=='+91' ? 'selected' : '' }}>+91 (IND)
-                                </option>
+                                <option value="" disabled selected>Code</option>
+                                <option value="+1">+1 (USA)</option>
+                                <option value="+44">+44 (UK)</option>
+                                <option value="+61">+61 (AUS)</option>
+                                <option value="+49">+49 (GER)</option>
+                                <option value="+33">+33 (FRA)</option>
+                                <option value="+81">+81 (JPN)</option>
+                                <option value="+86">+86 (CHN)</option>
+                                <option value="+91">+91 (IND)</option>
                             </select>
                             <input type="tel" class="form-control phone-input" id="signup-phone" name="phone"
-                                placeholder="Enter your phone number" value="{{ old('phone') }}" required>
+                                placeholder="Enter your phone number" required>
                         </div>
                         <div class="invalid-feedback">
                             Please provide a valid phone number.
@@ -674,14 +641,13 @@
                     <div class="mb-4">
                         <label for="referral-code" class="form-label optional-label">Referral Code</label>
                         <input type="text" class="form-control" id="referral-code" name="referral_code"
-                            placeholder="Enter referral code (if any)" value="{{ old('referral_code') }}">
+                            placeholder="Enter referral code (if any)">
                         <div class="form-text">If you were referred by someone, enter their code here</div>
                     </div>
 
                     <div class="mb-4">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="agreeTerms" name="agree_terms" required
-                                {{ old('agree_terms') ? 'checked' : '' }}>
+                            <input class="form-check-input" type="checkbox" id="agreeTerms" name="agree_terms" required>
                             <label class="form-check-label" for="agreeTerms">
                                 I agree to the <a href="#" class="auth-link">Terms of Service</a> and <a href="#"
                                     class="auth-link">Privacy Policy</a>
@@ -694,8 +660,10 @@
 
                     <button type="submit" class="btn btn-auth">Create Account</button>
 
+
+
                     <div class="auth-switch">
-                        Already have an account? <a href="{{ route('login.page') }}" class="auth-link">Sign in</a>
+                        Already have an account? <a href="{{ route('login') }}" class="auth-link">Sign in</a>
                     </div>
                 </form>
             </div>
