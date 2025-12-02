@@ -168,6 +168,7 @@ Route::prefix('user')->middleware('user')->group(function () {
 
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/home', [DashboardController::class, 'index'])->name('home');
     Route::get('/todaysgain', [DashboardController::class, 'todaysGain'])->name('dashboard.todaysgain');
     Route::get('/portfolio', [DashboardController::class, 'portfolio'])->name('dashboard.portfolio');
