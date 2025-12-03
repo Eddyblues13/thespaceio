@@ -433,87 +433,82 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-        // Password toggle for login
-    const toggle = document.getElementById("toggleLoginPassword");
-    const passwordInput = document.getElementById("login-password");
+            // Password toggle for login
+            const toggle = document.getElementById("toggleLoginPassword");
+            const passwordInput = document.getElementById("login-password");
 
-    toggle.addEventListener("click", function () {
-        const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
-        passwordInput.setAttribute("type", type);
+            if (toggle && passwordInput) {
+                toggle.addEventListener("click", function () {
+                    const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+                    passwordInput.setAttribute("type", type);
 
-        // Change icon
-        toggle.innerHTML = type === "password"
-            ? '<i class="fas fa-eye"></i>'
-            : '<i class="fas fa-eye-slash"></i>';
+                    // Change icon
+                    const icon = toggle.querySelector("i");
+                    if (type === "password") {
+                        icon.classList.remove("fa-eye-slash");
+                        icon.classList.add("fa-eye");
+                    } else {
+                        icon.classList.remove("fa-eye");
+                        icon.classList.add("fa-eye-slash");
+                    }
                 });
             }
-            
-            setupPasswordToggle('toggleSigninPassword', 'signin-password');
-            
+
             // Form validation
             const form = document.getElementById('signinForm');
             
-            // Form submission
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Check form validity
-                if (!form.checkValidity()) {
-                    form.classList.add('was-validated');
-                    return;
-                }
-                
-                // Get form values
-                const email = document.getElementById('signin-email').value;
-                const password = document.getElementById('signin-password').value;
-                const rememberMe = document.getElementById('rememberMe').checked;
-                
-                // Demo authentication logic
-                if (email === 'demo@thspace.io' && password === 'demo1234') {
-                    // Successful login
-                    alert('Login successful! Welcome back to TheSpace.');
+            if (form) {
+                // Form submission
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
                     
-                    // In a real application, you would redirect to dashboard
-                    // window.location.href = 'dashboard.html';
-                } else {
-                    // Failed login
-                    alert('Invalid email or password. Please try again.\n\nHint: Use the demo credentials provided.');
-                    
-                    // Add error styling to inputs
-                    document.getElementById('signin-email').classList.add('is-invalid');
-                    document.getElementById('signin-password').classList.add('is-invalid');
-                }
-            });
-            
-            // Real-time validation for fields
-            const inputs = form.querySelectorAll('input[required]');
-            inputs.forEach(input => {
-                input.addEventListener('input', function() {
-                    if (input.checkValidity()) {
-                        input.classList.remove('is-invalid');
-                        input.classList.add('is-valid');
-                    } else {
-                        input.classList.remove('is-valid');
-                        input.classList.add('is-invalid');
+                    // Check form validity
+                    if (!form.checkValidity()) {
+                        form.classList.add('was-validated');
+                        return;
                     }
+                    
+                    // If form is valid, submit it
+                    this.submit();
                 });
-            });
-            
-            // Auto-fill demo credentials for testing
-            document.getElementById('signin-email').addEventListener('focus', function() {
-                if (this.value === '') {
-                    this.value = 'demo@thspace.io';
-                    this.classList.add('is-valid');
+                
+                // Real-time validation for fields
+                const inputs = form.querySelectorAll('input[required]');
+                inputs.forEach(input => {
+                    input.addEventListener('input', function() {
+                        if (input.checkValidity()) {
+                            input.classList.remove('is-invalid');
+                            input.classList.add('is-valid');
+                        } else {
+                            input.classList.remove('is-valid');
+                            input.classList.add('is-invalid');
+                        }
+                    });
+                });
+                
+                // Auto-fill demo credentials for testing (optional)
+                const emailInput = document.getElementById('login-email');
+                const passwordInputField = document.getElementById('login-password');
+                
+                if (emailInput) {
+                    emailInput.addEventListener('focus', function() {
+                        if (this.value === '') {
+                            this.value = 'demo@thspace.io';
+                            this.classList.add('is-valid');
+                        }
+                    });
                 }
-            });
-            
-            document.getElementById('signin-password').addEventListener('focus', function() {
-                if (this.value === '') {
-                    this.value = 'demo1234';
-                    this.classList.add('is-valid');
+                
+                if (passwordInputField) {
+                    passwordInputField.addEventListener('focus', function() {
+                        if (this.value === '') {
+                            this.value = 'demo1234';
+                            this.classList.add('is-valid');
+                        }
+                    });
                 }
-            });
+            }
         });
     </script>
 </body>
