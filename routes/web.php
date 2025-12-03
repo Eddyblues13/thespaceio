@@ -160,9 +160,6 @@ Route::get('/resend-verification-code', [App\Http\Controllers\Auth\EmailVerifica
 Route::post('/skip-code', [App\Http\Controllers\Auth\EmailVerificationController::class, 'skipCode'])->name('skip.code');
 
 // Dashboard route accessible after registration (temporary for testing)
-Route::get('/dashboard', function () {
-    return view('user.dashboard');
-})->name('dashboard')->middleware('auth');
 
 Route::prefix('user')->middleware('user')->group(function () {
 
