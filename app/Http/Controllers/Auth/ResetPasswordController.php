@@ -25,6 +25,8 @@ class ResetPasswordController extends Controller
     /**
      * Reset the given user's password.
      */
+
+
     public function reset(Request $request)
     {
         // Validate input
@@ -62,6 +64,43 @@ class ResetPasswordController extends Controller
             'message' => 'Unable to reset password. Please try again.'
         ], 422);
     }
+    // public function reset(Request $request)
+    // {
+    //     // Validate input
+    //     $validator = Validator::make($request->all(), [
+    //         'token' => 'required',
+    //         'email' => 'required|email',
+    //         'password' => 'required|confirmed|min:8',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         return response()->json([
+    //             'success' => false,
+    //             'errors' => $validator->errors()
+    //         ], 422);
+    //     }
+
+    //     // Reset password
+    //     $response = Password::broker()->reset(
+    //         $request->only('email', 'password', 'password_confirmation', 'token'),
+    //         function ($user, $password) {
+    //             $this->resetPassword($user, $password);
+    //         }
+    //     );
+
+    //     // Handle response
+    //     if ($response === Password::PASSWORD_RESET) {
+    //         return response()->json([
+    //             'success' => true,
+    //             'message' => 'Password has been reset successfully!'
+    //         ]);
+    //     }
+
+    //     return response()->json([
+    //         'success' => false,
+    //         'message' => 'Unable to reset password. Please try again.'
+    //     ], 422);
+    // }
 
     /**
      * Reset the user's password.

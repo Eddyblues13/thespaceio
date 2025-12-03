@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <style>
         :root {
             --primary-blue: #061b2e;
@@ -23,6 +25,10 @@
             --success-green: #00c853;
             --warning-orange: #ff9800;
             --danger-red: #f44336;
+            --change-password-color: #ff9800;
+            /* Orange for visibility */
+            --logout-color: #f44336;
+            /* Red for visibility */
         }
 
         body {
@@ -127,17 +133,53 @@
             background-color: var(--primary-blue);
             border: 1px solid var(--border-color);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            min-width: 220px;
         }
 
         .dropdown-item {
             color: #a8c6e5;
             padding: 0.7rem 1rem;
             transition: all 0.2s;
+            display: flex;
+            align-items: center;
         }
 
         .dropdown-item:hover {
             background-color: var(--light-blue);
             color: white;
+        }
+
+        /* HIGHLIGHTED OPTIONS - Very Visible */
+        .dropdown-item.change-password {
+            background: linear-gradient(45deg, rgba(255, 152, 0, 0.1), rgba(255, 152, 0, 0.2));
+            border-left: 3px solid var(--change-password-color);
+            color: #ffcc80 !important;
+            font-weight: 600;
+        }
+
+        .dropdown-item.change-password i {
+            color: var(--change-password-color) !important;
+        }
+
+        .dropdown-item.change-password:hover {
+            background: linear-gradient(45deg, rgba(255, 152, 0, 0.2), rgba(255, 152, 0, 0.3));
+            color: white !important;
+        }
+
+        .dropdown-item.logout {
+            background: linear-gradient(45deg, rgba(244, 67, 54, 0.1), rgba(244, 67, 54, 0.2));
+            border-left: 3px solid var(--logout-color);
+            color: #ff8a80 !important;
+            font-weight: 600;
+        }
+
+        .dropdown-item.logout i {
+            color: var(--logout-color) !important;
+        }
+
+        .dropdown-item.logout:hover {
+            background: linear-gradient(45deg, rgba(244, 67, 54, 0.2), rgba(244, 67, 54, 0.3));
+            color: white !important;
         }
 
         .dropdown-divider {
@@ -559,6 +601,129 @@
             color: var(--danger-red);
         }
 
+        /* Quick Action Buttons on Dashboard */
+        .quick-actions-container {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: var(--primary-blue);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .quick-actions-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: var(--text-color);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .quick-actions-title i {
+            color: var(--accent-blue);
+        }
+
+        .quick-actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .quick-action-card {
+            background-color: var(--light-blue);
+            border-radius: 8px;
+            padding: 25px 20px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .quick-action-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .quick-action-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+        }
+
+        .quick-action-card.change-password-card .quick-action-icon {
+            background-color: rgba(255, 152, 0, 0.2);
+            color: var(--change-password-color);
+            border: 2px solid rgba(255, 152, 0, 0.3);
+        }
+
+        .quick-action-card.logout-card .quick-action-icon {
+            background-color: rgba(244, 67, 54, 0.2);
+            color: var(--logout-color);
+            border: 2px solid rgba(244, 67, 54, 0.3);
+        }
+
+        .quick-action-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .quick-action-card.change-password-card .quick-action-title {
+            color: #ffcc80;
+        }
+
+        .quick-action-card.logout-card .quick-action-title {
+            color: #ff8a80;
+        }
+
+        .quick-action-description {
+            font-size: 0.9rem;
+            color: #a8c6e5;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .quick-action-btn {
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+
+        .quick-action-card.change-password-card .quick-action-btn {
+            background-color: var(--change-password-color);
+            color: white;
+        }
+
+        .quick-action-card.logout-card .quick-action-btn {
+            background-color: var(--logout-color);
+            color: white;
+        }
+
+        .quick-action-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .welcome-notification {
@@ -586,6 +751,10 @@
 
             .action-button {
                 min-height: 55px;
+            }
+
+            .quick-actions-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -615,6 +784,10 @@
             .action-button {
                 padding: 12px 15px;
             }
+
+            .quick-action-card {
+                padding: 20px 15px;
+            }
         }
     </style>
 
@@ -629,7 +802,7 @@ window.smartsupp||(function(d) {
   c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
 })(document);
     </script>
-    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+    <noscript> Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
 
 </head>
 
@@ -696,9 +869,10 @@ window.smartsupp||(function(d) {
                         </a>
                     </li>
 
-                    <!-- User Dropdown -->
+                    <!-- User Dropdown - Now Very Visible -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            style="background-color: var(--light-blue); padding: 8px 15px; border-radius: 8px;">
                             <div class="user-info-nav">
                                 <div class="user-avatar-nav">
                                     {{ strtoupper(substr(Auth::user()->first_name ?? Auth::user()->name, 0, 1)) }}
@@ -713,26 +887,38 @@ window.smartsupp||(function(d) {
                                         {{ Auth::user()->tier ?? Auth::user()->role ?? 'Investor' }}
                                     </small>
                                 </div>
+                                <i class="fas fa-chevron-down ms-2" style="color: #a8c6e5;"></i>
                             </div>
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="{{route('dashboard')}}"><i
-                                        class="fas fa-user me-2"></i>Profile</a>
-                            </li>
-                            <li><a class="dropdown-item" href="{{route('dashboard')}}"><i
-                                        class="fas fa-lock me-2"></i>Security</a></li>
+                                        class="fas fa-user me-2"></i>Profile</a></li>
+                            <li><a class="dropdown-item" href="{{route('dashboard.settings')}}"><i
+                                        class="fas fa-cog me-2"></i>Settings</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="{{route('dashboard')}}"><i
-                                        class="fas fa-question-circle me-2"></i>Help & Support</a></li>
+                            <!-- HIGHLIGHTED CHANGE PASSWORD OPTION -->
+                            <li>
+                                <a class="dropdown-item change-password" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#changePasswordModal">
+                                    <i class="fas fa-key me-2"></i><strong>Change Password</strong>
+                                </a>
+                            </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-question-circle me-2"></i>Help &
+                                    Support</a></li>
                             <li>
-                                <a class="dropdown-item text-danger" href="{{route('dashboard')}}">
-                                    <i class="fas fa-arrow-left me-2"></i>Back to Main Site
+                                <hr class="dropdown-divider">
+                            </li>
+                            <!-- HIGHLIGHTED LOGOUT OPTION -->
+                            <li>
+                                <a class="dropdown-item logout" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt me-2"></i><strong>Logout</strong>
                                 </a>
                             </li>
                         </ul>
@@ -766,6 +952,8 @@ window.smartsupp||(function(d) {
 
     <!-- Main Content -->
     <div class="container-fluid main-content">
+
+
         <!-- Deposit Guidelines Section -->
         <div class="deposit-guidelines">
             <div class="guidelines-card">
@@ -849,7 +1037,8 @@ window.smartsupp||(function(d) {
                                 Request Account Manager
                             </a>
                             <div class="bottom-buttons">
-                                <a href="{{route('dashboard.directdeposit')}}" class="action-button direct-deposit-button">
+                                <a href="{{route('dashboard.directdeposit')}}"
+                                    class="action-button direct-deposit-button">
                                     <i class="fas fa-money-bill-wave"></i>
                                     Direct Deposit
                                 </a>
@@ -861,6 +1050,180 @@ window.smartsupp||(function(d) {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Quick Actions Section - VERY VISIBLE ON DASHBOARD -->
+        <div class="quick-actions-container">
+            <h2 class="quick-actions-title">
+                <i class="fas fa-bolt"></i> Quick Actions
+            </h2>
+            <div class="quick-actions-grid">
+                <!-- Change Password Card -->
+                <div class="quick-action-card change-password-card">
+                    <div class="quick-action-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3 class="quick-action-title">Change Password</h3>
+                    <p class="quick-action-description">
+                        Update your account password for enhanced security. Recommended every 90 days.
+                    </p>
+                    <button class="quick-action-btn" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
+                        <i class="fas fa-lock me-1"></i> Change Password
+                    </button>
+                </div>
+
+                <!-- Logout Card -->
+                <div class="quick-action-card logout-card">
+                    <div class="quick-action-icon">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </div>
+                    <h3 class="quick-action-title">Logout</h3>
+                    <p class="quick-action-description">
+                        Securely logout from your account. Always logout when using shared devices.
+                    </p>
+                    <button class="quick-action-btn" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt me-1"></i> Logout Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content"
+                style="background-color: var(--primary-blue); border: 1px solid var(--border-color); border-top: 4px solid var(--change-password-color);">
+                <div class="modal-header border-bottom border-secondary">
+                    <h5 class="modal-title" id="changePasswordModalLabel" style="color: #ffcc80;">
+                        <i class="fas fa-key me-2"></i>Change Password
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="changePasswordForm">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="current_password" class="form-label" style="color: #a8c6e5;">
+                                <i class="fas fa-lock me-1"></i>Current Password
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="current_password"
+                                    name="current_password"
+                                    style="background-color: var(--light-blue); border: 1px solid var(--border-color); color: var(--text-color);"
+                                    placeholder="Enter your current password" required>
+                                <button class="btn btn-outline-secondary toggle-password" type="button"
+                                    style="border-color: var(--border-color); color: #a8c6e5;"
+                                    data-target="current_password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="invalid-feedback" id="current_password_error"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="new_password" class="form-label" style="color: #a8c6e5;">
+                                <i class="fas fa-key me-1"></i>New Password
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="new_password" name="new_password"
+                                    style="background-color: var(--light-blue); border: 1px solid var(--border-color); color: var(--text-color);"
+                                    placeholder="Enter new password" required minlength="8">
+                                <button class="btn btn-outline-secondary toggle-password" type="button"
+                                    style="border-color: var(--border-color); color: #a8c6e5;"
+                                    data-target="new_password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="form-text" style="color: #a8c6e5; font-size: 0.85rem;">
+                                <i class="fas fa-info-circle me-1"></i>Password must be at least 8 characters long
+                            </div>
+                            <div class="invalid-feedback" id="new_password_error"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="new_password_confirmation" class="form-label" style="color: #a8c6e5;">
+                                <i class="fas fa-key me-1"></i>Confirm New Password
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="new_password_confirmation"
+                                    name="new_password_confirmation"
+                                    style="background-color: var(--light-blue); border: 1px solid var(--border-color); color: var(--text-color);"
+                                    placeholder="Confirm your new password" required>
+                                <button class="btn btn-outline-secondary toggle-password" type="button"
+                                    style="border-color: var(--border-color); color: #a8c6e5;"
+                                    data-target="new_password_confirmation">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="invalid-feedback" id="new_password_confirmation_error"></div>
+                        </div>
+
+                        <div class="modal-footer border-top border-secondary pt-3">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                style="background-color: var(--light-blue); border-color: var(--border-color); color: #a8c6e5;">
+                                <i class="fas fa-times me-1"></i>Cancel
+                            </button>
+                            <button type="submit" class="btn btn-warning" id="changePasswordBtn"
+                                style="background-color: var(--change-password-color); border-color: var(--change-password-color); color: white;">
+                                <i class="fas fa-save me-1"></i>
+                                <span id="changePasswordBtnText">Update Password</span>
+                                <span id="changePasswordSpinner" class="spinner-border spinner-border-sm d-none"
+                                    role="status"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content"
+                style="background-color: var(--primary-blue); border: 1px solid var(--border-color); border-top: 4px solid var(--logout-color);">
+                <div class="modal-header border-bottom border-secondary">
+                    <h5 class="modal-title" id="logoutModalLabel" style="color: #ff8a80;">
+                        <i class="fas fa-sign-out-alt me-2"></i>Confirm Logout
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-sign-out-alt fa-3x mb-3" style="color: var(--logout-color);"></i>
+                        <h4 style="color: var(--text-color);">Ready to leave?</h4>
+                        <p style="color: #a8c6e5; margin-top: 10px;">
+                            Are you sure you want to logout from your account?
+                        </p>
+                        <div class="alert alert-warning mt-3"
+                            style="background-color: rgba(244, 67, 54, 0.1); border-color: rgba(244, 67, 54, 0.3); color: #ffcc80;">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            <small>For security, always logout when using shared devices.</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-top border-secondary">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        style="background-color: var(--light-blue); border-color: var(--border-color); color: #a8c6e5;">
+                        <i class="fas fa-times me-1"></i>Cancel
+                    </button>
+                    <form id="logoutForm" action="{{ route('user.logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-danger" id="logoutBtn"
+                            style="background-color: var(--logout-color); border-color: var(--logout-color);">
+                            <i class="fas fa-sign-out-alt me-1"></i>
+                            <span id="logoutBtnText">Yes, Logout</span>
+                            <span id="logoutSpinner" class="spinner-border spinner-border-sm d-none"
+                                role="status"></span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -907,7 +1270,7 @@ window.smartsupp||(function(d) {
             
             // Navigate to portfolio when view portfolio button is clicked
             viewPortfolioBtn.addEventListener('click', () => {
-                window.location.href = 'portfolio.html';
+                window.location.href = '{{ route("dashboard.portfolio") }}';
                 welcomeNotification.classList.remove('show');
             });
             
@@ -931,6 +1294,127 @@ window.smartsupp||(function(d) {
                 } else {
                     guidelinesToggle.innerHTML = '<span>Collapse</span> <i class="fas fa-chevron-up"></i>';
                 }
+            });
+
+            // Toggle password visibility
+            document.querySelectorAll('.toggle-password').forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const input = document.getElementById(targetId);
+                    const icon = this.querySelector('i');
+                    
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        icon.classList.remove('fa-eye');
+                        icon.classList.add('fa-eye-slash');
+                    } else {
+                        input.type = 'password';
+                        icon.classList.remove('fa-eye-slash');
+                        icon.classList.add('fa-eye');
+                    }
+                });
+            });
+
+            // Change Password Form Submission
+            const changePasswordForm = document.getElementById('changePasswordForm');
+            if (changePasswordForm) {
+                changePasswordForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(this);
+                    const changePasswordBtn = document.getElementById('changePasswordBtn');
+                    const changePasswordBtnText = document.getElementById('changePasswordBtnText');
+                    const changePasswordSpinner = document.getElementById('changePasswordSpinner');
+                    
+                    // Reset errors
+                    document.querySelectorAll('.invalid-feedback').forEach(el => {
+                        el.textContent = '';
+                        el.style.display = 'none';
+                    });
+                    document.querySelectorAll('.form-control').forEach(el => {
+                        el.classList.remove('is-invalid');
+                    });
+                    
+                    // Show loading state
+                    changePasswordBtn.disabled = true;
+                    changePasswordBtnText.classList.add('d-none');
+                    changePasswordSpinner.classList.remove('d-none');
+                    
+                    // Submit via AJAX
+                    fetch('{{ route("user.change-password") }}', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Success
+                            alert('✅ Password changed successfully!');
+                            document.getElementById('changePasswordModal').querySelector('.btn-close').click();
+                            changePasswordForm.reset();
+                        } else {
+                            // Show errors
+                            if (data.errors) {
+                                Object.keys(data.errors).forEach(field => {
+                                    const input = document.getElementById(field);
+                                    const errorDiv = document.getElementById(field + '_error');
+                                    if (input && errorDiv) {
+                                        input.classList.add('is-invalid');
+                                        errorDiv.textContent = data.errors[field][0];
+                                        errorDiv.style.display = 'block';
+                                    }
+                                });
+                            } else if (data.message) {
+                                alert('❌ ' + data.message);
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('❌ An error occurred. Please try again.');
+                    })
+                    .finally(() => {
+                        // Reset button state
+                        changePasswordBtn.disabled = false;
+                        changePasswordBtnText.classList.remove('d-none');
+                        changePasswordSpinner.classList.add('d-none');
+                    });
+                });
+            }
+
+            // Logout form submission
+            const logoutForm = document.getElementById('logoutForm');
+            if (logoutForm) {
+                logoutForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const logoutBtn = document.getElementById('logoutBtn');
+                    const logoutBtnText = document.getElementById('logoutBtnText');
+                    const logoutSpinner = document.getElementById('logoutSpinner');
+                    
+                    logoutBtn.disabled = true;
+                    logoutBtnText.classList.add('d-none');
+                    logoutSpinner.classList.remove('d-none');
+                    
+                    // Submit the form
+                    this.submit();
+                });
+            }
+
+            // Add click handlers for quick action cards
+            document.querySelectorAll('.quick-action-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (!e.target.closest('.quick-action-btn')) {
+                        const button = this.querySelector('.quick-action-btn');
+                        if (button) {
+                            button.click();
+                        }
+                    }
+                });
             });
         });
     </script>

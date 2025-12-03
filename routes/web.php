@@ -204,6 +204,13 @@ Route::prefix('user')->middleware('user')->group(function () {
     // Withdrawal
     Route::get('/withdrawal', [WithdrawalController::class, 'index'])->name('dashboard.withdrawal');
     Route::post('/withdrawal', [WithdrawalController::class, 'store'])->name('withdrawal.store');
+
+
+    // Add logout route
+    Route::post('/logout', [DashboardController::class, 'logout'])->name('user.logout');
+
+    // Add change password route
+    Route::post('/change-password', [DashboardController::class, 'changePassword'])->name('user.change-password');
 });
 
 

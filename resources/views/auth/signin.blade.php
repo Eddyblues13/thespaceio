@@ -433,15 +433,18 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Password toggle functionality
-            function setupPasswordToggle(toggleId, passwordId) {
-                const toggle = document.getElementById(toggleId);
-                const password = document.getElementById(passwordId);
-                
-                toggle.addEventListener('click', function() {
-                    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-                    password.setAttribute('type', type);
-                    toggle.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+        // Password toggle for login
+    const toggle = document.getElementById("toggleLoginPassword");
+    const passwordInput = document.getElementById("login-password");
+
+    toggle.addEventListener("click", function () {
+        const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+        passwordInput.setAttribute("type", type);
+
+        // Change icon
+        toggle.innerHTML = type === "password"
+            ? '<i class="fas fa-eye"></i>'
+            : '<i class="fas fa-eye-slash"></i>';
                 });
             }
             
