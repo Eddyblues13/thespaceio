@@ -107,6 +107,68 @@
             font-size: 14px;
             font-weight: 500;
         }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .table-responsive {
+                display: block;
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .btn-group-sm .btn {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.75rem;
+            }
+            
+            .page-header h4 {
+                font-size: 1.25rem;
+            }
+            
+            .card-body {
+                padding: 1rem;
+            }
+            
+            .table th,
+            .table td {
+                padding: 0.5rem;
+                font-size: 0.875rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-inner {
+                padding: 10px;
+            }
+            
+            .card {
+                margin-bottom: 1rem;
+            }
+            
+            .btn-sm {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.75rem;
+            }
+            
+            .table {
+                font-size: 0.8rem;
+            }
+            
+            .table th,
+            .table td {
+                padding: 0.4rem;
+            }
+            
+            .badge {
+                font-size: 0.7rem;
+                padding: 0.25rem 0.5rem;
+            }
+            
+            .form-group {
+                margin-bottom: 1rem;
+            }
+        }
     </style>
 
     <script>
@@ -182,25 +244,22 @@
                                                     <i class="fas fa-user text-primary"></i>
                                                 </div>
                                                 <div class="u-text">
-                                                    <h4>Admin User</h4>
-                                                    <p class="text-muted">admin@example.com</p>
+                                                    <h4>{{ Auth::guard('admin')->user()->name ?? 'Admin' }}</h4>
+                                                    <p class="text-muted">{{ Auth::guard('admin')->user()->email ?? 'admin@example.com' }}</p>
                                                 </div>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="{{ route('admin.settings.index') }}">
                                                 <i class="fas fa-cog"></i> Account Settings
                                             </a>
-                                            <a class="dropdown-item" href="#">
-                                                <i class="fas fa-key"></i> Change Password
-                                            </a>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                            <a class="dropdown-item" href="{{ route('admin.logout') }}"
                                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                 <i class="fas fa-sign-out-alt"></i> Logout
                                             </a>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST"
                                                 style="display: none;">
                                                 @csrf
                                             </form>
@@ -221,8 +280,8 @@
                         <div class="user">
                             <div class="info">
                                 <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
-                                    <span>
-                                        Admin User
+                                        <span>
+                                        {{ Auth::guard('admin')->user()->name ?? 'Admin User' }}
                                         <span class="user-level">Administrator</span>
                                         <span class="caret"></span>
                                     </span>
@@ -231,17 +290,7 @@
                                 <div class="collapse in" id="collapseExample">
                                     <ul class="nav">
                                         <li>
-                                            <a href="#profile">
-                                                <span class="link-collapse">My Profile</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#edit">
-                                                <span class="link-collapse">Edit Profile</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#settings">
+                                            <a href="{{ route('admin.settings.index') }}">
                                                 <span class="link-collapse">Settings</span>
                                             </a>
                                         </li>
@@ -293,17 +342,10 @@
                                 <h4 class="text-section">Settings</h4>
                             </li>
 
-                            <li class="nav-item">
-                                <a href="#">
+                            <li class="nav-item {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.settings.index') }}">
                                     <i class="fas fa-cog"></i>
-                                    <p>System Settings</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#">
-                                    <i class="fas fa-sliders-h"></i>
-                                    <p>Preferences</p>
+                                    <p>Admin Settings</p>
                                 </a>
                             </li>
                         </ul>

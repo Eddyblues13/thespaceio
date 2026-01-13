@@ -97,8 +97,13 @@ class UserController extends Controller
 
     public function loginAs(User $user)
     {
-        Auth::login($user);
-        return redirect('/dashboard')->with('success', 'Logged in as ' . $user->full_name);
+        // Logout admin first
+        Auth::guard('admin')->logout();
+        
+        // Login as user
+        Auth::guard('web')->login($user);
+        
+        return redirect('/user/dashboard')->with('success', 'Logged in as ' . $user->full_name);
     }
 
     public function addFunds(Request $request, User $user)

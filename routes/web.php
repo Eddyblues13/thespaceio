@@ -266,6 +266,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::put('/{investment}', [App\Http\Controllers\Admin\InvestmentController::class, 'update'])->name('update');
             Route::delete('/{investment}', [App\Http\Controllers\Admin\InvestmentController::class, 'destroy'])->name('destroy');
         });
+
+        // Admin Settings
+        Route::prefix('settings')->name('settings.')->group(function () {
+            Route::get('/', [App\Http\Controllers\Admin\AdminSettingsController::class, 'index'])->name('index');
+            Route::post('/change-password', [App\Http\Controllers\Admin\AdminSettingsController::class, 'changePassword'])->name('change-password');
+            Route::post('/update-profile', [App\Http\Controllers\Admin\AdminSettingsController::class, 'updateProfile'])->name('update-profile');
+            Route::get('/create-admin', [App\Http\Controllers\Admin\AdminSettingsController::class, 'createAdmin'])->name('create-admin');
+            Route::post('/create-admin', [App\Http\Controllers\Admin\AdminSettingsController::class, 'storeAdmin'])->name('store-admin');
+            Route::delete('/admins/{admin}', [App\Http\Controllers\Admin\AdminSettingsController::class, 'deleteAdmin'])->name('delete-admin');
+        });
     });
 });
 

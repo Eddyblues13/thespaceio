@@ -236,7 +236,7 @@
                                         @forelse($recentInvestments as $investment)
                                         <tr>
                                             <td>{{ $investment->user->full_name ?? 'N/A' }}</td>
-                                            <td>{{ $investment->plan_name ?? 'N/A' }}</td>
+                                            <td>{{ $investment->name ?? 'N/A' }}</td>
                                             <td>${{ number_format($investment->amount, 2) }}</td>
                                         </tr>
                                         @empty

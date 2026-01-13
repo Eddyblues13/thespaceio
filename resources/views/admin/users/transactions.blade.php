@@ -12,20 +12,14 @@
                 </div>
             @endif
 
-            @if(session('error'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('error') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
-
             <div class="page-header">
                 <div class="d-flex justify-content-between align-items-center flex-wrap">
-                    <h4 class="page-title text-dark"><i class="fas fa-exchange-alt mr-2"></i>Manage Transactions</h4>
-                    <a href="{{ route('admin.transactions.create') }}" class="btn btn-success btn-sm mb-2">
-                        <i class="fas fa-plus"></i> Add Transaction
+                    <div>
+                        <h4 class="page-title text-dark"><i class="fas fa-exchange-alt mr-2"></i>Transactions for {{ $user->full_name }}</h4>
+                        <p class="text-muted mb-0">{{ $user->email }}</p>
+                    </div>
+                    <a href="{{ route('admin.users.show', $user) }}" class="btn btn-secondary btn-sm mb-2">
+                        <i class="fas fa-arrow-left"></i> Back to User
                     </a>
                 </div>
             </div>
@@ -36,61 +30,41 @@
                         <table class="table table-bordered table-striped table-hover">
                             <thead class="thead-light">
                                 <tr>
-                                    <th>User</th>
                                     <th>Type</th>
                                     <th>Title</th>
+                                    <th>Description</th>
                                     <th>Amount</th>
                                     <th>Status</th>
                                     <th>Method</th>
+                                    <th>Reference</th>
                                     <th>Date</th>
-                                    <th class="text-center" style="min-width: 200px;">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($transactions as $transaction)
                                 <tr>
-                                    <td><strong>{{ $transaction->user->full_name ?? 'N/A' }}</strong></td>
                                     <td>
                                         <span class="badge badge-{{ $transaction->type == 'deposit' ? 'success' : ($transaction->type == 'withdrawal' ? 'danger' : 'info') }}">
                                             {{ ucfirst($transaction->type) }}
                                         </span>
                                     </td>
-                                    <td>{{ $transaction->title }}</td>
+                                    <td><strong>{{ $transaction->title }}</strong></td>
+                                    <td>{{ \Str::limit($transaction->description, 50) }}</td>
                                     <td><strong>${{ number_format($transaction->amount, 2) }}</strong></td>
                                     <td>
                                         <span class="badge badge-{{ $transaction->status == 'completed' ? 'success' : ($transaction->status == 'pending' ? 'warning' : 'danger') }}">
                                             {{ ucfirst($transaction->status) }}
                                         </span>
                                     </td>
-                                    <td>{{ $transaction->method }}</td>
+                                    <td>{{ $transaction->method ?? 'N/A' }}</td>
+                                    <td><small>{{ $transaction->reference ?? 'N/A' }}</small></td>
                                     <td>{{ $transaction->created_at->format('M d, Y H:i') }}</td>
-                                    <td>
-                                        <div class="btn-group btn-group-sm" role="group">
-                                            <a href="{{ route('admin.transactions.show', $transaction) }}"
-                                                class="btn btn-outline-primary" title="View">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
-                                            <a href="{{ route('admin.transactions.edit', $transaction) }}"
-                                                class="btn btn-outline-info" title="Edit">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <form action="{{ route('admin.transactions.destroy', $transaction) }}"
-                                                method="POST" class="d-inline"
-                                                onsubmit="return confirm('Are you sure you want to delete this transaction?');">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-outline-danger" title="Delete">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </td>
                                 </tr>
                                 @empty
                                 <tr>
                                     <td colspan="8" class="text-center py-4">
                                         <i class="fas fa-exchange-alt fa-3x text-muted mb-3"></i>
-                                        <p class="text-muted">No transactions found.</p>
+                                        <p class="text-muted">No transactions found for this user.</p>
                                     </td>
                                 </tr>
                                 @endforelse
@@ -109,3 +83,4 @@
 </div>
 
 @include('admin.footer')
+
