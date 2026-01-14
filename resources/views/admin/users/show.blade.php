@@ -94,12 +94,17 @@
 
                                 <button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal"
                                     data-target="#fundModal">
-                                    Add Funds
+                                    <i class="fas fa-plus-circle"></i> Add Funds
+                                </button>
+
+                                <button type="button" class="btn btn-danger btn-block mb-2" data-toggle="modal"
+                                    data-target="#withdrawalModal">
+                                    <i class="fas fa-minus-circle"></i> Add Withdrawal
                                 </button>
 
                                 <button type="button" class="btn btn-info btn-block mb-2" data-toggle="modal"
                                     data-target="#emailModal">
-                                    Send Email
+                                    <i class="fas fa-envelope"></i> Send Email
                                 </button>
 
                                 <a href="{{ route('admin.users.transactions', $user) }}"
@@ -283,6 +288,61 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Add Funds</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Withdrawal Modal -->
+<div class="modal fade" id="withdrawalModal" tabindex="-1" role="dialog" aria-labelledby="withdrawalModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="withdrawalModalLabel">Add Withdrawal for {{ $user->full_name }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('admin.users.withdrawal', $user) }}" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="withdrawal_amount">Amount <span class="text-danger">*</span></label>
+                        <input type="number" step="0.01" min="0.01" class="form-control @error('amount') is-invalid @enderror" 
+                               id="withdrawal_amount" name="amount" required>
+                        @error('amount')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="withdrawal_method">Payment Method <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control @error('method') is-invalid @enderror" 
+                               id="withdrawal_method" name="method" required placeholder="e.g., Bank Transfer, PayPal">
+                        @error('method')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="withdrawal_description">Description <span class="text-danger">*</span></label>
+                        <textarea class="form-control @error('description') is-invalid @enderror" 
+                                  id="withdrawal_description" name="description" rows="3" required></textarea>
+                        @error('description')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="withdrawal_status">Status</label>
+                        <select class="form-control" id="withdrawal_status" name="status">
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                            <option value="failed">Failed</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Add Withdrawal</button>
                 </div>
             </form>
         </div>

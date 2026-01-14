@@ -128,6 +128,36 @@ class UserController extends Controller
         return redirect()->back()->with('success', 'Funds added successfully.');
     }
 
+    public function addWithdrawal(Request $request, User $user)
+    {
+        $request->validate([
+            'amount' => 'required|numeric|min:0.01',
+            'description' => 'required|string|max:255',
+            'method' => 'required|string|max:255',
+            'status' => 'nullable|in:pending,completed,failed',
+        ]);
+
+        $status = $request->status ?? 'pending';
+
+        $transaction = Transaction::create([
+            'user_id' => $user->id,
+            'type' => 'withdrawal',
+            'title' => 'Admin Withdrawal',
+            'description' => $request->description,
+            'amount' => $request->amount,
+            'status' => $status,
+            'method' => $request->method,
+            'reference' => 'WD_' . time() . '_' . rand(1000, 9999),
+            'processed_at' => $status === 'completed' ? now() : null,
+        ]);
+
+        $message = $status === 'completed' 
+            ? 'Withdrawal added and processed successfully.' 
+            : 'Withdrawal added successfully.';
+
+        return redirect()->back()->with('success', $message);
+    }
+
     public function sendEmail(Request $request, User $user)
     {
         $request->validate([

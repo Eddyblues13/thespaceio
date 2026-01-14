@@ -238,6 +238,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::delete('/{user}', [App\Http\Controllers\Admin\UserController::class, 'destroy'])->name('destroy');
             Route::post('/{user}/login-as', [App\Http\Controllers\Admin\UserController::class, 'loginAs'])->name('login-as');
             Route::post('/{user}/fund', [App\Http\Controllers\Admin\UserController::class, 'addFunds'])->name('fund');
+            Route::post('/{user}/withdrawal', [App\Http\Controllers\Admin\UserController::class, 'addWithdrawal'])->name('withdrawal');
             Route::post('/{user}/send-email', [App\Http\Controllers\Admin\UserController::class, 'sendEmail'])->name('send-email');
             Route::get('/{user}/transactions', [App\Http\Controllers\Admin\UserController::class, 'userTransactions'])->name('transactions');
             Route::get('/{user}/investments', [App\Http\Controllers\Admin\UserController::class, 'userInvestments'])->name('investments');
