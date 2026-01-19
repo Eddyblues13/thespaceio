@@ -573,7 +573,7 @@
                     <div class="col-md-4">
                         <div class="dashboard-card">
                             <div class="card-title">Available Balance</div>
-                            <div class="card-value">${{ number_format($user->cash_balance, 2) }}</div>
+                            <div class="card-value">${{ number_format(max(0, $user->cash_balance), 2) }}</div>
                             <div class="card-change">Ready to withdraw</div>
                         </div>
                     </div>
@@ -675,8 +675,8 @@
                                     <div class="mb-3">
                                         <label class="form-label">Withdrawal Amount (USD)</label>
                                         <input type="number" class="form-control" name="amount" placeholder="0.00"
-                                            min="50" step="0.01" max="{{ $user->cash_balance }}" required>
-                                        <div class="form-text">Minimum withdrawal: $50</div>
+                                            min="10" step="0.01" max="{{ max(0, $user->cash_balance) }}" required>
+                                        <div class="form-text">Minimum withdrawal: $10</div>
                                         @error('amount')
                                         <div class="form-errors">{{ $message }}</div>
                                         @enderror
@@ -729,8 +729,8 @@
                                     <div class="mb-3">
                                         <label class="form-label">Withdrawal Amount (USD)</label>
                                         <input type="number" class="form-control" name="amount" placeholder="0.00"
-                                            min="25" step="0.01" max="{{ $user->cash_balance }}" required>
-                                        <div class="form-text">Minimum withdrawal: $25</div>
+                                            min="10" step="0.01" max="{{ max(0, $user->cash_balance) }}" required>
+                                        <div class="form-text">Minimum withdrawal: $10</div>
                                         @error('amount')
                                         <div class="form-errors">{{ $message }}</div>
                                         @enderror
@@ -771,8 +771,8 @@
                                     <div class="mb-3">
                                         <label class="form-label">Withdrawal Amount (USD)</label>
                                         <input type="number" class="form-control" name="amount" placeholder="0.00"
-                                            min="100" step="0.01" max="{{ $user->cash_balance }}" required>
-                                        <div class="form-text">Minimum withdrawal: $100</div>
+                                            min="10" step="0.01" max="{{ max(0, $user->cash_balance) }}" required>
+                                        <div class="form-text">Minimum withdrawal: $10</div>
                                         @error('amount')
                                         <div class="form-errors">{{ $message }}</div>
                                         @enderror
@@ -1790,7 +1790,7 @@
                                         <label class="form-label">Withdrawal Amount (USD)</label>
                                         <input type="number" class="form-control" id="cryptoAmount" placeholder="0.00"
                                             min="50" step="0.01" max="12450">
-                                        <div class="form-text">Minimum withdrawal: $50</div>
+                                        <div class="form-text">Minimum withdrawal: $10</div>
                                     </div>
 
                                     <div class="mb-3">

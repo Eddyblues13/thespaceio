@@ -36,17 +36,24 @@ class TransactionController extends Controller
 
         $transactions = $query->paginate(10);
 
+        // Calculate summary accurately
+        $completedDeposits = $user->transactions()->deposits()->completed();
+        $completedWithdrawals = $user->transactions()->withdrawals()->completed();
+        $pendingTransactions = $user->transactions()->pending();
+        
         $summary = [
-            'total_deposits' => $user->transactions()->deposits()->completed()->sum('amount'),
-            'total_withdrawals' => abs($user->transactions()->withdrawals()->completed()->sum('amount')),
-            'pending_transactions' => $user->transactions()->pending()->count(),
-            'pending_amount' => abs($user->transactions()->pending()->sum('amount')),
-            'monthly_deposits' => $user->transactions()->deposits()->completed()
+            'total_deposits' => $completedDeposits->sum('amount'),
+            'total_withdrawals' => abs($completedWithdrawals->sum('amount')), // Withdrawals are negative
+            'pending_transactions' => $pendingTransactions->count(),
+            'pending_amount' => abs($pendingTransactions->sum('amount')), // Handle negative amounts
+            'monthly_deposits' => $completedDeposits
                 ->whereMonth('created_at', now()->month)
+                ->whereYear('created_at', now()->year)
                 ->sum('amount'),
-            'monthly_withdrawals' => abs($user->transactions()->withdrawals()->completed()
+            'monthly_withdrawals' => abs($completedWithdrawals
                 ->whereMonth('created_at', now()->month)
-                ->sum('amount')),
+                ->whereYear('created_at', now()->year)
+                ->sum('amount')), // Withdrawals are negative
         ];
 
         return view('dashboard.transactions', compact('user', 'transactions', 'summary'));
@@ -88,6 +95,6 @@ class TransactionController extends Controller
 
         $message = ucfirst($type) . ' request submitted successfully!';
 
-        return redirect()->route('transactions')->with('success', $message);
+        return redirect()->route('dashboard.transactions')->with('success', $message);
     }
 }

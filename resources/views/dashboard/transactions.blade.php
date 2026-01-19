@@ -541,10 +541,10 @@
                 <div class="top-bar d-flex justify-content-between align-items-center">
                     <h4 class="mb-0">Transaction History</h4>
                     <div class="user-info">
-                        <div class="user-avatar">{{ strtoupper(substr($user->name, 0, 2)) }}</div>
+                        <div class="user-avatar">{{ strtoupper(substr($user->first_name ?? $user->name ?? 'U', 0, 1)) }}{{ strtoupper(substr($user->last_name ?? '', 0, 1)) }}</div>
                         <div>
-                            <div class="fw-bold">{{ $user->name }}</div>
-                            <small class="text-muted">{{ $user->investor_tier }}</small>
+                            <div class="fw-bold">{{ $user->first_name ?? $user->name ?? 'User' }} {{ $user->last_name ?? '' }}</div>
+                            <small class="text-muted">{{ $user->tier ?? 'Investor' }}</small>
                         </div>
                     </div>
                 </div>
@@ -581,7 +581,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="dashboard-card">
                             <div class="card-title">Available Balance</div>
-                            <div class="card-value">${{ number_format($user->cash_balance, 2) }}</div>
+                            <div class="card-value">${{ number_format(max(0, $user->cash_balance), 2) }}</div>
                             <div class="card-change">
                                 As of today
                             </div>
@@ -590,7 +590,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="dashboard-card">
                             <div class="card-title">Total Deposits</div>
-                            <div class="card-value">${{ number_format($summary['total_deposits'], 2) }}</div>
+                            <div class="card-value">${{ number_format(max(0, $summary['total_deposits']), 2) }}</div>
                             <div class="card-change positive">
                                 <i class="fas fa-arrow-up"></i> All time
                             </div>
@@ -599,7 +599,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="dashboard-card">
                             <div class="card-title">Total Withdrawals</div>
-                            <div class="card-value">${{ number_format($summary['total_withdrawals'], 2) }}</div>
+                            <div class="card-value">${{ number_format(max(0, $summary['total_withdrawals']), 2) }}</div>
                             <div class="card-change">
                                 All time
                             </div>
@@ -610,7 +610,7 @@
                             <div class="card-title">Pending Transactions</div>
                             <div class="card-value">{{ $summary['pending_transactions'] }}</div>
                             <div class="card-change">
-                                ${{ number_format($summary['pending_amount'] ?? 0, 2) }} total
+                                ${{ number_format(max(0, $summary['pending_amount'] ?? 0), 2) }} total
                             </div>
                         </div>
                     </div>
@@ -621,17 +621,16 @@
                     <h5 class="mb-4" style="color: var(--accent-blue);">Transaction Summary</h5>
                     <div class="summary-grid">
                         <div class="summary-item">
-                            <div class="summary-value positive">${{ number_format($summary['monthly_deposits'], 2) }}
+                            <div class="summary-value positive">${{ number_format(max(0, $summary['monthly_deposits']), 2) }}
                             </div>
                             <div class="summary-label">This Month Deposits</div>
                         </div>
                         <div class="summary-item">
-                            <div class="summary-value">${{ number_format($summary['monthly_withdrawals'], 2) }}</div>
+                            <div class="summary-value">${{ number_format(max(0, $summary['monthly_withdrawals']), 2) }}</div>
                             <div class="summary-label">This Month Withdrawals</div>
                         </div>
                         <div class="summary-item">
-                            <div class="summary-value positive">${{ number_format($summary['monthly_deposits'] -
-                                $summary['monthly_withdrawals'], 2) }}</div>
+                            <div class="summary-value {{ ($summary['monthly_deposits'] - $summary['monthly_withdrawals']) >= 0 ? 'positive' : 'negative' }}">${{ number_format($summary['monthly_deposits'] - $summary['monthly_withdrawals'], 2) }}</div>
                             <div class="summary-label">Net Cash Flow</div>
                         </div>
                         <div class="summary-item">
@@ -813,14 +812,14 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
-                <form method="POST" action="{{ route('transactions.withdrawal.store') }}">
+                <form method="POST" action="{{ route('withdrawal.store') }}">
                     @csrf
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="withdrawalAmount" class="form-label">Amount</label>
                             <input type="number" class="form-control" id="withdrawalAmount" name="amount"
-                                placeholder="Enter amount" min="1" step="0.01" max="{{ $user->cash_balance }}" required>
-                            <div class="form-text">Available balance: ${{ number_format($user->cash_balance, 2) }}</div>
+                                placeholder="Enter amount" min="1" step="0.01" max="{{ max(0, $user->cash_balance) }}" required>
+                            <div class="form-text">Available balance: ${{ number_format(max(0, $user->cash_balance), 2) }}</div>
                         </div>
                         <div class="mb-3">
                             <label for="withdrawalMethod" class="form-label">Withdrawal Method</label>
