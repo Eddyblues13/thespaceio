@@ -699,7 +699,7 @@
                 data: {
                     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                     datasets: [{
-                        label: 'Portfolio Value',
+                        label: 'Total Balance',
                         data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         borderColor: '#0052a3',
                         backgroundColor: 'rgba(0, 82, 163, 0.1)',
