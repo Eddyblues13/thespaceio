@@ -65,7 +65,55 @@ class UserController extends Controller
     public function show(User $user)
     {
         $user->load(['transactions', 'investments']);
-        return view('admin.users.show', compact('user'));
+        
+        // Calculate all balances similar to user portfolio
+        $investments = $user->investments;
+        $totalInvestment = $investments->sum('current_value');
+        $totalReturns = $investments->sum('returns');
+        
+        // Get admin-added bonuses/profit from transactions
+        $dividends = $user->transactions()->dividends()->completed();
+        
+        $adminTotalProfit = (clone $dividends)
+            ->where('title', 'Total Profit')
+            ->sum('amount');
+        
+        $withdrawalBonus = (clone $dividends)
+            ->where('title', 'Withdrawal Bonus')
+            ->sum('amount');
+        
+        $referralBonus = (clone $dividends)
+            ->where('title', 'Referral Bonus')
+            ->sum('amount');
+        
+        // Total Profit = investment returns + admin-added total profit
+        $totalProfit = $totalReturns + $adminTotalProfit;
+        
+        // Portfolio value = current investment value + realised profit + bonuses
+        $portfolioValue = $totalInvestment + $totalProfit + $withdrawalBonus + $referralBonus;
+        
+        // Cash balance from all completed transactions
+        $cashBalance = $user->cash_balance;
+        
+        // Get admin-added funds (deposits by admin)
+        $adminAddedFunds = $user->transactions()
+            ->deposits()
+            ->completed()
+            ->where('method', 'admin')
+            ->sum('amount');
+        
+        $balances = [
+            'cash_balance' => $cashBalance,
+            'portfolio_value' => $portfolioValue,
+            'total_investment' => $totalInvestment,
+            'total_profit' => $totalProfit,
+            'admin_total_profit' => $adminTotalProfit,
+            'withdrawal_bonus' => $withdrawalBonus,
+            'referral_bonus' => $referralBonus,
+            'admin_added_funds' => $adminAddedFunds,
+        ];
+        
+        return view('admin.users.show', compact('user', 'balances'));
     }
 
     public function edit(User $user)

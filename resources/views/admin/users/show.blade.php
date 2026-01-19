@@ -136,6 +136,127 @@
                 </div>
             </div>
 
+            <!-- User Balances Section -->
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="card-title mb-0">
+                                <i class="fas fa-wallet mr-2"></i>User Balances & Portfolio
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <!-- Cash Balance -->
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <div class="card bg-light">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-money-bill-wave fa-2x text-success mb-2"></i>
+                                            <h5 class="text-muted mb-1">Cash Balance</h5>
+                                            <h3 class="text-success mb-0">${{ number_format(max(0, $balances['cash_balance']), 2) }}</h3>
+                                            <small class="text-muted">Available for withdrawal</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Portfolio Value -->
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <div class="card bg-light">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-chart-pie fa-2x text-primary mb-2"></i>
+                                            <h5 class="text-muted mb-1">Portfolio Value</h5>
+                                            <h3 class="text-primary mb-0">${{ number_format(max(0, $balances['portfolio_value']), 2) }}</h3>
+                                            <small class="text-muted">Total portfolio worth</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Total Investment -->
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <div class="card bg-light">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-chart-line fa-2x text-info mb-2"></i>
+                                            <h5 class="text-muted mb-1">Total Investment</h5>
+                                            <h3 class="text-info mb-0">${{ number_format(max(0, $balances['total_investment']), 2) }}</h3>
+                                            <small class="text-muted">Current investment value</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Total Profit -->
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <div class="card bg-light">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-trophy fa-2x text-warning mb-2"></i>
+                                            <h5 class="text-muted mb-1">Total Profit</h5>
+                                            <h3 class="text-warning mb-0">${{ number_format(max(0, $balances['total_profit']), 2) }}</h3>
+                                            <small class="text-muted">Investment + Admin profit</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Admin-Added Balances -->
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <h5 class="mb-3">
+                                        <i class="fas fa-user-shield mr-2 text-primary"></i>Admin-Added Balances
+                                    </h5>
+                                </div>
+                                
+                                <!-- Admin Added Funds -->
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <div class="card border-primary">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-plus-circle fa-2x text-primary mb-2"></i>
+                                            <h6 class="text-muted mb-1">Admin Added Funds</h6>
+                                            <h4 class="text-primary mb-0">${{ number_format(max(0, $balances['admin_added_funds']), 2) }}</h4>
+                                            <small class="text-muted">Total funds added by admin</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Admin Total Profit -->
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <div class="card border-info">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-chart-line fa-2x text-info mb-2"></i>
+                                            <h6 class="text-muted mb-1">Admin Total Profit</h6>
+                                            <h4 class="text-info mb-0">${{ number_format(max(0, $balances['admin_total_profit']), 2) }}</h4>
+                                            <small class="text-muted">Profit added by admin</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Withdrawal Bonus -->
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <div class="card border-success">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-gift fa-2x text-success mb-2"></i>
+                                            <h6 class="text-muted mb-1">Withdrawal Bonus</h6>
+                                            <h4 class="text-success mb-0">${{ number_format(max(0, $balances['withdrawal_bonus']), 2) }}</h4>
+                                            <small class="text-muted">Bonus added by admin</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Referral Bonus -->
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <div class="card border-secondary">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-user-friends fa-2x text-secondary mb-2"></i>
+                                            <h6 class="text-muted mb-1">Referral Bonus</h6>
+                                            <h4 class="text-secondary mb-0">${{ number_format(max(0, $balances['referral_bonus']), 2) }}</h4>
+                                            <small class="text-muted">Referral bonus added</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- User Stats -->
             <div class="row mt-4">
                 <div class="col-md-3">
