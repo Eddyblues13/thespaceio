@@ -524,7 +524,7 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
                         <div class="dashboard-card">
-                            <div class="card-title">Portfolio Value</div>
+                            <div class="card-title">Available Balance</div>
                             <div class="card-value">
                                 ${{ number_format($portfolioData['portfolio_value'] ?? 0, 2) }}
                             </div>
@@ -699,7 +699,7 @@
                 data: {
                     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                     datasets: [{
-                        label: 'Total Balance',
+                        label: 'Available Balance',
                         data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         borderColor: '#0052a3',
                         backgroundColor: 'rgba(0, 82, 163, 0.1)',
