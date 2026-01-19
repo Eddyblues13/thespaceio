@@ -206,7 +206,7 @@ class UserController extends Controller
             'type' => 'withdrawal',
             'title' => 'Admin Withdrawal',
             'description' => $request->description,
-            'amount' => $request->amount,
+            'amount' => -abs($request->amount), // Withdrawals should be negative
             'status' => $status,
             'method' => $request->method,
             'reference' => 'WD_' . time() . '_' . rand(1000, 9999),

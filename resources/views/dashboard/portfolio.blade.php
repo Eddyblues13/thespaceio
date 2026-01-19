@@ -526,10 +526,10 @@
                         <div class="dashboard-card">
                             <div class="card-title">Available Balance</div>
                             <div class="card-value">
-                                ${{ number_format($portfolioData['portfolio_value'] ?? 0, 2) }}
+                                ${{ number_format(max(0, $portfolioData['cash_balance'] ?? 0), 2) }}
                             </div>
                             <div class="card-change">
-                                Includes investments and bonuses
+                                Available for withdrawal
                             </div>
                         </div>
                     </div>

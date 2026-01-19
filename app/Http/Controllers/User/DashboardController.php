@@ -66,9 +66,13 @@ class DashboardController extends Controller
 
         // Portfolio value = current investment value + realised profit + bonuses
         $portfolioValue = $totalInvestment + $totalProfit + $withdrawalBonus + $referralBonus;
+        
+        // Cash balance includes all completed transactions (deposits, withdrawals, dividends)
+        $cashBalance = $user->cash_balance;
 
         $portfolioData = [
             'portfolio_value'   => $portfolioValue,
+            'cash_balance'       => $cashBalance,
             'total_investment'  => $totalInvestment,
             'total_profit'      => $totalProfit,
             'withdrawal_bonus'  => $withdrawalBonus,
