@@ -48,6 +48,11 @@ class DashboardController extends Controller
         // Admin can credit bonuses/profit as dividend-type transactions
         $dividends = $user->transactions()->dividends()->completed();
 
+        // Get admin-added Total Profit from transactions
+        $adminTotalProfit = (clone $dividends)
+            ->where('title', 'Total Profit')
+            ->sum('amount');
+
         $withdrawalBonus = (clone $dividends)
             ->where('title', 'Withdrawal Bonus')
             ->sum('amount');
@@ -56,7 +61,8 @@ class DashboardController extends Controller
             ->where('title', 'Referral Bonus')
             ->sum('amount');
 
-        $totalProfit = $totalReturns;
+        // Total Profit = investment returns + admin-added total profit
+        $totalProfit = $totalReturns + $adminTotalProfit;
 
         // Portfolio value = current investment value + realised profit + bonuses
         $portfolioValue = $totalInvestment + $totalProfit + $withdrawalBonus + $referralBonus;

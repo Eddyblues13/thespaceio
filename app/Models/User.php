@@ -155,4 +155,15 @@ class User extends Authenticatable
             ->whereMonth('created_at', now()->month)
             ->sum('amount');
     }
+
+    /**
+     * Get the user's cash balance from completed transactions.
+     * Cash balance = sum of all completed transactions (deposits are positive, withdrawals are negative, dividends/bonuses are positive)
+     */
+    public function getCashBalanceAttribute()
+    {
+        return $this->transactions()
+            ->where('status', 'completed')
+            ->sum('amount');
+    }
 }
