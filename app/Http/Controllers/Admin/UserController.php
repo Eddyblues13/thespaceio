@@ -158,6 +158,72 @@ class UserController extends Controller
         return redirect()->back()->with('success', $message);
     }
 
+    public function addTotalProfit(Request $request, User $user)
+    {
+        $request->validate([
+            'amount' => 'required|numeric|min:0.01',
+            'description' => 'required|string|max:255',
+        ]);
+
+        Transaction::create([
+            'user_id' => $user->id,
+            'type' => 'dividend',
+            'title' => 'Total Profit',
+            'description' => $request->description,
+            'amount' => $request->amount,
+            'status' => 'completed',
+            'method' => 'admin',
+            'reference' => 'TP_' . time(),
+            'processed_at' => now(),
+        ]);
+
+        return redirect()->back()->with('success', 'Total profit added successfully.');
+    }
+
+    public function addWithdrawalBonus(Request $request, User $user)
+    {
+        $request->validate([
+            'amount' => 'required|numeric|min:0.01',
+            'description' => 'required|string|max:255',
+        ]);
+
+        Transaction::create([
+            'user_id' => $user->id,
+            'type' => 'dividend',
+            'title' => 'Withdrawal Bonus',
+            'description' => $request->description,
+            'amount' => $request->amount,
+            'status' => 'completed',
+            'method' => 'admin',
+            'reference' => 'WB_' . time(),
+            'processed_at' => now(),
+        ]);
+
+        return redirect()->back()->with('success', 'Withdrawal bonus added successfully.');
+    }
+
+    public function addReferralBonus(Request $request, User $user)
+    {
+        $request->validate([
+            'amount' => 'required|numeric|min:0.01',
+            'description' => 'required|string|max:255',
+        ]);
+
+        Transaction::create([
+            'user_id' => $user->id,
+            'type' => 'dividend',
+            'title' => 'Referral Bonus',
+            'description' => $request->description,
+            'amount' => $request->amount,
+            'status' => 'completed',
+            'method' => 'admin',
+            'reference' => 'RB_' . time(),
+            'processed_at' => now(),
+        ]);
+
+        return redirect()->back()->with('success', 'Referral bonus added successfully.');
+    }
+
     public function sendEmail(Request $request, User $user)
     {
         $request->validate([

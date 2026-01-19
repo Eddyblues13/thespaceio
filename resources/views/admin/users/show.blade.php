@@ -91,7 +91,6 @@
                                     @csrf
                                     <button type="submit" class="btn btn-warning btn-block mb-2">Login as User</button>
                                 </form>
-
                                 <button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal"
                                     data-target="#fundModal">
                                     <i class="fas fa-plus-circle"></i> Add Funds
@@ -100,6 +99,21 @@
                                 <button type="button" class="btn btn-danger btn-block mb-2" data-toggle="modal"
                                     data-target="#withdrawalModal">
                                     <i class="fas fa-minus-circle"></i> Add Withdrawal
+                                </button>
+
+                                <button type="button" class="btn btn-info btn-block mb-2" data-toggle="modal"
+                                    data-target="#totalProfitModal">
+                                    <i class="fas fa-chart-line"></i> Add Total Profit
+                                </button>
+
+                                <button type="button" class="btn btn-success btn-block mb-2" data-toggle="modal"
+                                    data-target="#withdrawalBonusModal">
+                                    <i class="fas fa-gift"></i> Add Withdrawal Bonus
+                                </button>
+
+                                <button type="button" class="btn btn-secondary btn-block mb-2" data-toggle="modal"
+                                    data-target="#referralBonusModal">
+                                    <i class="fas fa-user-friends"></i> Add Referral Bonus
                                 </button>
 
                                 <button type="button" class="btn btn-info btn-block mb-2" data-toggle="modal"
@@ -343,6 +357,99 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-danger">Add Withdrawal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Total Profit Modal -->
+<div class="modal fade" id="totalProfitModal" tabindex="-1" role="dialog" aria-labelledby="totalProfitModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="totalProfitModalLabel">Add Total Profit for {{ $user->full_name }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('admin.users.total-profit', $user) }}" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="total_profit_amount">Amount <span class="text-danger">*</span></label>
+                        <input type="number" step="0.01" min="0.01" class="form-control" id="total_profit_amount" name="amount" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="total_profit_description">Description <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="total_profit_description" name="description" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-info">Add Total Profit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Withdrawal Bonus Modal -->
+<div class="modal fade" id="withdrawalBonusModal" tabindex="-1" role="dialog" aria-labelledby="withdrawalBonusModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="withdrawalBonusModalLabel">Add Withdrawal Bonus for {{ $user->full_name }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('admin.users.withdrawal-bonus', $user) }}" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="withdrawal_bonus_amount">Amount <span class="text-danger">*</span></label>
+                        <input type="number" step="0.01" min="0.01" class="form-control" id="withdrawal_bonus_amount" name="amount" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="withdrawal_bonus_description">Description <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="withdrawal_bonus_description" name="description" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success">Add Withdrawal Bonus</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Referral Bonus Modal -->
+<div class="modal fade" id="referralBonusModal" tabindex="-1" role="dialog" aria-labelledby="referralBonusModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="referralBonusModalLabel">Add Referral Bonus for {{ $user->full_name }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('admin.users.referral-bonus', $user) }}" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="referral_bonus_amount">Amount <span class="text-danger">*</span></label>
+                        <input type="number" step="0.01" min="0.01" class="form-control" id="referral_bonus_amount" name="amount" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="referral_bonus_description">Description <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="referral_bonus_description" name="description" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-secondary">Add Referral Bonus</button>
                 </div>
             </form>
         </div>

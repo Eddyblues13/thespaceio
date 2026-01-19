@@ -38,7 +38,38 @@ class DashboardController extends Controller
     // Portfolio page
     public function portfolio()
     {
-        return view('dashboard.portfolio');
+        $user = Auth::user();
+
+        $investments = $user->investments;
+
+        $totalInvestment = $investments->sum('current_value');
+        $totalReturns = $investments->sum('returns');
+
+        // Admin can credit bonuses/profit as dividend-type transactions
+        $dividends = $user->transactions()->dividends()->completed();
+
+        $withdrawalBonus = (clone $dividends)
+            ->where('title', 'Withdrawal Bonus')
+            ->sum('amount');
+
+        $referralBonus = (clone $dividends)
+            ->where('title', 'Referral Bonus')
+            ->sum('amount');
+
+        $totalProfit = $totalReturns;
+
+        // Portfolio value = current investment value + realised profit + bonuses
+        $portfolioValue = $totalInvestment + $totalProfit + $withdrawalBonus + $referralBonus;
+
+        $portfolioData = [
+            'portfolio_value'   => $portfolioValue,
+            'total_investment'  => $totalInvestment,
+            'total_profit'      => $totalProfit,
+            'withdrawal_bonus'  => $withdrawalBonus,
+            'referral_bonus'    => $referralBonus,
+        ];
+
+        return view('dashboard.portfolio', compact('user', 'portfolioData'));
     }
 
     // Investments page

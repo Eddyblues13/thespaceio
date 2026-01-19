@@ -525,34 +525,31 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="dashboard-card">
                             <div class="card-title">Portfolio Value</div>
-                            <div class="card-value" id="portfolioValue">$0.00</div>
-                            <div class="card-change" id="portfolioChange">
-                                <i class="fas fa-minus"></i> 0.00% ($0.00)
+                            <div class="card-value">
+                                ${{ number_format($portfolioData['portfolio_value'] ?? 0, 2) }}
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="dashboard-card">
-                            <div class="card-title">Today's Gain</div>
-                            <div class="card-value" id="todaysGain">$0.00</div>
-                            <div class="card-change" id="todaysGainChange">
-                                <i class="fas fa-minus"></i> 0.00%
+                            <div class="card-change">
+                                Includes investments and bonuses
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="dashboard-card">
                             <div class="card-title">Total Profit</div>
-                            <div class="card-value" id="totalProfit">$0.00</div>
-                            <div class="card-change" id="totalProfitChange">
-                                <i class="fas fa-minus"></i> 0.00%
+                            <div class="card-value">
+                                ${{ number_format($portfolioData['total_profit'] ?? 0, 2) }}
+                            </div>
+                            <div class="card-change">
+                                Realised returns from investments
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="dashboard-card">
                             <div class="card-title">Withdrawal Bonus</div>
-                            <div class="card-value" id="withdrawalBonus">$0.00</div>
+                            <div class="card-value">
+                                ${{ number_format($portfolioData['withdrawal_bonus'] ?? 0, 2) }}
+                            </div>
                             <div class="card-change">
                                 Available to invest
                             </div>
@@ -561,7 +558,9 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="dashboard-card">
                             <div class="card-title">Referral Bonus</div>
-                            <div class="card-value" id="ReferralBonus">$0.00</div>
+                            <div class="card-value">
+                                ${{ number_format($portfolioData['referral_bonus'] ?? 0, 2) }}
+                            </div>
                             <div class="card-change">
                                 Available to Withdrawal
                             </div>
@@ -803,97 +802,6 @@
                 });
             });
             
-            // Initialize portfolio values
-            let portfolioValue = 0;
-            let todaysGain = 0;
-            let totalProfit = 0;
-            let withdrawalBonus = 0;
-            
-            // Get references to the DOM elements
-            const portfolioValueElement = document.getElementById('portfolioValue');
-            const portfolioChangeElement = document.getElementById('portfolioChange');
-            const todaysGainElement = document.getElementById('todaysGain');
-            const todaysGainChangeElement = document.getElementById('todaysGainChange');
-            const totalProfitElement = document.getElementById('totalProfit');
-            const totalProfitChangeElement = document.getElementById('totalProfitChange');
-            const withdrawalBonusElement = document.getElementById('withdrawalBonus');
-            
-            // Function to format currency
-            function formatCurrency(value) {
-                return '$' + value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-            }
-            
-            // Function to update the display
-            function updateDisplay() {
-                portfolioValueElement.textContent = formatCurrency(portfolioValue);
-                todaysGainElement.textContent = formatCurrency(todaysGain);
-                totalProfitElement.textContent = formatCurrency(totalProfit);
-                withdrawalBonusElement.textContent = formatCurrency(withdrawalBonus);
-                
-                // Update change indicators
-                const portfolioChangePercent = portfolioValue > 0 ? (todaysGain / (portfolioValue - todaysGain)) * 100 : 0;
-                portfolioChangeElement.innerHTML = portfolioChangePercent > 0 ? 
-                    `<i class="fas fa-arrow-up"></i> +${portfolioChangePercent.toFixed(2)}% (${formatCurrency(todaysGain)})` : 
-                    `<i class="fas fa-minus"></i> 0.00% (${formatCurrency(0)})`;
-                
-                const todaysGainPercent = portfolioValue > 0 ? (todaysGain / portfolioValue) * 100 : 0;
-                todaysGainChangeElement.innerHTML = todaysGainPercent > 0 ? 
-                    `<i class="fas fa-arrow-up"></i> +${todaysGainPercent.toFixed(2)}%` : 
-                    `<i class="fas fa-minus"></i> 0.00%`;
-                
-                const totalProfitPercent = portfolioValue > 0 ? (totalProfit / portfolioValue) * 100 : 0;
-                totalProfitChangeElement.innerHTML = totalProfitPercent > 0 ? 
-                    `<i class="fas fa-arrow-up"></i> +${totalProfitPercent.toFixed(2)}%` : 
-                    `<i class="fas fa-minus"></i> 0.00%`;
-                
-                // Update chart data
-                const currentMonth = new Date().getMonth();
-                performanceChart.data.datasets[0].data[currentMonth] = portfolioValue;
-                performanceChart.update();
-            }
-            
-            // Function to simulate gradual growth
-            function simulateGrowth() {
-                // Simulate growth based on time since registration
-                // For demonstration, we'll use a simple time-based growth model
-                const growthRate = 0.0001; // 0.01% per interval
-                const interval = 1000; // Update every second (for demo purposes)
-                
-                setInterval(() => {
-                    // Calculate small increments
-                    const portfolioIncrement = portfolioValue * growthRate;
-                    const todaysGainIncrement = todaysGain * growthRate;
-                    const totalProfitIncrement = totalProfit * growthRate;
-                    const withdrawalBonusIncrement = withdrawalBonus * growthRate;
-                    
-                    // Update values
-                    portfolioValue += portfolioIncrement;
-                    todaysGain += todaysGainIncrement;
-                    totalProfit += totalProfitIncrement;
-                    withdrawalBonus += withdrawalBonusIncrement;
-                    
-                    // Update display
-                    updateDisplay();
-                }, interval);
-            }
-            
-            // Function to initialize with initial investment
-            function initializePortfolio() {
-                // For demonstration, we'll start with a small initial investment
-                // In a real application, this would come from user registration data
-                const initialInvestment = 1000; // $1000 initial investment
-                
-                portfolioValue = initialInvestment;
-                todaysGain = initialInvestment * 0.01; // 1% gain
-                totalProfit = initialInvestment * 0.05; // 5% total profit
-                withdrawalBonus = initialInvestment * 0.02; // 2% bonus
-                
-                updateDisplay();
-                simulateGrowth();
-            }
-            
-            // Initialize the portfolio after a short delay to simulate registration
-            setTimeout(initializePortfolio, 2000);
         });
     </script>
 </body>

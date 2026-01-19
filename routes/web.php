@@ -239,6 +239,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::post('/{user}/login-as', [App\Http\Controllers\Admin\UserController::class, 'loginAs'])->name('login-as');
             Route::post('/{user}/fund', [App\Http\Controllers\Admin\UserController::class, 'addFunds'])->name('fund');
             Route::post('/{user}/withdrawal', [App\Http\Controllers\Admin\UserController::class, 'addWithdrawal'])->name('withdrawal');
+            Route::post('/{user}/total-profit', [App\Http\Controllers\Admin\UserController::class, 'addTotalProfit'])->name('total-profit');
+            Route::post('/{user}/withdrawal-bonus', [App\Http\Controllers\Admin\UserController::class, 'addWithdrawalBonus'])->name('withdrawal-bonus');
+            Route::post('/{user}/referral-bonus', [App\Http\Controllers\Admin\UserController::class, 'addReferralBonus'])->name('referral-bonus');
             Route::post('/{user}/send-email', [App\Http\Controllers\Admin\UserController::class, 'sendEmail'])->name('send-email');
             Route::get('/{user}/transactions', [App\Http\Controllers\Admin\UserController::class, 'userTransactions'])->name('transactions');
             Route::get('/{user}/investments', [App\Http\Controllers\Admin\UserController::class, 'userInvestments'])->name('investments');
