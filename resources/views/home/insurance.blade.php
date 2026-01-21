@@ -775,12 +775,6 @@
                     <h4 class="footer-heading">TheSpace Assurance</h4>
                     <p>Intelligent Protection for the Future. Combining AI-driven analytics with comprehensive insurance
                         coverage to safeguard what matters most.</p>
-                    <div class="mt-3">
-                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
-                    </div>
                 </div>
                 <div class="col-lg-2 mb-4">
                     <h4 class="footer-heading">Quick Links</h4>

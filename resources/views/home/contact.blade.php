@@ -591,11 +591,6 @@
                     <h5 class="footer-heading">AI Investment Platform</h5>
                     <p>Harnessing the power of artificial intelligence to revolutionize investment strategies and
                         portfolio management.</p>
-                    <div class="mt-3">
-                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin fa-lg"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-facebook fa-lg"></i></a>
-                    </div>
                 </div>
 
                 <div class="col-lg-2 mb-4">
