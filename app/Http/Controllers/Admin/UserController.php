@@ -173,21 +173,30 @@ class UserController extends Controller
         $request->validate([
             'amount' => 'required|numeric|min:0.01',
             'description' => 'required|string|max:255',
+            'action' => 'required|in:add,reduce',
         ]);
+
+        $action = $request->action ?? 'add';
+        $amount = $action === 'reduce' ? -abs($request->amount) : abs($request->amount);
+        $title = $action === 'reduce' ? 'Admin Fund Reduction' : 'Admin Fund Addition';
 
         $transaction = Transaction::create([
             'user_id' => $user->id,
             'type' => 'deposit',
-            'title' => 'Admin Fund Addition',
+            'title' => $title,
             'description' => $request->description,
-            'amount' => $request->amount,
+            'amount' => $amount,
             'status' => 'completed',
             'method' => 'admin',
             'reference' => 'ADMIN_' . time(),
             'processed_at' => now(),
         ]);
 
-        return redirect()->back()->with('success', 'Funds added successfully.');
+        $message = $action === 'reduce' 
+            ? 'Funds reduced successfully.' 
+            : 'Funds added successfully.';
+
+        return redirect()->back()->with('success', $message);
     }
 
     public function addWithdrawal(Request $request, User $user)
@@ -197,25 +206,31 @@ class UserController extends Controller
             'description' => 'required|string|max:255',
             'method' => 'required|string|max:255',
             'status' => 'nullable|in:pending,completed,failed',
+            'action' => 'required|in:add,reduce',
         ]);
 
+        $action = $request->action ?? 'add';
         $status = $request->status ?? 'pending';
+        
+        // For withdrawals: add = negative (reduces balance), reduce = positive (increases balance)
+        $amount = $action === 'reduce' ? abs($request->amount) : -abs($request->amount);
+        $title = $action === 'reduce' ? 'Admin Withdrawal Reduction' : 'Admin Withdrawal';
 
         $transaction = Transaction::create([
             'user_id' => $user->id,
             'type' => 'withdrawal',
-            'title' => 'Admin Withdrawal',
+            'title' => $title,
             'description' => $request->description,
-            'amount' => -abs($request->amount), // Withdrawals should be negative
+            'amount' => $amount,
             'status' => $status,
             'method' => $request->method,
             'reference' => 'WD_' . time() . '_' . rand(1000, 9999),
             'processed_at' => $status === 'completed' ? now() : null,
         ]);
 
-        $message = $status === 'completed' 
-            ? 'Withdrawal added and processed successfully.' 
-            : 'Withdrawal added successfully.';
+        $message = $action === 'reduce' 
+            ? ($status === 'completed' ? 'Withdrawal reduced and processed successfully.' : 'Withdrawal reduced successfully.')
+            : ($status === 'completed' ? 'Withdrawal added and processed successfully.' : 'Withdrawal added successfully.');
 
         return redirect()->back()->with('success', $message);
     }
@@ -225,21 +240,30 @@ class UserController extends Controller
         $request->validate([
             'amount' => 'required|numeric|min:0.01',
             'description' => 'required|string|max:255',
+            'action' => 'required|in:add,reduce',
         ]);
+
+        $action = $request->action ?? 'add';
+        $amount = $action === 'reduce' ? -abs($request->amount) : abs($request->amount);
+        $title = 'Total Profit';
 
         Transaction::create([
             'user_id' => $user->id,
             'type' => 'dividend',
-            'title' => 'Total Profit',
+            'title' => $title,
             'description' => $request->description,
-            'amount' => $request->amount,
+            'amount' => $amount,
             'status' => 'completed',
             'method' => 'admin',
             'reference' => 'TP_' . time(),
             'processed_at' => now(),
         ]);
 
-        return redirect()->back()->with('success', 'Total profit added successfully.');
+        $message = $action === 'reduce' 
+            ? 'Total profit reduced successfully.' 
+            : 'Total profit added successfully.';
+
+        return redirect()->back()->with('success', $message);
     }
 
     public function addWithdrawalBonus(Request $request, User $user)
@@ -247,21 +271,30 @@ class UserController extends Controller
         $request->validate([
             'amount' => 'required|numeric|min:0.01',
             'description' => 'required|string|max:255',
+            'action' => 'required|in:add,reduce',
         ]);
+
+        $action = $request->action ?? 'add';
+        $amount = $action === 'reduce' ? -abs($request->amount) : abs($request->amount);
+        $title = 'Withdrawal Bonus';
 
         Transaction::create([
             'user_id' => $user->id,
             'type' => 'dividend',
-            'title' => 'Withdrawal Bonus',
+            'title' => $title,
             'description' => $request->description,
-            'amount' => $request->amount,
+            'amount' => $amount,
             'status' => 'completed',
             'method' => 'admin',
             'reference' => 'WB_' . time(),
             'processed_at' => now(),
         ]);
 
-        return redirect()->back()->with('success', 'Withdrawal bonus added successfully.');
+        $message = $action === 'reduce' 
+            ? 'Withdrawal bonus reduced successfully.' 
+            : 'Withdrawal bonus added successfully.';
+
+        return redirect()->back()->with('success', $message);
     }
 
     public function addReferralBonus(Request $request, User $user)
@@ -269,21 +302,30 @@ class UserController extends Controller
         $request->validate([
             'amount' => 'required|numeric|min:0.01',
             'description' => 'required|string|max:255',
+            'action' => 'required|in:add,reduce',
         ]);
+
+        $action = $request->action ?? 'add';
+        $amount = $action === 'reduce' ? -abs($request->amount) : abs($request->amount);
+        $title = 'Referral Bonus';
 
         Transaction::create([
             'user_id' => $user->id,
             'type' => 'dividend',
-            'title' => 'Referral Bonus',
+            'title' => $title,
             'description' => $request->description,
-            'amount' => $request->amount,
+            'amount' => $amount,
             'status' => 'completed',
             'method' => 'admin',
             'reference' => 'RB_' . time(),
             'processed_at' => now(),
         ]);
 
-        return redirect()->back()->with('success', 'Referral bonus added successfully.');
+        $message = $action === 'reduce' 
+            ? 'Referral bonus reduced successfully.' 
+            : 'Referral bonus added successfully.';
+
+        return redirect()->back()->with('success', $message);
     }
 
     public function sendEmail(Request $request, User $user)

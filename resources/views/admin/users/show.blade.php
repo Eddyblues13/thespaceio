@@ -91,30 +91,60 @@
                                     @csrf
                                     <button type="submit" class="btn btn-warning btn-block mb-2">Login as User</button>
                                 </form>
-                                <button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal"
-                                    data-target="#fundModal">
-                                    <i class="fas fa-plus-circle"></i> Add Funds
-                                </button>
+                                <div class="btn-group btn-block mb-2" role="group">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#fundModal" data-action="add">
+                                        <i class="fas fa-plus-circle"></i> Add Funds
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                                        data-target="#fundModal" data-action="reduce">
+                                        <i class="fas fa-minus-circle"></i> Reduce Funds
+                                    </button>
+                                </div>
 
-                                <button type="button" class="btn btn-danger btn-block mb-2" data-toggle="modal"
-                                    data-target="#withdrawalModal">
-                                    <i class="fas fa-minus-circle"></i> Add Withdrawal
-                                </button>
+                                <div class="btn-group btn-block mb-2" role="group">
+                                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                                        data-target="#withdrawalModal" data-action="add">
+                                        <i class="fas fa-plus-circle"></i> Add Withdrawal
+                                    </button>
+                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                                        data-target="#withdrawalModal" data-action="reduce">
+                                        <i class="fas fa-minus-circle"></i> Reduce Withdrawal
+                                    </button>
+                                </div>
 
-                                <button type="button" class="btn btn-info btn-block mb-2" data-toggle="modal"
-                                    data-target="#totalProfitModal">
-                                    <i class="fas fa-chart-line"></i> Add Total Profit
-                                </button>
+                                <div class="btn-group btn-block mb-2" role="group">
+                                    <button type="button" class="btn btn-info" data-toggle="modal"
+                                        data-target="#totalProfitModal" data-action="add">
+                                        <i class="fas fa-plus-circle"></i> Add Total Profit
+                                    </button>
+                                    <button type="button" class="btn btn-outline-info" data-toggle="modal"
+                                        data-target="#totalProfitModal" data-action="reduce">
+                                        <i class="fas fa-minus-circle"></i> Reduce Total Profit
+                                    </button>
+                                </div>
 
-                                <button type="button" class="btn btn-success btn-block mb-2" data-toggle="modal"
-                                    data-target="#withdrawalBonusModal">
-                                    <i class="fas fa-gift"></i> Add Withdrawal Bonus
-                                </button>
+                                <div class="btn-group btn-block mb-2" role="group">
+                                    <button type="button" class="btn btn-success" data-toggle="modal"
+                                        data-target="#withdrawalBonusModal" data-action="add">
+                                        <i class="fas fa-plus-circle"></i> Add Withdrawal Bonus
+                                    </button>
+                                    <button type="button" class="btn btn-outline-success" data-toggle="modal"
+                                        data-target="#withdrawalBonusModal" data-action="reduce">
+                                        <i class="fas fa-minus-circle"></i> Reduce Withdrawal Bonus
+                                    </button>
+                                </div>
 
-                                <button type="button" class="btn btn-secondary btn-block mb-2" data-toggle="modal"
-                                    data-target="#referralBonusModal">
-                                    <i class="fas fa-user-friends"></i> Add Referral Bonus
-                                </button>
+                                <div class="btn-group btn-block mb-2" role="group">
+                                    <button type="button" class="btn btn-secondary" data-toggle="modal"
+                                        data-target="#referralBonusModal" data-action="add">
+                                        <i class="fas fa-plus-circle"></i> Add Referral Bonus
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+                                        data-target="#referralBonusModal" data-action="reduce">
+                                        <i class="fas fa-minus-circle"></i> Reduce Referral Bonus
+                                    </button>
+                                </div>
 
                                 <button type="button" class="btn btn-info btn-block mb-2" data-toggle="modal"
                                     data-target="#emailModal">
@@ -403,17 +433,21 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="fundModalLabel">Add Funds to {{ $user->full_name }}</h5>
+                <h5 class="modal-title" id="fundModalLabel">Manage Funds for {{ $user->full_name }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form action="{{ route('admin.users.fund', $user) }}" method="POST">
                 @csrf
+                <input type="hidden" name="action" id="fundAction" value="add">
                 <div class="modal-body">
+                    <div class="alert alert-info" id="fundActionAlert">
+                        <i class="fas fa-info-circle"></i> <span id="fundActionText">Adding funds to user account</span>
+                    </div>
                     <div class="form-group">
                         <label for="amount">Amount</label>
-                        <input type="number" step="0.01" class="form-control" id="amount" name="amount" required>
+                        <input type="number" step="0.01" min="0.01" class="form-control" id="amount" name="amount" required>
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
@@ -422,7 +456,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add Funds</button>
+                    <button type="submit" class="btn btn-primary" id="fundSubmitBtn">Add Funds</button>
                 </div>
             </form>
         </div>
@@ -434,14 +468,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="withdrawalModalLabel">Add Withdrawal for {{ $user->full_name }}</h5>
+                <h5 class="modal-title" id="withdrawalModalLabel">Manage Withdrawal for {{ $user->full_name }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form action="{{ route('admin.users.withdrawal', $user) }}" method="POST">
                 @csrf
+                <input type="hidden" name="action" id="withdrawalAction" value="add">
                 <div class="modal-body">
+                    <div class="alert alert-info" id="withdrawalActionAlert">
+                        <i class="fas fa-info-circle"></i> <span id="withdrawalActionText">Adding withdrawal (reduces balance)</span>
+                    </div>
                     <div class="form-group">
                         <label for="withdrawal_amount">Amount <span class="text-danger">*</span></label>
                         <input type="number" step="0.01" min="0.01" class="form-control @error('amount') is-invalid @enderror" 
@@ -477,7 +515,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-danger">Add Withdrawal</button>
+                    <button type="submit" class="btn btn-danger" id="withdrawalSubmitBtn">Add Withdrawal</button>
                 </div>
             </form>
         </div>
@@ -489,14 +527,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="totalProfitModalLabel">Add Total Profit for {{ $user->full_name }}</h5>
+                <h5 class="modal-title" id="totalProfitModalLabel">Manage Total Profit for {{ $user->full_name }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form action="{{ route('admin.users.total-profit', $user) }}" method="POST">
                 @csrf
+                <input type="hidden" name="action" id="totalProfitAction" value="add">
                 <div class="modal-body">
+                    <div class="alert alert-info" id="totalProfitActionAlert">
+                        <i class="fas fa-info-circle"></i> <span id="totalProfitActionText">Adding total profit to user account</span>
+                    </div>
                     <div class="form-group">
                         <label for="total_profit_amount">Amount <span class="text-danger">*</span></label>
                         <input type="number" step="0.01" min="0.01" class="form-control" id="total_profit_amount" name="amount" required>
@@ -508,7 +550,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-info">Add Total Profit</button>
+                    <button type="submit" class="btn btn-info" id="totalProfitSubmitBtn">Add Total Profit</button>
                 </div>
             </form>
         </div>
@@ -520,14 +562,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="withdrawalBonusModalLabel">Add Withdrawal Bonus for {{ $user->full_name }}</h5>
+                <h5 class="modal-title" id="withdrawalBonusModalLabel">Manage Withdrawal Bonus for {{ $user->full_name }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form action="{{ route('admin.users.withdrawal-bonus', $user) }}" method="POST">
                 @csrf
+                <input type="hidden" name="action" id="withdrawalBonusAction" value="add">
                 <div class="modal-body">
+                    <div class="alert alert-info" id="withdrawalBonusActionAlert">
+                        <i class="fas fa-info-circle"></i> <span id="withdrawalBonusActionText">Adding withdrawal bonus to user account</span>
+                    </div>
                     <div class="form-group">
                         <label for="withdrawal_bonus_amount">Amount <span class="text-danger">*</span></label>
                         <input type="number" step="0.01" min="0.01" class="form-control" id="withdrawal_bonus_amount" name="amount" required>
@@ -539,7 +585,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-success">Add Withdrawal Bonus</button>
+                    <button type="submit" class="btn btn-success" id="withdrawalBonusSubmitBtn">Add Withdrawal Bonus</button>
                 </div>
             </form>
         </div>
@@ -551,14 +597,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="referralBonusModalLabel">Add Referral Bonus for {{ $user->full_name }}</h5>
+                <h5 class="modal-title" id="referralBonusModalLabel">Manage Referral Bonus for {{ $user->full_name }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form action="{{ route('admin.users.referral-bonus', $user) }}" method="POST">
                 @csrf
+                <input type="hidden" name="action" id="referralBonusAction" value="add">
                 <div class="modal-body">
+                    <div class="alert alert-info" id="referralBonusActionAlert">
+                        <i class="fas fa-info-circle"></i> <span id="referralBonusActionText">Adding referral bonus to user account</span>
+                    </div>
                     <div class="form-group">
                         <label for="referral_bonus_amount">Amount <span class="text-danger">*</span></label>
                         <input type="number" step="0.01" min="0.01" class="form-control" id="referral_bonus_amount" name="amount" required>
@@ -570,7 +620,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-secondary">Add Referral Bonus</button>
+                    <button type="submit" class="btn btn-secondary" id="referralBonusSubmitBtn">Add Referral Bonus</button>
                 </div>
             </form>
         </div>
@@ -608,5 +658,112 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Handle Fund Modal
+    $('#fundModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var action = button.data('action') || 'add';
+        var modal = $(this);
+        
+        modal.find('#fundAction').val(action);
+        
+        if (action === 'reduce') {
+            modal.find('#fundModalLabel').text('Reduce Funds from ' + '{{ $user->full_name }}');
+            modal.find('#fundActionText').text('Reducing funds from user account');
+            modal.find('#fundActionAlert').removeClass('alert-info').addClass('alert-warning');
+            modal.find('#fundSubmitBtn').removeClass('btn-primary').addClass('btn-warning').text('Reduce Funds');
+        } else {
+            modal.find('#fundModalLabel').text('Add Funds to ' + '{{ $user->full_name }}');
+            modal.find('#fundActionText').text('Adding funds to user account');
+            modal.find('#fundActionAlert').removeClass('alert-warning').addClass('alert-info');
+            modal.find('#fundSubmitBtn').removeClass('btn-warning').addClass('btn-primary').text('Add Funds');
+        }
+    });
+
+    // Handle Withdrawal Modal
+    $('#withdrawalModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var action = button.data('action') || 'add';
+        var modal = $(this);
+        
+        modal.find('#withdrawalAction').val(action);
+        
+        if (action === 'reduce') {
+            modal.find('#withdrawalModalLabel').text('Reduce Withdrawal for ' + '{{ $user->full_name }}');
+            modal.find('#withdrawalActionText').text('Reducing withdrawal (increases balance)');
+            modal.find('#withdrawalActionAlert').removeClass('alert-info').addClass('alert-warning');
+            modal.find('#withdrawalSubmitBtn').removeClass('btn-danger').addClass('btn-warning').text('Reduce Withdrawal');
+        } else {
+            modal.find('#withdrawalModalLabel').text('Add Withdrawal for ' + '{{ $user->full_name }}');
+            modal.find('#withdrawalActionText').text('Adding withdrawal (reduces balance)');
+            modal.find('#withdrawalActionAlert').removeClass('alert-warning').addClass('alert-info');
+            modal.find('#withdrawalSubmitBtn').removeClass('btn-warning').addClass('btn-danger').text('Add Withdrawal');
+        }
+    });
+
+    // Handle Total Profit Modal
+    $('#totalProfitModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var action = button.data('action') || 'add';
+        var modal = $(this);
+        
+        modal.find('#totalProfitAction').val(action);
+        
+        if (action === 'reduce') {
+            modal.find('#totalProfitModalLabel').text('Reduce Total Profit for ' + '{{ $user->full_name }}');
+            modal.find('#totalProfitActionText').text('Reducing total profit from user account');
+            modal.find('#totalProfitActionAlert').removeClass('alert-info').addClass('alert-warning');
+            modal.find('#totalProfitSubmitBtn').removeClass('btn-info').addClass('btn-warning').text('Reduce Total Profit');
+        } else {
+            modal.find('#totalProfitModalLabel').text('Add Total Profit for ' + '{{ $user->full_name }}');
+            modal.find('#totalProfitActionText').text('Adding total profit to user account');
+            modal.find('#totalProfitActionAlert').removeClass('alert-warning').addClass('alert-info');
+            modal.find('#totalProfitSubmitBtn').removeClass('btn-warning').addClass('btn-info').text('Add Total Profit');
+        }
+    });
+
+    // Handle Withdrawal Bonus Modal
+    $('#withdrawalBonusModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var action = button.data('action') || 'add';
+        var modal = $(this);
+        
+        modal.find('#withdrawalBonusAction').val(action);
+        
+        if (action === 'reduce') {
+            modal.find('#withdrawalBonusModalLabel').text('Reduce Withdrawal Bonus for ' + '{{ $user->full_name }}');
+            modal.find('#withdrawalBonusActionText').text('Reducing withdrawal bonus from user account');
+            modal.find('#withdrawalBonusActionAlert').removeClass('alert-info').addClass('alert-warning');
+            modal.find('#withdrawalBonusSubmitBtn').removeClass('btn-success').addClass('btn-warning').text('Reduce Withdrawal Bonus');
+        } else {
+            modal.find('#withdrawalBonusModalLabel').text('Add Withdrawal Bonus for ' + '{{ $user->full_name }}');
+            modal.find('#withdrawalBonusActionText').text('Adding withdrawal bonus to user account');
+            modal.find('#withdrawalBonusActionAlert').removeClass('alert-warning').addClass('alert-info');
+            modal.find('#withdrawalBonusSubmitBtn').removeClass('btn-warning').addClass('btn-success').text('Add Withdrawal Bonus');
+        }
+    });
+
+    // Handle Referral Bonus Modal
+    $('#referralBonusModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var action = button.data('action') || 'add';
+        var modal = $(this);
+        
+        modal.find('#referralBonusAction').val(action);
+        
+        if (action === 'reduce') {
+            modal.find('#referralBonusModalLabel').text('Reduce Referral Bonus for ' + '{{ $user->full_name }}');
+            modal.find('#referralBonusActionText').text('Reducing referral bonus from user account');
+            modal.find('#referralBonusActionAlert').removeClass('alert-info').addClass('alert-warning');
+            modal.find('#referralBonusSubmitBtn').removeClass('btn-secondary').addClass('btn-warning').text('Reduce Referral Bonus');
+        } else {
+            modal.find('#referralBonusModalLabel').text('Add Referral Bonus for ' + '{{ $user->full_name }}');
+            modal.find('#referralBonusActionText').text('Adding referral bonus to user account');
+            modal.find('#referralBonusActionAlert').removeClass('alert-warning').addClass('alert-info');
+            modal.find('#referralBonusSubmitBtn').removeClass('btn-warning').addClass('btn-secondary').text('Add Referral Bonus');
+        }
+    });
+</script>
 
 @include('admin.footer')
