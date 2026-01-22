@@ -12,6 +12,15 @@
                 </div>
             @endif
 
+            @if(session('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+
             <div class="page-header">
                 <div class="d-flex justify-content-between align-items-center flex-wrap">
                     <div>
@@ -38,6 +47,7 @@
                                     <th>Method</th>
                                     <th>Reference</th>
                                     <th>Date</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -50,7 +60,7 @@
                                     </td>
                                     <td><strong>{{ $transaction->title }}</strong></td>
                                     <td>{{ \Str::limit($transaction->description, 50) }}</td>
-                                    <td><strong>${{ number_format($transaction->amount, 2) }}</strong></td>
+                                    <td><strong>${{ number_format(abs($transaction->amount), 2) }}</strong></td>
                                     <td>
                                         <span class="badge badge-{{ $transaction->status == 'completed' ? 'success' : ($transaction->status == 'pending' ? 'warning' : 'danger') }}">
                                             {{ ucfirst($transaction->status) }}
@@ -59,10 +69,35 @@
                                     <td>{{ $transaction->method ?? 'N/A' }}</td>
                                     <td><small>{{ $transaction->reference ?? 'N/A' }}</small></td>
                                     <td>{{ $transaction->created_at->format('M d, Y H:i') }}</td>
+                                    <td>
+                                        <div class="btn-group" role="group">
+                                            @if($transaction->status == 'pending' && $transaction->type == 'withdrawal')
+                                                <form action="{{ route('admin.transactions.approve', $transaction) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to approve this withdrawal?');">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-sm btn-success" title="Approve">
+                                                        <i class="fas fa-check"></i>
+                                                    </button>
+                                                </form>
+                                                <form action="{{ route('admin.transactions.reject', $transaction) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to reject this withdrawal?');">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-sm btn-warning" title="Reject">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                </form>
+                                            @endif
+                                            <form action="{{ route('admin.transactions.destroy', $transaction) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this transaction? This action cannot be undone.');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger" title="Delete">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td colspan="8" class="text-center py-4">
+                                    <td colspan="9" class="text-center py-4">
                                         <i class="fas fa-exchange-alt fa-3x text-muted mb-3"></i>
                                         <p class="text-muted">No transactions found for this user.</p>
                                     </td>

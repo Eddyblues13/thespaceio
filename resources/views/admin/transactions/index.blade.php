@@ -56,7 +56,7 @@
                                         </span>
                                     </td>
                                     <td>{{ $transaction->title }}</td>
-                                    <td><strong>${{ number_format($transaction->amount, 2) }}</strong></td>
+                                    <td><strong>${{ number_format(abs($transaction->amount), 2) }}</strong></td>
                                     <td>
                                         <span class="badge badge-{{ $transaction->status == 'completed' ? 'success' : ($transaction->status == 'pending' ? 'warning' : 'danger') }}">
                                             {{ ucfirst($transaction->status) }}
@@ -74,9 +74,23 @@
                                                 class="btn btn-outline-info" title="Edit">
                                                 <i class="fas fa-edit"></i>
                                             </a>
+                                            @if($transaction->status == 'pending' && $transaction->type == 'withdrawal')
+                                                <form action="{{ route('admin.transactions.approve', $transaction) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to approve this withdrawal?');">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-outline-success" title="Approve">
+                                                        <i class="fas fa-check"></i>
+                                                    </button>
+                                                </form>
+                                                <form action="{{ route('admin.transactions.reject', $transaction) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to reject this withdrawal?');">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-outline-warning" title="Reject">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                </form>
+                                            @endif
                                             <form action="{{ route('admin.transactions.destroy', $transaction) }}"
                                                 method="POST" class="d-inline"
-                                                onsubmit="return confirm('Are you sure you want to delete this transaction?');">
+                                                onsubmit="return confirm('Are you sure you want to delete this transaction? This action cannot be undone.');">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-outline-danger" title="Delete">

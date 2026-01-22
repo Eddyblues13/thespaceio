@@ -94,21 +94,39 @@ class TransactionController extends Controller
 
     public function approve(Transaction $transaction)
     {
+        // Only approve pending transactions
+        if ($transaction->status !== 'pending') {
+            return redirect()->back()->with('error', 'Only pending transactions can be approved.');
+        }
+
         $transaction->update([
             'status' => 'completed',
             'processed_at' => now(),
         ]);
 
-        return redirect()->back()->with('success', 'Transaction approved successfully.');
+        $message = $transaction->type === 'withdrawal' 
+            ? 'Withdrawal approved successfully. Funds have been deducted from user account.'
+            : 'Transaction approved successfully.';
+
+        return redirect()->back()->with('success', $message);
     }
 
     public function reject(Transaction $transaction)
     {
+        // Only reject pending transactions
+        if ($transaction->status !== 'pending') {
+            return redirect()->back()->with('error', 'Only pending transactions can be rejected.');
+        }
+
         $transaction->update([
             'status' => 'failed',
             'processed_at' => now(),
         ]);
 
-        return redirect()->back()->with('success', 'Transaction rejected successfully.');
+        $message = $transaction->type === 'withdrawal' 
+            ? 'Withdrawal rejected successfully. User funds remain unchanged.'
+            : 'Transaction rejected successfully.';
+
+        return redirect()->back()->with('success', $message);
     }
 }
