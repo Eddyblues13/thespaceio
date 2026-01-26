@@ -33,23 +33,23 @@ class WithdrawalController extends Controller
     {
         $request->validate([
             'amount' => 'required|numeric|min:10',
-            'method' => 'required|string|in:crypto,bank,wire,cashapp',
+            'method' => 'required|in:crypto,bank,wire,cashapp',
+            
             // Crypto validation
-            'currency' => 'required_if:method,crypto|nullable|string|in:BTC,ETH,USDT,USDC',
-            'wallet_address' => 'required_if:method,crypto|nullable|string|min:26|max:100',
-            // Bank validation
-            'bank_name' => 'required_if:method,bank|nullable|string|max:255',
-            'account_holder' => 'required_if:method,bank|nullable|string|max:255',
-            'account_number' => 'required_if:method,bank|nullable|string|min:8|max:20',
-            'routing_number' => 'required_if:method,bank|nullable|string|size:9',
-            // Wire validation
-            'wire_type' => 'required_if:method,wire|nullable|string|in:domestic,international',
-            'account_holder' => 'required_if:method,wire|nullable|string|max:255',
-            'account_number' => 'required_if:method,wire|nullable|string|min:8|max:20',
-            'routing_number' => 'required_if:method,wire|nullable|string|size:9',
-            'bank_name' => 'required_if:method,wire|nullable|string|max:255',
+            'currency' => 'required_if:method,crypto|in:BTC,ETH,USDT,USDC',
+            'wallet_address' => 'required_if:method,crypto|min:26|max:100',
+            
+            // Bank and Wire validation (shared fields)
+            'bank_name' => 'required_if:method,bank|required_if:method,wire|max:255',
+            'account_holder' => 'required_if:method,bank|required_if:method,wire|max:255',
+            'account_number' => 'required_if:method,bank|required_if:method,wire|min:8|max:20',
+            'routing_number' => 'required_if:method,bank|required_if:method,wire|size:9',
+            
+            // Wire-specific validation
+            'wire_type' => 'required_if:method,wire|in:domestic,international',
+            
             // Cash App validation
-            'cashapp_username' => 'required_if:method,cashapp|nullable|string|max:50',
+            'cashapp_username' => 'required_if:method,cashapp|max:50',
         ]);
 
         $user = Auth::user();
@@ -110,28 +110,45 @@ class WithdrawalController extends Controller
             ];
         }
 
-        // Create withdrawal transaction
-        $transaction = Transaction::create([
-            'user_id' => $user->id,
-            'type' => 'withdrawal',
-            'title' => ucfirst($request->method) . ' Withdrawal',
-            'description' => $description,
-            'amount' => -abs($request->amount), // Ensure negative amount
-            'status' => 'pending',
-            'method' => $request->method,
-            'reference' => $reference,
-            'metadata' => $metadata,
-        ]);
-
-        // Send withdrawal notification email
         try {
-            Mail::to($user->email)->send(new WithdrawalNotification($user, $transaction));
-        } catch (\Exception $e) {
-            // Log error but don't fail the withdrawal request
-            \Log::error('Failed to send withdrawal notification email: ' . $e->getMessage());
-        }
+            // Create withdrawal transaction
+            $transaction = Transaction::create([
+                'user_id' => $user->id,
+                'type' => 'withdrawal',
+                'title' => ucfirst($request->method) . ' Withdrawal',
+                'description' => $description,
+                'amount' => -abs($request->amount), // Ensure negative amount
+                'status' => 'pending',
+                'method' => $request->method,
+                'reference' => $reference,
+                'metadata' => $metadata,
+            ]);
 
-        return redirect()->route('dashboard.withdrawal')
-            ->with('success', 'Withdrawal request submitted successfully! Reference: ' . $reference . '. A confirmation email has been sent to your email address.');
+            // Send withdrawal notification email
+            try {
+                Mail::to($user->email)->send(new WithdrawalNotification($user, $transaction));
+            } catch (\Exception $e) {
+                // Log error but don't fail the withdrawal request
+                \Log::error('Failed to send withdrawal notification email: ' . $e->getMessage());
+            }
+
+            // Determine redirect based on where the request came from
+            $redirectRoute = $request->has('from_transactions') 
+                ? route('dashboard.transactions') 
+                : route('dashboard.withdrawal');
+
+            return redirect($redirectRoute)
+                ->with('success', 'Withdrawal request submitted successfully! Reference: ' . $reference . '. A confirmation email has been sent to your email address.');
+                
+        } catch (\Exception $e) {
+            \Log::error('Failed to create withdrawal transaction: ' . $e->getMessage());
+            
+            $redirectRoute = $request->has('from_transactions') 
+                ? route('dashboard.transactions') 
+                : route('dashboard.withdrawal');
+                
+            return redirect($redirectRoute)
+                ->with('error', 'Failed to process withdrawal request. Please try again or contact support.');
+        }
     }
 }

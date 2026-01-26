@@ -531,6 +531,66 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Withdrawal Modal Styles */
+        .method-option {
+            background-color: var(--light-blue);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: var(--text-color);
+        }
+
+        .method-option:hover {
+            background-color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .method-option.active {
+            background-color: var(--accent-blue);
+            border-color: var(--success-green);
+            box-shadow: 0 0 10px rgba(0, 200, 83, 0.3);
+        }
+
+        .method-option i {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .method-form {
+            background-color: rgba(0, 82, 163, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .modal-content .form-control {
+            background-color: var(--dark-blue);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+
+        .modal-content .form-control:focus {
+            background-color: var(--dark-blue);
+            border-color: var(--accent-blue);
+            color: var(--text-color);
+            box-shadow: 0 0 0 0.25rem rgba(0, 82, 163, 0.25);
+        }
+
+        .modal-content .form-label {
+            color: #a8c6e5;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .modal-content .form-text {
+            color: #a8c6e5;
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 
@@ -603,6 +663,33 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Success/Error Messages -->
+                @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert" style="background-color: rgba(0, 200, 83, 0.1); color: var(--success-green); border-left: 4px solid var(--success-green); border-radius: 8px; margin-bottom: 20px;">
+                    <i class="fas fa-check-circle me-2"></i>{{ session('success') }}
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
+
+                @if(session('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" style="background-color: rgba(244, 67, 54, 0.1); color: var(--danger-red); border-left: 4px solid var(--danger-red); border-radius: 8px; margin-bottom: 20px;">
+                    <i class="fas fa-exclamation-circle me-2"></i>{{ session('error') }}
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
+
+                @if($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" style="background-color: rgba(244, 67, 54, 0.1); color: var(--danger-red); border-left: 4px solid var(--danger-red); border-radius: 8px; margin-bottom: 20px;">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    <ul class="mb-0">
+                        @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
 
                 <!-- Quick Actions -->
                 <div class="dashboard-card">
@@ -940,39 +1027,244 @@
     <!-- Withdrawal Modal -->
     <div class="modal fade" id="withdrawalModal" tabindex="-1" aria-labelledby="withdrawalModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content" style="background-color: var(--primary-blue); color: var(--text-color);">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="withdrawalModalLabel">Withdraw Funds</h5>
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="background-color: var(--primary-blue); color: var(--text-color); border: 1px solid var(--border-color);">
+                <div class="modal-header" style="border-bottom: 1px solid var(--border-color);">
+                    <h5 class="modal-title" id="withdrawalModalLabel">
+                        <i class="fas fa-minus-circle me-2"></i>Withdraw Funds
+                    </h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
-                <form method="POST" action="{{ route('withdrawal.store') }}">
+                <form method="POST" action="{{ route('withdrawal.store') }}" id="modalWithdrawalForm" novalidate>
                     @csrf
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="withdrawalAmount" class="form-label">Amount</label>
-                            <input type="number" class="form-control" id="withdrawalAmount" name="amount"
-                                placeholder="Enter amount" min="1" step="0.01" max="{{ max(0, $user->cash_balance) }}" required>
-                            <div class="form-text">Available balance: ${{ number_format(max(0, $user->cash_balance), 2) }}</div>
+                    <input type="hidden" name="method" id="modalActiveMethod" value="crypto">
+                    <input type="hidden" name="from_transactions" value="1">
+                    <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+                        <!-- Method Selection -->
+                        <div class="mb-4">
+                            <label class="form-label mb-3">Select Withdrawal Method</label>
+                            <div class="row g-2">
+                                <div class="col-6 col-md-3">
+                                    <div class="method-option active" data-method="crypto">
+                                        <i class="fab fa-bitcoin fa-2x mb-2"></i>
+                                        <div class="small">Crypto</div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="method-option" data-method="bank">
+                                        <i class="fas fa-university fa-2x mb-2"></i>
+                                        <div class="small">Bank</div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="method-option" data-method="wire">
+                                        <i class="fas fa-exchange-alt fa-2x mb-2"></i>
+                                        <div class="small">Wire</div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="method-option" data-method="cashapp">
+                                        <i class="fas fa-mobile-alt fa-2x mb-2"></i>
+                                        <div class="small">Cash App</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="withdrawalMethod" class="form-label">Withdrawal Method</label>
-                            <select class="form-control" id="withdrawalMethod" name="method" required>
-                                <option value="bank">Bank Transfer</option>
-                                <option value="crypto">Cryptocurrency</option>
-                                <option value="check">Check</option>
-                            </select>
+
+                        <!-- Crypto Withdrawal Form -->
+                        <div id="modal-crypto-form" class="method-form">
+                            <div class="mb-3">
+                                <label for="modalCurrency" class="form-label">
+                                    <i class="fas fa-coins me-1"></i>Select Cryptocurrency
+                                </label>
+                                <select class="form-control" id="modalCurrency" name="currency" data-required="true">
+                                    <option value="">Select Currency</option>
+                                    <option value="BTC">Bitcoin (BTC)</option>
+                                    <option value="ETH">Ethereum (ETH)</option>
+                                    <option value="USDT">Tether (USDT)</option>
+                                    <option value="USDC">USD Coin (USDC)</option>
+                                </select>
+                                @error('currency')
+                                <div class="text-danger small mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="modalCryptoAmount" class="form-label">
+                                    <i class="fas fa-dollar-sign me-1"></i>Withdrawal Amount (USD)
+                                </label>
+                                <input type="number" class="form-control" id="modalCryptoAmount" name="amount"
+                                    placeholder="0.00" min="10" step="0.01" max="{{ max(0, $user->cash_balance) }}" data-required="true" data-method="crypto">
+                                <div class="form-text">Minimum: $10 | Available: ${{ number_format(max(0, $user->cash_balance), 2) }}</div>
+                                @error('amount')
+                                <div class="text-danger small mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="modalWalletAddress" class="form-label">
+                                    <i class="fas fa-wallet me-1"></i>Recipient Wallet Address
+                                </label>
+                                <input type="text" class="form-control" id="modalWalletAddress" name="wallet_address"
+                                    placeholder="Enter your wallet address" data-required="true">
+                                <div class="form-text">Make sure this address supports the selected cryptocurrency</div>
+                                @error('wallet_address')
+                                <div class="text-danger small mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="withdrawalNotes" class="form-label">Notes (Optional)</label>
-                            <textarea class="form-control" id="withdrawalNotes" name="notes" rows="3"
-                                placeholder="Add any notes about this withdrawal"></textarea>
+
+                        <!-- Bank Transfer Form -->
+                        <div id="modal-bank-form" class="method-form" style="display: none;">
+                            <div class="mb-3">
+                                <label for="modalBankName" class="form-label">
+                                    <i class="fas fa-university me-1"></i>Bank Name
+                                </label>
+                                <input type="text" class="form-control" id="modalBankName" name="bank_name"
+                                    placeholder="Enter your bank name" data-required="true">
+                                @error('bank_name')
+                                <div class="text-danger small mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="modalBankAccountHolder" class="form-label">
+                                    <i class="fas fa-user me-1"></i>Account Holder Name
+                                </label>
+                                <input type="text" class="form-control" id="modalBankAccountHolder" name="account_holder"
+                                    placeholder="Enter account holder name" data-required="true">
+                                @error('account_holder')
+                                <div class="text-danger small mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="modalBankAccountNumber" class="form-label">
+                                        <i class="fas fa-credit-card me-1"></i>Account Number
+                                    </label>
+                                    <input type="text" class="form-control" id="modalBankAccountNumber" name="account_number"
+                                        placeholder="Enter account number" data-required="true">
+                                    @error('account_number')
+                                    <div class="text-danger small mt-1">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="modalBankRoutingNumber" class="form-label">
+                                        <i class="fas fa-sort-numeric-down me-1"></i>Routing Number
+                                    </label>
+                                    <input type="text" class="form-control" id="modalBankRoutingNumber" name="routing_number"
+                                        placeholder="9 digits" data-required="true" maxlength="9">
+                                    @error('routing_number')
+                                    <div class="text-danger small mt-1">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="modalBankAmount" class="form-label">
+                                    <i class="fas fa-dollar-sign me-1"></i>Withdrawal Amount (USD)
+                                </label>
+                                <input type="number" class="form-control" id="modalBankAmount" name="amount"
+                                    placeholder="0.00" min="10" step="0.01" max="{{ max(0, $user->cash_balance) }}" data-required="true" data-method="bank">
+                                <div class="form-text">Minimum: $10 | Available: ${{ number_format(max(0, $user->cash_balance), 2) }}</div>
+                                @error('amount')
+                                <div class="text-danger small mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Wire Transfer Form -->
+                        <div id="modal-wire-form" class="method-form" style="display: none;">
+                            <div class="mb-3">
+                                <label for="modalWireType" class="form-label">
+                                    <i class="fas fa-exchange-alt me-1"></i>Account Type
+                                </label>
+                                <select class="form-control" id="modalWireType" name="wire_type" data-required="true">
+                                    <option value="">Select Type</option>
+                                    <option value="domestic">Domestic Wire Transfer</option>
+                                    <option value="international">International Wire Transfer</option>
+                                </select>
+                                @error('wire_type')
+                                <div class="text-danger small mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="modalWireAmount" class="form-label">
+                                    <i class="fas fa-dollar-sign me-1"></i>Withdrawal Amount (USD)
+                                </label>
+                                <input type="number" class="form-control" id="modalWireAmount" name="amount"
+                                    placeholder="0.00" min="10" step="0.01" max="{{ max(0, $user->cash_balance) }}" data-required="true" data-method="wire">
+                                <div class="form-text">Minimum: $10 | Available: ${{ number_format(max(0, $user->cash_balance), 2) }}</div>
+                                @error('amount')
+                                <div class="text-danger small mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    <i class="fas fa-university me-1"></i>Bank Account Details
+                                </label>
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <input type="text" class="form-control" name="account_holder"
+                                            placeholder="Account Holder Name" data-required="true">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <input type="text" class="form-control" name="account_number"
+                                            placeholder="Account Number" data-required="true">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <input type="text" class="form-control" name="routing_number"
+                                            placeholder="Routing Number" data-required="true" maxlength="9">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <input type="text" class="form-control" name="bank_name"
+                                            placeholder="Bank Name" data-required="true">
+                                    </div>
+                                </div>
+                                @error('account_holder')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                                @error('account_number')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                                @error('routing_number')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                                @error('bank_name')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
+                            </div>
+                        </div>
+
+                        <!-- Cash App Form -->
+                        <div id="modal-cashapp-form" class="method-form" style="display: none;">
+                            <div class="mb-3">
+                                <label for="modalCashAppUsername" class="form-label">
+                                    <i class="fas fa-mobile-alt me-1"></i>Cash App Username
+                                </label>
+                                <input type="text" class="form-control" id="modalCashAppUsername" name="cashapp_username"
+                                    placeholder="Your Cash App $username" data-required="true">
+                                @error('cashapp_username')
+                                <div class="text-danger small mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="modalCashAppAmount" class="form-label">
+                                    <i class="fas fa-dollar-sign me-1"></i>Withdrawal Amount (USD)
+                                </label>
+                                <input type="number" class="form-control" id="modalCashAppAmount" name="amount"
+                                    placeholder="0.00" min="10" step="0.01" max="{{ max(0, $user->cash_balance) }}" data-required="true" data-method="cashapp">
+                                <div class="form-text">Minimum: $10 | Available: ${{ number_format(max(0, $user->cash_balance), 2) }}</div>
+                                @error('amount')
+                                <div class="text-danger small mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Confirm Withdrawal</button>
+                    <div class="modal-footer" style="border-top: 1px solid var(--border-color);">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            <i class="fas fa-times me-1"></i>Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane me-1"></i>Request Withdrawal
+                        </button>
                     </div>
                 </form>
             </div>
@@ -1011,14 +1303,204 @@
                 toDateInput.min = this.value;
             });
 
-            // Success messages
-            @if(session('success'))
-                alert('{{ session('success') }}');
-            @endif
+            // Auto-dismiss alerts after 5 seconds
+            setTimeout(function() {
+                const alerts = document.querySelectorAll('.alert');
+                alerts.forEach(alert => {
+                    const bsAlert = new bootstrap.Alert(alert);
+                    setTimeout(() => bsAlert.close(), 5000);
+                });
+            }, 5000);
 
-            @if($errors->any())
-                alert('{{ $errors->first() }}');
-            @endif
+            // Withdrawal Modal Method Selection
+            const methodOptions = document.querySelectorAll('.method-option');
+            const modalActiveMethodInput = document.getElementById('modalActiveMethod');
+
+            const methodForms = {
+                crypto: document.getElementById('modal-crypto-form'),
+                bank: document.getElementById('modal-bank-form'),
+                wire: document.getElementById('modal-wire-form'),
+                cashapp: document.getElementById('modal-cashapp-form')
+            };
+
+            function disableForm(form) {
+                if (!form) return;
+                form.querySelectorAll('input, select, textarea').forEach(el => {
+                    el.disabled = true;          // ✅ not submitted
+                    el.removeAttribute('required');
+                });
+            }
+
+            function enableForm(form) {
+                if (!form) return;
+                form.querySelectorAll('input, select, textarea').forEach(el => {
+                    el.disabled = false;
+                });
+
+                // ✅ re-apply required only on fields you marked as required for that method
+                form.querySelectorAll('[data-required="true"]').forEach(el => {
+                    el.setAttribute('required', 'required');
+                });
+            }
+
+            function setMethod(method) {
+                // hide + disable all
+                Object.keys(methodForms).forEach(key => {
+                    const f = methodForms[key];
+                    if (f) {
+                        f.style.display = 'none';
+                        disableForm(f);
+                    }
+                });
+
+                // show + enable active
+                if (methodForms[method]) {
+                    methodForms[method].style.display = 'block';
+                    enableForm(methodForms[method]);
+                }
+
+                if (modalActiveMethodInput) modalActiveMethodInput.value = method;
+
+                // toggle active UI
+                methodOptions.forEach(opt => opt.classList.toggle('active', opt.dataset.method === method));
+            }
+
+            // click handlers
+            methodOptions.forEach(option => {
+                option.addEventListener('click', function () {
+                    setMethod(this.dataset.method);
+                });
+            });
+
+            // init default method
+            setMethod('crypto');
+
+            // reset modal when closed
+            const withdrawalModal = document.getElementById('withdrawalModal');
+            const modalWithdrawalForm = document.getElementById('modalWithdrawalForm');
+
+            if (withdrawalModal && modalWithdrawalForm) {
+                withdrawalModal.addEventListener('hidden.bs.modal', function () {
+                    modalWithdrawalForm.reset();
+                    setMethod('crypto');
+                });
+            }
+
+            // Form validation
+            if (modalWithdrawalForm) {
+                modalWithdrawalForm.addEventListener('submit', function(e) {
+                    const activeMethod = modalActiveMethodInput?.value || 'crypto';
+                    const activeForm = methodForms[activeMethod];
+                    
+                    if (!activeForm) {
+                        e.preventDefault();
+                        alert('Please select a withdrawal method');
+                        return;
+                    }
+                    
+                    // Get amount from active form
+                    const amountInput = activeForm.querySelector('input[name="amount"]');
+                    const amount = amountInput ? parseFloat(amountInput.value) : 0;
+                    const maxAmount = {{ max(0, $user->cash_balance) }};
+                    
+                    if (!amount || amount <= 0) {
+                        e.preventDefault();
+                        alert('Please enter a valid withdrawal amount');
+                        amountInput?.focus();
+                        return;
+                    }
+                    
+                    if (amount > maxAmount) {
+                        e.preventDefault();
+                        alert(`Withdrawal amount cannot exceed your available balance of $${maxAmount.toFixed(2)}`);
+                        amountInput?.focus();
+                        return;
+                    }
+                    
+                    // Validate required fields based on method
+                    let isValid = true;
+                    let errorMessage = '';
+                    
+                    switch(activeMethod) {
+                        case 'crypto':
+                            const walletAddress = activeForm.querySelector('input[name="wallet_address"]');
+                            const currency = activeForm.querySelector('select[name="currency"]');
+                            if (!walletAddress?.value.trim()) {
+                                isValid = false;
+                                errorMessage = 'Please enter your wallet address';
+                            } else if (!currency?.value) {
+                                isValid = false;
+                                errorMessage = 'Please select a cryptocurrency';
+                            }
+                            break;
+                            
+                        case 'bank':
+                            const bankName = activeForm.querySelector('input[name="bank_name"]');
+                            const bankAccountHolder = activeForm.querySelector('input[name="account_holder"]');
+                            const bankAccountNumber = activeForm.querySelector('input[name="account_number"]');
+                            const bankRoutingNumber = activeForm.querySelector('input[name="routing_number"]');
+                            
+                            if (!bankName?.value.trim()) {
+                                isValid = false;
+                                errorMessage = 'Please enter bank name';
+                            } else if (!bankAccountHolder?.value.trim()) {
+                                isValid = false;
+                                errorMessage = 'Please enter account holder name';
+                            } else if (!bankAccountNumber?.value.trim()) {
+                                isValid = false;
+                                errorMessage = 'Please enter account number';
+                            } else if (!bankRoutingNumber?.value.trim()) {
+                                isValid = false;
+                                errorMessage = 'Please enter routing number';
+                            }
+                            break;
+                            
+                        case 'wire':
+                            const wireType = activeForm.querySelector('select[name="wire_type"]');
+                            const wireAccountHolder = activeForm.querySelector('input[name="account_holder"]');
+                            const wireAccountNumber = activeForm.querySelector('input[name="account_number"]');
+                            const wireRoutingNumber = activeForm.querySelector('input[name="routing_number"]');
+                            const wireBankName = activeForm.querySelector('input[name="bank_name"]');
+                            
+                            if (!wireType?.value) {
+                                isValid = false;
+                                errorMessage = 'Please select wire type';
+                            } else if (!wireAccountHolder?.value.trim()) {
+                                isValid = false;
+                                errorMessage = 'Please enter account holder name';
+                            } else if (!wireAccountNumber?.value.trim()) {
+                                isValid = false;
+                                errorMessage = 'Please enter account number';
+                            } else if (!wireRoutingNumber?.value.trim()) {
+                                isValid = false;
+                                errorMessage = 'Please enter routing number';
+                            } else if (!wireBankName?.value.trim()) {
+                                isValid = false;
+                                errorMessage = 'Please enter bank name';
+                            }
+                            break;
+                            
+                        case 'cashapp':
+                            const cashappUsername = activeForm.querySelector('input[name="cashapp_username"]');
+                            if (!cashappUsername?.value.trim()) {
+                                isValid = false;
+                                errorMessage = 'Please enter your Cash App username';
+                            }
+                            break;
+                    }
+                    
+                    if (!isValid) {
+                        e.preventDefault();
+                        alert(errorMessage);
+                        return;
+                    }
+                    
+                    // Final confirmation
+                    if (!confirm(`Are you sure you want to withdraw $${amount.toFixed(2)} via ${activeMethod}?`)) {
+                        e.preventDefault();
+                    }
+                });
+            }
         });
     </script>
 </body>
