@@ -714,14 +714,37 @@
                                 <!-- Bank Transfer -->
                                 <div id="bank-form" class="withdrawal-form" style="display: none;">
                                     <div class="mb-3">
-                                        <label class="form-label">Linked Bank Account</label>
-                                        <select class="form-select" name="bank_account" required>
-                                            <option value="">Select Bank Account</option>
-                                            <option value="chase">Chase Bank •••• 4512</option>
-                                            <option value="boa">Bank of America •••• 7834</option>
-                                            <option value="wells">Wells Fargo •••• 2398</option>
-                                        </select>
-                                        @error('bank_account')
+                                        <label class="form-label">Bank Name</label>
+                                        <input type="text" class="form-control" name="bank_name" 
+                                            placeholder="Enter your bank name" required>
+                                        @error('bank_name')
+                                        <div class="form-errors">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Account Holder Name</label>
+                                        <input type="text" class="form-control" name="account_holder" 
+                                            placeholder="Enter account holder name" required>
+                                        @error('account_holder')
+                                        <div class="form-errors">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Account Number</label>
+                                        <input type="text" class="form-control" name="account_number" 
+                                            placeholder="Enter your account number" required>
+                                        @error('account_number')
+                                        <div class="form-errors">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Routing Number</label>
+                                        <input type="text" class="form-control" name="routing_number" 
+                                            placeholder="Enter routing number (9 digits)" required maxlength="9">
+                                        @error('routing_number')
                                         <div class="form-errors">{{ $message }}</div>
                                         @enderror
                                     </div>

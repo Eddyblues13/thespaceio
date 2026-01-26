@@ -33,9 +33,23 @@ class WithdrawalController extends Controller
     {
         $request->validate([
             'amount' => 'required|numeric|min:10',
-            'method' => 'required|string',
-            'wallet_address' => 'required_if:method,crypto',
-            'currency' => 'required_if:method,crypto',
+            'method' => 'required|string|in:crypto,bank,wire,cashapp',
+            // Crypto validation
+            'currency' => 'required_if:method,crypto|nullable|string|in:BTC,ETH,USDT,USDC',
+            'wallet_address' => 'required_if:method,crypto|nullable|string|min:26|max:100',
+            // Bank validation
+            'bank_name' => 'required_if:method,bank|nullable|string|max:255',
+            'account_holder' => 'required_if:method,bank|nullable|string|max:255',
+            'account_number' => 'required_if:method,bank|nullable|string|min:8|max:20',
+            'routing_number' => 'required_if:method,bank|nullable|string|size:9',
+            // Wire validation
+            'wire_type' => 'required_if:method,wire|nullable|string|in:domestic,international',
+            'account_holder' => 'required_if:method,wire|nullable|string|max:255',
+            'account_number' => 'required_if:method,wire|nullable|string|min:8|max:20',
+            'routing_number' => 'required_if:method,wire|nullable|string|size:9',
+            'bank_name' => 'required_if:method,wire|nullable|string|max:255',
+            // Cash App validation
+            'cashapp_username' => 'required_if:method,cashapp|nullable|string|max:50',
         ]);
 
         $user = Auth::user();
@@ -58,27 +72,43 @@ class WithdrawalController extends Controller
         // Build description based on method
         $description = 'Funds withdrawn via ' . $request->method;
         if ($request->method === 'crypto' && $request->wallet_address) {
-            $description .= ' to ' . substr($request->wallet_address, 0, 10) . '...';
-        } elseif ($request->method === 'bank' && $request->bank_account) {
-            $description .= ' to ' . $request->bank_account;
+            $description .= ' (' . ($request->currency ?? 'USD') . ') to ' . substr($request->wallet_address, 0, 10) . '...';
+        } elseif ($request->method === 'bank' && $request->bank_name) {
+            $description .= ' to ' . $request->bank_name . ' (Account: ••••' . substr($request->account_number ?? '', -4) . ')';
         } elseif ($request->method === 'wire' && $request->account_holder) {
-            $description .= ' to ' . $request->account_holder;
+            $description .= ' (' . ($request->wire_type ?? 'domestic') . ') to ' . $request->account_holder;
         } elseif ($request->method === 'cashapp' && $request->cashapp_username) {
             $description .= ' to ' . $request->cashapp_username;
         }
 
         // Prepare metadata with all withdrawal details
-        $metadata = [
-            'currency' => $request->currency ?? 'USD',
-            'wallet_address' => $request->wallet_address ?? null,
-            'bank_account' => $request->bank_account ?? null,
-            'wire_type' => $request->wire_type ?? null,
-            'account_holder' => $request->account_holder ?? null,
-            'account_number' => $request->has('account_number') ? substr($request->account_number, -4) : null, // Store only last 4 digits for security
-            'routing_number' => $request->routing_number ?? null,
-            'bank_name' => $request->bank_name ?? null,
-            'cashapp_username' => $request->cashapp_username ?? null,
-        ];
+        $metadata = [];
+        
+        if ($request->method === 'crypto') {
+            $metadata = [
+                'currency' => $request->currency ?? 'USD',
+                'wallet_address' => $request->wallet_address ?? null,
+            ];
+        } elseif ($request->method === 'bank') {
+            $metadata = [
+                'bank_name' => $request->bank_name ?? null,
+                'account_holder' => $request->account_holder ?? null,
+                'account_number' => $request->has('account_number') ? substr($request->account_number, -4) : null, // Store only last 4 digits for security
+                'routing_number' => $request->routing_number ?? null,
+            ];
+        } elseif ($request->method === 'wire') {
+            $metadata = [
+                'wire_type' => $request->wire_type ?? null,
+                'account_holder' => $request->account_holder ?? null,
+                'account_number' => $request->has('account_number') ? substr($request->account_number, -4) : null, // Store only last 4 digits for security
+                'routing_number' => $request->routing_number ?? null,
+                'bank_name' => $request->bank_name ?? null,
+            ];
+        } elseif ($request->method === 'cashapp') {
+            $metadata = [
+                'cashapp_username' => $request->cashapp_username ?? null,
+            ];
+        }
 
         // Create withdrawal transaction
         $transaction = Transaction::create([
