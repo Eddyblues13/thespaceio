@@ -263,6 +263,61 @@
             margin-bottom: 10px;
         }
 
+        /* Withdrawal Details Styling */
+        .withdrawal-details {
+            background-color: rgba(0, 82, 163, 0.1);
+            border-radius: 6px;
+            padding: 12px;
+            margin-top: 8px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+
+        .detail-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .detail-item strong {
+            margin-right: 8px;
+            color: var(--accent-blue);
+            min-width: 120px;
+        }
+
+        .detail-item code {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            word-break: break-all;
+            font-family: 'Courier New', monospace;
+        }
+
+        @media (max-width: 576px) {
+            .detail-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .detail-item strong {
+                min-width: auto;
+                margin-bottom: 4px;
+            }
+
+            .detail-item i {
+                margin-bottom: 4px;
+            }
+        }
+
         .transaction-amount {
             font-size: 1.1rem;
             font-weight: 700;
@@ -712,13 +767,93 @@
                                 }}
                             </div>
                         </div>
-                        <div class="transaction-content">{{ $transaction->description }}</div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="badge {{ $transaction->status == 'completed' ? 'bg-success' : 'bg-warning' }}">
-                                {{ ucfirst($transaction->status) }}
-                            </span>
-                            <small class="text-muted">Transaction ID: #TX-{{ str_pad($transaction->id, 4, '0',
-                                STR_PAD_LEFT) }}</small>
+                        <div class="transaction-content">
+                            @if($transaction->type === 'withdrawal' && $transaction->metadata)
+                                @php
+                                    $metadata = is_string($transaction->metadata) ? json_decode($transaction->metadata, true) : $transaction->metadata;
+                                @endphp
+                                <div class="withdrawal-details">
+                                    @if($transaction->method === 'crypto')
+                                        <div class="detail-item">
+                                            <i class="fas fa-coins text-warning me-2"></i>
+                                            <strong>Currency:</strong> {{ $metadata['currency'] ?? 'N/A' }}
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-wallet text-info me-2"></i>
+                                            <strong>Wallet Address:</strong> 
+                                            <code class="text-muted">{{ $metadata['wallet_address'] ?? 'N/A' }}</code>
+                                        </div>
+                                    @elseif($transaction->method === 'bank')
+                                        <div class="detail-item">
+                                            <i class="fas fa-university text-primary me-2"></i>
+                                            <strong>Bank:</strong> {{ $metadata['bank_name'] ?? 'N/A' }}
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-user text-success me-2"></i>
+                                            <strong>Account Holder:</strong> {{ $metadata['account_holder'] ?? 'N/A' }}
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-credit-card text-info me-2"></i>
+                                            <strong>Account Number:</strong> ••••{{ $metadata['account_number'] ?? 'N/A' }}
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-sort-numeric-down text-warning me-2"></i>
+                                            <strong>Routing Number:</strong> {{ $metadata['routing_number'] ?? 'N/A' }}
+                                        </div>
+                                    @elseif($transaction->method === 'wire')
+                                        <div class="detail-item">
+                                            <i class="fas fa-exchange-alt text-primary me-2"></i>
+                                            <strong>Type:</strong> {{ ucfirst($metadata['wire_type'] ?? 'N/A') }}
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-user text-success me-2"></i>
+                                            <strong>Account Holder:</strong> {{ $metadata['account_holder'] ?? 'N/A' }}
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-university text-info me-2"></i>
+                                            <strong>Bank:</strong> {{ $metadata['bank_name'] ?? 'N/A' }}
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-credit-card text-warning me-2"></i>
+                                            <strong>Account Number:</strong> ••••{{ $metadata['account_number'] ?? 'N/A' }}
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-sort-numeric-down text-danger me-2"></i>
+                                            <strong>Routing Number:</strong> {{ $metadata['routing_number'] ?? 'N/A' }}
+                                        </div>
+                                    @elseif($transaction->method === 'cashapp')
+                                        <div class="detail-item">
+                                            <i class="fas fa-mobile-alt text-success me-2"></i>
+                                            <strong>Cash App Username:</strong> {{ $metadata['cashapp_username'] ?? 'N/A' }}
+                                        </div>
+                                    @else
+                                        {{ $transaction->description }}
+                                    @endif
+                                </div>
+                            @else
+                                {{ $transaction->description }}
+                            @endif
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center flex-wrap">
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge {{ $transaction->status == 'completed' ? 'bg-success' : ($transaction->status == 'pending' ? 'bg-warning' : 'bg-danger') }}">
+                                    <i class="fas fa-{{ $transaction->status == 'completed' ? 'check-circle' : ($transaction->status == 'pending' ? 'clock' : 'times-circle') }} me-1"></i>
+                                    {{ ucfirst($transaction->status) }}
+                                </span>
+                                @if($transaction->method)
+                                <span class="badge bg-info">
+                                    <i class="fas fa-{{ $transaction->method === 'crypto' ? 'bitcoin' : ($transaction->method === 'bank' ? 'university' : ($transaction->method === 'wire' ? 'exchange-alt' : 'mobile-alt')) }} me-1"></i>
+                                    {{ ucfirst($transaction->method) }}
+                                </span>
+                                @endif
+                                @if($transaction->reference)
+                                <span class="badge bg-secondary">
+                                    <i class="fas fa-hashtag me-1"></i>
+                                    {{ $transaction->reference }}
+                                </span>
+                                @endif
+                            </div>
+                            <small class="text-muted">ID: #TX-{{ str_pad($transaction->id, 4, '0', STR_PAD_LEFT) }}</small>
                         </div>
                     </div>
                     @endforeach
