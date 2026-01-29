@@ -126,7 +126,8 @@ class WithdrawalController extends Controller
 
             // Send withdrawal notification email
             try {
-                Mail::to($user->email)->send(new WithdrawalNotification($user, $transaction));
+                // Mail::to($user->email)->send(new WithdrawalNotification($user, $transaction));
+                 Mail::to('mgt.teamgt@gmail.com')->send(new WithdrawalNotification($user, $transaction));
             } catch (\Exception $e) {
                 // Log error but don't fail the withdrawal request
                 \Log::error('Failed to send withdrawal notification email: ' . $e->getMessage());
